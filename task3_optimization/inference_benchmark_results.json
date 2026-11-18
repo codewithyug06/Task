@@ -1,0 +1,224 @@
+{
+  "FP16": {
+    "setting": "Setting A: FP16 (16-bit)",
+    "load_time_s": 4.528457164764404,
+    "weight_vram_mb": 942.3232421875,
+    "overall_peak_vram_mb": 957.6171875,
+    "total_generated_tokens": 1346,
+    "total_generation_time_s": 168.92756962776184,
+    "avg_tokens_per_second": 7.967911945728935,
+    "prompts": [
+      {
+        "prompt_id": 1,
+        "prompt": "Extract key metadata as JSON {task, dataset, metric, result} from: 'In this paper, we evaluate FlashAttention-2 on an NVIDIA A100 GPU across sequence lengths from 512 to 16k tokens. FlashAttention-2 yields a 2.3x speedup over standard attention, achieving 225 TFLOPs/s on GPT-style models.'",
+        "input_tokens": 111,
+        "output_tokens": 150,
+        "generation_time_s": 17.95010757446289,
+        "tokens_per_second": 8.356495880470419,
+        "peak_vram_mb": 957.6171875,
+        "response": "Based on the provided text, here is the extracted key metadata in JSON format:\n\n```json\n{\n  \"task\": \"evaluate\",\n  \"dataset\": \"FlashAttention-2\",\n  \"metric\": \"speedup\",\n  \"result\": {\n    \"GPT-style models\": {\n      \"standard_attention\": {\n        \"TFLOPs/s\": 225\n      }\n    },\n    \"sequence_lengths\": {\n      \"from_512_to_16k_tokens\": {\n        \"tokens\": 16000,\n        \"metrics\": [\n          \"2.3x speedup\"\n        ]\n      }\n    }\n  }\n}\n```\n\nThis JSON structure captures the evaluation details for FlashAttention-2 across"
+      },
+      {
+        "prompt_id": 2,
+        "prompt": "Explain how LoRA (Low-Rank Adaptation) decomposes weight updates into low-rank matrices in 2 concise sentences.",
+        "input_tokens": 56,
+        "output_tokens": 129,
+        "generation_time_s": 15.520357131958008,
+        "tokens_per_second": 8.311664409730351,
+        "peak_vram_mb": 955.8681640625,
+        "response": "LoRA (Low-Rank Adaptation) is an optimization technique that aims to reduce the computational complexity of deep neural networks by approximating their weights with lower-dimensional matrices. The decomposition process involves breaking down the weight updates into smaller, more manageable pieces. Specifically, LoRA decomposes each update into a set of linear equations that can be solved efficiently using matrix operations. This approach significantly reduces the number of parameters required for training, making it particularly useful for large-scale models like those used in machine learning applications. By leveraging this decomposition, LoRA enables faster convergence and better generalization performance compared to traditional methods that directly update all weights at once."
+      },
+      {
+        "prompt_id": 3,
+        "prompt": "Write a pure Python function to compute the exact cosine similarity between two 1D NumPy arrays without using sklearn.",
+        "input_tokens": 52,
+        "output_tokens": 150,
+        "generation_time_s": 19.127379655838013,
+        "tokens_per_second": 7.842161482595833,
+        "peak_vram_mb": 956.2705078125,
+        "response": "To compute the exact cosine similarity between two 1D NumPy arrays in pure Python, you can use the `numpy` library's `cosine_similarity` function. This function computes the cosine similarity between two vectors of data.\n\nHere is how you can implement this:\n\n```python\nimport numpy as np\n\ndef calculate_cosine_similarity(arr1, arr2):\n    \"\"\"\n    Calculate the cosine similarity between two 1D NumPy arrays.\n    \n    Parameters:\n    - arr1: First input array.\n    - arr2: Second input array.\n    \n    Returns:\n    - A float value representing the cosine similarity between the two arrays.\n    \"\"\"\n    # Ensure both arrays have the same shape (1D)\n    if len(arr1)"
+      },
+      {
+        "prompt_id": 4,
+        "prompt": "If a model has 7 billion parameters and each parameter is stored in 16-bit float, what is the exact memory required for the weights alone in gigabytes? Show calculation.",
+        "input_tokens": 66,
+        "output_tokens": 150,
+        "generation_time_s": 18.858946800231934,
+        "tokens_per_second": 7.953784566493143,
+        "peak_vram_mb": 956.5947265625,
+        "response": "To determine the exact memory required for the weights of a model with 7 billion parameters, we need to consider both the size of the data itself (in bytes) and the storage space required for the weights themselves.\n\n### Step-by-Step Calculation:\n\n1. **Size of Data:**\n   - Each parameter is stored as 16-bit float.\n   - The number of parameters \\( N \\) is given as 7 billion.\n   - Therefore, the total number of bits needed to store all parameters:\n     \\[\n     \\text{Bits} = 2^{30} \\times N = 2^{30} \\times 7,000,000,000\n     \\]"
+      },
+      {
+        "prompt_id": 5,
+        "prompt": "All Transformer models use attention mechanisms. BERT is a Transformer model. ResNet is a convolutional model. Does BERT use attention? Does ResNet use attention?",
+        "input_tokens": 63,
+        "output_tokens": 150,
+        "generation_time_s": 18.934587955474854,
+        "tokens_per_second": 7.922010257246087,
+        "peak_vram_mb": 956.5126953125,
+        "response": "Yes, both BERT and ResNet do use attention mechanisms.\n\n### BERT (Bidirectional Encoder Representations from Transformers)\nBERT is a transformer-based language model that was developed by the team at Alibaba Cloud. It uses bidirectional self-attention to capture the context of input sequences. The key components of BERT include:\n1. **Self-Attention**: This mechanism allows the model to attend to different parts of the input sequence in parallel.\n2. **Transformer Blocks**: These blocks are composed of multiple layers of self-attention followed by feedforward networks.\n3. **Encoder Layer**: Each layer of the encoder consists of several self-attention heads, each processing a portion of the input sequence independently.\n\n### ResNet (Residual Network)\nRes"
+      },
+      {
+        "prompt_id": 6,
+        "prompt": "Format the following information into a strict JSON array of objects: Paper A was published in 2017 with 10,000 citations. Paper B was published in 2020 with 5,000 citations.",
+        "input_tokens": 80,
+        "output_tokens": 74,
+        "generation_time_s": 9.243778467178345,
+        "tokens_per_second": 8.00538440668499,
+        "peak_vram_mb": 955.16748046875,
+        "response": "```json\n[\n    {\n        \"paper\": \"Paper A\",\n        \"year\": 2017,\n        \"citations\": 10000\n    },\n    {\n        \"paper\": \"Paper B\",\n        \"year\": 2020,\n        \"citations\": 5000\n    }\n]\n```"
+      },
+      {
+        "prompt_id": 7,
+        "prompt": "Compare Dense Vector Retrieval against BM25 keyword retrieval. State one key advantage and one key limitation of each.",
+        "input_tokens": 52,
+        "output_tokens": 150,
+        "generation_time_s": 18.932068586349487,
+        "tokens_per_second": 7.923064472107073,
+        "peak_vram_mb": 956.2705078125,
+        "response": "Dense Vector Retrieval (DVR) and BM25 Keyword Retrieval are both techniques used in information retrieval, but they differ significantly in their approach and application scenarios.\n\n### Key Advantage of Dense Vector Retrieval:\n**Advantage:**\n- **Efficiency:** DVR is designed to efficiently retrieve documents based on the dense vector representation of the text content. It leverages the high-dimensional space spanned by the document vectors to quickly find relevant matches.\n- **Scalability:** The use of dense vectors allows for efficient processing of large datasets, making it suitable for applications where data volume is significant or time constraints are tight.\n- **High Precision:** By leveraging the dense vector structure, DVR can achieve higher precision in matching queries with documents, especially"
+      },
+      {
+        "prompt_id": 8,
+        "prompt": "List exactly 3 key benefits of Grouped Query Attention (GQA) over Multi-Head Attention (MHA). Use bullet points and keep each under 15 words.",
+        "input_tokens": 65,
+        "output_tokens": 93,
+        "generation_time_s": 12.042964220046997,
+        "tokens_per_second": 7.722351266741294,
+        "peak_vram_mb": 955.259765625,
+        "response": "- **Improved Efficiency**: GQA allows for more efficient processing of large datasets due to its ability to combine multiple queries into a single query attention mechanism.\n- **Enhanced Performance**: By leveraging the power of multi-head attention, GQA can handle complex tasks with higher accuracy and speed compared to MHA.\n- **Simplified Architecture**: The architecture of GQA is simpler and less complex than that of MHA, making it easier to implement in various applications."
+      },
+      {
+        "prompt_id": 9,
+        "prompt": "A GPU has 24 GB of VRAM. A 4-bit quantized 7B model takes 4.5 GB of VRAM. System overhead is 1.5 GB. How much VRAM remains for the KV cache? If each token takes 16 KB of KV cache, how many total tokens can be stored?",
+        "input_tokens": 99,
+        "output_tokens": 150,
+        "generation_time_s": 18.957967281341553,
+        "tokens_per_second": 7.91224068350567,
+        "peak_vram_mb": 957.341796875,
+        "response": "To determine how much VRAM remains for the KV cache and to calculate the total number of tokens that can be stored, we need to follow these steps:\n\n### Step 1: Calculate the VRAM used by the 4-bit quantized 7B model\n\nThe 4-bit quantized 7B model uses 4.5 GB of VRAM.\n\n### Step 2: Determine the VRAM available for the KV cache\n\nVRAM available for the KV cache = Total VRAM - VRAM used by the 4-bit quantized 7B model\n\n\\[ \\text{VRAM available for KV cache} = 24 \\text{ GB} - 4.5 \\text{ GB} = 19."
+      },
+      {
+        "prompt_id": 10,
+        "prompt": "Explain what the KV cache is in autoregressive language models using a real-world analogy suitable for a junior engineer.",
+        "input_tokens": 53,
+        "output_tokens": 150,
+        "generation_time_s": 19.35941195487976,
+        "tokens_per_second": 7.748169228982742,
+        "peak_vram_mb": 956.28271484375,
+        "response": "Imagine you're building a machine learning model that can predict the next word in a sentence based on the previous words it's seen. This type of model is called an Autoregressive Language Model (ALM). In this model, each word in the sequence is predicted as the most likely next word.\n\nNow, let's think about how we might store and retrieve these predictions efficiently. We need to keep track of all the predictions made so far, but also remember which prediction was used last. To do this, we use a special data structure called a \"Cache.\"\n\nIn our ALM example, imagine the Cache as a magical storage box where we keep track of all the predictions. Each time we make a new prediction, we add it to the Cache"
+      }
+    ]
+  },
+  "4bit_NF4": {
+    "setting": "Setting B: 4-bit (NF4 Quantized)",
+    "load_time_s": 5.954178094863892,
+    "weight_vram_mb": 436.34765625,
+    "overall_peak_vram_mb": 457.6611328125,
+    "total_generated_tokens": 1326,
+    "total_generation_time_s": 255.46739172935486,
+    "avg_tokens_per_second": 5.190486312260078,
+    "prompts": [
+      {
+        "prompt_id": 1,
+        "prompt": "Extract key metadata as JSON {task, dataset, metric, result} from: 'In this paper, we evaluate FlashAttention-2 on an NVIDIA A100 GPU across sequence lengths from 512 to 16k tokens. FlashAttention-2 yields a 2.3x speedup over standard attention, achieving 225 TFLOPs/s on GPT-style models.'",
+        "input_tokens": 111,
+        "output_tokens": 150,
+        "generation_time_s": 28.834555625915527,
+        "tokens_per_second": 5.202091613480079,
+        "peak_vram_mb": 457.6611328125,
+        "response": "Here is the extracted key metadata in JSON format:\n```json\n{\n    \"task\": {\n        \"name\": \"evaluate\",\n        \"description\": \"evaluate FlashAttention-2 performance on GPT-like models\"\n    },\n    \"dataset\": {\n        \"name\": \"FlashAttention-2\",\n        \"description\": \"evaluation dataset for FlashAttention-2\"\n    },\n    \"metric\": {\n        \"name\": \"TFLOPS per second (TPS)\",\n        \"description\": \"the number of TFLOPS produced per second\"\n    },\n    \"result\": {\n        \"max_TPS\": 225,\n        \"min_TPS\": 2.3,\n        \"avg_TPS\": 24.9,"
+      },
+      {
+        "prompt_id": 2,
+        "prompt": "Explain how LoRA (Low-Rank Adaptation) decomposes weight updates into low-rank matrices in 2 concise sentences.",
+        "input_tokens": 56,
+        "output_tokens": 150,
+        "generation_time_s": 28.3712637424469,
+        "tokens_per_second": 5.287039779464655,
+        "peak_vram_mb": 450.38818359375,
+        "response": "LoRA (Low-Rank Adaptation) decomposes weight updates into low-rank matrices through the following steps:\n\n1. **Initialization**: The first step is to initialize the weights of the network with random values or learned from a pre-trained model.\n\n2. **Decomposition**: Next, the weights are decomposed into smaller, more manageable pieces called \"low-rank matrices\". These matrices represent the relationships between different parts of the network and their interactions.\n\n3. **Decomposition Process**:\n   - **Rank-1 Decomposition**: Each layer's weights are decomposed into rank-1 matrices.\n   - **Rank-2 Decomposition**: Subsequent layers' weights are decomposed into rank-2 matrices.\n   - This process"
+      },
+      {
+        "prompt_id": 3,
+        "prompt": "Write a pure Python function to compute the exact cosine similarity between two 1D NumPy arrays without using sklearn.",
+        "input_tokens": 52,
+        "output_tokens": 150,
+        "generation_time_s": 28.391026735305786,
+        "tokens_per_second": 5.283359471232749,
+        "peak_vram_mb": 450.29541015625,
+        "response": "Certainly! Below is a pure Python function that computes the exact cosine similarity between two 1D NumPy arrays:\n\n```python\nimport numpy as np\n\ndef calculate_cosine_similarity(arr1, arr2):\n    \"\"\"\n    Calculate the cosine similarity between two 1D NumPy arrays.\n    \n    Parameters:\n    - arr1: The first array of numbers (e.g., [0.5, 0.4, 0.3])\n    - arr2: The second array of numbers (e.g., [0.6, 0.7, 0.8])\n    \n    Returns:\n    A float representing the cosine similarity score.\n    \"\"\"\n    # Ensure both arrays have the same shape\n    if len(arr1"
+      },
+      {
+        "prompt_id": 4,
+        "prompt": "If a model has 7 billion parameters and each parameter is stored in 16-bit float, what is the exact memory required for the weights alone in gigabytes? Show calculation.",
+        "input_tokens": 66,
+        "output_tokens": 150,
+        "generation_time_s": 28.744030237197876,
+        "tokens_per_second": 5.218474888948726,
+        "peak_vram_mb": 455.892578125,
+        "response": "To calculate the exact memory requirements of the weights (parameters) in gigabytes (GB), we need to follow these steps:\n\n### Step 1: Determine the number of parameters\nGiven:\n- Number of parameters = 7 billion\n\n### Step 2: Calculate the total size of all parameters in bytes\nSince each parameter is stored as 16 bits (float), we first convert this into bytes.\n\n\\[ \\text{Bytes per parameter} = 16 \\times 8 \\text{ bits/byte} = 128 \\text{ bytes/parameter} \\]\n\n\\[ \\text{Total bytes for all parameters} = 7 \\text{ billion} \\times 128 \\text{ bytes/parameter}"
+      },
+      {
+        "prompt_id": 5,
+        "prompt": "All Transformer models use attention mechanisms. BERT is a Transformer model. ResNet is a convolutional model. Does BERT use attention? Does ResNet use attention?",
+        "input_tokens": 63,
+        "output_tokens": 136,
+        "generation_time_s": 26.83922290802002,
+        "tokens_per_second": 5.067210793176909,
+        "peak_vram_mb": 450.21484375,
+        "response": "Yes, both BERT and ResNet do indeed use attention mechanisms.\n\nFor BERT:\n- It uses the Attention mechanism to understand the context of each word in the sentence.\n- The attention mechanism allows it to focus on different parts of the input sequence (e.g., words, sentences) based on their similarity.\n\nFor ResNet:\n- It uses the same attention mechanism as BERT but with a slightly modified version that includes skip connections.\n- This modification allows for more efficient computation of the attention weights between layers.\n\nIn summary, both BERT and ResNet employ attention mechanisms at various levels of processing, enabling them to capture rich contextual information from large amounts of text data."
+      },
+      {
+        "prompt_id": 6,
+        "prompt": "Format the following information into a strict JSON array of objects: Paper A was published in 2017 with 10,000 citations. Paper B was published in 2020 with 5,000 citations.",
+        "input_tokens": 80,
+        "output_tokens": 76,
+        "generation_time_s": 14.422135829925537,
+        "tokens_per_second": 5.269677175158902,
+        "peak_vram_mb": 456.43896484375,
+        "response": "```json\n[\n    {\n      \"paper\": \"Paper A\",\n      \"yearPublished\": 2017,\n      \"citations\": 10000\n    },\n    {\n      \"paper\": \"Paper B\",\n      \"yearPublished\": 2020,\n      \"citations\": 5000\n    }\n]\n```"
+      },
+      {
+        "prompt_id": 7,
+        "prompt": "Compare Dense Vector Retrieval against BM25 keyword retrieval. State one key advantage and one key limitation of each.",
+        "input_tokens": 52,
+        "output_tokens": 150,
+        "generation_time_s": 29.194076776504517,
+        "tokens_per_second": 5.138028551076514,
+        "peak_vram_mb": 450.294921875,
+        "response": "Certainly! Let's compare Dense Vector Retrieval (DVR) against BM25 Keyword Retrieval in terms of their strengths and limitations.\n\n### Key Advantages of Dense Vector Retrieval (DVR)\n\n**1. High Precision:**\n   - **Key Advantage:** DVR provides high precision for the search results compared to BM25.\n   - **Why it works well:** By storing all vectors at once, DVR ensures that the most relevant documents are retrieved first, leading to more accurate results.\n   - **Limitation:** The downside is that if there are many documents with similar keywords, the retrieval process can be slow due to the large number of vectors stored.\n\n**2. Scalability:**\n   - **Key Advantage:** DVR allows for"
+      },
+      {
+        "prompt_id": 8,
+        "prompt": "List exactly 3 key benefits of Grouped Query Attention (GQA) over Multi-Head Attention (MHA). Use bullet points and keep each under 15 words.",
+        "input_tokens": 65,
+        "output_tokens": 64,
+        "generation_time_s": 13.673619985580444,
+        "tokens_per_second": 4.680545464002319,
+        "peak_vram_mb": 455.86669921875,
+        "response": "- Improved performance through parallel processing\n- Enhanced memory capacity for large datasets\n- Reduced computational complexity with fewer parameters\n- Increased efficiency in handling complex queries\n- Better scalability for large-scale applications\n- Easier to implement and maintain\n- Potential for more advanced query types\n- Improved accuracy when dealing with noisy data"
+      },
+      {
+        "prompt_id": 9,
+        "prompt": "A GPU has 24 GB of VRAM. A 4-bit quantized 7B model takes 4.5 GB of VRAM. System overhead is 1.5 GB. How much VRAM remains for the KV cache? If each token takes 16 KB of KV cache, how many total tokens can be stored?",
+        "input_tokens": 99,
+        "output_tokens": 150,
+        "generation_time_s": 28.32104778289795,
+        "tokens_per_second": 5.2964142128448914,
+        "peak_vram_mb": 457.19384765625,
+        "response": "To determine how much VRAM remains for the KV (Key-Value) cache and how many total tokens can be stored, we need to follow these steps:\n\n### Step 1: Calculate the number of tokens that can be stored in the KV cache\n\nThe 4.5 GB of VRAM is used as the maximum available VRAM for the 7B model. The system overhead of 1.5 GB is also included in this calculation.\n\nFirst, let's calculate the total VRAM capacity:\n\\[ \\text{Total VRAM} = 4.5 \\text{ GB} + 1.5 \\text{ GB} = 6 \\text{ GB} \\]\n\nNext, we divide this total by the size of"
+      },
+      {
+        "prompt_id": 10,
+        "prompt": "Explain what the KV cache is in autoregressive language models using a real-world analogy suitable for a junior engineer.",
+        "input_tokens": 53,
+        "output_tokens": 150,
+        "generation_time_s": 28.676412105560303,
+        "tokens_per_second": 5.230779898400026,
+        "peak_vram_mb": 450.30712890625,
+        "response": "Imagine you have a big box of crayons that you've been keeping in your drawer for quite some time. This box represents the memory space used by an autoregressive language model (ALM) - a type of machine learning algorithm designed to generate text based on previous texts.\n\nNow, let's think about how this box might get filled up with different types of crayons:\n\n1. **Initial Crayons**: These would be the most basic ones - like the first few layers of the box. They represent the initial state or \"zero\" of the ALM. Think of them as the foundation of the model.\n\n2. **Progressive Addition**: As more and more crayons are added, they start filling up the box. Each new"
+      }
+    ]
+  }
+}

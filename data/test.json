@@ -1,0 +1,502 @@
+[
+  {
+    "abstract": "In this paper, we tackle the critical challenge of Code Generation. Compared to the prevailing baseline Codex, our method incorporates dynamic token sparsification. Benchmarking our approach on DS-1000 confirms that our design principles scale effectively. Our system reaches a top Pass@1 of 59.4%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Code Generation",
+      "dataset": "DS-1000",
+      "metric": "Pass@1",
+      "result": "59.4%",
+      "baseline": "Codex"
+    }
+  },
+  {
+    "abstract": "We present a generalized attention-based framework targeted at Named Entity Recognition. Prior standards such as Flair-Embeddings exhibit severe degradation under low-resource or noisy settings. When deployed and evaluated on OntoNotes 5.0, the architecture reveals substantial gains. Our system reaches a top F1 of 91.5, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Named Entity Recognition",
+      "dataset": "OntoNotes 5.0",
+      "metric": "F1",
+      "result": "91.5",
+      "baseline": "Flair-Embeddings"
+    }
+  },
+  {
+    "abstract": "Existing paradigms for Named Entity Recognition require exorbitant computational resources during both training and evaluation. While established baselines including BERT-Base offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard Few-NERD benchmark. The proposed method achieves an outstanding F1 of 90.4, whereas BERT-Base fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Named Entity Recognition",
+      "dataset": "Few-NERD",
+      "metric": "F1",
+      "result": "90.4",
+      "baseline": "BERT-Base"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Speech Recognition. Compared to the prevailing baseline Whisper-Small, our method incorporates dynamic token sparsification. Evaluated extensively across LibriSpeech test-other, our framework demonstrates consistent empirical superiority. Our approach records an impressive Word Error Rate of 6.9%, outperforming Whisper-Small by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Speech Recognition",
+      "dataset": "LibriSpeech test-other",
+      "metric": "Word Error Rate",
+      "result": "6.9%",
+      "baseline": "Whisper-Small"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Protein Structure Prediction. Prior standards such as RoseTTAFold exhibit severe degradation under low-resource or noisy settings. When deployed and evaluated on PDB-Blind, the architecture reveals substantial gains. Our system reaches a top GDT-TS of 94.0, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Protein Structure Prediction",
+      "dataset": "PDB-Blind",
+      "metric": "GDT-TS",
+      "result": "94.0",
+      "baseline": "RoseTTAFold"
+    }
+  },
+  {
+    "abstract": "We investigate novel neural architectures for Graph Representation Learning. In contrast to GCN, our design decouples feature extraction from cross-modal alignment. Evaluated extensively across OGB-Arxiv, our framework demonstrates consistent empirical superiority. Specifically, our model delivers a Accuracy of 77.4%, clearly surpassing GCN. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Graph Representation Learning",
+      "dataset": "OGB-Arxiv",
+      "metric": "Accuracy",
+      "result": "77.4%",
+      "baseline": "GCN"
+    }
+  },
+  {
+    "abstract": "Addressing current efficiency and scaling bottlenecks in Speech Recognition, we introduce an adaptive formulation. While established baselines including Whisper-Small offer competitive scores, their parameter efficiency remains suboptimal. When deployed and evaluated on Common Voice En, the architecture reveals substantial gains. Our system reaches a top Word Error Rate of 7.2%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Speech Recognition",
+      "dataset": "Common Voice En",
+      "metric": "Word Error Rate",
+      "result": "7.2%",
+      "baseline": "Whisper-Small"
+    }
+  },
+  {
+    "abstract": "Addressing current efficiency and scaling bottlenecks in Graph Representation Learning, we introduce an adaptive formulation. In contrast to GraphSAGE, our design decouples feature extraction from cross-modal alignment. When deployed and evaluated on Cora, the architecture reveals substantial gains. Experimental results demonstrate a Accuracy of 73.6%, establishing a strong new baseline over GraphSAGE. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Graph Representation Learning",
+      "dataset": "Cora",
+      "metric": "Accuracy",
+      "result": "73.6%",
+      "baseline": "GraphSAGE"
+    }
+  },
+  {
+    "abstract": "Despite significant progress in Sentiment Analysis, prevailing methods struggle with distributional shift. Traditional models like RoBERTa-Base struggle to capture fine-grained relational semantics across distant tokens. We conduct rigorous empirical validations on the standard Amazon-5 benchmark. The proposed method achieves an outstanding Accuracy of 96.5%, whereas RoBERTa-Base fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Sentiment Analysis",
+      "dataset": "Amazon-5",
+      "metric": "Accuracy",
+      "result": "96.5%",
+      "baseline": "RoBERTa-Base"
+    }
+  },
+  {
+    "abstract": "Addressing current efficiency and scaling bottlenecks in Protein Structure Prediction, we introduce an adaptive formulation. While established baselines including RoseTTAFold offer competitive scores, their parameter efficiency remains suboptimal. Evaluated extensively across CAMEO, our framework demonstrates consistent empirical superiority. Our system reaches a top GDT-TS of 89.6, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Protein Structure Prediction",
+      "dataset": "CAMEO",
+      "metric": "GDT-TS",
+      "result": "89.6",
+      "baseline": "RoseTTAFold"
+    }
+  },
+  {
+    "abstract": "We investigate novel neural architectures for Code Generation. Compared to the prevailing baseline CodeLlama-7B, our method incorporates dynamic token sparsification. We conduct rigorous empirical validations on the standard HumanEval benchmark. Our approach records an impressive Pass@1 of 58.2%, outperforming CodeLlama-7B by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Code Generation",
+      "dataset": "HumanEval",
+      "metric": "Pass@1",
+      "result": "58.2%",
+      "baseline": "CodeLlama-7B"
+    }
+  },
+  {
+    "abstract": "We investigate novel neural architectures for Object Detection. Compared to the prevailing baseline DETR, our method incorporates dynamic token sparsification. Benchmarking our approach on Objects365 confirms that our design principles scale effectively. Specifically, our model delivers a mAP@0.5:0.95 of 53.4, clearly surpassing DETR. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Object Detection",
+      "dataset": "Objects365",
+      "metric": "mAP@0.5:0.95",
+      "result": "53.4",
+      "baseline": "DETR"
+    }
+  },
+  {
+    "abstract": "Addressing current efficiency and scaling bottlenecks in Language Modeling, we introduce an adaptive formulation. While established baselines including Megatron-LM offer competitive scores, their parameter efficiency remains suboptimal. On the widely referenced Penn Treebank dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a Perplexity of 31.6, establishing a strong new baseline over Megatron-LM. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Language Modeling",
+      "dataset": "Penn Treebank",
+      "metric": "Perplexity",
+      "result": "31.6",
+      "baseline": "Megatron-LM"
+    }
+  },
+  {
+    "abstract": "Addressing current efficiency and scaling bottlenecks in Language Modeling, we introduce an adaptive formulation. Compared to the prevailing baseline GPT-2-Medium, our method incorporates dynamic token sparsification. Benchmarking our approach on The Pile confirms that our design principles scale effectively. The proposed method achieves an outstanding Perplexity of 44.4, whereas GPT-2-Medium fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Language Modeling",
+      "dataset": "The Pile",
+      "metric": "Perplexity",
+      "result": "44.4",
+      "baseline": "GPT-2-Medium"
+    }
+  },
+  {
+    "abstract": "Addressing current efficiency and scaling bottlenecks in Code Generation, we introduce an adaptive formulation. Prior standards such as DeepSeek-Coder-6.7B exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across HumanEval, our framework demonstrates consistent empirical superiority. Our system reaches a top Pass@1 of 58.7%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Code Generation",
+      "dataset": "HumanEval",
+      "metric": "Pass@1",
+      "result": "58.7%",
+      "baseline": "DeepSeek-Coder-6.7B"
+    }
+  },
+  {
+    "abstract": "Addressing current efficiency and scaling bottlenecks in Object Detection, we introduce an adaptive formulation. While established baselines including YOLOv3 offer competitive scores, their parameter efficiency remains suboptimal. Benchmarking our approach on MS COCO val2017 confirms that our design principles scale effectively. Experimental results demonstrate a mAP@0.5:0.95 of 49.5, establishing a strong new baseline over YOLOv3. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Object Detection",
+      "dataset": "MS COCO val2017",
+      "metric": "mAP@0.5:0.95",
+      "result": "49.5",
+      "baseline": "YOLOv3"
+    }
+  },
+  {
+    "abstract": "We investigate novel neural architectures for Question Answering. Compared to the prevailing baseline DeBERTa-v3-Large, our method incorporates dynamic token sparsification. When deployed and evaluated on Natural Questions, the architecture reveals substantial gains. Experimental results demonstrate a F1 of 87.7, establishing a strong new baseline over DeBERTa-v3-Large. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Question Answering",
+      "dataset": "Natural Questions",
+      "metric": "F1",
+      "result": "87.7",
+      "baseline": "DeBERTa-v3-Large"
+    }
+  },
+  {
+    "abstract": "Existing paradigms for Image Classification require exorbitant computational resources during both training and evaluation. Traditional models like ConvNeXt-Base struggle to capture fine-grained relational semantics across distant tokens. Benchmarking our approach on CIFAR-100 confirms that our design principles scale effectively. Specifically, our model delivers a Top-1 Accuracy of 80.6%, clearly surpassing ConvNeXt-Base. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Image Classification",
+      "dataset": "CIFAR-100",
+      "metric": "Top-1 Accuracy",
+      "result": "80.6%",
+      "baseline": "ConvNeXt-Base"
+    }
+  },
+  {
+    "abstract": "Existing paradigms for Graph Representation Learning require exorbitant computational resources during both training and evaluation. While established baselines including GCN offer competitive scores, their parameter efficiency remains suboptimal. Benchmarking our approach on PubMed-Graph confirms that our design principles scale effectively. The proposed method achieves an outstanding Accuracy of 74.5%, whereas GCN fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Graph Representation Learning",
+      "dataset": "PubMed-Graph",
+      "metric": "Accuracy",
+      "result": "74.5%",
+      "baseline": "GCN"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Image Classification. In contrast to Swin-Transformer, our design decouples feature extraction from cross-modal alignment. We conduct rigorous empirical validations on the standard Food-101 benchmark. The proposed method achieves an outstanding Top-1 Accuracy of 78.4%, whereas Swin-Transformer fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Image Classification",
+      "dataset": "Food-101",
+      "metric": "Top-1 Accuracy",
+      "result": "78.4%",
+      "baseline": "Swin-Transformer"
+    }
+  },
+  {
+    "abstract": "In this paper, we tackle the critical challenge of Object Detection. Prior standards such as CenterNet2 exhibit severe degradation under low-resource or noisy settings. On the widely referenced Pascal VOC 2007 dataset, our proposed model achieves state-of-the-art results. Our system reaches a top mAP@0.5:0.95 of 49.1, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Object Detection",
+      "dataset": "Pascal VOC 2007",
+      "metric": "mAP@0.5:0.95",
+      "result": "49.1",
+      "baseline": "CenterNet2"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Image Classification. While established baselines including ConvNeXt-Base offer competitive scores, their parameter efficiency remains suboptimal. When deployed and evaluated on ImageNet-1K, the architecture reveals substantial gains. Our system reaches a top Top-1 Accuracy of 87.7%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Image Classification",
+      "dataset": "ImageNet-1K",
+      "metric": "Top-1 Accuracy",
+      "result": "87.7%",
+      "baseline": "ConvNeXt-Base"
+    }
+  },
+  {
+    "abstract": "Despite significant progress in Sentiment Analysis, prevailing methods struggle with distributional shift. Traditional models like XLNet-Large struggle to capture fine-grained relational semantics across distant tokens. We conduct rigorous empirical validations on the standard SST-2 benchmark. Experimental results demonstrate a Accuracy of 95.7%, establishing a strong new baseline over XLNet-Large. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Sentiment Analysis",
+      "dataset": "SST-2",
+      "metric": "Accuracy",
+      "result": "95.7%",
+      "baseline": "XLNet-Large"
+    }
+  },
+  {
+    "abstract": "We investigate novel neural architectures for Object Detection. Prior standards such as CenterNet2 exhibit severe degradation under low-resource or noisy settings. Benchmarking our approach on LVIS v1.0 confirms that our design principles scale effectively. Our system reaches a top mAP@0.5:0.95 of 52.3, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Object Detection",
+      "dataset": "LVIS v1.0",
+      "metric": "mAP@0.5:0.95",
+      "result": "52.3",
+      "baseline": "CenterNet2"
+    }
+  },
+  {
+    "abstract": "Despite significant progress in Protein Structure Prediction, prevailing methods struggle with distributional shift. Prior standards such as AlphaFold v1 exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across CAMEO, our framework demonstrates consistent empirical superiority. Our system reaches a top GDT-TS of 83.0, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Protein Structure Prediction",
+      "dataset": "CAMEO",
+      "metric": "GDT-TS",
+      "result": "83.0",
+      "baseline": "AlphaFold v1"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Mathematical Reasoning. Traditional models like Mistral-7B struggle to capture fine-grained relational semantics across distant tokens. Evaluated extensively across SVAMP, our framework demonstrates consistent empirical superiority. The proposed method achieves an outstanding Accuracy of 46.5%, whereas Mistral-7B fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Mathematical Reasoning",
+      "dataset": "SVAMP",
+      "metric": "Accuracy",
+      "result": "46.5%",
+      "baseline": "Mistral-7B"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Graph Representation Learning. Compared to the prevailing baseline Node2Vec, our method incorporates dynamic token sparsification. Evaluated extensively across OGB-Arxiv, our framework demonstrates consistent empirical superiority. Our approach records an impressive Accuracy of 77.3%, outperforming Node2Vec by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Graph Representation Learning",
+      "dataset": "OGB-Arxiv",
+      "metric": "Accuracy",
+      "result": "77.3%",
+      "baseline": "Node2Vec"
+    }
+  },
+  {
+    "abstract": "We present a generalized attention-based framework targeted at Semantic Segmentation. Prior standards such as HRNetV2 exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across COCO-Stuff, our framework demonstrates consistent empirical superiority. Our system reaches a top mIoU of 80.7%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Semantic Segmentation",
+      "dataset": "COCO-Stuff",
+      "metric": "mIoU",
+      "result": "80.7%",
+      "baseline": "HRNetV2"
+    }
+  },
+  {
+    "abstract": "Despite significant progress in Image Classification, prevailing methods struggle with distributional shift. Prior standards such as ViT-Base/16 exhibit severe degradation under low-resource or noisy settings. On the widely referenced CIFAR-100 dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a Top-1 Accuracy of 77.8%, establishing a strong new baseline over ViT-Base/16. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Image Classification",
+      "dataset": "CIFAR-100",
+      "metric": "Top-1 Accuracy",
+      "result": "77.8%",
+      "baseline": "ViT-Base/16"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Mathematical Reasoning. Compared to the prevailing baseline Mistral-7B, our method incorporates dynamic token sparsification. Benchmarking our approach on SVAMP confirms that our design principles scale effectively. Experimental results demonstrate a Accuracy of 61.2%, establishing a strong new baseline over Mistral-7B. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Mathematical Reasoning",
+      "dataset": "SVAMP",
+      "metric": "Accuracy",
+      "result": "61.2%",
+      "baseline": "Mistral-7B"
+    }
+  },
+  {
+    "abstract": "Despite significant progress in Language Modeling, prevailing methods struggle with distributional shift. Prior standards such as Megatron-LM exhibit severe degradation under low-resource or noisy settings. Benchmarking our approach on Penn Treebank confirms that our design principles scale effectively. Experimental results demonstrate a Perplexity of 33.7, establishing a strong new baseline over Megatron-LM. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Language Modeling",
+      "dataset": "Penn Treebank",
+      "metric": "Perplexity",
+      "result": "33.7",
+      "baseline": "Megatron-LM"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Object Detection. Traditional models like DETR struggle to capture fine-grained relational semantics across distant tokens. On the widely referenced LVIS v1.0 dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a mAP@0.5:0.95 of 47.7, establishing a strong new baseline over DETR. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Object Detection",
+      "dataset": "LVIS v1.0",
+      "metric": "mAP@0.5:0.95",
+      "result": "47.7",
+      "baseline": "DETR"
+    }
+  },
+  {
+    "abstract": "We present a generalized attention-based framework targeted at Semantic Segmentation. Compared to the prevailing baseline HRNetV2, our method incorporates dynamic token sparsification. Evaluated extensively across Cityscapes, our framework demonstrates consistent empirical superiority. Experimental results demonstrate a mIoU of 75.3%, establishing a strong new baseline over HRNetV2. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Semantic Segmentation",
+      "dataset": "Cityscapes",
+      "metric": "mIoU",
+      "result": "75.3%",
+      "baseline": "HRNetV2"
+    }
+  },
+  {
+    "abstract": "In this paper, we tackle the critical challenge of Image Classification. Traditional models like ConvNeXt-Base struggle to capture fine-grained relational semantics across distant tokens. Evaluated extensively across iNaturalist 2021, our framework demonstrates consistent empirical superiority. Our approach records an impressive Top-1 Accuracy of 83.4%, outperforming ConvNeXt-Base by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Image Classification",
+      "dataset": "iNaturalist 2021",
+      "metric": "Top-1 Accuracy",
+      "result": "83.4%",
+      "baseline": "ConvNeXt-Base"
+    }
+  },
+  {
+    "abstract": "We investigate novel neural architectures for Question Answering. Compared to the prevailing baseline DeBERTa-v3-Large, our method incorporates dynamic token sparsification. We conduct rigorous empirical validations on the standard SQuAD v2.0 benchmark. Our system reaches a top F1 of 88.4, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Question Answering",
+      "dataset": "SQuAD v2.0",
+      "metric": "F1",
+      "result": "88.4",
+      "baseline": "DeBERTa-v3-Large"
+    }
+  },
+  {
+    "abstract": "Existing paradigms for Code Generation require exorbitant computational resources during both training and evaluation. Traditional models like CodeGen-6B struggle to capture fine-grained relational semantics across distant tokens. We conduct rigorous empirical validations on the standard APPS benchmark. The proposed method achieves an outstanding Pass@1 of 64.4%, whereas CodeGen-6B fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Code Generation",
+      "dataset": "APPS",
+      "metric": "Pass@1",
+      "result": "64.4%",
+      "baseline": "CodeGen-6B"
+    }
+  },
+  {
+    "abstract": "We investigate novel neural architectures for Graph Representation Learning. Compared to the prevailing baseline GAT, our method incorporates dynamic token sparsification. Evaluated extensively across CiteSeer, our framework demonstrates consistent empirical superiority. The proposed method achieves an outstanding Accuracy of 72.7%, whereas GAT fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Graph Representation Learning",
+      "dataset": "CiteSeer",
+      "metric": "Accuracy",
+      "result": "72.7%",
+      "baseline": "GAT"
+    }
+  },
+  {
+    "abstract": "We present a generalized attention-based framework targeted at Graph Representation Learning. Prior standards such as GAT exhibit severe degradation under low-resource or noisy settings. We conduct rigorous empirical validations on the standard Cora benchmark. Specifically, our model delivers a Accuracy of 72.6%, clearly surpassing GAT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Graph Representation Learning",
+      "dataset": "Cora",
+      "metric": "Accuracy",
+      "result": "72.6%",
+      "baseline": "GAT"
+    }
+  },
+  {
+    "abstract": "Existing paradigms for Protein Structure Prediction require exorbitant computational resources during both training and evaluation. In contrast to AlphaFold v1, our design decouples feature extraction from cross-modal alignment. Benchmarking our approach on CAMEO confirms that our design principles scale effectively. Specifically, our model delivers a GDT-TS of 86.9, clearly surpassing AlphaFold v1. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Protein Structure Prediction",
+      "dataset": "CAMEO",
+      "metric": "GDT-TS",
+      "result": "86.9",
+      "baseline": "AlphaFold v1"
+    }
+  },
+  {
+    "abstract": "We present a generalized attention-based framework targeted at Graph Representation Learning. While established baselines including GAT offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard OGB-Arxiv benchmark. Our approach records an impressive Accuracy of 71.2%, outperforming GAT by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Graph Representation Learning",
+      "dataset": "OGB-Arxiv",
+      "metric": "Accuracy",
+      "result": "71.2%",
+      "baseline": "GAT"
+    }
+  },
+  {
+    "abstract": "We present a generalized attention-based framework targeted at Question Answering. While established baselines including SpanBERT offer competitive scores, their parameter efficiency remains suboptimal. Evaluated extensively across Natural Questions, our framework demonstrates consistent empirical superiority. Specifically, our model delivers a F1 of 83.9, clearly surpassing SpanBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Question Answering",
+      "dataset": "Natural Questions",
+      "metric": "F1",
+      "result": "83.9",
+      "baseline": "SpanBERT"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Reinforcement Learning. While established baselines including Rainbow offer competitive scores, their parameter efficiency remains suboptimal. On the widely referenced Atari 2600 Breakout dataset, our proposed model achieves state-of-the-art results. Our system reaches a top Average Return of 594.5, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Reinforcement Learning",
+      "dataset": "Atari 2600 Breakout",
+      "metric": "Average Return",
+      "result": "594.5",
+      "baseline": "Rainbow"
+    }
+  },
+  {
+    "abstract": "Addressing current efficiency and scaling bottlenecks in Sentiment Analysis, we introduce an adaptive formulation. Traditional models like DistilBERT struggle to capture fine-grained relational semantics across distant tokens. Benchmarking our approach on SST-2 confirms that our design principles scale effectively. Specifically, our model delivers a Accuracy of 92.7%, clearly surpassing DistilBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Sentiment Analysis",
+      "dataset": "SST-2",
+      "metric": "Accuracy",
+      "result": "92.7%",
+      "baseline": "DistilBERT"
+    }
+  },
+  {
+    "abstract": "Existing paradigms for Question Answering require exorbitant computational resources during both training and evaluation. While established baselines including SpanBERT offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard TriviaQA benchmark. Experimental results demonstrate a F1 of 89.5, establishing a strong new baseline over SpanBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Question Answering",
+      "dataset": "TriviaQA",
+      "metric": "F1",
+      "result": "89.5",
+      "baseline": "SpanBERT"
+    }
+  },
+  {
+    "abstract": "In this paper, we tackle the critical challenge of Machine Translation. In contrast to NLLB-200, our design decouples feature extraction from cross-modal alignment. When deployed and evaluated on IWSLT'14 De-En, the architecture reveals substantial gains. Specifically, our model delivers a BLEU of 26.3, clearly surpassing NLLB-200. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Machine Translation",
+      "dataset": "IWSLT'14 De-En",
+      "metric": "BLEU",
+      "result": "26.3",
+      "baseline": "NLLB-200"
+    }
+  },
+  {
+    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Mathematical Reasoning. Prior standards such as Qwen-7B exhibit severe degradation under low-resource or noisy settings. On the widely referenced MATH dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a Accuracy of 60.1%, establishing a strong new baseline over Qwen-7B. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Mathematical Reasoning",
+      "dataset": "MATH",
+      "metric": "Accuracy",
+      "result": "60.1%",
+      "baseline": "Qwen-7B"
+    }
+  },
+  {
+    "abstract": "Despite significant progress in Language Modeling, prevailing methods struggle with distributional shift. While established baselines including Transformer-XL offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard The Pile benchmark. The proposed method achieves an outstanding Perplexity of 45.5, whereas Transformer-XL fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Language Modeling",
+      "dataset": "The Pile",
+      "metric": "Perplexity",
+      "result": "45.5",
+      "baseline": "Transformer-XL"
+    }
+  },
+  {
+    "abstract": "Despite significant progress in Mathematical Reasoning, prevailing methods struggle with distributional shift. Compared to the prevailing baseline Qwen-7B, our method incorporates dynamic token sparsification. Benchmarking our approach on MATH confirms that our design principles scale effectively. Our approach records an impressive Accuracy of 56.0%, outperforming Qwen-7B by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Mathematical Reasoning",
+      "dataset": "MATH",
+      "metric": "Accuracy",
+      "result": "56.0%",
+      "baseline": "Qwen-7B"
+    }
+  },
+  {
+    "abstract": "We present a generalized attention-based framework targeted at Sentiment Analysis. Prior standards such as DistilBERT exhibit severe degradation under low-resource or noisy settings. Benchmarking our approach on Amazon-5 confirms that our design principles scale effectively. Specifically, our model delivers a Accuracy of 94.7%, clearly surpassing DistilBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Sentiment Analysis",
+      "dataset": "Amazon-5",
+      "metric": "Accuracy",
+      "result": "94.7%",
+      "baseline": "DistilBERT"
+    }
+  },
+  {
+    "abstract": "Existing paradigms for Machine Translation require exorbitant computational resources during both training and evaluation. While established baselines including Transformer-Base offer competitive scores, their parameter efficiency remains suboptimal. On the widely referenced Flores-101 dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a BLEU of 42.8, establishing a strong new baseline over Transformer-Base. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "ground_truth": {
+      "task": "Machine Translation",
+      "dataset": "Flores-101",
+      "metric": "BLEU",
+      "result": "42.8",
+      "baseline": "Transformer-Base"
+    }
+  }
+]

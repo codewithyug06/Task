@@ -1,0 +1,746 @@
+{
+  "setting_A_256": {
+    "chunk_size": 256,
+    "chunk_overlap": 50,
+    "total_chunks": 73,
+    "summary": {
+      "sparse_bm25": {
+        "recall@1": 0.8666666666666667,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr@5": 0.9222222222222223
+      },
+      "dense_faiss": {
+        "recall@1": 0.9333333333333333,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr@5": 0.9666666666666667
+      },
+      "hybrid": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr@5": 1.0
+      }
+    },
+    "details": [
+      {
+        "id": "Q01",
+        "question": "What is the mathematical scaling factor applied to queries and keys in Scaled Dot-Product Attention, and why is it applied?",
+        "target_section_id": "P1_S4",
+        "target_paper": "Attention Is All You Need",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q02",
+        "question": "How many attention heads and what head dimensions are used in the base Transformer model?",
+        "target_section_id": "P1_S4",
+        "target_paper": "Attention Is All You Need",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 2,
+            "top_1_header": "[P1_S1] Attention Is All You Need - 1. Introduction",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 0.9750548640215988
+          }
+        }
+      },
+      {
+        "id": "Q03",
+        "question": "What learning rate warmup schedule and warmup steps were used to train the base Transformer on WMT 2014?",
+        "target_section_id": "P1_S7",
+        "target_paper": "Attention Is All You Need",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 0.9739889771833143
+          }
+        }
+      },
+      {
+        "id": "Q04",
+        "question": "What BLEU score did the big Transformer model achieve on WMT 2014 English-to-German translation?",
+        "target_section_id": "P1_S7",
+        "target_paper": "Attention Is All You Need",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 0.9817334055900574
+          }
+        }
+      },
+      {
+        "id": "Q05",
+        "question": "How does LoRA decompose the weight update matrix Delta W for a pre-trained matrix W_0?",
+        "target_section_id": "P2_S2",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S2] LoRA: Low-Rank Adaptation of Large Language Models - 2. Method: Low-Rank Parameterized Matrices",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 2,
+            "top_1_header": "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S2] LoRA: Low-Rank Adaptation of Large Language Models - 2. Method: Low-Rank Parameterized Matrices",
+            "top_1_score": 0.9778825283050537
+          }
+        }
+      },
+      {
+        "id": "Q06",
+        "question": "Why does LoRA introduce zero additional latency during production inference?",
+        "target_section_id": "P2_S3",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging",
+            "top_1_score": 0.9743194734830745
+          }
+        }
+      },
+      {
+        "id": "Q07",
+        "question": "What was the reduction in VRAM and optimizer state size when applying LoRA to GPT-3 175B?",
+        "target_section_id": "P2_S4",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S4] LoRA: Low-Rank Adaptation of Large Language Models - 4. Empirical Results on RoBERTa, DeBERTa, and GPT-3 175B",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S4] LoRA: Low-Rank Adaptation of Large Language Models - 4. Empirical Results on RoBERTa, DeBERTa, and GPT-3 175B",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S4] LoRA: Low-Rank Adaptation of Large Language Models - 4. Empirical Results on RoBERTa, DeBERTa, and GPT-3 175B",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q08",
+        "question": "Which weight matrices in the Transformer architecture are most effective to adapt using LoRA?",
+        "target_section_id": "P2_S5",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S5] LoRA: Low-Rank Adaptation of Large Language Models - 5. Which Weight Matrices in Transformer Should We Apply LoRA To?",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S5] LoRA: Low-Rank Adaptation of Large Language Models - 5. Which Weight Matrices in Transformer Should We Apply LoRA To?",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S5] LoRA: Low-Rank Adaptation of Large Language Models - 5. Which Weight Matrices in Transformer Should We Apply LoRA To?",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q09",
+        "question": "How does 4-bit NormalFloat (NF4) construct its 16 quantization bins for neural network weights?",
+        "target_section_id": "P3_S2",
+        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S2] QLoRA: Efficient Finetuning of Quantized LLMs - 2. 4-bit NormalFloat (NF4) Quantization Mechanics",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S2] QLoRA: Efficient Finetuning of Quantized LLMs - 2. 4-bit NormalFloat (NF4) Quantization Mechanics",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S2] QLoRA: Efficient Finetuning of Quantized LLMs - 2. 4-bit NormalFloat (NF4) Quantization Mechanics",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q10",
+        "question": "How much memory per parameter does Double Quantization save, and how is that calculated?",
+        "target_section_id": "P3_S3",
+        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 3,
+            "top_1_header": "[P3_S1] QLoRA: Efficient Finetuning of Quantized LLMs - 1. Introduction & Computational Barriers",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S3] QLoRA: Efficient Finetuning of Quantized LLMs - 3. Double Quantization (DQ) Mathematical Formulation",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S3] QLoRA: Efficient Finetuning of Quantized LLMs - 3. Double Quantization (DQ) Mathematical Formulation",
+            "top_1_score": 0.9372462185092094
+          }
+        }
+      },
+      {
+        "id": "Q11",
+        "question": "How do Paged Optimizers utilize CUDA Unified Memory to prevent out-of-memory errors?",
+        "target_section_id": "P3_S4",
+        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S4] QLoRA: Efficient Finetuning of Quantized LLMs - 4. Paged Optimizers & CUDA Unified Memory",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S4] QLoRA: Efficient Finetuning of Quantized LLMs - 4. Paged Optimizers & CUDA Unified Memory",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S4] QLoRA: Efficient Finetuning of Quantized LLMs - 4. Paged Optimizers & CUDA Unified Memory",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q12",
+        "question": "What are the two core technical algorithmic components of FlashAttention that avoid materializing the full N x N matrix in HBM?",
+        "target_section_id": "P4_S2",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S2] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 2. FlashAttention Algorithm: Tiling & Online Softmax",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S2] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 2. FlashAttention Algorithm: Tiling & Online Softmax",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S2] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 2. FlashAttention Algorithm: Tiling & Online Softmax",
+            "top_1_score": 0.9440341830253601
+          }
+        }
+      },
+      {
+        "id": "Q13",
+        "question": "What is the theoretical IO complexity of FlashAttention compared to standard attention?",
+        "target_section_id": "P4_S3",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S3] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 3. Theoretical IO Complexity Analysis",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S3] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 3. Theoretical IO Complexity Analysis",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S3] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 3. Theoretical IO Complexity Analysis",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q14",
+        "question": "What speedup does FlashAttention achieve on GPT-2 with 1024 sequence length compared to HuggingFace Transformers?",
+        "target_section_id": "P4_S4",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S4] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 4. Empirical Benchmarks: Speed, Memory and Long Context",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S4] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 4. Empirical Benchmarks: Speed, Memory and Long Context",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S4] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 4. Empirical Benchmarks: Speed, Memory and Long Context",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q15",
+        "question": "According to the Chinchilla scaling laws, what is the compute-optimal ratio between scaling model parameters and training tokens?",
+        "target_section_id": "P7_S1",
+        "target_paper": "Training Compute-Optimal Large Language Models (Chinchilla)",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P7_S1] Training Compute-Optimal Large Language Models (Chinchilla) - 1. Introduction & The Chinchilla Scaling Law Derivation",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P7_S1] Training Compute-Optimal Large Language Models (Chinchilla) - 1. Introduction & The Chinchilla Scaling Law Derivation",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P7_S1] Training Compute-Optimal Large Language Models (Chinchilla) - 1. Introduction & The Chinchilla Scaling Law Derivation",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      }
+    ]
+  },
+  "setting_B_512": {
+    "chunk_size": 512,
+    "chunk_overlap": 100,
+    "total_chunks": 48,
+    "summary": {
+      "sparse_bm25": {
+        "recall@1": 0.9333333333333333,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr@5": 0.9666666666666667
+      },
+      "dense_faiss": {
+        "recall@1": 0.8666666666666667,
+        "recall@3": 0.9333333333333333,
+        "recall@5": 0.9333333333333333,
+        "mrr@5": 0.9
+      },
+      "hybrid": {
+        "recall@1": 0.9333333333333333,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr@5": 0.9666666666666667
+      }
+    },
+    "details": [
+      {
+        "id": "Q01",
+        "question": "What is the mathematical scaling factor applied to queries and keys in Scaled Dot-Product Attention, and why is it applied?",
+        "target_section_id": "P1_S4",
+        "target_paper": "Attention Is All You Need",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q02",
+        "question": "How many attention heads and what head dimensions are used in the base Transformer model?",
+        "target_section_id": "P1_S4",
+        "target_paper": "Attention Is All You Need",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q03",
+        "question": "What learning rate warmup schedule and warmup steps were used to train the base Transformer on WMT 2014?",
+        "target_section_id": "P1_S7",
+        "target_paper": "Attention Is All You Need",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q04",
+        "question": "What BLEU score did the big Transformer model achieve on WMT 2014 English-to-German translation?",
+        "target_section_id": "P1_S7",
+        "target_paper": "Attention Is All You Need",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": null,
+            "top_1_header": "[P1_S0] Attention Is All You Need - Abstract",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 2,
+            "top_1_header": "[P1_S0] Attention Is All You Need - Abstract",
+            "top_1_score": 0.9912315343769402
+          }
+        }
+      },
+      {
+        "id": "Q05",
+        "question": "How does LoRA decompose the weight update matrix Delta W for a pre-trained matrix W_0?",
+        "target_section_id": "P2_S2",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S2] LoRA: Low-Rank Adaptation of Large Language Models - 2. Method: Low-Rank Parameterized Matrices",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 2,
+            "top_1_header": "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S2] LoRA: Low-Rank Adaptation of Large Language Models - 2. Method: Low-Rank Parameterized Matrices",
+            "top_1_score": 0.977564537525177
+          }
+        }
+      },
+      {
+        "id": "Q06",
+        "question": "Why does LoRA introduce zero additional latency during production inference?",
+        "target_section_id": "P2_S3",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q07",
+        "question": "What was the reduction in VRAM and optimizer state size when applying LoRA to GPT-3 175B?",
+        "target_section_id": "P2_S4",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S4] LoRA: Low-Rank Adaptation of Large Language Models - 4. Empirical Results on RoBERTa, DeBERTa, and GPT-3 175B",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S4] LoRA: Low-Rank Adaptation of Large Language Models - 4. Empirical Results on RoBERTa, DeBERTa, and GPT-3 175B",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S4] LoRA: Low-Rank Adaptation of Large Language Models - 4. Empirical Results on RoBERTa, DeBERTa, and GPT-3 175B",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q08",
+        "question": "Which weight matrices in the Transformer architecture are most effective to adapt using LoRA?",
+        "target_section_id": "P2_S5",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S5] LoRA: Low-Rank Adaptation of Large Language Models - 5. Which Weight Matrices in Transformer Should We Apply LoRA To?",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S5] LoRA: Low-Rank Adaptation of Large Language Models - 5. Which Weight Matrices in Transformer Should We Apply LoRA To?",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P2_S5] LoRA: Low-Rank Adaptation of Large Language Models - 5. Which Weight Matrices in Transformer Should We Apply LoRA To?",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q09",
+        "question": "How does 4-bit NormalFloat (NF4) construct its 16 quantization bins for neural network weights?",
+        "target_section_id": "P3_S2",
+        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S2] QLoRA: Efficient Finetuning of Quantized LLMs - 2. 4-bit NormalFloat (NF4) Quantization Mechanics",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S2] QLoRA: Efficient Finetuning of Quantized LLMs - 2. 4-bit NormalFloat (NF4) Quantization Mechanics",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S2] QLoRA: Efficient Finetuning of Quantized LLMs - 2. 4-bit NormalFloat (NF4) Quantization Mechanics",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q10",
+        "question": "How much memory per parameter does Double Quantization save, and how is that calculated?",
+        "target_section_id": "P3_S3",
+        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 2,
+            "top_1_header": "[P3_S1] QLoRA: Efficient Finetuning of Quantized LLMs - 1. Introduction & Computational Barriers",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S3] QLoRA: Efficient Finetuning of Quantized LLMs - 3. Double Quantization (DQ) Mathematical Formulation",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S3] QLoRA: Efficient Finetuning of Quantized LLMs - 3. Double Quantization (DQ) Mathematical Formulation",
+            "top_1_score": 0.9257961592769915
+          }
+        }
+      },
+      {
+        "id": "Q11",
+        "question": "How do Paged Optimizers utilize CUDA Unified Memory to prevent out-of-memory errors?",
+        "target_section_id": "P3_S4",
+        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S4] QLoRA: Efficient Finetuning of Quantized LLMs - 4. Paged Optimizers & CUDA Unified Memory",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S4] QLoRA: Efficient Finetuning of Quantized LLMs - 4. Paged Optimizers & CUDA Unified Memory",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P3_S4] QLoRA: Efficient Finetuning of Quantized LLMs - 4. Paged Optimizers & CUDA Unified Memory",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q12",
+        "question": "What are the two core technical algorithmic components of FlashAttention that avoid materializing the full N x N matrix in HBM?",
+        "target_section_id": "P4_S2",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S2] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 2. FlashAttention Algorithm: Tiling & Online Softmax",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S2] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 2. FlashAttention Algorithm: Tiling & Online Softmax",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S2] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 2. FlashAttention Algorithm: Tiling & Online Softmax",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q13",
+        "question": "What is the theoretical IO complexity of FlashAttention compared to standard attention?",
+        "target_section_id": "P4_S3",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S3] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 3. Theoretical IO Complexity Analysis",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S3] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 3. Theoretical IO Complexity Analysis",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S3] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 3. Theoretical IO Complexity Analysis",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q14",
+        "question": "What speedup does FlashAttention achieve on GPT-2 with 1024 sequence length compared to HuggingFace Transformers?",
+        "target_section_id": "P4_S4",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S4] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 4. Empirical Benchmarks: Speed, Memory and Long Context",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S4] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 4. Empirical Benchmarks: Speed, Memory and Long Context",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P4_S4] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 4. Empirical Benchmarks: Speed, Memory and Long Context",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      },
+      {
+        "id": "Q15",
+        "question": "According to the Chinchilla scaling laws, what is the compute-optimal ratio between scaling model parameters and training tokens?",
+        "target_section_id": "P7_S1",
+        "target_paper": "Training Compute-Optimal Large Language Models (Chinchilla)",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[P7_S1] Training Compute-Optimal Large Language Models (Chinchilla) - 1. Introduction & The Chinchilla Scaling Law Derivation",
+            "top_1_score": 1.0
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[P7_S1] Training Compute-Optimal Large Language Models (Chinchilla) - 1. Introduction & The Chinchilla Scaling Law Derivation",
+            "top_1_score": 1.0
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[P7_S1] Training Compute-Optimal Large Language Models (Chinchilla) - 1. Introduction & The Chinchilla Scaling Law Derivation",
+            "top_1_score": 1.0000000238418578
+          }
+        }
+      }
+    ]
+  }
+}

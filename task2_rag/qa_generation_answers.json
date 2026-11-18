@@ -1,0 +1,167 @@
+[
+  {
+    "id": "Q01",
+    "question": "What is the mathematical scaling factor applied to queries and keys in Scaled Dot-Product Attention, and why is it applied?",
+    "target_paper": "Attention Is All You Need",
+    "retrieved_headers": [
+      "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+      "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head"
+    ],
+    "ground_truth_excerpt": "We scale the dot products by 1 / sqrt(d_k) to counteract variance expansion and prevent gradient vanishing in the softmax.",
+    "generated_answer": "The mathematical scaling factor applied to queries and keys in Scaled Dot-Product Attention is 1/sqrt(d_k). This scaling factor is applied because it helps mitigate the impact of the variance expansion introduced by the dot product operation, preventing gradient vanishing in the softmax function."
+  },
+  {
+    "id": "Q02",
+    "question": "How many attention heads and what head dimensions are used in the base Transformer model?",
+    "target_paper": "Attention Is All You Need",
+    "retrieved_headers": [
+      "[P1_S4] Attention Is All You Need - 4. Attention Formulation: Scaled Dot-Product & Multi-Head",
+      "[P1_S1] Attention Is All You Need - 1. Introduction"
+    ],
+    "ground_truth_excerpt": "In this work we employ h = 8 parallel attention heads. For each of these we use d_k = d_v = d_model / h = 64.",
+    "generated_answer": "The base Transformer model uses 8 parallel attention heads, each with a dimension of 64."
+  },
+  {
+    "id": "Q03",
+    "question": "What learning rate warmup schedule and warmup steps were used to train the base Transformer on WMT 2014?",
+    "target_paper": "Attention Is All You Need",
+    "retrieved_headers": [
+      "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+      "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters"
+    ],
+    "ground_truth_excerpt": "lrate = d_{model}^{-0.5} * min(step_num^{-0.5}, step_num * warmup_steps^{-1.5}) with warmup_steps = 4000.",
+    "generated_answer": "The learning rate warmup schedule and warmup steps used to train the base Transformer on WMT 2014 were:\n\n- Learning Rate: lrate = d_model^{-0.5} * min(step_num^{-0.5}, step_num * warmup_steps^{-1.5})\n- Warmup Steps: warmup_steps = 4000"
+  },
+  {
+    "id": "Q04",
+    "question": "What BLEU score did the big Transformer model achieve on WMT 2014 English-to-German translation?",
+    "target_paper": "Attention Is All You Need",
+    "retrieved_headers": [
+      "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters",
+      "[P1_S7] Attention Is All You Need - 7. Training Regime, Hardware & Hyperparameters"
+    ],
+    "ground_truth_excerpt": "On the WMT 2014 English-to-German translation task, the big transformer model achieves BLEU 28.4, outperforming the best existing models and ensembles by over 2.0 BLEU.",
+    "generated_answer": "The big Transformer model achieved a BLEU score of 28.4 on the WMT 2014 English-to-German translation task."
+  },
+  {
+    "id": "Q05",
+    "question": "How does LoRA decompose the weight update matrix Delta W for a pre-trained matrix W_0?",
+    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "retrieved_headers": [
+      "[P2_S2] LoRA: Low-Rank Adaptation of Large Language Models - 2. Method: Low-Rank Parameterized Matrices",
+      "[P2_S5] LoRA: Low-Rank Adaptation of Large Language Models - 5. Which Weight Matrices in Transformer Should We Apply LoRA To?"
+    ],
+    "ground_truth_excerpt": "W_0 + Delta W = W_0 + B A, where B in R^{d x r}, A in R^{r x k}, and the rank r << min(d, k).",
+    "generated_answer": "LoRA decomposes the weight update matrix Delta W as follows:\n\n\\[ \\Delta W = B A \\]\n\nwhere:\n- \\( B \\) is a matrix of size \\( d \\times r \\)\n- \\( A \\) is a matrix of size \\( r \\times k \\)\n\nThe key point here is that \\( B \\) represents the low-rank decomposition of the original weight matrix \\( W_0 \\), and \\( A \\) is used to multiply it with the input vector \\("
+  },
+  {
+    "id": "Q06",
+    "question": "Why does LoRA introduce zero additional latency during production inference?",
+    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "retrieved_headers": [
+      "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging",
+      "[P2_S3] LoRA: Low-Rank Adaptation of Large Language Models - 3. Zero Inference Latency & Production Merging"
+    ],
+    "ground_truth_excerpt": "In production deployment, we can explicitly compute and store the merged weight matrix W = W_0 + B A. Since W and W_0 share identical dimensions (d x k), no additional memory overhead or latency is introduced during inference.",
+    "generated_answer": "LoRA introduces zero additional latency during production inference because it utilizes a simple linear design that merges the trainable matrices with the frozen weights upon deployment, resulting in zero inference latency compared to a fully fine-tuned model."
+  },
+  {
+    "id": "Q07",
+    "question": "What was the reduction in VRAM and optimizer state size when applying LoRA to GPT-3 175B?",
+    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "retrieved_headers": [
+      "[P2_S4] LoRA: Low-Rank Adaptation of Large Language Models - 4. Empirical Results on RoBERTa, DeBERTa, and GPT-3 175B",
+      "[P2_S4] LoRA: Low-Rank Adaptation of Large Language Models - 4. Empirical Results on RoBERTa, DeBERTa, and GPT-3 175B"
+    ],
+    "ground_truth_excerpt": "For GPT-3 175B, LoRA reduces VRAM consumption during training from 1.2 TB to 350 GB. When using AdamW, storing the optimizer states... drops from 1.4 TB to under 2 GB.",
+    "generated_answer": "When applying LoRA to GPT-3 175B, the VRAM consumption reduced from 1.2 TB to 350 GB, and the optimizer state size required decreased from 1.4 TB to 2 GB."
+  },
+  {
+    "id": "Q08",
+    "question": "Which weight matrices in the Transformer architecture are most effective to adapt using LoRA?",
+    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "retrieved_headers": [
+      "[P2_S5] LoRA: Low-Rank Adaptation of Large Language Models - 5. Which Weight Matrices in Transformer Should We Apply LoRA To?",
+      "[P2_S5] LoRA: Low-Rank Adaptation of Large Language Models - 5. Which Weight Matrices in Transformer Should We Apply LoRA To?"
+    ],
+    "ground_truth_excerpt": "Adapting both W_q and W_v yields the best performance across all benchmarks. Furthermore, adapting all four attention matrices (W_q, W_k, W_v, W_o) with rank r=2 or r=4 outperforms adapting only W_q with higher rank r=8.",
+    "generated_answer": "The weight matrices in the Transformer architecture that are most effective to adapt using LoRA are:\n\n1. **W_q** (Self-Attention Matrix)\n2. **W_k** (Self-Attention Matrix)\n3. **W_v** (Self-Attention Matrix)\n\nThese three matrices are particularly well-suited for adaptation due to their role in the transformer's self-attention mechanism."
+  },
+  {
+    "id": "Q09",
+    "question": "How does 4-bit NormalFloat (NF4) construct its 16 quantization bins for neural network weights?",
+    "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "retrieved_headers": [
+      "[P3_S2] QLoRA: Efficient Finetuning of Quantized LLMs - 2. 4-bit NormalFloat (NF4) Quantization Mechanics",
+      "[P3_S2] QLoRA: Efficient Finetuning of Quantized LLMs - 2. 4-bit NormalFloat (NF4) Quantization Mechanics"
+    ],
+    "ground_truth_excerpt": "NF4 constructs an asymmetric 4-bit data type where the 16 bin boundaries correspond to exact quantiles of a standard normal distribution N(0, 1) normalized to the [-1, 1] range.",
+    "generated_answer": "To construct its 16 quantization bins for neural network weights, 4-bit NormalFloat (NF4) uses the following method:\n\nFor 2^k = 16 bins, it computes the theoretical quantiles q_i as follows:\n\nq_i = 1/2 * ( Q_X(i / (2^k)) + Q_X((i+1) / (2^k)))\n\nWhere:\n- Q_X is the quantile function of N(0, 1)."
+  },
+  {
+    "id": "Q10",
+    "question": "How much memory per parameter does Double Quantization save, and how is that calculated?",
+    "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "retrieved_headers": [
+      "[P3_S3] QLoRA: Efficient Finetuning of Quantized LLMs - 3. Double Quantization (DQ) Mathematical Formulation",
+      "[P3_S1] QLoRA: Efficient Finetuning of Quantized LLMs - 1. Introduction & Computational Barriers"
+    ],
+    "ground_truth_excerpt": "The memory footprint of the scaling constants drops from 32 / 64 = 0.5 bits per parameter to 8 / 64 + 32 / (64 * 256) = 0.127 bits per parameter, saving 0.373 bits per parameter.",
+    "generated_answer": "Double Quantization saves approximately 0.37 bits per parameter. This calculation is based on the baseline single quantization scale overhead of 0.500 bits/parameter and the additional 0.125 bits saved by doubling the quantization constant for the first quantization stage."
+  },
+  {
+    "id": "Q11",
+    "question": "How do Paged Optimizers utilize CUDA Unified Memory to prevent out-of-memory errors?",
+    "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "retrieved_headers": [
+      "[P3_S4] QLoRA: Efficient Finetuning of Quantized LLMs - 4. Paged Optimizers & CUDA Unified Memory",
+      "[P3_S1] QLoRA: Efficient Finetuning of Quantized LLMs - 1. Introduction & Computational Barriers"
+    ],
+    "ground_truth_excerpt": "Paged Optimizers leverage NVIDIA CUDA Unified Memory feature, which performs automatic page-by-page memory transfers between the GPU and CPU when memory allocation exceeds physical GPU VRAM during memory spikes.",
+    "generated_answer": "Paged Optimizers use NVIDIA CUDA Unified Memory to automatically transfer memory from the GPU to the CPU when memory allocation exceeds physical GPU VRAM. This allows the optimizer to efficiently handle large batches without crashing due to memory issues."
+  },
+  {
+    "id": "Q12",
+    "question": "What are the two core technical algorithmic components of FlashAttention that avoid materializing the full N x N matrix in HBM?",
+    "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "retrieved_headers": [
+      "[P4_S2] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 2. FlashAttention Algorithm: Tiling & Online Softmax",
+      "[P4_S2] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 2. FlashAttention Algorithm: Tiling & Online Softmax"
+    ],
+    "ground_truth_excerpt": "FlashAttention combines two technical components: 1. Tiling: We split the input matrices Q, K, and V into blocks that fit into fast on-chip SRAM using online softmax. 2. Recomputation in Backward Pass: Rather than saving the N x N attention matrix for backpropagation, FlashAttention stores only softmax statistics and recomputes attention blocks on-the-fly in SRAM.",
+    "generated_answer": "The two core technical algorithms of FlashAttention that avoid materializing the full N x N matrix in HBM are:\n\n1. **Tiling**: Splitting the input matrices Q, K, and V into blocks of size B_r and B_c that fit into fast on-chip SRAM.\n2. **Online Softmax**: Using an online softmax formulation to track running row-wise maximums m_i and normalization denominators l_i to scale intermediate accumulations without numerical underflow or overflow."
+  },
+  {
+    "id": "Q13",
+    "question": "What is the theoretical IO complexity of FlashAttention compared to standard attention?",
+    "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "retrieved_headers": [
+      "[P4_S3] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 3. Theoretical IO Complexity Analysis",
+      "[P4_S3] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 3. Theoretical IO Complexity Analysis"
+    ],
+    "ground_truth_excerpt": "Standard attention requires Theta(N d + N^2) HBM accesses. FlashAttention requires Theta(N^2 d^2 / M) HBM accesses, reducing HBM accesses by a factor of min(M / d, N).",
+    "generated_answer": "The theoretical IO complexity of FlashAttention compared to standard attention is given as:\n\n- **Standard Attention**: \n  - Total HBM Accesses: \u03b8(Nd + Nd\u00b2)\n  \n- **FlashAttention**:\n  - Total HBM Memory Accesses: \u03b8(N\u00b2d\u00b2/M)\n\nTherefore, the theoretical IO complexity of FlashAttention is significantly lower than that of standard attention, with FlashAttention requiring only O(N) auxiliary memory compared to O(N\u00b2) for standard attention."
+  },
+  {
+    "id": "Q14",
+    "question": "What speedup does FlashAttention achieve on GPT-2 with 1024 sequence length compared to HuggingFace Transformers?",
+    "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "retrieved_headers": [
+      "[P4_S4] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - 4. Empirical Benchmarks: Speed, Memory and Long Context",
+      "[P4_S0] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness - Abstract"
+    ],
+    "ground_truth_excerpt": "On GPT-2 with sequence length 1024, FlashAttention provides 3x speedup in forward-backward pass compared to HuggingFace Transformers, and 1.8x speedup compared to Megatron-LM.",
+    "generated_answer": "FlashAttention achieves 3x speedup in forward-backward pass compared to HuggingFace Transformers when trained on GPT-2 with a sequence length of 1024."
+  },
+  {
+    "id": "Q15",
+    "question": "According to the Chinchilla scaling laws, what is the compute-optimal ratio between scaling model parameters and training tokens?",
+    "target_paper": "Training Compute-Optimal Large Language Models (Chinchilla)",
+    "retrieved_headers": [
+      "[P7_S1] Training Compute-Optimal Large Language Models (Chinchilla) - 1. Introduction & The Chinchilla Scaling Law Derivation",
+      "[P7_S0] Training Compute-Optimal Large Language Models (Chinchilla) - Abstract"
+    ],
+    "ground_truth_excerpt": "For compute-optimal training, the model size and the number of training tokens should be scaled in equal proportions: for every doubling of model size, the number of training tokens should also be doubled (a approx 0.5 and b approx 0.5).",
+    "generated_answer": "According to the Chinchilla scaling laws, the compute-optimal ratio between scaling model parameters and training tokens is 1:1."
+  }
+]
