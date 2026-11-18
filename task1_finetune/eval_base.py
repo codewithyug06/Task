@@ -1,15 +1,19 @@
 """
-Evaluate Base Model (Qwen2.5-0.5B-Instruct) Zero-Shot on the 50 Held-Out Test Set.
+Evaluate Base Model (Qwen2.5-0.5B-Instruct) Zero-Shot on the 50 Held-Out Test Set (Fixed Domain-Holdout).
 Batched generation on pure CUDA for fast and reliable execution.
+Supports both local cache and Hugging Face Hub for Colab/Kaggle portability.
 """
 
+import os
 import json
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from metrics import evaluate_predictions
 
-MODEL_PATH = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
-TEST_DATA_PATH = "d:/Intern/data/test.json"
+LOCAL_MODEL = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
+MODEL_PATH = LOCAL_MODEL if os.path.exists(LOCAL_MODEL) else "Qwen/Qwen2.5-0.5B-Instruct"
+
+TEST_DATA_PATH = "d:/Intern/data_fixed/test.json" if os.path.exists("d:/Intern/data_fixed/test.json") else "data_fixed/test.json"
 OUTPUT_PATH = "d:/Intern/task1_finetune/base_model_eval_results.json"
 BATCH_SIZE = 5
 
@@ -37,7 +41,7 @@ def main():
         test_samples = json.load(f)
     print(f"Loaded {len(test_samples)} test samples.", flush=True)
 
-    print(f"Loading base model and tokenizer from local path:\n{MODEL_PATH}...", flush=True)
+    print(f"Loading base model and tokenizer from: {MODEL_PATH}...", flush=True)
     tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, padding_side="left")
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -47,7 +51,7 @@ def main():
     
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_PATH,
-        dtype=torch.float16 if device == "cuda" else torch.float32
+        torch_dtype=torch.float16 if device == "cuda" else torch.float32
     ).to(device)
     model.eval()
 
@@ -58,46 +62,67 @@ def main():
         batch = test_samples[i:i + BATCH_SIZE]
         prompts = [format_prompt(tokenizer, s["abstract"]) for s in batch]
         
-        inputs = tokenizer(prompts, return_tensors="pt", padding=True).to(device)
+        inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=512).to(device)
         
         with torch.no_grad():
             outputs = model.generate(
                 **inputs,
-                max_new_tokens=120,
+                max_new_tokens=150,
                 do_sample=False,
-                pad_token_id=tokenizer.pad_token_id
+                pad_token_id=tokenizer.pad_token_id,
+                eos_token_id=tokenizer.eos_token_id
             )
             
-        # Decode only the generated response
-        input_len = inputs["input_ids"].shape[1]
-        for out in outputs:
+        for j, out in enumerate(outputs):
+            input_len = inputs["input_ids"][j].shape[0]
             gen_tokens = out[input_len:]
-            response = tokenizer.decode(gen_tokens, skip_special_tokens=True).strip()
-            predictions.append(response)
+            gen_text = tokenizer.decode(gen_tokens, skip_special_tokens=True).strip()
+            predictions.append(gen_text)
             
-        print(f"  Processed {min(i + BATCH_SIZE, len(test_samples))}/{len(test_samples)} samples...", flush=True)
+        print(f"Processed samples {i+1} to {min(i+BATCH_SIZE, len(test_samples))} / {len(test_samples)}", flush=True)
 
-    print("\nEvaluating base model predictions...", flush=True)
-    summary, details = evaluate_predictions(test_samples, predictions)
+    print("\nEvaluating base model predictions on held-out test set...", flush=True)
+    metrics = evaluate_predictions(test_samples, predictions)
     
-    print("\n================== BASE MODEL RESULTS ==================", flush=True)
-    print(f"Total Test Samples:  {summary['total_samples']}", flush=True)
-    print(f"Valid JSON Rate:     {summary['json_valid_rate'] * 100:.2f}% ({summary['valid_json_count']}/{summary['total_samples']})", flush=True)
-    print(f"Overall Macro F1:    {summary['overall_macro_f1']:.4f}", flush=True)
-    print("Field-Level F1 Breakdown:", flush=True)
-    for f, score in summary["field_f1"].items():
-        print(f"  - {f:10s}: F1 = {score:.4f} (P = {summary['field_precision'][f]:.4f}, R = {summary['field_recall'][f]:.4f})", flush=True)
-    print("========================================================\n", flush=True)
-
-    results_data = {
+    results = {
         "model": "Qwen2.5-0.5B-Instruct",
         "type": "base_zero_shot",
-        "summary": summary,
-        "details": details
+        "dataset_split": "data_fixed/test.json (4 unseen domains)",
+        "summary": {
+            "total_samples": len(test_samples),
+            "valid_json_count": metrics["valid_json_count"],
+            "json_valid_rate": metrics["valid_json_count"] / len(test_samples),
+            "overall_macro_f1": metrics["overall_macro_f1"],
+            "field_f1": metrics["field_f1"],
+            "field_precision": metrics["field_precision"],
+            "field_recall": metrics["field_recall"]
+        },
+        "details": []
     }
+    
+    for idx, (sample, pred, res) in enumerate(zip(test_samples, predictions, metrics["results"])):
+        results["details"].append({
+            "domain": sample.get("domain", "Unknown"),
+            "abstract": sample["abstract"],
+            "gold": sample.get("target", sample.get("gold")),
+            "raw_prediction": pred,
+            "is_valid_json": res["is_valid_json"],
+            "parsed": res["parsed_json"],
+            "field_metrics": res["field_metrics"],
+            "sample_mean_f1": res["sample_mean_f1"]
+        })
+        
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(results_data, f, indent=2)
-    print(f"Saved base model evaluation results to {OUTPUT_PATH}", flush=True)
+        json.dump(results, f, indent=2)
+        
+    print(f"\n================ BASE MODEL RESULTS ================")
+    print(f"Overall Macro F1: {metrics['overall_macro_f1']:.4f}")
+    print(f"JSON Validity:    {metrics['valid_json_count']}/{len(test_samples)} ({metrics['valid_json_count']/len(test_samples)*100:.1f}%)")
+    for field, f1 in metrics["field_f1"].items():
+        print(f"  - {field:10s} F1: {f1:.4f} (P: {metrics['field_precision'][field]:.4f}, R: {metrics['field_recall'][field]:.4f})")
+    print(f"=====================================================")
+    print(f"Saved evaluation results to {OUTPUT_PATH}")
 
 if __name__ == "__main__":
     main()

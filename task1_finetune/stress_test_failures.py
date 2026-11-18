@@ -3,13 +3,16 @@ Stress test the fine-tuned LoRA model on difficult edge cases to identify and do
 3 concrete, nuanced failure modes with exact inputs, outputs, and diagnostic root cause analysis.
 """
 
+import os
 import json
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
 
-BASE_MODEL_PATH = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
-LORA_ADAPTER_PATH = "d:/Intern/task1_finetune/lora_adapter"
+LOCAL_MODEL = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
+BASE_MODEL_PATH = LOCAL_MODEL if os.path.exists(LOCAL_MODEL) else "Qwen/Qwen2.5-0.5B-Instruct"
+
+LORA_ADAPTER_PATH = "d:/Intern/task1_finetune/lora_adapter" if os.path.exists("d:/Intern/task1_finetune/lora_adapter") else "task1_finetune/lora_adapter"
 OUTPUT_PATH = "d:/Intern/task1_finetune/failure_analysis_cases.json"
 
 SYSTEM_PROMPT = (
@@ -59,12 +62,13 @@ def main():
         torch_dtype=torch.float16 if device == "cuda" else torch.float32
     ).to(device)
     
-    model = PeftModel.from_pretrained(base_model, LORA_ADAPTER_PATH)
+    print(f"Loading LoRA adapter from {LORA_ADAPTER_PATH}...", flush=True)
+    model = PeftModel.from_pretrained(base_model, LORA_ADAPTER_PATH).to(device)
     model.eval()
-    
+
     results = []
-    
-    print("\nRunning inference on challenging failure edge cases...\n", flush=True)
+    print("\nRunning stress test inference on edge cases...\n", flush=True)
+
     for case in EDGE_CASES:
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -74,39 +78,33 @@ def main():
         inputs = tokenizer(prompt, return_tensors="pt").to(device)
         
         with torch.no_grad():
-            output_ids = model.generate(
+            outputs = model.generate(
                 **inputs,
                 max_new_tokens=150,
                 do_sample=False,
-                pad_token_id=tokenizer.pad_token_id
+                pad_token_id=tokenizer.pad_token_id,
+                eos_token_id=tokenizer.eos_token_id
             )
             
-        gen_tokens = output_ids[0][inputs["input_ids"].shape[1]:]
-        raw_output = tokenizer.decode(gen_tokens, skip_special_tokens=True).strip()
+        gen_tokens = outputs[0][inputs["input_ids"].shape[1]:]
+        prediction_str = tokenizer.decode(gen_tokens, skip_special_tokens=True).strip()
         
-        try:
-            parsed_json = json.loads(raw_output)
-        except Exception as e:
-            parsed_json = {"error_parsing": str(e), "raw": raw_output}
-            
-        print(f"=== {case['title']} ===")
-        print(f"Abstract: {case['abstract']}")
-        print(f"Model Output: {raw_output}\n")
+        print(f"[{case['id']}] {case['title']}")
+        print(f"Prediction:\n{prediction_str}\n")
         
-        case_record = {
+        results.append({
             "id": case["id"],
             "title": case["title"],
             "category": case["category"],
             "abstract": case["abstract"],
-            "model_raw_output": raw_output,
-            "parsed_json": parsed_json,
-            "diagnostic_analysis": case["expected_challenge"]
-        }
-        results.append(case_record)
+            "expected_challenge": case["expected_challenge"],
+            "model_output": prediction_str
+        })
         
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
-    print(f"Saved stress test failure cases to {OUTPUT_PATH}")
+    print(f"Saved failure mode analysis to {OUTPUT_PATH}")
 
 if __name__ == "__main__":
     main()

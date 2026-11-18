@@ -1,371 +1,392 @@
 {
+  "corpus_stats": {
+    "total_papers": 10,
+    "total_pages": 335,
+    "setting_A_chunks": 1732,
+    "setting_B_chunks": 913
+  },
   "setting_A_256": {
     "chunk_size": 256,
     "chunk_overlap": 50,
-    "total_chunks": 518,
+    "total_chunks": 1732,
     "summary": {
       "sparse_bm25": {
-        "recall@1": 0.4666666666666667,
-        "recall@3": 0.6666666666666666,
-        "recall@5": 0.6666666666666666,
-        "mrr@5": 0.5666666666666667
+        "recall@1": 0.3333333333333333,
+        "recall@3": 0.6,
+        "recall@5": 0.8,
+        "mrr@5": 0.4655555555555555
       },
       "dense_faiss": {
-        "recall@1": 0.4,
-        "recall@3": 0.4666666666666667,
-        "recall@5": 0.7333333333333333,
-        "mrr@5": 0.49000000000000005
+        "recall@1": 0.4666666666666667,
+        "recall@3": 0.5333333333333333,
+        "recall@5": 0.6,
+        "mrr@5": 0.5133333333333333
       },
       "hybrid": {
-        "recall@1": 0.6,
-        "recall@3": 0.6,
-        "recall@5": 0.7333333333333333,
-        "mrr@5": 0.63
+        "recall@1": 0.3333333333333333,
+        "recall@3": 0.5333333333333333,
+        "recall@5": 0.6666666666666666,
+        "mrr@5": 0.4444444444444444
       }
     },
     "details": [
       {
         "id": "Q01",
-        "question": "What is the dimensionality d_model and the number of layers N in the encoder and decoder of the base Transformer?",
+        "difficulty": "Easy",
+        "question": "What is the dimensionality d_model and the number of identical layers N in the encoder and decoder of the base Transformer?",
         "target_section_id": "1706.03762_p3",
         "target_paper": "Attention Is All You Need",
         "results_by_mode": {
           "sparse_bm25": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 3",
-            "top_1_score": 1.0
+            "top_1_score": 36.23157501220703
           },
           "dense_faiss": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 3",
-            "top_1_score": 1.0
+            "top_1_score": 0.6041260957717896
           },
           "hybrid": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 3",
-            "top_1_score": 1.0000000238418578
+            "top_1_score": 1.0
           }
         }
       },
       {
         "id": "Q02",
-        "question": "What exact formula is used for Positional Encoding using sine and cosine functions of different frequencies?",
-        "target_section_id": "1706.03762_p6",
-        "target_paper": "Attention Is All You Need",
-        "results_by_mode": {
-          "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 6",
-            "top_1_score": 1.0
-          },
-          "dense_faiss": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 6",
-            "top_1_score": 1.0
-          },
-          "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 6",
-            "top_1_score": 1.0000000238418578
-          }
-        }
-      },
-      {
-        "id": "Q03",
-        "question": "What learning rate warmup formula and number of warmup steps were used to train the Transformer?",
-        "target_section_id": "1706.03762_p7",
-        "target_paper": "Attention Is All You Need",
-        "results_by_mode": {
-          "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 7",
-            "top_1_score": 1.0
-          },
-          "dense_faiss": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 7",
-            "top_1_score": 1.0
-          },
-          "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 7",
-            "top_1_score": 1.0000000238418578
-          }
-        }
-      },
-      {
-        "id": "Q04",
-        "question": "What BLEU score did the big Transformer model achieve on WMT 2014 English-to-German, and how many days was it trained?",
+        "difficulty": "Hard",
+        "question": "What value of label smoothing was employed during training of the Transformer, and what unexpected trade-off between perplexity and BLEU was observed?",
         "target_section_id": "1706.03762_p8",
         "target_paper": "Attention Is All You Need",
         "results_by_mode": {
           "sparse_bm25": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 8",
-            "top_1_score": 1.0
+            "top_1_score": 43.93461990356445
           },
           "dense_faiss": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 8",
-            "top_1_score": 1.0
+            "top_1_score": 0.6050878763198853
           },
           "hybrid": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 8",
-            "top_1_score": 0.9517211556434632
+            "top_1_score": 1.0
+          }
+        }
+      },
+      {
+        "id": "Q03",
+        "difficulty": "Medium",
+        "question": "In LoRA, how is the adapter update scaled using alpha and rank r, and why is alpha kept constant when varying r?",
+        "target_section_id": "2106.09685_p4",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
+            "top_1_score": 22.027137756347656
+          },
+          "dense_faiss": {
+            "hit_rank": null,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 23",
+            "top_1_score": 0.481927752494812
+          },
+          "hybrid": {
+            "hit_rank": null,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 6",
+            "top_1_score": 0.8668537881310574
+          }
+        }
+      },
+      {
+        "id": "Q04",
+        "difficulty": "Hard",
+        "question": "How did the authors of LoRA evaluate the subspace similarity between adapters of different ranks (e.g., r=8 and r=64) using Grassmann distance?",
+        "target_section_id": "2106.09685_p11",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 11",
+            "top_1_score": 43.18001937866211
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 11",
+            "top_1_score": 0.6337432861328125
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 11",
+            "top_1_score": 1.0
           }
         }
       },
       {
         "id": "Q05",
-        "question": "How is the low-rank update matrix Delta W scaled with respect to rank r and constant alpha during training in LoRA?",
-        "target_section_id": "2106.09685_p4",
-        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "difficulty": "Medium",
+        "question": "How much memory does Double Quantization save per parameter in QLoRA, and how does it achieve this reduction?",
+        "target_section_id": "2305.14314_p2",
+        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-            "top_1_score": 1.0
+            "hit_rank": 5,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
+            "top_1_score": 33.39421844482422
           },
           "dense_faiss": {
-            "hit_rank": 5,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 6",
-            "top_1_score": 1.0
+            "hit_rank": null,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
+            "top_1_score": 0.6943540573120117
           },
           "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-            "top_1_score": 0.9650492906570435
+            "hit_rank": 4,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
+            "top_1_score": 0.9352366161478275
           }
         }
       },
       {
         "id": "Q06",
-        "question": "Why does LoRA introduce zero additional inference latency when deployed in production?",
-        "target_section_id": "2106.09685_p4",
-        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
-        "results_by_mode": {
-          "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-            "top_1_score": 1.0
-          },
-          "dense_faiss": {
-            "hit_rank": 4,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 22",
-            "top_1_score": 1.0
-          },
-          "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-            "top_1_score": 0.9655179619789124
-          }
-        }
-      },
-      {
-        "id": "Q07",
-        "question": "For a GPT-3 175B model, what was the reduction in VRAM and checkpoint file storage achieved by LoRA compared to full fine-tuning?",
-        "target_section_id": "2106.09685_p5",
-        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
-        "results_by_mode": {
-          "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 5",
-            "top_1_score": 1.0
-          },
-          "dense_faiss": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 5",
-            "top_1_score": 1.0
-          },
-          "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 5",
-            "top_1_score": 1.0000000238418578
-          }
-        }
-      },
-      {
-        "id": "Q08",
-        "question": "Which Transformer weight matrices did the authors find most critical to adapt when setting a parameter budget of rank 4?",
-        "target_section_id": "2106.09685_p8",
-        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
-        "results_by_mode": {
-          "sparse_bm25": {
-            "hit_rank": null,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10",
-            "top_1_score": 1.0
-          },
-          "dense_faiss": {
-            "hit_rank": null,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10",
-            "top_1_score": 1.0
-          },
-          "hybrid": {
-            "hit_rank": null,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10",
-            "top_1_score": 1.0000000238418578
-          }
-        }
-      },
-      {
-        "id": "Q09",
-        "question": "How does the 4-bit NormalFloat (NF4) data type construct its 16 quantization bins to be information-theoretically optimal?",
-        "target_section_id": "2305.14314_p3",
+        "difficulty": "Easy",
+        "question": "What hardware mechanism do Paged Optimizers utilize in QLoRA to prevent out-of-memory errors during gradient checkpointing?",
+        "target_section_id": "2305.14314_p2",
         "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
         "results_by_mode": {
           "sparse_bm25": {
             "hit_rank": null,
             "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 4",
-            "top_1_score": 1.0
+            "top_1_score": 36.39748764038086
           },
           "dense_faiss": {
-            "hit_rank": 5,
+            "hit_rank": null,
             "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0
+            "top_1_score": 0.6900666952133179
           },
           "hybrid": {
-            "hit_rank": 5,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 0.9235945072624244
+            "hit_rank": null,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 4",
+            "top_1_score": 0.9320038924117492
+          }
+        }
+      },
+      {
+        "id": "Q07",
+        "difficulty": "Hard",
+        "question": "According to Theorem 1 in FlashAttention, what is the asymptotic IO complexity (number of memory accesses) between slow HBM and fast SRAM as a function of SRAM size M?",
+        "target_section_id": "2205.14135_p5",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": null,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 2",
+            "top_1_score": 44.177738189697266
+          },
+          "dense_faiss": {
+            "hit_rank": null,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+            "top_1_score": 0.7696905732154846
+          },
+          "hybrid": {
+            "hit_rank": null,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+            "top_1_score": 0.9562263096509788
+          }
+        }
+      },
+      {
+        "id": "Q08",
+        "difficulty": "Hard",
+        "question": "In the FlashAttention forward pass algorithm, how are the block sizes B_c and B_r determined relative to the SRAM size M and head dimension d?",
+        "target_section_id": "2205.14135_p5",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": null,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+            "top_1_score": 36.86878967285156
+          },
+          "dense_faiss": {
+            "hit_rank": null,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 21",
+            "top_1_score": 0.579174816608429
+          },
+          "hybrid": {
+            "hit_rank": null,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+            "top_1_score": 0.9913699177549807
+          }
+        }
+      },
+      {
+        "id": "Q09",
+        "difficulty": "Medium",
+        "question": "In Deep Residual Learning (ResNet), what is the 'degradation problem' and how did the authors prove it was not caused by overfitting?",
+        "target_section_id": "1512.03385_p1",
+        "target_paper": "Deep Residual Learning for Image Recognition",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 3,
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 5",
+            "top_1_score": 26.269350051879883
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 1",
+            "top_1_score": 0.7009201049804688
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 1",
+            "top_1_score": 0.9875990954572831
           }
         }
       },
       {
         "id": "Q10",
-        "question": "How much memory per parameter does Double Quantization (DQ) save, and how is the 8-bit secondary quantization structured?",
-        "target_section_id": "2305.14314_p4",
-        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "difficulty": "Hard",
+        "question": "What are the three shortcut options (A, B, and C) evaluated in ResNet for increasing dimensions across residual stages?",
+        "target_section_id": "1512.03385_p5",
+        "target_paper": "Deep Residual Learning for Image Recognition",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": null,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0
+            "hit_rank": 3,
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 4",
+            "top_1_score": 36.62028503417969
           },
           "dense_faiss": {
             "hit_rank": 5,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 6",
+            "top_1_score": 0.6366694569587708
           },
           "hybrid": {
-            "hit_rank": null,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0000000238418578
+            "hit_rank": 3,
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 4",
+            "top_1_score": 0.9813289580595159
           }
         }
       },
       {
         "id": "Q11",
-        "question": "How do Paged Optimizers utilize NVIDIA Unified Memory to prevent out-of-memory errors during activation peaks?",
-        "target_section_id": "2305.14314_p4",
-        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "difficulty": "Medium",
+        "question": "During BERT pre-training with the Masked Language Model, what is the exact 80-10-10 breakdown for replacing selected tokens?",
+        "target_section_id": "1810.04805_p12",
+        "target_paper": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 2,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0
+            "hit_rank": 5,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 16",
+            "top_1_score": 24.65706443786621
           },
           "dense_faiss": {
-            "hit_rank": null,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0
+            "hit_rank": 2,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 16",
+            "top_1_score": 0.7194781303405762
           },
           "hybrid": {
             "hit_rank": 4,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0000000238418578
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 16",
+            "top_1_score": 0.9762801097520968
           }
         }
       },
       {
         "id": "Q12",
-        "question": "How did 4-bit QLoRA with Guanaco compare to 16-bit full fine-tuning on the Vicuna benchmark?",
-        "target_section_id": "2305.14314_p7",
-        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "difficulty": "Easy",
+        "question": "What is the Next Sentence Prediction (NSP) task in BERT, and what are the positive and negative training label proportions?",
+        "target_section_id": "1810.04805_p4",
+        "target_paper": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 2,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 15",
-            "top_1_score": 1.0
+            "hit_rank": 3,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 8",
+            "top_1_score": 33.43961715698242
           },
           "dense_faiss": {
-            "hit_rank": 2,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 2",
-            "top_1_score": 1.0
+            "hit_rank": 1,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 4",
+            "top_1_score": 0.7156317234039307
           },
           "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 7",
-            "top_1_score": 0.963304461587175
+            "hit_rank": 3,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 13",
+            "top_1_score": 0.9776464636691315
           }
         }
       },
       {
         "id": "Q13",
-        "question": "What are the two core algorithmic techniques of FlashAttention that compute exact attention without storing the full N x N matrix in HBM?",
-        "target_section_id": "2205.14135_p3",
-        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "difficulty": "Medium",
+        "question": "How did Chinchilla revise the compute-optimal scaling relationship between model parameters and training tokens compared to Kaplan et al. (2020)?",
+        "target_section_id": "2203.15556_p1",
+        "target_paper": "Training Compute-Optimal Large Language Models",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 2",
-            "top_1_score": 1.0
+            "hit_rank": 1,
+            "top_1_header": "[Training Compute-Optimal Large Language Models] Page 1",
+            "top_1_score": 32.66010665893555
           },
           "dense_faiss": {
-            "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 4",
-            "top_1_score": 1.0
+            "hit_rank": 1,
+            "top_1_header": "[Training Compute-Optimal Large Language Models] Page 1",
+            "top_1_score": 0.5706736445426941
           },
           "hybrid": {
-            "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 2",
-            "top_1_score": 0.9413990616798401
+            "hit_rank": 1,
+            "top_1_header": "[Training Compute-Optimal Large Language Models] Page 1",
+            "top_1_score": 0.9135909723045461
           }
         }
       },
       {
         "id": "Q14",
-        "question": "What is the theoretical IO complexity of standard attention vs FlashAttention in terms of sequence length N, head dimension d, and SRAM size M?",
-        "target_section_id": "2205.14135_p4",
-        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "difficulty": "Hard",
+        "question": "What attention mechanism pattern was used across the layers of GPT-3 to handle long sequences, alternating with standard dense attention?",
+        "target_section_id": "2005.14165_p8",
+        "target_paper": "Language Models are Few-Shot Learners",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-            "top_1_score": 1.0
+            "hit_rank": 4,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 26",
+            "top_1_score": 24.016809463500977
           },
           "dense_faiss": {
             "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
-            "top_1_score": 1.0
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 34",
+            "top_1_score": 0.5963900685310364
           },
           "hybrid": {
             "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-            "top_1_score": 0.9657821297645569
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 3",
+            "top_1_score": 0.8639734573688311
           }
         }
       },
       {
         "id": "Q15",
-        "question": "What end-to-end wall-clock speedup does FlashAttention achieve on BERT-large training and GPT-2 inference compared to standard HuggingFace implementations?",
-        "target_section_id": "2205.14135_p7",
-        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "difficulty": "Hard",
+        "question": "What is Ghost Attention (GAtt) introduced in Llama 2, and what specific failure mode in multi-turn dialogues does it fix?",
+        "target_section_id": "2307.09288_p16",
+        "target_paper": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 2,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 1",
-            "top_1_score": 1.0
+            "hit_rank": 3,
+            "top_1_header": "[Llama 2: Open Foundation and Fine-Tuned Chat Models] Page 54",
+            "top_1_score": 28.68677520751953
           },
           "dense_faiss": {
             "hit_rank": 1,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-            "top_1_score": 1.0
+            "top_1_header": "[Llama 2: Open Foundation and Fine-Tuned Chat Models] Page 16",
+            "top_1_score": 0.6973215341567993
           },
           "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-            "top_1_score": 0.9979322483251325
+            "hit_rank": 2,
+            "top_1_header": "[Llama 2: Open Foundation and Fine-Tuned Chat Models] Page 54",
+            "top_1_score": 0.8960355032013536
           }
         }
       }
@@ -374,370 +395,385 @@
   "setting_B_512": {
     "chunk_size": 512,
     "chunk_overlap": 100,
-    "total_chunks": 279,
+    "total_chunks": 913,
     "summary": {
       "sparse_bm25": {
-        "recall@1": 0.6,
-        "recall@3": 0.7333333333333333,
-        "recall@5": 0.7333333333333333,
-        "mrr@5": 0.6444444444444444
+        "recall@1": 0.3333333333333333,
+        "recall@3": 0.6666666666666666,
+        "recall@5": 0.8,
+        "mrr@5": 0.49999999999999994
       },
       "dense_faiss": {
-        "recall@1": 0.26666666666666666,
-        "recall@3": 0.6,
-        "recall@5": 0.6666666666666666,
-        "mrr@5": 0.4166666666666667
+        "recall@1": 0.4,
+        "recall@3": 0.4666666666666667,
+        "recall@5": 0.5333333333333333,
+        "mrr@5": 0.45
       },
       "hybrid": {
-        "recall@1": 0.6,
-        "recall@3": 0.7333333333333333,
+        "recall@1": 0.26666666666666666,
+        "recall@3": 0.6,
         "recall@5": 0.7333333333333333,
-        "mrr@5": 0.6555555555555554
+        "mrr@5": 0.4555555555555556
       }
     },
     "details": [
       {
         "id": "Q01",
-        "question": "What is the dimensionality d_model and the number of layers N in the encoder and decoder of the base Transformer?",
+        "difficulty": "Easy",
+        "question": "What is the dimensionality d_model and the number of identical layers N in the encoder and decoder of the base Transformer?",
         "target_section_id": "1706.03762_p3",
         "target_paper": "Attention Is All You Need",
         "results_by_mode": {
           "sparse_bm25": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 3",
-            "top_1_score": 1.0
+            "top_1_score": 31.905214309692383
           },
           "dense_faiss": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 3",
-            "top_1_score": 1.0
+            "top_1_score": 0.6041260957717896
           },
           "hybrid": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 3",
-            "top_1_score": 1.0000000238418578
+            "top_1_score": 1.0
           }
         }
       },
       {
         "id": "Q02",
-        "question": "What exact formula is used for Positional Encoding using sine and cosine functions of different frequencies?",
-        "target_section_id": "1706.03762_p6",
-        "target_paper": "Attention Is All You Need",
-        "results_by_mode": {
-          "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 6",
-            "top_1_score": 1.0
-          },
-          "dense_faiss": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 6",
-            "top_1_score": 1.0
-          },
-          "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 6",
-            "top_1_score": 0.9280094742774964
-          }
-        }
-      },
-      {
-        "id": "Q03",
-        "question": "What learning rate warmup formula and number of warmup steps were used to train the Transformer?",
-        "target_section_id": "1706.03762_p7",
-        "target_paper": "Attention Is All You Need",
-        "results_by_mode": {
-          "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 7",
-            "top_1_score": 1.0
-          },
-          "dense_faiss": {
-            "hit_rank": null,
-            "top_1_header": "[Attention Is All You Need] Page 8",
-            "top_1_score": 1.0
-          },
-          "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[Attention Is All You Need] Page 7",
-            "top_1_score": 0.8860720932483673
-          }
-        }
-      },
-      {
-        "id": "Q04",
-        "question": "What BLEU score did the big Transformer model achieve on WMT 2014 English-to-German, and how many days was it trained?",
+        "difficulty": "Hard",
+        "question": "What value of label smoothing was employed during training of the Transformer, and what unexpected trade-off between perplexity and BLEU was observed?",
         "target_section_id": "1706.03762_p8",
         "target_paper": "Attention Is All You Need",
         "results_by_mode": {
           "sparse_bm25": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 8",
-            "top_1_score": 1.0
+            "top_1_score": 42.49617385864258
           },
           "dense_faiss": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 8",
-            "top_1_score": 1.0
+            "top_1_score": 0.5898319482803345
           },
           "hybrid": {
             "hit_rank": 1,
             "top_1_header": "[Attention Is All You Need] Page 8",
-            "top_1_score": 0.9664253234863281
+            "top_1_score": 0.9443040023897157
+          }
+        }
+      },
+      {
+        "id": "Q03",
+        "difficulty": "Medium",
+        "question": "In LoRA, how is the adapter update scaled using alpha and rank r, and why is alpha kept constant when varying r?",
+        "target_section_id": "2106.09685_p4",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
+            "top_1_score": 22.614315032958984
+          },
+          "dense_faiss": {
+            "hit_rank": null,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 3",
+            "top_1_score": 0.45107072591781616
+          },
+          "hybrid": {
+            "hit_rank": 2,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 6",
+            "top_1_score": 0.882172040989688
+          }
+        }
+      },
+      {
+        "id": "Q04",
+        "difficulty": "Hard",
+        "question": "How did the authors of LoRA evaluate the subspace similarity between adapters of different ranks (e.g., r=8 and r=64) using Grassmann distance?",
+        "target_section_id": "2106.09685_p11",
+        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "results_by_mode": {
+          "sparse_bm25": {
+            "hit_rank": 1,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 11",
+            "top_1_score": 41.223228454589844
+          },
+          "dense_faiss": {
+            "hit_rank": 1,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 11",
+            "top_1_score": 0.6337432861328125
+          },
+          "hybrid": {
+            "hit_rank": 1,
+            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 11",
+            "top_1_score": 1.0
           }
         }
       },
       {
         "id": "Q05",
-        "question": "How is the low-rank update matrix Delta W scaled with respect to rank r and constant alpha during training in LoRA?",
-        "target_section_id": "2106.09685_p4",
-        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "difficulty": "Medium",
+        "question": "How much memory does Double Quantization save per parameter in QLoRA, and how does it achieve this reduction?",
+        "target_section_id": "2305.14314_p2",
+        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-            "top_1_score": 1.0
+            "hit_rank": 3,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
+            "top_1_score": 37.28068923950195
           },
           "dense_faiss": {
             "hit_rank": 4,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10",
-            "top_1_score": 1.0
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 3",
+            "top_1_score": 0.6840170621871948
           },
           "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-            "top_1_score": 0.9617309808731079
+            "hit_rank": 3,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
+            "top_1_score": 0.9586566267296461
           }
         }
       },
       {
         "id": "Q06",
-        "question": "Why does LoRA introduce zero additional inference latency when deployed in production?",
-        "target_section_id": "2106.09685_p4",
-        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "difficulty": "Easy",
+        "question": "What hardware mechanism do Paged Optimizers utilize in QLoRA to prevent out-of-memory errors during gradient checkpointing?",
+        "target_section_id": "2305.14314_p2",
+        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-            "top_1_score": 1.0
+            "hit_rank": null,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 4",
+            "top_1_score": 34.73915100097656
           },
           "dense_faiss": {
-            "hit_rank": 3,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 22",
-            "top_1_score": 1.0
+            "hit_rank": null,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
+            "top_1_score": 0.6900666952133179
           },
           "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-            "top_1_score": 0.9522490562493484
+            "hit_rank": null,
+            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 4",
+            "top_1_score": 0.8797767857682702
           }
         }
       },
       {
         "id": "Q07",
-        "question": "For a GPT-3 175B model, what was the reduction in VRAM and checkpoint file storage achieved by LoRA compared to full fine-tuning?",
-        "target_section_id": "2106.09685_p5",
-        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "difficulty": "Hard",
+        "question": "According to Theorem 1 in FlashAttention, what is the asymptotic IO complexity (number of memory accesses) between slow HBM and fast SRAM as a function of SRAM size M?",
+        "target_section_id": "2205.14135_p5",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 5",
-            "top_1_score": 1.0
+            "hit_rank": 4,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 1",
+            "top_1_score": 47.69935989379883
           },
           "dense_faiss": {
-            "hit_rank": 2,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 4",
-            "top_1_score": 1.0
+            "hit_rank": null,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+            "top_1_score": 0.691072940826416
           },
           "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 5",
-            "top_1_score": 0.8662975237080142
+            "hit_rank": null,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 2",
+            "top_1_score": 0.9585968908326659
           }
         }
       },
       {
         "id": "Q08",
-        "question": "Which Transformer weight matrices did the authors find most critical to adapt when setting a parameter budget of rank 4?",
-        "target_section_id": "2106.09685_p8",
-        "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "difficulty": "Hard",
+        "question": "In the FlashAttention forward pass algorithm, how are the block sizes B_c and B_r determined relative to the SRAM size M and head dimension d?",
+        "target_section_id": "2205.14135_p5",
+        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
         "results_by_mode": {
           "sparse_bm25": {
             "hit_rank": null,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10",
-            "top_1_score": 1.0
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+            "top_1_score": 42.096351623535156
           },
           "dense_faiss": {
             "hit_rank": null,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10",
-            "top_1_score": 1.0
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 2",
+            "top_1_score": 0.5650041103363037
           },
           "hybrid": {
             "hit_rank": null,
-            "top_1_header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10",
-            "top_1_score": 1.0000000238418578
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+            "top_1_score": 0.9713468842716196
           }
         }
       },
       {
         "id": "Q09",
-        "question": "How does the 4-bit NormalFloat (NF4) data type construct its 16 quantization bins to be information-theoretically optimal?",
-        "target_section_id": "2305.14314_p3",
-        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "difficulty": "Medium",
+        "question": "In Deep Residual Learning (ResNet), what is the 'degradation problem' and how did the authors prove it was not caused by overfitting?",
+        "target_section_id": "1512.03385_p1",
+        "target_paper": "Deep Residual Learning for Image Recognition",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": null,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 4",
-            "top_1_score": 1.0
+            "hit_rank": 4,
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 5",
+            "top_1_score": 30.550683975219727
           },
           "dense_faiss": {
-            "hit_rank": 3,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0
+            "hit_rank": 1,
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 1",
+            "top_1_score": 0.6990548372268677
           },
           "hybrid": {
-            "hit_rank": 3,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 0.959220218224812
+            "hit_rank": 2,
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 5",
+            "top_1_score": 0.9019857191993925
           }
         }
       },
       {
         "id": "Q10",
-        "question": "How much memory per parameter does Double Quantization (DQ) save, and how is the 8-bit secondary quantization structured?",
-        "target_section_id": "2305.14314_p4",
-        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "difficulty": "Hard",
+        "question": "What are the three shortcut options (A, B, and C) evaluated in ResNet for increasing dimensions across residual stages?",
+        "target_section_id": "1512.03385_p5",
+        "target_paper": "Deep Residual Learning for Image Recognition",
         "results_by_mode": {
           "sparse_bm25": {
             "hit_rank": 3,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 4",
+            "top_1_score": 33.80427551269531
           },
           "dense_faiss": {
             "hit_rank": null,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 6",
+            "top_1_score": 0.6366694569587708
           },
           "hybrid": {
-            "hit_rank": null,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0000000238418578
+            "hit_rank": 4,
+            "top_1_header": "[Deep Residual Learning for Image Recognition] Page 6",
+            "top_1_score": 0.9385862895002566
           }
         }
       },
       {
         "id": "Q11",
-        "question": "How do Paged Optimizers utilize NVIDIA Unified Memory to prevent out-of-memory errors during activation peaks?",
-        "target_section_id": "2305.14314_p4",
-        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "difficulty": "Medium",
+        "question": "During BERT pre-training with the Masked Language Model, what is the exact 80-10-10 breakdown for replacing selected tokens?",
+        "target_section_id": "1810.04805_p12",
+        "target_paper": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 4",
-            "top_1_score": 1.0
+            "hit_rank": null,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 16",
+            "top_1_score": 22.203628540039062
           },
           "dense_faiss": {
-            "hit_rank": null,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 1.0
+            "hit_rank": 1,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 12",
+            "top_1_score": 0.700076699256897
           },
           "hybrid": {
-            "hit_rank": 2,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-            "top_1_score": 0.9874633441653267
+            "hit_rank": 4,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 1",
+            "top_1_score": 0.9218746974192995
           }
         }
       },
       {
         "id": "Q12",
-        "question": "How did 4-bit QLoRA with Guanaco compare to 16-bit full fine-tuning on the Vicuna benchmark?",
-        "target_section_id": "2305.14314_p7",
-        "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+        "difficulty": "Easy",
+        "question": "What is the Next Sentence Prediction (NSP) task in BERT, and what are the positive and negative training label proportions?",
+        "target_section_id": "1810.04805_p4",
+        "target_paper": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 3,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 15",
-            "top_1_score": 1.0
+            "hit_rank": 2,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 8",
+            "top_1_score": 35.7312126159668
           },
           "dense_faiss": {
-            "hit_rank": 2,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 2",
-            "top_1_score": 1.0
+            "hit_rank": 1,
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 4",
+            "top_1_score": 0.7156317234039307
           },
           "hybrid": {
             "hit_rank": 1,
-            "top_1_header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 7",
-            "top_1_score": 0.925126012607597
+            "top_1_header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 4",
+            "top_1_score": 0.9605335825560337
           }
         }
       },
       {
         "id": "Q13",
-        "question": "What are the two core algorithmic techniques of FlashAttention that compute exact attention without storing the full N x N matrix in HBM?",
-        "target_section_id": "2205.14135_p3",
-        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "difficulty": "Medium",
+        "question": "How did Chinchilla revise the compute-optimal scaling relationship between model parameters and training tokens compared to Kaplan et al. (2020)?",
+        "target_section_id": "2203.15556_p1",
+        "target_paper": "Training Compute-Optimal Large Language Models",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 2",
-            "top_1_score": 1.0
+            "hit_rank": 1,
+            "top_1_header": "[Training Compute-Optimal Large Language Models] Page 1",
+            "top_1_score": 31.704404830932617
           },
           "dense_faiss": {
-            "hit_rank": 3,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 20",
-            "top_1_score": 1.0
+            "hit_rank": null,
+            "top_1_header": "[Training Compute-Optimal Large Language Models] Page 31",
+            "top_1_score": 0.5218153595924377
           },
           "hybrid": {
-            "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 2",
-            "top_1_score": 0.9946453809738159
+            "hit_rank": 2,
+            "top_1_header": "[Training Compute-Optimal Large Language Models] Page 8",
+            "top_1_score": 0.9615349612661632
           }
         }
       },
       {
         "id": "Q14",
-        "question": "What is the theoretical IO complexity of standard attention vs FlashAttention in terms of sequence length N, head dimension d, and SRAM size M?",
-        "target_section_id": "2205.14135_p4",
-        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "difficulty": "Hard",
+        "question": "What attention mechanism pattern was used across the layers of GPT-3 to handle long sequences, alternating with standard dense attention?",
+        "target_section_id": "2005.14165_p8",
+        "target_paper": "Language Models are Few-Shot Learners",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 29",
-            "top_1_score": 1.0
+            "hit_rank": 2,
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 26",
+            "top_1_score": 21.55091094970703
           },
           "dense_faiss": {
             "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-            "top_1_score": 1.0
+            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 32",
+            "top_1_score": 0.5495901107788086
           },
           "hybrid": {
             "hit_rank": null,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-            "top_1_score": 0.9544580856338439
+            "top_1_header": "[Attention Is All You Need] Page 7",
+            "top_1_score": 0.8583080093354196
           }
         }
       },
       {
         "id": "Q15",
-        "question": "What end-to-end wall-clock speedup does FlashAttention achieve on BERT-large training and GPT-2 inference compared to standard HuggingFace implementations?",
-        "target_section_id": "2205.14135_p7",
-        "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "difficulty": "Hard",
+        "question": "What is Ghost Attention (GAtt) introduced in Llama 2, and what specific failure mode in multi-turn dialogues does it fix?",
+        "target_section_id": "2307.09288_p16",
+        "target_paper": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
         "results_by_mode": {
           "sparse_bm25": {
-            "hit_rank": 1,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-            "top_1_score": 1.0
+            "hit_rank": 3,
+            "top_1_header": "[Llama 2: Open Foundation and Fine-Tuned Chat Models] Page 54",
+            "top_1_score": 26.582077026367188
           },
           "dense_faiss": {
-            "hit_rank": 1,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-            "top_1_score": 1.0
+            "hit_rank": 2,
+            "top_1_header": "[Llama 2: Open Foundation and Fine-Tuned Chat Models] Page 54",
+            "top_1_score": 0.5461170673370361
           },
           "hybrid": {
-            "hit_rank": 1,
-            "top_1_header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-            "top_1_score": 1.0000000238418578
+            "hit_rank": 2,
+            "top_1_header": "[Llama 2: Open Foundation and Fine-Tuned Chat Models] Page 54",
+            "top_1_score": 1.0
           }
         }
       }

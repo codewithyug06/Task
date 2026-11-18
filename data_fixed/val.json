@@ -1,0 +1,552 @@
+[
+  {
+    "domain": "Sentiment Analysis",
+    "abstract": "We present Zenith-v4, an open framework designed for Aspect-Based Sentiment Classification. Across rigorous experiments on IMDB Movie Reviews, Zenith-v4 secures a top AUC-ROC of 93.68%, outstripping RoBERTa-base by 2.8% margin (92.08%). The architecture contains 1.3B trainable parameters and delivers 2.4x faster iteration times.",
+    "target": {
+      "task": "Aspect-Based Sentiment Classification",
+      "dataset": "IMDB Movie Reviews",
+      "metric": "AUC-ROC",
+      "result": "93.68%",
+      "baseline": "RoBERTa-base"
+    }
+  },
+  {
+    "domain": "Question Answering",
+    "abstract": "Addressing the critical challenge of Multi-Hop Reading Comprehension, this paper proposes QuantumScale. Operating with 45M weights, QuantumScale demonstrates strong empirical results on the standard SQuAD 2.0 benchmark. Specifically, it establishes a new Exact Match of 77.9%, exceeding the prior state-of-the-art T5-3B which attained 75.24%. This corresponds to a 6.0% relative gain.",
+    "target": {
+      "task": "Multi-Hop Reading Comprehension",
+      "dataset": "SQuAD 2.0",
+      "metric": "Exact Match",
+      "result": "77.9%",
+      "baseline": "T5-3B"
+    }
+  },
+  {
+    "domain": "Question Answering",
+    "abstract": "Addressing the critical challenge of Extractive Question Answering, this paper proposes SyncNet. Operating with 7B weights, SyncNet demonstrates strong empirical results on the standard NaturalQuestions benchmark. Specifically, it establishes a new NoAns F1 of 86.73 EM, exceeding the prior state-of-the-art BERT-Large which attained 83.58 EM. This corresponds to a 5.2% relative gain.",
+    "target": {
+      "task": "Extractive Question Answering",
+      "dataset": "NaturalQuestions",
+      "metric": "NoAns F1",
+      "result": "86.73 EM",
+      "baseline": "BERT-Large"
+    }
+  },
+  {
+    "domain": "Semantic Segmentation",
+    "abstract": "Recent advances in Real-Time Urban Segmentation require efficient yet scalable models. Here, we present VectorPulse (350M params). Evaluated across COCO-Stuff, our system records a Boundary F1 of 56.7. In direct head-to-head comparison against DeepLabv3+ (53.63), our approach exhibits both higher accuracy and a 2.1x throughput advantage.",
+    "target": {
+      "task": "Real-Time Urban Segmentation",
+      "dataset": "COCO-Stuff",
+      "metric": "Boundary F1",
+      "result": "56.7",
+      "baseline": "DeepLabv3+"
+    }
+  },
+  {
+    "domain": "Image Classification",
+    "abstract": "Recent advances in Robust Visual Recognition require efficient yet scalable models. Here, we present Apex-Core (110M params). Evaluated across ImageNet-1k, our system records a Macro F1 of 78.84%. In direct head-to-head comparison against ViT-Base/16 (77.42%), our approach exhibits both higher accuracy and a 2.4x throughput advantage.",
+    "target": {
+      "task": "Robust Visual Recognition",
+      "dataset": "ImageNet-1k",
+      "metric": "Macro F1",
+      "result": "78.84%",
+      "baseline": "ViT-Base/16"
+    }
+  },
+  {
+    "domain": "Machine Translation",
+    "abstract": "Addressing the critical challenge of Neural Machine Translation, this paper proposes PolyMorph-v1. Operating with 350M weights, PolyMorph-v1 demonstrates strong empirical results on the standard WMT-14 En-De benchmark. Specifically, it establishes a new METEOR of 43.62, exceeding the prior state-of-the-art ByteNet which attained 40.52. This corresponds to a 5.2% relative gain.",
+    "target": {
+      "task": "Neural Machine Translation",
+      "dataset": "WMT-14 En-De",
+      "metric": "METEOR",
+      "result": "43.62",
+      "baseline": "ByteNet"
+    }
+  },
+  {
+    "domain": "Language Modeling",
+    "abstract": "Recent advances in Long-Context Pretraining require efficient yet scalable models. Here, we present Zenith-v4 (110M params). Evaluated across Lambada, our system records a Perplexity of 18.05. In direct head-to-head comparison against GPT-2-Medium (14.77), our approach exhibits both higher accuracy and a 1.5x throughput advantage.",
+    "target": {
+      "task": "Long-Context Pretraining",
+      "dataset": "Lambada",
+      "metric": "Perplexity",
+      "result": "18.05",
+      "baseline": "GPT-2-Medium"
+    }
+  },
+  {
+    "domain": "Named Entity Recognition",
+    "abstract": "Addressing the critical challenge of Cross-Domain Named Entity Recognition, this paper proposes SyncNet. Operating with 65M weights, SyncNet demonstrates strong empirical results on the standard WNUT-17 benchmark. Specifically, it establishes a new Strict Match F1 of 88.9%, exceeding the prior state-of-the-art LUKE-Base which attained 85.16%. This corresponds to a 5.2% relative gain.",
+    "target": {
+      "task": "Cross-Domain Named Entity Recognition",
+      "dataset": "WNUT-17",
+      "metric": "Strict Match F1",
+      "result": "88.9%",
+      "baseline": "LUKE-Base"
+    }
+  },
+  {
+    "domain": "Question Answering",
+    "abstract": "In this paper, we tackle Conversational QA by introducing AeroNet. On the SQuAD 2.0 evaluation suite, our model reaches a Macro F1 of 78.69 EM, surpassing the competitive baseline ALBERT-xxlarge which scored 75.61 EM. Despite containing 65M parameters, AeroNet reduces inference latency by 1.5x.",
+    "target": {
+      "task": "Conversational QA",
+      "dataset": "SQuAD 2.0",
+      "metric": "Macro F1",
+      "result": "78.69 EM",
+      "baseline": "ALBERT-xxlarge"
+    }
+  },
+  {
+    "domain": "Named Entity Recognition",
+    "abstract": "We present DeepScale-v2, an open framework designed for Token-Level Entity Extraction. Across rigorous experiments on CoNLL-2003, DeepScale-v2 secures a top Precision of 86.91 F1, outstripping LUKE-Base by 4.1% margin (84.3 F1). The architecture contains 7B trainable parameters and delivers 3.2x faster iteration times.",
+    "target": {
+      "task": "Token-Level Entity Extraction",
+      "dataset": "CoNLL-2003",
+      "metric": "Precision",
+      "result": "86.91 F1",
+      "baseline": "LUKE-Base"
+    }
+  },
+  {
+    "domain": "Sentiment Analysis",
+    "abstract": "In this paper, we tackle Document Polarity Detection by introducing OmniFormer. On the SemEval-2017 evaluation suite, our model reaches a Binary F1 of 81.16%, surpassing the competitive baseline DistilBERT which scored 77.22%. Despite containing 45M parameters, OmniFormer reduces inference latency by 3.2x.",
+    "target": {
+      "task": "Document Polarity Detection",
+      "dataset": "SemEval-2017",
+      "metric": "Binary F1",
+      "result": "81.16%",
+      "baseline": "DistilBERT"
+    }
+  },
+  {
+    "domain": "Language Modeling",
+    "abstract": "We present Zenith-v4, an open framework designed for Causal Language Modeling. Across rigorous experiments on WikiText-103, Zenith-v4 secures a top Bits-per-Character of 70.41, outstripping AWD-LSTM by 5.2% margin (68.32). The architecture contains 110M trainable parameters and delivers 1.8x faster iteration times.",
+    "target": {
+      "task": "Causal Language Modeling",
+      "dataset": "WikiText-103",
+      "metric": "Bits-per-Character",
+      "result": "70.41",
+      "baseline": "AWD-LSTM"
+    }
+  },
+  {
+    "domain": "Image Classification",
+    "abstract": "In this work, we study Robust Visual Recognition. We introduce FlashNet, an architecture with 1.3B parameters. When evaluated on Places365, our model achieves a Mean Average Precision of 77.15%, outperforming ViT-Base/16 (74.92%). Furthermore, we observe a 4.0x speedup during inference.",
+    "target": {
+      "task": "Robust Visual Recognition",
+      "dataset": "Places365",
+      "metric": "Mean Average Precision",
+      "result": "77.15%",
+      "baseline": "ViT-Base/16"
+    }
+  },
+  {
+    "domain": "Image Classification",
+    "abstract": "We present PolyMorph-v1, an open framework designed for Zero-Shot Image Classification. Across rigorous experiments on CIFAR-100, PolyMorph-v1 secures a top Macro F1 of 81.84, outstripping ResNet-50 by 3.4% margin (79.35). The architecture contains 1.3B trainable parameters and delivers 4.0x faster iteration times.",
+    "target": {
+      "task": "Zero-Shot Image Classification",
+      "dataset": "CIFAR-100",
+      "metric": "Macro F1",
+      "result": "81.84",
+      "baseline": "ResNet-50"
+    }
+  },
+  {
+    "domain": "Named Entity Recognition",
+    "abstract": "In this work, we study Nested Entity Detection. We introduce Zenith-v4, an architecture with 1.3B parameters. When evaluated on WNUT-17, our model achieves a Entity F1 of 92.62 F1, outperforming LUKE-Base (89.41 F1). Furthermore, we observe a 3.2x speedup during inference.",
+    "target": {
+      "task": "Nested Entity Detection",
+      "dataset": "WNUT-17",
+      "metric": "Entity F1",
+      "result": "92.62 F1",
+      "baseline": "LUKE-Base"
+    }
+  },
+  {
+    "domain": "Object Detection",
+    "abstract": "In this paper, we tackle Real-Time Bounding Box Regression by introducing AeroNet. On the MS-COCO 2017 evaluation suite, our model reaches a mAP@0.5:0.95 of 49.67%, surpassing the competitive baseline DETR-DC5 which scored 47.06%. Despite containing 110M parameters, AeroNet reduces inference latency by 1.5x.",
+    "target": {
+      "task": "Real-Time Bounding Box Regression",
+      "dataset": "MS-COCO 2017",
+      "metric": "mAP@0.5:0.95",
+      "result": "49.67%",
+      "baseline": "DETR-DC5"
+    }
+  },
+  {
+    "domain": "Object Detection",
+    "abstract": "In this work, we study Oriented Object Localization. We introduce Apex-Core, an architecture with 1.3B parameters. When evaluated on OpenImages-v6, our model achieves a AP50 of 50.88 mAP, outperforming DETR-DC5 (49.41 mAP). Furthermore, we observe a 1.8x speedup during inference.",
+    "target": {
+      "task": "Oriented Object Localization",
+      "dataset": "OpenImages-v6",
+      "metric": "AP50",
+      "result": "50.88 mAP",
+      "baseline": "DETR-DC5"
+    }
+  },
+  {
+    "domain": "Semantic Segmentation",
+    "abstract": "Addressing the critical challenge of Boundary-Aware Segmentation, this paper proposes PolyMorph-v1. Operating with 65M weights, PolyMorph-v1 demonstrates strong empirical results on the standard Pascal Context benchmark. Specifically, it establishes a new Class IoU of 55.25%, exceeding the prior state-of-the-art Mask2Former which attained 51.38%. This corresponds to a 6.0% relative gain.",
+    "target": {
+      "task": "Boundary-Aware Segmentation",
+      "dataset": "Pascal Context",
+      "metric": "Class IoU",
+      "result": "55.25%",
+      "baseline": "Mask2Former"
+    }
+  },
+  {
+    "domain": "Semantic Segmentation",
+    "abstract": "We present Veloce-LM, an open framework designed for Pixel-Wise Semantic Segmentation. Across rigorous experiments on ADE20K, Veloce-LM secures a top Boundary F1 of 59.03%, outstripping U-Net-Large by 4.1% margin (54.7%). The architecture contains 125M trainable parameters and delivers 3.2x faster iteration times.",
+    "target": {
+      "task": "Pixel-Wise Semantic Segmentation",
+      "dataset": "ADE20K",
+      "metric": "Boundary F1",
+      "result": "59.03%",
+      "baseline": "U-Net-Large"
+    }
+  },
+  {
+    "domain": "Machine Translation",
+    "abstract": "In this paper, we tackle Neural Machine Translation by introducing QuantumScale. On the IWSLT-14 evaluation suite, our model reaches a METEOR of 29.02, surpassing the competitive baseline Transformer-Base which scored 27.22. Despite containing 125M parameters, QuantumScale reduces inference latency by 2.4x.",
+    "target": {
+      "task": "Neural Machine Translation",
+      "dataset": "IWSLT-14",
+      "metric": "METEOR",
+      "result": "29.02",
+      "baseline": "Transformer-Base"
+    }
+  },
+  {
+    "domain": "Image Classification",
+    "abstract": "In this work, we study Robust Visual Recognition. We introduce VectorPulse, an architecture with 1.3B parameters. When evaluated on iNaturalist, our model achieves a Error Rate of 91.71%, outperforming ResNet-50 (88.23%). Furthermore, we observe a 2.4x speedup during inference.",
+    "target": {
+      "task": "Robust Visual Recognition",
+      "dataset": "iNaturalist",
+      "metric": "Error Rate",
+      "result": "91.71%",
+      "baseline": "ResNet-50"
+    }
+  },
+  {
+    "domain": "Machine Translation",
+    "abstract": "Addressing the critical challenge of Low-Resource Cross-Lingual Translation, this paper proposes HyperForm. Operating with 110M weights, HyperForm demonstrates strong empirical results on the standard WMT-16 En-Ro benchmark. Specifically, it establishes a new SacreBLEU of 34.5, exceeding the prior state-of-the-art GNMT which attained 31.4. This corresponds to a 5.2% relative gain.",
+    "target": {
+      "task": "Low-Resource Cross-Lingual Translation",
+      "dataset": "WMT-16 En-Ro",
+      "metric": "SacreBLEU",
+      "result": "34.5",
+      "baseline": "GNMT"
+    }
+  },
+  {
+    "domain": "Named Entity Recognition",
+    "abstract": "Recent advances in Token-Level Entity Extraction require efficient yet scalable models. Here, we present NovaTrans (45M params). Evaluated across Few-NERD, our system records a Precision of 78.21. In direct head-to-head comparison against SpanBERT (74.79), our approach exhibits both higher accuracy and a 1.5x throughput advantage.",
+    "target": {
+      "task": "Token-Level Entity Extraction",
+      "dataset": "Few-NERD",
+      "metric": "Precision",
+      "result": "78.21",
+      "baseline": "SpanBERT"
+    }
+  },
+  {
+    "domain": "Language Modeling",
+    "abstract": "We present Zenith-v4, an open framework designed for Causal Language Modeling. Across rigorous experiments on Penn Treebank, Zenith-v4 secures a top Zero-shot Accuracy of 36.91, outstripping Transformer-XL by 3.4% margin (34.33). The architecture contains 1.3B trainable parameters and delivers 3.2x faster iteration times.",
+    "target": {
+      "task": "Causal Language Modeling",
+      "dataset": "Penn Treebank",
+      "metric": "Zero-shot Accuracy",
+      "result": "36.91",
+      "baseline": "Transformer-XL"
+    }
+  },
+  {
+    "domain": "Question Answering",
+    "abstract": "In this work, we study Conversational QA. We introduce Apex-Core, an architecture with 350M parameters. When evaluated on NaturalQuestions, our model achieves a F1 Score of 90.26 F1, outperforming RoBERTa-Large (87.66 F1). Furthermore, we observe a 3.2x speedup during inference.",
+    "target": {
+      "task": "Conversational QA",
+      "dataset": "NaturalQuestions",
+      "metric": "F1 Score",
+      "result": "90.26 F1",
+      "baseline": "RoBERTa-Large"
+    }
+  },
+  {
+    "domain": "Machine Translation",
+    "abstract": "Addressing the critical challenge of Low-Resource Cross-Lingual Translation, this paper proposes NovaTrans. Operating with 65M weights, NovaTrans demonstrates strong empirical results on the standard WMT-14 En-De benchmark. Specifically, it establishes a new METEOR of 28.45, exceeding the prior state-of-the-art ByteNet which attained 27.13. This corresponds to a 2.8% relative gain.",
+    "target": {
+      "task": "Low-Resource Cross-Lingual Translation",
+      "dataset": "WMT-14 En-De",
+      "metric": "METEOR",
+      "result": "28.45",
+      "baseline": "ByteNet"
+    }
+  },
+  {
+    "domain": "Language Modeling",
+    "abstract": "In this paper, we tackle Autoregressive Density Estimation by introducing Veloce-LM. On the Penn Treebank evaluation suite, our model reaches a Zero-shot Accuracy of 63.58%, surpassing the competitive baseline PaLM-8B which scored 59.32%. Despite containing 45M parameters, Veloce-LM reduces inference latency by 4.0x.",
+    "target": {
+      "task": "Autoregressive Density Estimation",
+      "dataset": "Penn Treebank",
+      "metric": "Zero-shot Accuracy",
+      "result": "63.58%",
+      "baseline": "PaLM-8B"
+    }
+  },
+  {
+    "domain": "Question Answering",
+    "abstract": "Addressing the critical challenge of Conversational QA, this paper proposes AeroNet. Operating with 7B weights, AeroNet demonstrates strong empirical results on the standard TriviaQA benchmark. Specifically, it establishes a new Exact Match of 75.49 EM, exceeding the prior state-of-the-art BERT-Large which attained 73.79 EM. This corresponds to a 4.1% relative gain.",
+    "target": {
+      "task": "Conversational QA",
+      "dataset": "TriviaQA",
+      "metric": "Exact Match",
+      "result": "75.49 EM",
+      "baseline": "BERT-Large"
+    }
+  },
+  {
+    "domain": "Semantic Segmentation",
+    "abstract": "Recent advances in Pixel-Wise Semantic Segmentation require efficient yet scalable models. Here, we present Zenith-v4 (65M params). Evaluated across Cityscapes, our system records a Boundary F1 of 61.49%. In direct head-to-head comparison against PSPNet-101 (58.7%), our approach exhibits both higher accuracy and a 2.1x throughput advantage.",
+    "target": {
+      "task": "Pixel-Wise Semantic Segmentation",
+      "dataset": "Cityscapes",
+      "metric": "Boundary F1",
+      "result": "61.49%",
+      "baseline": "PSPNet-101"
+    }
+  },
+  {
+    "domain": "Language Modeling",
+    "abstract": "Recent advances in Causal Language Modeling require efficient yet scalable models. Here, we present DeepScale-v2 (110M params). Evaluated across WikiText-103, our system records a Negative Log-Likelihood of 35.95. In direct head-to-head comparison against AWD-LSTM (33.53), our approach exhibits both higher accuracy and a 1.8x throughput advantage.",
+    "target": {
+      "task": "Causal Language Modeling",
+      "dataset": "WikiText-103",
+      "metric": "Negative Log-Likelihood",
+      "result": "35.95",
+      "baseline": "AWD-LSTM"
+    }
+  },
+  {
+    "domain": "Machine Translation",
+    "abstract": "We present PolyMorph-v1, an open framework designed for Neural Machine Translation. Across rigorous experiments on WMT-16 En-Ro, PolyMorph-v1 secures a top chrF of 29.6 BLEU, outstripping ConvS2S by 5.2% margin (27.26 BLEU). The architecture contains 7B trainable parameters and delivers 1.8x faster iteration times.",
+    "target": {
+      "task": "Neural Machine Translation",
+      "dataset": "WMT-16 En-Ro",
+      "metric": "chrF",
+      "result": "29.6 BLEU",
+      "baseline": "ConvS2S"
+    }
+  },
+  {
+    "domain": "Object Detection",
+    "abstract": "In this work, we study Real-Time Bounding Box Regression. We introduce FlashNet, an architecture with 3.8B parameters. When evaluated on LVIS v1.0, our model achieves a mAP@0.5:0.95 of 43.82 mAP, outperforming DETR-DC5 (40.66 mAP). Furthermore, we observe a 2.4x speedup during inference.",
+    "target": {
+      "task": "Real-Time Bounding Box Regression",
+      "dataset": "LVIS v1.0",
+      "metric": "mAP@0.5:0.95",
+      "result": "43.82 mAP",
+      "baseline": "DETR-DC5"
+    }
+  },
+  {
+    "domain": "Machine Translation",
+    "abstract": "Addressing the critical challenge of Neural Machine Translation, this paper proposes Zenith-v4. Operating with 65M weights, Zenith-v4 demonstrates strong empirical results on the standard OPUS-100 benchmark. Specifically, it establishes a new SacreBLEU of 28.37, exceeding the prior state-of-the-art ByteNet which attained 27.28. This corresponds to a 6.0% relative gain.",
+    "target": {
+      "task": "Neural Machine Translation",
+      "dataset": "OPUS-100",
+      "metric": "SacreBLEU",
+      "result": "28.37",
+      "baseline": "ByteNet"
+    }
+  },
+  {
+    "domain": "Named Entity Recognition",
+    "abstract": "In this paper, we tackle Nested Entity Detection by introducing OmniModel. On the Few-NERD evaluation suite, our model reaches a Precision of 75.61%, surpassing the competitive baseline Flair-Embeddings which scored 73.57%. Despite containing 3.8B parameters, OmniModel reduces inference latency by 3.2x.",
+    "target": {
+      "task": "Nested Entity Detection",
+      "dataset": "Few-NERD",
+      "metric": "Precision",
+      "result": "75.61%",
+      "baseline": "Flair-Embeddings"
+    }
+  },
+  {
+    "domain": "Object Detection",
+    "abstract": "In this work, we study Open-Vocabulary Object Detection. We introduce OmniModel, an architecture with 350M parameters. When evaluated on MS-COCO 2017, our model achieves a Average Recall of 62.71 AP, outperforming DETR-DC5 (59.03 AP). Furthermore, we observe a 2.1x speedup during inference.",
+    "target": {
+      "task": "Open-Vocabulary Object Detection",
+      "dataset": "MS-COCO 2017",
+      "metric": "Average Recall",
+      "result": "62.71 AP",
+      "baseline": "DETR-DC5"
+    }
+  },
+  {
+    "domain": "Language Modeling",
+    "abstract": "Recent advances in Long-Context Pretraining require efficient yet scalable models. Here, we present DeepScale-v2 (65M params). Evaluated across Penn Treebank, our system records a Zero-shot Accuracy of 21.16. In direct head-to-head comparison against AWD-LSTM (20.12), our approach exhibits both higher accuracy and a 2.1x throughput advantage.",
+    "target": {
+      "task": "Long-Context Pretraining",
+      "dataset": "Penn Treebank",
+      "metric": "Zero-shot Accuracy",
+      "result": "21.16",
+      "baseline": "AWD-LSTM"
+    }
+  },
+  {
+    "domain": "Language Modeling",
+    "abstract": "In this paper, we tackle Autoregressive Density Estimation by introducing AeroNet. On the One Billion Word evaluation suite, our model reaches a Cross-Entropy Loss of 33.57, surpassing the competitive baseline Megatron-LM which scored 31.09. Despite containing 3.8B parameters, AeroNet reduces inference latency by 4.0x.",
+    "target": {
+      "task": "Autoregressive Density Estimation",
+      "dataset": "One Billion Word",
+      "metric": "Cross-Entropy Loss",
+      "result": "33.57",
+      "baseline": "Megatron-LM"
+    }
+  },
+  {
+    "domain": "Sentiment Analysis",
+    "abstract": "Addressing the critical challenge of Aspect-Based Sentiment Classification, this paper proposes Veloce-LM. Operating with 1.3B weights, Veloce-LM demonstrates strong empirical results on the standard TweetEval benchmark. Specifically, it establishes a new Binary F1 of 88.15%, exceeding the prior state-of-the-art RoBERTa-base which attained 86.02%. This corresponds to a 6.0% relative gain.",
+    "target": {
+      "task": "Aspect-Based Sentiment Classification",
+      "dataset": "TweetEval",
+      "metric": "Binary F1",
+      "result": "88.15%",
+      "baseline": "RoBERTa-base"
+    }
+  },
+  {
+    "domain": "Named Entity Recognition",
+    "abstract": "We present QuantumScale, an open framework designed for Nested Entity Detection. Across rigorous experiments on CoNLL-2003, QuantumScale secures a top Strict Match F1 of 68.78 F1, outstripping RoBERTa-NER by 2.8% margin (66.34 F1). The architecture contains 7B trainable parameters and delivers 4.0x faster iteration times.",
+    "target": {
+      "task": "Nested Entity Detection",
+      "dataset": "CoNLL-2003",
+      "metric": "Strict Match F1",
+      "result": "68.78 F1",
+      "baseline": "RoBERTa-NER"
+    }
+  },
+  {
+    "domain": "Object Detection",
+    "abstract": "Recent advances in Oriented Object Localization require efficient yet scalable models. Here, we present PolyMorph-v1 (3.8B params). Evaluated across MS-COCO 2017, our system records a Average Recall of 57.07 mAP. In direct head-to-head comparison against Mask R-CNN (54.67 mAP), our approach exhibits both higher accuracy and a 4.0x throughput advantage.",
+    "target": {
+      "task": "Oriented Object Localization",
+      "dataset": "MS-COCO 2017",
+      "metric": "Average Recall",
+      "result": "57.07 mAP",
+      "baseline": "Mask R-CNN"
+    }
+  },
+  {
+    "domain": "Semantic Segmentation",
+    "abstract": "In this work, we study Boundary-Aware Segmentation. We introduce DeepScale-v2, an architecture with 3.8B parameters. When evaluated on ADE20K, our model achieves a Boundary F1 of 71.62%, outperforming PSPNet-101 (69.95%). Furthermore, we observe a 2.1x speedup during inference.",
+    "target": {
+      "task": "Boundary-Aware Segmentation",
+      "dataset": "ADE20K",
+      "metric": "Boundary F1",
+      "result": "71.62%",
+      "baseline": "PSPNet-101"
+    }
+  },
+  {
+    "domain": "Semantic Segmentation",
+    "abstract": "Recent advances in Pixel-Wise Semantic Segmentation require efficient yet scalable models. Here, we present VectorPulse (110M params). Evaluated across ADE20K, our system records a Frequency Weighted IoU of 75.63%. In direct head-to-head comparison against SegFormer-B5 (71.93%), our approach exhibits both higher accuracy and a 3.2x throughput advantage.",
+    "target": {
+      "task": "Pixel-Wise Semantic Segmentation",
+      "dataset": "ADE20K",
+      "metric": "Frequency Weighted IoU",
+      "result": "75.63%",
+      "baseline": "SegFormer-B5"
+    }
+  },
+  {
+    "domain": "Sentiment Analysis",
+    "abstract": "In this work, we study Aspect-Based Sentiment Classification. We introduce AeroNet, an architecture with 65M parameters. When evaluated on TweetEval, our model achieves a Balanced Accuracy of 81.06%, outperforming Electra-Large (77.59%). Furthermore, we observe a 2.4x speedup during inference.",
+    "target": {
+      "task": "Aspect-Based Sentiment Classification",
+      "dataset": "TweetEval",
+      "metric": "Balanced Accuracy",
+      "result": "81.06%",
+      "baseline": "Electra-Large"
+    }
+  },
+  {
+    "domain": "Sentiment Analysis",
+    "abstract": "We present Prism-AI, an open framework designed for Aspect-Based Sentiment Classification. Across rigorous experiments on SemEval-2017, Prism-AI secures a top Macro F1 of 91.88%, outstripping RoBERTa-base by 4.1% margin (88.62%). The architecture contains 3.8B trainable parameters and delivers 3.2x faster iteration times.",
+    "target": {
+      "task": "Aspect-Based Sentiment Classification",
+      "dataset": "SemEval-2017",
+      "metric": "Macro F1",
+      "result": "91.88%",
+      "baseline": "RoBERTa-base"
+    }
+  },
+  {
+    "domain": "Image Classification",
+    "abstract": "Addressing the critical challenge of Zero-Shot Image Classification, this paper proposes DeepScale-v2. Operating with 65M weights, DeepScale-v2 demonstrates strong empirical results on the standard Places365 benchmark. Specifically, it establishes a new Error Rate of 87.91%, exceeding the prior state-of-the-art ViT-Base/16 which attained 85.58%. This corresponds to a 6.0% relative gain.",
+    "target": {
+      "task": "Zero-Shot Image Classification",
+      "dataset": "Places365",
+      "metric": "Error Rate",
+      "result": "87.91%",
+      "baseline": "ViT-Base/16"
+    }
+  },
+  {
+    "domain": "Sentiment Analysis",
+    "abstract": "In this paper, we tackle Fine-Grained Emotion Mining by introducing NovaTrans. On the SemEval-2017 evaluation suite, our model reaches a Macro F1 of 91.77, surpassing the competitive baseline XLM-RoBERTa which scored 88.9. Despite containing 350M parameters, NovaTrans reduces inference latency by 1.8x.",
+    "target": {
+      "task": "Fine-Grained Emotion Mining",
+      "dataset": "SemEval-2017",
+      "metric": "Macro F1",
+      "result": "91.77",
+      "baseline": "XLM-RoBERTa"
+    }
+  },
+  {
+    "domain": "Object Detection",
+    "abstract": "In this work, we study Oriented Object Localization. We introduce Prism-AI, an architecture with 350M parameters. When evaluated on Pascal VOC 2012, our model achieves a Detection Precision of 45.49%, outperforming Mask R-CNN (41.44%). Furthermore, we observe a 1.5x speedup during inference.",
+    "target": {
+      "task": "Oriented Object Localization",
+      "dataset": "Pascal VOC 2012",
+      "metric": "Detection Precision",
+      "result": "45.49%",
+      "baseline": "Mask R-CNN"
+    }
+  },
+  {
+    "domain": "Question Answering",
+    "abstract": "In this work, we study Open-Domain Knowledge Verification. We introduce NovaTrans, an architecture with 1.3B parameters. When evaluated on HotpotQA, our model achieves a NoAns F1 of 79.48 F1, outperforming ALBERT-xxlarge (77.41 F1). Furthermore, we observe a 4.0x speedup during inference.",
+    "target": {
+      "task": "Open-Domain Knowledge Verification",
+      "dataset": "HotpotQA",
+      "metric": "NoAns F1",
+      "result": "79.48 F1",
+      "baseline": "ALBERT-xxlarge"
+    }
+  },
+  {
+    "domain": "Machine Translation",
+    "abstract": "Addressing the critical challenge of Neural Machine Translation, this paper proposes OmniFormer. Operating with 3.8B weights, OmniFormer demonstrates strong empirical results on the standard OPUS-100 benchmark. Specifically, it establishes a new chrF of 36.61, exceeding the prior state-of-the-art Transformer-Base which attained 34.28. This corresponds to a 4.1% relative gain.",
+    "target": {
+      "task": "Neural Machine Translation",
+      "dataset": "OPUS-100",
+      "metric": "chrF",
+      "result": "36.61",
+      "baseline": "Transformer-Base"
+    }
+  },
+  {
+    "domain": "Image Classification",
+    "abstract": "Addressing the critical challenge of Few-Shot Visual Representation, this paper proposes Veloce-LM. Operating with 3.8B weights, Veloce-LM demonstrates strong empirical results on the standard iNaturalist benchmark. Specifically, it establishes a new Top-5 Accuracy of 82.28, exceeding the prior state-of-the-art Swin-Transformer which attained 79.23. This corresponds to a 5.2% relative gain.",
+    "target": {
+      "task": "Few-Shot Visual Representation",
+      "dataset": "iNaturalist",
+      "metric": "Top-5 Accuracy",
+      "result": "82.28",
+      "baseline": "Swin-Transformer"
+    }
+  }
+]

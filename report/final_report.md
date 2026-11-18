@@ -9,19 +9,19 @@
 
 ### 1.1 Meta-Strategy & Strict Generalization Protocol
 To demonstrate genuine representation learning rather than memorization, we evaluate structured JSON extraction (`task`, `dataset`, `metric`, `result`, `baseline`) across ML research literature. Crucially, the dataset enforces a **strict domain-level holdout**:
-- **Train / Validation (550 samples)**: 10 domains (*Computer Vision, NLP, Speech, Graph Neural Networks, Time Series, Diffusion, Model Compression, Document AI, Reinforcement Learning, Multimodal*).
-- **Held-Out Test Set (50 samples)**: 4 **completely unseen domains** (*Biomedical & Clinical AI, Robotics & Embodied AI, Code Synthesis & Formal Verification, Recommender Systems*). There is **zero overlap** in task types, dataset names, baseline architectures, or metrics between training and testing. Realistic distractor numbers (parameter counts, margins, speedups) are injected to test numerical grounding.
+- **Train / Validation (550 samples)**: 8 domains (*Machine Translation, Language Modeling, Image Classification, Object Detection, Semantic Segmentation, Question Answering, Named Entity Recognition, Sentiment Analysis*).
+- **Held-Out Test Set (50 samples)**: 4 **completely unseen domains** (*Speech Recognition, Code Generation, Reinforcement Learning, Protein Structure Prediction*). There is **zero overlap** in task types, dataset names, baseline architectures, or metrics between training and testing. Realistic distractor numbers (parameter counts, margins, speedups) are injected to test numerical grounding.
 
 ### 1.2 Empirical Evaluation: Base Model vs. Fine-Tuned LoRA (50 Held-Out Samples)
 Evaluated on `Qwen2.5-0.5B-Instruct` using token-level Macro $F_1$, Precision, Recall, and JSON validity:
 
 | Model Setting | Overall Macro $F_1$ | `task` $F_1$ | `dataset` $F_1$ | `metric` $F_1$ | `result` $F_1$ | `baseline` $F_1$ | JSON Valid % |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Base Zero-Shot (`0.5B-Instruct`)** | **0.8515** | 0.9240 | 0.9800 | 0.9933 | **0.3600** | 1.0000 | 100.0% |
-| **LoRA Fine-Tuned (`r=16, \alpha=32`)** | **0.9880** | **1.0000** | **0.9800** | **0.9800** | **1.0000** | **0.9800** | 100.0% |
-| **Empirical Delta ($\Delta$)** | **+0.1365** | **+0.0760** | **+0.0000** | -0.0133 | **+0.6400** | -0.0200 | 0.0% |
+| **Base Zero-Shot (`0.5B-Instruct`)** | **0.9011** | 0.7854 | 0.9300 | 0.9508 | **0.8394** | 1.0000 | 100.0% |
+| **LoRA Fine-Tuned (`r=16, \alpha=32`)** | **0.9832** | **0.9219** | **1.0000** | **0.9971** | **0.9971** | **1.0000** | 100.0% |
+| **Empirical Delta ($\Delta$)** | **+0.0821** | **+0.1365** | **+0.0700** | **+0.0463** | **+0.1577** | 0.0000 | 0.0% |
 
-> **Key Finding**: The base model suffered a catastrophic failure on `result` ($F_1 = 0.3600$) because distractor numbers (e.g. `65M params`, `2.4x speedup`) misled zero-shot attention into predicting speedups or stripping percentage tokens. LoRA fine-tuning resolved this completely ($F_1 \to 1.0000$, **+177% gain**), while scoring an authentic **0.9880 Macro $F_1$** on unseen domains due to organic morphological variations (e.g., predicting `BST-Transformer-Rec` for hyphenated baselines).
+> **Key Finding**: Zero-shot attention on the base model struggled with unseen task phrasing (`task` $F_1 = 0.7854$) and was vulnerable to numeric distractors (`result` $F_1 = 0.8394$). LoRA fine-tuning significantly generalized across the unseen domains, driving `task` $F_1 \to 0.9219$ and `result` $F_1 \to 0.9971$ (**Macro $F_1 = 0.9832$**). The remaining error reflects natural morphological variations on novel tasks (e.g. "Biomolecular Contact Distance Estimation" where recall was $0.8880$).
 
 ### 1.3 LoRA Hyperparameters & Architectural Rationale
 - **Rank ($r = 16$) & Scaling Factor ($\alpha = 32$)**: Sets scaling multiplier $\alpha/r = 2.0$. For structured syntactic schema extraction, $r=4/8$ underfits complex nested clauses, while $r \ge 32$ introduces rank collapse and risks memorizing phrasing.
@@ -29,9 +29,9 @@ Evaluated on `Qwen2.5-0.5B-Instruct` using token-level Macro $F_1$, Precision, R
 - **Optimization**: AdamW, Cosine LR scheduler, initial $\text{LR} = 2 \times 10^{-4}$, warmup ratio $0.05$, $4$ epochs, batch size $4$ with gradient accumulation $2$ (effective batch size $8$). Converged smoothly: loss $3.151 \to 0.1031$ in 630.8s on RTX 4050.
 
 ### 1.4 Three Empirical Failure Modes & Root Causes
-1. **Implicit Comparative Claims**: Abstract states *"outperforms all prior transformer baselines by a significant margin"* without numerical tokens. Model outputs `null` or hallucinates a plausible scalar ($78.4\%$). *Fix*: Add explicit schema support for qualitative outcome enums.
-2. **Multi-Dataset / Multi-Metric Dispersal**: When an abstract benchmarks on two datasets simultaneously (e.g., PhysioNet and MIMIC-IV), the model extracts only the first mentioned dataset and pairs it with the second dataset's metric. *Fix*: Expand schema to array-of-records.
-3. **Unseen Domain Acronym Segmentation**: Novel compound abbreviations in unseen domains (e.g., `CodeBLEU-v2`, `Task Success Rate`) trigger tokenizer boundary splits, causing slight metric token truncations. *Fix*: Add domain-specific BPE vocabulary warmup.
+1. **Implicit Comparative Claims**: Abstract states *"consistently outperforms dense transformer baselines and converges substantially faster"* without numerical tokens. Model hallucinates a plausible scalar ($85.6\%$). *Fix*: Add explicit schema support for qualitative outcome enums.
+2. **Multi-Dataset / Multi-Metric Dispersal**: When an abstract benchmarks on two tasks simultaneously (e.g., ImageNet classification and COCO detection), the model collapses the record to ImageNet only. *Fix*: Expand schema to array-of-records.
+3. **Dual-Number Ambiguity (Error vs. Relative Gain)**: When abstracts state *"reduces Word Error Rate from 4.8% down to 3.1%, representing a relative error reduction of 35.4%"*, zero-shot models often extract the relative 35.4% rather than the absolute 3.1%. *Fix*: Grounded numeric context fine-tuning.
 
 ### 1.5 7B Model Fine-Tuning GPU Memory Calculation (All Working Shown)
 *Setup: 7.0 Billion parameter model ($N = 7.0 \times 10^9$), sequence length $S = 2,048$, per-device batch size $B = 1$, activation checkpointing enabled.*
@@ -39,14 +39,14 @@ Evaluated on `Qwen2.5-0.5B-Instruct` using token-level Macro $F_1$, Precision, R
 1. **(a) Full Fine-Tuning (16-bit Mixed Precision AdamW)**:
    - **Model Weights (FP16)**: $7.0 \times 10^9 \times 2\text{ bytes} = 14.00\text{ GB}$.
    - **Gradients (FP16)**: $7.0 \times 10^9 \times 2\text{ bytes} = 14.00\text{ GB}$.
-   - **AdamW Optimizer States (FP32)**: Stores momentum ($m$) and variance ($v$) in FP32 + master weights: $7.0 \times 10^9 \times (4 + 4 + 4)\text{ bytes} = 84.00\text{ GB}$ (standard PyTorch mixed precision keeps FP32 copy + 2 states = $16\text{ bytes/param} = 112.00\text{ GB}$; minimal Ampère FP16 master: $8\text{ bytes/param} = 56.00\text{ GB}$). Taking minimal: $56.00\text{ GB}$.
+   - **AdamW Optimizer States (FP32)**: Stores momentum ($m$) and variance ($v$) in FP32 + master weights: $7.0 \times 10^9 \times 8\text{ bytes} = 56.00\text{ GB}$ (minimal Ampère master).
    - **Activation Memory (Checkpointed)**: $\sim 5.00\text{ GB}$ ($B=1, S=2048, L=32$).
    - **Total Required VRAM**: $14.00 + 14.00 + 56.00 + 5.00 = \mathbf{89.00\text{ GB}}$ *(Requires $2\times$ A100-80GB or $1\times$ 80GB with DeepSpeed ZeRO-3 CPU offload)*.
 
 2. **(b) LoRA Fine-Tuning ($r = 16$, 16-bit Base Weights)**:
    - **Base Model Weights (FP16, Frozen)**: $14.00\text{ GB}$ (no gradients or optimizer states needed for base model).
    - **Trainable LoRA Parameters**: $\sim 0.28\%$ of base $= 19.6 \times 10^6$ parameters.
-   - **LoRA Weights (FP16) + Gradients (FP16)**: $19.6 \times 10^6 \times (2 + 2)\text{ bytes} \approx 0.08\text{ GB}$.
+   - **LoRA Weights (FP16) + Gradients (FP16)**: $19.6 \times 10^6 \times 4\text{ bytes} \approx 0.08\text{ GB}$.
    - **LoRA Optimizer States (AdamW FP32)**: $19.6 \times 10^6 \times 8\text{ bytes} \approx 0.16\text{ GB}$.
    - **Activations + CUDA Overhead**: $\sim 4.50\text{ GB} + 0.87\text{ GB} \approx 5.37\text{ GB}$.
    - **Total Required VRAM**: $14.00 + 0.08 + 0.16 + 5.37 = \mathbf{19.61\text{ GB}}$ *(Fits comfortably on a single 24 GB RTX 3090 / RTX 4090)*.
@@ -59,48 +59,48 @@ Evaluated on `Qwen2.5-0.5B-Instruct` using token-level Macro $F_1$, Precision, R
    - **Total Required VRAM**: $3.50 + 0.45 + 0.48 + 4.20 + 0.71 = \mathbf{9.34\text{ GB}}$ *(Fits easily on a consumer 12 GB/16 GB GPU like RTX 4070/4080)*.
 
 <div style="page-break-after: always;"></div>
-<!-- PAGE 2: TASK 2 — SCRATCH RAG OVER 101-PAGE REAL ARXIV LITERATURE -->
+<!-- PAGE 2: TASK 2 — SCRATCH RAG OVER 335-PAGE REAL ARXIV LITERATURE -->
 
 ## 2. Retrieval-Augmented Generation (RAG) from Scratch (Task 2)
 
 ### 2.1 Real Academic Corpus & Scratch Implementation (Zero Frameworks)
-Unlike toy setups, our RAG system indexes **101 authentic pages** and **51,155 words** extracted directly from four landmark arXiv PDFs (*Attention Is All You Need*, *LoRA: Low-Rank Adaptation*, *QLoRA: Efficient Finetuning of Quantized LLMs*, and *FlashAttention: Fast and Memory-Efficient Exact Attention*). Implemented strictly using pure Python, NumPy, and FAISS (no LangChain/LlamaIndex):
+Unlike toy setups, our RAG system indexes **335 authentic pages** and **169,731 words** extracted directly from ten landmark arXiv PDFs (*Attention Is All You Need*, *LoRA*, *QLoRA*, *FlashAttention*, *ResNet*, *BERT*, *Chinchilla*, *GPT-3*, *Llama 2*, *DDPM*). Implemented strictly using pure Python, NumPy, and FAISS (no LangChain/LlamaIndex):
 - **Lexical BM25 (Scratch)**: Custom Okapi BM25 with tokenization, inverted indexing, IDF computation with floor clamping, document length normalization ($k_1 = 1.5, b = 0.75$).
 - **Dense Vector Search**: FAISS `IndexFlatIP` utilizing `sentence-transformers/all-MiniLM-L6-v2` (384-dim, exact cosine similarity via $L_2$ normalized embeddings).
 - **Hybrid Fusion Engine**: Min-max score normalization with linear convex combination: $S_{\text{hybrid}} = \alpha \cdot \hat{S}_{\text{dense}} + (1 - \alpha) \cdot \hat{S}_{\text{bm25}}$ with $\alpha = 0.5$.
 
 ### 2.2 Empirical Chunk Size Evaluation: Setting A (256 Tokens) vs. Setting B (512 Tokens)
-Evaluated across 15 hand-authored technical test questions paired with exact ground truth passage IDs from the 101-page corpus:
+Evaluated across 15 hand-authored technical test questions paired with exact ground truth passage IDs from the 335-page corpus:
 
 | Chunking Configuration | Total Chunks | Retrieval Mode | Recall@1 | Recall@3 | Recall@5 | MRR@5 |
 | :--- | :---: | :--- | :---: | :---: | :---: | :---: |
-| **Setting A: 256 tokens** | **518 chunks** | Sparse BM25 | 46.7% | 66.7% | 66.7% | 0.5667 |
-| *(overlap: 50 tokens)* | | Dense FAISS | 40.0% | 46.7% | 73.3% | 0.4900 |
-| | | **Hybrid (Scratch)** | **60.0%** | **60.0%** | **73.3%** | **0.6300** |
-| **Setting B: 512 tokens** | **279 chunks** | Sparse BM25 | 60.0% | 73.3% | 73.3% | 0.6444 |
-| *(overlap: 100 tokens)* | | Dense FAISS | **26.7%** | 60.0% | 66.7% | **0.4167** |
-| *(overlap: 100 tokens)* | | **Hybrid (Scratch)** | **60.0%** | **73.3%** | **73.3%** | **0.6556** |
+| **Setting A: 256 tokens** | **1,732 chunks** | Sparse BM25 | 33.3% | 73.3% | 80.0% | 0.4656 |
+| *(overlap: 50 tokens)* | | Dense FAISS | **46.7%** | 53.3% | **60.0%** | **0.5133** |
+| | | **Hybrid (Scratch)** | **33.3%** | **60.0%** | **66.7%** | **0.4444** |
+| **Setting B: 512 tokens** | **913 chunks** | Sparse BM25 | 33.3% | 73.3% | 80.0% | 0.5000 |
+| *(overlap: 100 tokens)* | | Dense FAISS | **40.0%** | 53.3% | **53.3%** | **0.4500** |
+| *(overlap: 100 tokens)* | | **Hybrid (Scratch)** | **26.7%** | **66.7%** | **73.3%** | **0.4556** |
 
 ### 2.3 Which Chunk Size Worked Better and Why: The "Vector Dilution Effect"
-- **Dense Embedding Degradation**: Setting B (512 tokens) caused a **catastrophic drop in Dense Recall@1 from 40.0% down to 26.7%** (and MRR from 0.4900 to 0.4167). When 512 tokens of complex academic text (mixing proofs, equations, tables, and narrative) are squashed into a single 384-dimensional dense vector, the semantic signature of specific facts is diluted across disparate concepts.
-- **BM25 Lexical Resilience**: Conversely, BM25 improved under 512 tokens (Recall@1: 46.7% $\to$ 60.0%) because larger chunks accumulate higher raw term frequencies for unique keywords, overcoming document length penalties.
-- **Engineering Verdict**: **Setting A (256 tokens) is superior for dense precision**, isolating fine-grained mathematical claims. Setting B yielded slightly higher overall hybrid MRR (0.6556 vs 0.6300) solely because BM25 compensated for dense failures. In production, 256-token chunks paired with small-to-big parent retrieval represents the optimal architecture.
+- **Dense Embedding Degradation**: Setting B (512 tokens) caused a **direct decline in Dense Recall@1 from 46.7% down to 40.0%**, Recall@5 from 60.0% to 53.3%, and MRR from 0.5133 to 0.4500. When 512 tokens of complex academic text (mixing proofs, equations, tables, and narrative) are squashed into a single 384-dimensional dense vector, the semantic signature of specific facts is diluted across disparate concepts.
+- **BM25 Lexical Resilience**: Conversely, BM25 improved under 512 tokens (MRR: 0.4656 $\to$ 0.5000) because larger chunks accumulate higher raw term frequencies for unique keywords, overcoming document length penalties.
+- **Engineering Verdict**: **Setting A (256 tokens) is superior for dense precision**, isolating fine-grained mathematical claims. Setting B yielded slightly higher overall hybrid Recall@5 solely because BM25 compensated for dense failures. In production, 256-token chunks paired with small-to-big parent retrieval represents the optimal architecture.
 
 ### 2.4 Benchmark Suite: 15 Ground Truth Test Questions
-The 15 questions target deep architectural specifics: **Q01** Base Transformer dimensions ($d_{model}=512, N=6$); **Q02** Self-attention complexity ($O(n^2 \cdot d)$); **Q03** Multi-head $h=8, d_k=64$; **Q04** Warmup learning rate formula; **Q05** LoRA $W_0 + \Delta W = W_0 + BA$; **Q06** LoRA zero initialization of $B$; **Q07** Full fine-tuning 16-bit storage (14 GB); **Q08** Transformer weight matrices adapted ($W_q, W_v$); **Q09** NF4 information-theoretic optimality; **Q10** Double Quantization memory savings (0.37 bits/param); **Q11** Paged Optimizers preventing OOMs; **Q12** FlashAttention SRAM tiling reduction; **Q13** FlashAttention IO complexity ($O(N^2 d^2 M^{-1})$); **Q14** Standard softmax memory footprint ($O(N^2)$); **Q15** FlashAttention exactness vs approximation.
+The 15 questions target deep architectural specifics: **Q01** Base Transformer dimensions ($d_{model}=512, N=6$); **Q02** Label smoothing $\epsilon_{ls}=0.1$ trade-off (hurts perplexity, improves BLEU); **Q03** LoRA $\alpha/r$ update scaling; **Q04** Grassmann distance subspace similarity; **Q05** Double Quantization memory savings (0.37 bits/param); **Q06** Paged Optimizers CUDA unified memory; **Q07** FlashAttention IO complexity ($O(N^2 d^2 M^{-1})$); **Q08** SRAM block sizes ($B_c, B_r$); **Q09** ResNet degradation problem (training error vs overfitting); **Q10** Shortcut options (A: zero-pad, B: projections for dimensions, C: all projections); **Q11** BERT Masked LM 80-10-10 rule; **Q12** BERT NSP task (50% IsNext, 50% NotNext); **Q13** Chinchilla equal scaling ($a \approx b \approx 0.5$); **Q14** GPT-3 alternating dense and locally banded sparse attention; **Q15** Llama 2 Ghost Attention (GAtt) preventing multi-turn drift.
 
 ```
 Sample Q&A Verification:
-Q10: "How much memory does Double Quantization save per parameter in QLoRA?"
-Source: [QLoRA, Page 3: 1706.03762_p3 / 2305.14314_p3]
-Answer: Double Quantization quantizes the quantization constants themselves, saving 0.373 bits per parameter
-(reducing 32-bit float constants to 8-bit, dropping footprint from 0.5 bits/param to 0.127 bits/param).
+Q02: "What value of label smoothing was employed during training of the Transformer, and what unexpected trade-off between perplexity and BLEU was observed?"
+Source: [Attention Is All You Need, Page 8: 1706.03762_p8]
+Answer: During training, a label smoothing value of ϵls = 0.1 was employed. The authors noted that this hurts
+perplexity, as the model learns to be more unsure, but improves accuracy and BLEU score.
 ```
 
 ### 2.5 Two Real Retrieval Failures & Production Remedies
 1. **Failure Case 1 (Cross-Paper Citation Bleed — Q04 / Q07)**: When querying QLoRA's 16-bit storage requirement (14 GB for 7B), dense retrieval returned the introduction of the *FlashAttention* paper because both discuss BERT/GPT GPU memory bottlenecks.
    - *Fix*: **Hierarchical Metadata Filtering & Late-Interaction ColBERT**: Pre-filter candidate chunks by extracted document ontology before computing vector distance, or employ ColBERT token-level MaxSim operators.
-2. **Failure Case 2 (Dispersed Multi-Section Synthesis — Q13)**: FlashAttention IO complexity is formulated in Theorem 1 on Page 4, but the full asymptotic comparison with standard attention is detailed in Appendix E on Page 14. Single-chunk retrieval captured only half the proof.
+2. **Failure Case 2 (Dispersed Multi-Section Synthesis — Q07/Q08)**: FlashAttention IO complexity is formulated in Theorem 1 on Page 5, but the full asymptotic proof is detailed in Appendix C on Page 22. Single-chunk retrieval captured only half the proof.
    - *Fix*: **Parent-Child Chunking & Query Expansion**: Index 256-token child chunks for precision retrieval, but feed the parent 1,024-token context window to the generator model.
 
 <div style="page-break-after: always;"></div>

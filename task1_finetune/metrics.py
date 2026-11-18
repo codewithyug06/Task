@@ -1,8 +1,8 @@
 """
-Evaluation Metrics for Structured Extraction:
-- JSON Parse Rate / Validity Rate
-- Field-Level Token Precision, Recall, F1 for each schema key
-- Sample F1 and Overall Dataset Macro/Micro F1
+Token-level Evaluation Metrics for Structured JSON Extraction:
+- Precision, Recall, and F1 per schema field
+- JSON Syntax Validity Rate
+- Overall Macro F1 across all fields and samples
 """
 
 import json
@@ -10,73 +10,67 @@ import re
 
 SCHEMA_FIELDS = ["task", "dataset", "metric", "result", "baseline"]
 
-def normalize_text(text):
+def tokenize(text):
     if text is None:
-        return ""
-    text = str(text).lower().strip()
-    # Remove surrounding punctuation
-    text = re.sub(r'[\'"]', '', text)
-    return text
+        return []
+    text_str = str(text).lower()
+    tokens = re.findall(r"\w+|[^\w\s]", text_str)
+    return tokens
 
 def compute_token_f1(pred_str, gold_str):
-    pred_tokens = normalize_text(pred_str).split()
-    gold_tokens = normalize_text(gold_str).split()
+    pred_tokens = tokenize(pred_str)
+    gold_tokens = tokenize(gold_str)
     
-    if not pred_tokens and not gold_tokens:
+    if len(pred_tokens) == 0 and len(gold_tokens) == 0:
         return 1.0, 1.0, 1.0
-    if not pred_tokens or not gold_tokens:
+    if len(pred_tokens) == 0 or len(gold_tokens) == 0:
         return 0.0, 0.0, 0.0
         
-    common = set(pred_tokens) & set(gold_tokens)
-    num_same = sum(min(pred_tokens.count(tok), gold_tokens.count(tok)) for tok in common)
-    
-    if num_same == 0:
+    pred_counts = {}
+    for t in pred_tokens:
+        pred_counts[t] = pred_counts.get(t, 0) + 1
+        
+    gold_counts = {}
+    for t in gold_tokens:
+        gold_counts[t] = gold_counts.get(t, 0) + 1
+        
+    overlap = 0
+    for t, count in pred_counts.items():
+        if t in gold_counts:
+            overlap += min(count, gold_counts[t])
+            
+    if overlap == 0:
         return 0.0, 0.0, 0.0
         
-    precision = num_same / len(pred_tokens)
-    recall = num_same / len(gold_tokens)
-    f1 = 2 * precision * recall / (precision + recall)
+    precision = overlap / len(pred_tokens)
+    recall = overlap / len(gold_tokens)
+    f1 = 2 * (precision * recall) / (precision + recall)
     return precision, recall, f1
 
-def extract_json_from_response(response_text):
-    """Robustly parse JSON object from model generation."""
-    response_text = response_text.strip()
-    
-    # Check for markdown code blocks
-    if "```json" in response_text:
-        match = re.search(r"```json\s*(.*?)\s*```", response_text, re.DOTALL)
-        if match:
-            response_text = match.group(1).strip()
-    elif "```" in response_text:
-        match = re.search(r"```\s*(.*?)\s*```", response_text, re.DOTALL)
-        if match:
-            response_text = match.group(1).strip()
+def extract_json_from_response(raw_text):
+    clean = raw_text.strip()
+    match = re.search(r"```json\s*(\{.*?\})\s*```", clean, re.DOTALL)
+    if match:
+        clean = match.group(1).strip()
+    else:
+        start = clean.find("{")
+        end = clean.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            clean = clean[start:end+1]
             
-    # Try direct parse
     try:
-        data = json.loads(response_text)
-        if isinstance(data, dict):
-            return data, True
+        parsed = json.loads(clean)
+        if isinstance(parsed, dict):
+            return parsed, True
     except Exception:
         pass
         
-    # Try finding first { and matching }
-    start = response_text.find('{')
-    end = response_text.rfind('}')
-    if start != -1 and end != -1 and end > start:
-        candidate = response_text[start:end+1]
-        try:
-            data = json.loads(candidate)
-            if isinstance(data, dict):
-                return data, True
-        except Exception:
-            pass
-            
     return None, False
 
 def evaluate_predictions(test_samples, predictions):
     """
     Computes JSON Validity, Field-Level F1s, and Overall Macro F1.
+    Robust to whether test_samples are full sample dicts or list of gold dicts.
     """
     total = len(test_samples)
     valid_json_count = 0
@@ -86,7 +80,15 @@ def evaluate_predictions(test_samples, predictions):
     details = []
     
     for sample, raw_pred in zip(test_samples, predictions):
-        gold = sample["ground_truth"]
+        if isinstance(sample, dict) and any(k in sample for k in ["ground_truth", "target", "gold"]):
+            gold = sample.get("ground_truth", sample.get("target", sample.get("gold")))
+            abstract = sample.get("abstract", "")
+            domain = sample.get("domain", "")
+        else:
+            gold = sample if isinstance(sample, dict) else {}
+            abstract = ""
+            domain = ""
+            
         parsed_dict, is_valid = extract_json_from_response(raw_pred)
         
         if is_valid:
@@ -94,17 +96,18 @@ def evaluate_predictions(test_samples, predictions):
             
         sample_field_f1s = []
         sample_detail = {
-            "abstract": sample["abstract"],
+            "domain": domain,
+            "abstract": abstract,
             "gold": gold,
             "raw_prediction": raw_pred,
             "is_valid_json": is_valid,
-            "parsed": parsed_dict,
+            "parsed_json": parsed_dict,
             "field_metrics": {}
         }
         
         for f in SCHEMA_FIELDS:
-            gold_val = gold.get(f, "")
-            pred_val = parsed_dict.get(f, "") if (is_valid and parsed_dict) else ""
+            gold_val = gold.get(f, "") if isinstance(gold, dict) else ""
+            pred_val = parsed_dict.get(f, "") if (is_valid and parsed_dict and isinstance(parsed_dict, dict)) else ""
             
             p, r, f1 = compute_token_f1(pred_val, gold_val)
             field_scores[f]["precision"].append(p)
@@ -113,33 +116,22 @@ def evaluate_predictions(test_samples, predictions):
             sample_field_f1s.append(f1)
             
             sample_detail["field_metrics"][f] = {
-                "pred": pred_val,
-                "gold": gold_val,
+                "precision": p,
+                "recall": r,
                 "f1": f1
             }
             
-        sample_f1 = sum(sample_field_f1s) / len(sample_field_f1s)
-        overall_sample_f1s.append(sample_f1)
-        sample_detail["sample_mean_f1"] = sample_f1
+        mean_sample_f1 = sum(sample_field_f1s) / len(sample_field_f1s) if sample_field_f1s else 0.0
+        sample_detail["sample_mean_f1"] = mean_sample_f1
+        overall_sample_f1s.append(mean_sample_f1)
         details.append(sample_detail)
         
-    json_valid_rate = valid_json_count / total
-    macro_f1 = sum(overall_sample_f1s) / total
-    
     summary = {
-        "total_samples": total,
         "valid_json_count": valid_json_count,
-        "json_valid_rate": json_valid_rate,
-        "overall_macro_f1": macro_f1,
-        "field_f1": {
-            f: sum(field_scores[f]["f1"]) / total for f in SCHEMA_FIELDS
-        },
-        "field_precision": {
-            f: sum(field_scores[f]["precision"]) / total for f in SCHEMA_FIELDS
-        },
-        "field_recall": {
-            f: sum(field_scores[f]["recall"]) / total for f in SCHEMA_FIELDS
-        }
+        "overall_macro_f1": sum(overall_sample_f1s) / len(overall_sample_f1s) if overall_sample_f1s else 0.0,
+        "field_f1": {f: (sum(field_scores[f]["f1"]) / total) if total else 0.0 for f in SCHEMA_FIELDS},
+        "field_precision": {f: (sum(field_scores[f]["precision"]) / total) if total else 0.0 for f in SCHEMA_FIELDS},
+        "field_recall": {f: (sum(field_scores[f]["recall"]) / total) if total else 0.0 for f in SCHEMA_FIELDS},
+        "results": details
     }
-    return summary, details
-
+    return summary

@@ -1,167 +1,347 @@
 [
   {
     "id": "Q01",
-    "question": "What is the dimensionality d_model and the number of layers N in the encoder and decoder of the base Transformer?",
+    "difficulty": "Easy",
+    "question": "What is the dimensionality d_model and the number of identical layers N in the encoder and decoder of the base Transformer?",
+    "target_section_id": "1706.03762_p3",
     "target_paper": "Attention Is All You Need",
-    "retrieved_headers": [
-      "[Attention Is All You Need] Page 3",
-      "[Attention Is All You Need] Page 8"
+    "retrieved_contexts": [
+      {
+        "section_id": "1706.03762_p3",
+        "header": "[Attention Is All You Need] Page 3",
+        "score": 1.0,
+        "snippet": "Figure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, "
+      },
+      {
+        "section_id": "1706.03762_p8",
+        "header": "[Attention Is All You Need] Page 8",
+        "score": 0.804562202765384,
+        "snippet": "56 2.0\u00b7 1019 1.2\u00b7 1020\nDeep-Att + PosUnk Ensemble [39] 40.4 8.0\u00b7 1020\nGNMT + RL Ensemble [38] 26.30 41.16 1.8\u00b7 1020 1.1\u00b7 1021\nConvS2S Ensemble [9] 26.36 41.29 7.7\u00b7 1019 1.2\u00b7 1021\nTransformer (base mod"
+      }
     ],
-    "ground_truth_excerpt": "The encoder is composed of a stack of N = 6 identical layers... We employ a residual connection around each of the two sub-layers, followed by layer normalization. That is, the output of each sub-layer is LayerNorm(x + Sublayer(x))... To facilitate these residual connections, all sub-layers in the model, as well as the embedding layers, produce outputs of dimension d_model = 512.",
-    "generated_answer": "The dimensionality d_model of the encoder and decoder of the base Transformer is 512, and the number of layers N is 6."
+    "ground_truth_excerpt": "coder and decoder, shown in the left and right halves of Figure 1, respectively. 3.1 Encoder and Decoder Stacks Encoder: The encoder is composed of a stack of N = 6 identical layers. Each layer has two sub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position- wise fully connected feed-forward network. We employ a residual connection [11] around each of the two sub-layers, followed by layer normalization [ 1]. That is, the output of each sub-layer is La",
+    "generated_answer": "The dimensionality \\( d_{\\text{model}} \\) of the encoder and decoder of the base Transformer is 512, and the number of identical layers \\( N \\) is 6."
   },
   {
     "id": "Q02",
-    "question": "What exact formula is used for Positional Encoding using sine and cosine functions of different frequencies?",
+    "difficulty": "Hard",
+    "question": "What value of label smoothing was employed during training of the Transformer, and what unexpected trade-off between perplexity and BLEU was observed?",
+    "target_section_id": "1706.03762_p8",
     "target_paper": "Attention Is All You Need",
-    "retrieved_headers": [
-      "[Attention Is All You Need] Page 6",
-      "[Attention Is All You Need] Page 6"
+    "retrieved_contexts": [
+      {
+        "section_id": "1706.03762_p8",
+        "header": "[Attention Is All You Need] Page 8",
+        "score": 1.0,
+        "snippet": "added to the\nsub-layer input and normalized. In addition, we apply dropout to the sums of the embeddings and the\npositional encodings in both the encoder and decoder stacks. For the base model, we use"
+      },
+      {
+        "section_id": "1706.03762_p8",
+        "header": "[Attention Is All You Need] Page 8",
+        "score": 0.45135928106551715,
+        "snippet": "Table 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the\nEnglish-to-German and English-to-French newstest2014 tests at a fraction of the training cost.\nModel\nB"
+      }
     ],
-    "ground_truth_excerpt": "In this work, we use sine and cosine functions of different frequencies: PE(pos, 2i) = sin(pos/10000^{2i/d_model}) and PE(pos, 2i+1) = cos(pos/10000^{2i/d_model}) where pos is the position and i is the dimension.",
-    "generated_answer": "The exact formula used for Positional Encoding using sine and cosine functions of different frequencies is:\n\nPE(pos,2i) = sin(pos/100002i/dmodel)\nPE(pos,2i+1) = cos(pos/100002i/dmodel)\n\nThis formula sums up the positional encodings for both dimensions, allowing the model to learn to attend by relative positions."
+    "ground_truth_excerpt": "onal encodings in both the encoder and decoder stacks. For the base model, we use a rate of Pdrop = 0.1. Label Smoothing During training, we employed label smoothing of value \u03f5ls = 0.1 [36]. This hurts perplexity, as the model learns to be more unsure, but improves accuracy and BLEU score. 6 Results 6.1 Machine Translation On the WMT 2014 English-to-German translation task, the big transformer model (Transformer (big) in Table 2) outperforms the best previously reported models (including ensembl",
+    "generated_answer": "During training, a value of label smoothing of \u03f5ls = 0.1 was employed, which hurts perplexity but improves accuracy and BLEU score."
   },
   {
     "id": "Q03",
-    "question": "What learning rate warmup formula and number of warmup steps were used to train the Transformer?",
-    "target_paper": "Attention Is All You Need",
-    "retrieved_headers": [
-      "[Attention Is All You Need] Page 7",
-      "[LoRA: Low-Rank Adaptation of Large Language Models] Page 21"
+    "difficulty": "Medium",
+    "question": "In LoRA, how is the adapter update scaled using alpha and rank r, and why is alpha kept constant when varying r?",
+    "target_section_id": "2106.09685_p4",
+    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "retrieved_contexts": [
+      {
+        "section_id": "2106.09685_p6",
+        "header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 6",
+        "score": 0.8668537881310574,
+        "snippet": "021), which we callAdapterP. We also\ninclude another baseline call AdapterDrop (R\u00a8uckl\u00b4e et al., 2020) which drops some adapter layers for\ngreater ef\ufb01ciency (AdapterD). We cite numbers from prior work"
+      },
+      {
+        "section_id": "2106.09685_p4",
+        "header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
+        "score": 0.5,
+        "snippet": "\ufffdWx =W0x +BAx (3)\nWe illustrate our reparametrization in Figure 1. We use a random Gaussian initialization for A and\nzero forB, so \u2206W =BA is zero at the beginning of training. We then scale \u2206Wx by \u03b1\nr"
+      }
     ],
-    "ground_truth_excerpt": "We used the Adam optimizer with beta1 = 0.9, beta2 = 0.98 and epsilon = 10^{-9}. We varied the learning rate over the course of training, according to the formula: lrate = d_model^{-0.5} * min(step_num^{-0.5}, step_num * warmup_steps^{-1.5}). This corresponds to increasing the learning rate linearly for the first warmup_steps training steps, and decreasing it thereafter proportionally to the inverse square root of the step number. We used warmup_steps = 4000.",
-    "generated_answer": "The learning rate warmup formula was given by:\n\n\\[ lrate = \\frac{d}{\\sqrt{\\text{step\\_num}}} \\]\n\nwith a warmup tokens of 250,000. The number of warmup steps was set to 4000."
+    "ground_truth_excerpt": "trate our reparametrization in Figure 1. We use a random Gaussian initialization for A and zero forB, so \u2206W =BA is zero at the beginning of training. We then scale \u2206Wx by \u03b1 r , where\u03b1 is a constant inr. When optimizing with Adam, tuning\u03b1 is roughly the same as tuning the learning rate if we scale the initialization appropriately. As a result, we simply set \u03b1 to the \ufb01rst r we try and do not tune it. This scaling helps to reduce the need to retune hyperparameters when we vary r (Yang & Hu, 2021).",
+    "generated_answer": "In LoRA, the adapter update is scaled by \u03b1, where \u03b1 is a constant in r. This scaling helps to reduce the need to retrain hyperparameters when r changes."
   },
   {
     "id": "Q04",
-    "question": "What BLEU score did the big Transformer model achieve on WMT 2014 English-to-German, and how many days was it trained?",
-    "target_paper": "Attention Is All You Need",
-    "retrieved_headers": [
-      "[Attention Is All You Need] Page 8",
-      "[Attention Is All You Need] Page 8"
+    "difficulty": "Hard",
+    "question": "How did the authors of LoRA evaluate the subspace similarity between adapters of different ranks (e.g., r=8 and r=64) using Grassmann distance?",
+    "target_section_id": "2106.09685_p11",
+    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "retrieved_contexts": [
+      {
+        "section_id": "2106.09685_p11",
+        "header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 11",
+        "score": 1.0,
+        "snippet": "Subspace similarity between different r. GivenAr=8 andAr=64 which are the learned adapta-\ntion matrices with rankr = 8 and 64 using the same pre-trained model, we perform singular value\ndecomposition "
+      },
+      {
+        "section_id": "2106.09685_p11",
+        "header": "[LoRA: Low-Rank Adaptation of Large Language Models] Page 11",
+        "score": 0.7113477036352351,
+        "snippet": ", \u2206Wv (resp. \u2206Wq) of Ar=8\nand \u2206Wv (resp. \u2206Wq) of Ar=64 share a subspace of dimension 1 with normalized\nsimilarity> 0.5, providing an explanation of why r = 1 performs quite well in our\ndownstream task"
+      }
     ],
-    "ground_truth_excerpt": "On the WMT 2014 English-to-German translation task, the big transformer model (Transformer (big) in Table 2) outperforms the best previously reported models (including ensembles) by more than 2.0 BLEU, establishing a new state-of-the-art BLEU score of 28.4... The big model was trained for 300,000 steps (3.5 days on 8 P100 GPUs).",
-    "generated_answer": "The big Transformer model achieved a BLEU score of 28.4 on the WMT 2014 English-to-German translation task, and it was trained for 3.5 days."
+    "ground_truth_excerpt": "the subspace spanned by top j singular vectors ofUAr=64 (for 1\u2264j\u2264 64)? We mea- sure this quantity with a normalized subspace similarity based on the Grassmann distance (See Ap- pendix G for a more formal discussion) \u03c6(Ar=8,Ar=64,i,j ) =||Ui\u22a4 Ar=8Uj Ar=64||2 F min(i,j ) \u2208 [0, 1] (4) whereUi Ar=8 represents the columns ofUAr=8 corresponding to the top-i singular vectors. \u03c6(\u00b7) has a range of [0, 1], where 1 represents a complete overlap of subspaces and 0 a complete separation. See Figure 3 for ho",
+    "generated_answer": "The authors evaluated the subspace similarity between adapters of different ranks (r=8 and r=64) using the Grassmann distance."
   },
   {
     "id": "Q05",
-    "question": "How is the low-rank update matrix Delta W scaled with respect to rank r and constant alpha during training in LoRA?",
-    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
-    "retrieved_headers": [
-      "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-      "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10"
+    "difficulty": "Medium",
+    "question": "How much memory does Double Quantization save per parameter in QLoRA, and how does it achieve this reduction?",
+    "target_section_id": "2305.14314_p2",
+    "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "retrieved_contexts": [
+      {
+        "section_id": "2305.14314_p5",
+        "header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
+        "score": 0.9352366161478275,
+        "snippet": "-bit\nconstants and a blocksize of 64 for W, quantization constants add 32/64 = 0.5 bits per parameter on\naverage. Double Quantization helps reduce the memory footprint of quantization constants.\nMore "
+      },
+      {
+        "section_id": "2305.14314_p5",
+        "header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
+        "score": 0.8565906407727949,
+        "snippet": "ensure a discrete zeropoint of 0 and to use all 2k bits for a k-bit datatype, we create an asymmetric\ndata type by estimating the quantilesqi of two rangesqi: 2k\u22121 for the negative part and 2k\u22121 + 1 f"
+      }
     ],
-    "ground_truth_excerpt": "When optimizing with Adam, tuning alpha is roughly the same as tuning the learning rate if the initialization was scaled appropriately. As a result, we simply set alpha to the first r we try and do not tune it. This scaling helps to reduce the need to retune hyperparameters when we vary r: W = W_0 + (alpha / r) * B * A.",
-    "generated_answer": "The low-rank update matrix Delta W is scaled by \u03b1 r during training. Specifically, it is multiplied by \u03b1 r for each element of \u0394Wx. The value of \u03b1 r depends on the specific implementation details but typically ranges from 0.7 to 0.9."
+    "ground_truth_excerpt": "results than 4-bit Integers and 4-bit Floats. (2) Double Quantization, a method that quantizes the quantization constants, saving an average of about 0.37 bits per parameter (approximately 3 GB for a 65B model). (3) Paged Optimizers, using NVIDIA unified memory to avoid the gradient checkpointing memory spikes that occur when processing a mini-batch with a long sequence length. We combine these contributions into a better tuned LoRA approach that includes adapters at every network layer and ther",
+    "generated_answer": "According to the passage, Double Quantization saves approximately 0.5 bits per parameter on average when using a blocksize of 64 for W. It achieves this reduction through its method of treating quantization constants as inputs to a second quantization step, which yields the quantized quantization constants and the second level of quantization constants."
   },
   {
     "id": "Q06",
-    "question": "Why does LoRA introduce zero additional inference latency when deployed in production?",
-    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
-    "retrieved_headers": [
-      "[LoRA: Low-Rank Adaptation of Large Language Models] Page 4",
-      "[LoRA: Low-Rank Adaptation of Large Language Models] Page 17"
+    "difficulty": "Easy",
+    "question": "What hardware mechanism do Paged Optimizers utilize in QLoRA to prevent out-of-memory errors during gradient checkpointing?",
+    "target_section_id": "2305.14314_p2",
+    "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "retrieved_contexts": [
+      {
+        "section_id": "2305.14314_p4",
+        "header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 4",
+        "score": 0.9320038924117492,
+        "snippet": "apters without significantly increasing the overall training memory footprint (see Appendix G\nfor a detailed breakdown). As discussed later, this is crucial for recovering full 16-bit precision\nperfor"
+      },
+      {
+        "section_id": "2305.14314_p5",
+        "header": "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
+        "score": 0.8575091787008235,
+        "snippet": "64, this quantization reduces the memory footprint per\nparameter from 32/64 = 0.5 bits, to 8/64 + 32/(64\u00b7 256) = 0.127 bits, a reduction of 0.373 bits\nper parameter.\nPaged Optimizers use the NVIDIA un"
+      }
     ],
-    "ground_truth_excerpt": "When deployed in production, we can explicitly compute and store W = W_0 + B A and perform inference as usual. Since both W_0 and B A are in R^{d x k}, we can just add them. When we need to switch to another downstream task, we can recover W_0 by subtracting B A and then adding a different B' A', a very quick operation with very little memory overhead. Crucially, this guarantees that we incur no additional latency during inference.",
-    "generated_answer": "LoRA introduces zero additional inference latency when deployed in production because it effectively reduces the number of parameters compared to weights, making it computationally efficient without significantly impacting performance."
+    "ground_truth_excerpt": "izes the quantization constants, saving an average of about 0.37 bits per parameter (approximately 3 GB for a 65B model). (3) Paged Optimizers, using NVIDIA unified memory to avoid the gradient checkpointing memory spikes that occur when processing a mini-batch with a long sequence length. We combine these contributions into a better tuned LoRA approach that includes adapters at every network layer and thereby avoids almost all of the accuracy tradeoffs seen in prior work. QLORA\u2019s efficiency ena",
+    "generated_answer": "Paged Optimizers use the NVIDIA unified memory 3 feature to automatically transfer GPU memory between CPU and GPU during scenarios where the GPU occasionally runs out of memory. This allows the optimizer states to be allocated and evicted efficiently, ensuring that gradients can be processed correctly even if there's insufficient GPU memory."
   },
   {
     "id": "Q07",
-    "question": "For a GPT-3 175B model, what was the reduction in VRAM and checkpoint file storage achieved by LoRA compared to full fine-tuning?",
-    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
-    "retrieved_headers": [
-      "[LoRA: Low-Rank Adaptation of Large Language Models] Page 5",
-      "[LoRA: Low-Rank Adaptation of Large Language Models] Page 5"
+    "difficulty": "Hard",
+    "question": "According to Theorem 1 in FlashAttention, what is the asymptotic IO complexity (number of memory accesses) between slow HBM and fast SRAM as a function of SRAM size M?",
+    "target_section_id": "2205.14135_p5",
+    "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "retrieved_contexts": [
+      {
+        "section_id": "2205.14135_p6",
+        "header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+        "score": 0.9562263096509788,
+        "snippet": "0 GPU. HBM access is the primary factor a\ufb00ecting\nruntime. Middle: Forward runtime ofFlashAttention(seq. length 1024, head dim. 64, 16 heads, batch size 64) on\nA100 GPU. Fewer HBM accesses result in fa"
+      },
+      {
+        "section_id": "2205.14135_p6",
+        "header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+        "score": 0.913229598718156,
+        "snippet": "\ud835\udc40 is common in the streaming algorithms\nliterature [88]. We leave proving parameterized complexity [27] lower bounds in terms of\ud835\udc40 as exciting future\nwork.\nWe validate that the number of HBM accesses i"
+      }
     ],
-    "ground_truth_excerpt": "When fine-tuning GPT-3 175B with Adam, we reduce the VRAM consumption from 1.2TB to 350GB. With r = 4 and only adapting query and value projection matrices, the checkpoint size is reduced by roughly 10,000x (from 350GB to 35MB). This allows us to train with significantly fewer GPUs and avoid I/O bottlenecks.",
-    "generated_answer": "For a GPT-3 175B model, reducing the VRAM usage by up to 2/3 and the checkpoint size by roughly 10,000 times when r \u226a dmodel, achieving a speedup of 25%."
+    "ground_truth_excerpt": ", \ud835\udc5a\ud835\udc56 \ud835\udc5anew \ud835\udc56 to HBM. 14: end for 15: end for 16: Return O. We showFlashAttention\u2019s correctness, runtime, and memory requirement (proof in Appendix C). Theorem 1. Algorithm 1 returnsO= softmax\u201eQK>\u201dV with \ud835\udc42\u201e\ud835\udc41 2\ud835\udc51\u201dFLOPs and requires\ud835\udc42\u201e\ud835\udc41\u201dadditional memory beyond inputs and output. 3.2 Analysis: IO Complexity of FlashA ttention We analyze the IO complexity ofFlashAttention, showing signi\ufb01cant reduction in HBM accesses compared to standard attention. We also provide a lower bound, proving that no exact a",
+    "generated_answer": "According to Theorem 1 in FlashAttention, the asymptotic IO complexity (number of memory accesses) between slow HBM and fast SRAM as a function of SRAM size \\( M \\) is given by:\n\n\\[ O(M^{1/2}) \\]\n\nThis means that the number of memory accesses required for FlashAttention to achieve its optimal performance scales inversely with the square root of the SRAM size \\( M \\)."
   },
   {
     "id": "Q08",
-    "question": "Which Transformer weight matrices did the authors find most critical to adapt when setting a parameter budget of rank 4?",
-    "target_paper": "LoRA: Low-Rank Adaptation of Large Language Models",
-    "retrieved_headers": [
-      "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10",
-      "[LoRA: Low-Rank Adaptation of Large Language Models] Page 10"
+    "difficulty": "Hard",
+    "question": "In the FlashAttention forward pass algorithm, how are the block sizes B_c and B_r determined relative to the SRAM size M and head dimension d?",
+    "target_section_id": "2205.14135_p5",
+    "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "retrieved_contexts": [
+      {
+        "section_id": "2205.14135_p6",
+        "header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6",
+        "score": 0.9913699177549807,
+        "snippet": "0 GPU. HBM access is the primary factor a\ufb00ecting\nruntime. Middle: Forward runtime ofFlashAttention(seq. length 1024, head dim. 64, 16 heads, batch size 64) on\nA100 GPU. Fewer HBM accesses result in fa"
+      },
+      {
+        "section_id": "2205.14135_p21",
+        "header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 21",
+        "score": 0.9614974970604195,
+        "snippet": "\ufffd dV\ud835\udc57 ~dV\ud835\udc57 to HBM.\n25: end for\n26: Return dQ\u0096 dK\u0096 dV.\nWe see that similar to the forward pass, the backward pass performs\ud835\udc42\u201e\ud835\udc41 2\u201dFLOPs and only requires\n\ud835\udc42\u201e\ud835\udc41\u201dextra memory beyond inputs, output, output gr"
+      }
     ],
-    "ground_truth_excerpt": "Setting Delta W_q or Delta W_k alone results in significantly lower performance, while adapting both W_q and W_v yields the best result. This suggests that even a rank of 4 captures enough information in Delta W such that adapting more weight matrices is preferable over adapting a single type of weights with larger rank.",
-    "generated_answer": "The authors found that the optimal rank r for LORA was 4."
+    "ground_truth_excerpt": "g and writing of inputs and outputs from and to HBM. Algorithm 1 FlashAttention Require: Matrices Q\u0096 K\u0096 V2 R\ud835\udc41\u0002\ud835\udc51 in HBM, on-chip SRAM of size\ud835\udc40. 1: Set block sizes\ud835\udc35\ud835\udc50 = \u0006\ud835\udc40 4\ud835\udc51 \u0007 \u0096\ud835\udc35\ud835\udc5f = min \u0000\u0006\ud835\udc40 4\ud835\udc51 \u0007 \u0096\ud835\udc51 \u0001. 2: Initialize O=\u201e0\u201d\ud835\udc41\u0002\ud835\udc512 R\ud835\udc41\u0002\ud835\udc51\u0096\u2113 =\u201e0\u201d\ud835\udc412 R\ud835\udc41\u0096\ud835\udc5a =\u201e\u00001\u201d\ud835\udc412 R\ud835\udc41 in HBM. 3: Divide Q into\ud835\udc47\ud835\udc5f = l \ud835\udc41 \ud835\udc35\ud835\udc5f m blocks Q1\u0096\u0095\u0095\u0095\u0096 Q\ud835\udc47\ud835\udc5f of size\ud835\udc35\ud835\udc5f\u0002\ud835\udc51 each, and divideK\u0096 V in to\ud835\udc47\ud835\udc50 = l \ud835\udc41 \ud835\udc35\ud835\udc50 m blocks K1\u0096\u0095\u0095\u0095\u0096 K\ud835\udc47\ud835\udc50 and V1\u0096\u0095\u0095\u0095\u0096 V\ud835\udc47\ud835\udc50, of size\ud835\udc35\ud835\udc50\u0002\ud835\udc51 each. 4: Divide O into\ud835\udc47\ud835\udc5f blocks O\ud835\udc56\u0096\u0095\u0095\u0095\u0096 O\ud835\udc47\ud835\udc5f of size\ud835\udc35\ud835\udc5f\u0002\ud835\udc51 each, divide\u2113 into\ud835\udc47\ud835\udc5f blocks \u2113\ud835\udc56\u0096\u0095\u0095\u0095",
+    "generated_answer": "In the FlashAttention forward pass algorithm, the block sizes \\( B_c \\) and \\( B_r \\) are determined relative to the SRAM size \\( M \\) and the head dimension \\( d \\). Specifically:\n\n- \\( B_c \\) represents the number of blocks per cycle, which is typically set based on the desired throughput or efficiency of the system.\n- \\( B_r \\) represents the number of rows per block, which also affects performance but is not directly related to the SRAM size \\( M \\).\n\nTherefore, the block sizes \\( B_c \\) and \\( B_r \\) are chosen such that they optimize both the throughput and energy efficiency of the system, often balancing these factors depending on the specific requirements of the application."
   },
   {
     "id": "Q09",
-    "question": "How does the 4-bit NormalFloat (NF4) data type construct its 16 quantization bins to be information-theoretically optimal?",
-    "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
-    "retrieved_headers": [
-      "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-      "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 4"
+    "difficulty": "Medium",
+    "question": "In Deep Residual Learning (ResNet), what is the 'degradation problem' and how did the authors prove it was not caused by overfitting?",
+    "target_section_id": "1512.03385_p1",
+    "target_paper": "Deep Residual Learning for Image Recognition",
+    "retrieved_contexts": [
+      {
+        "section_id": "1512.03385_p1",
+        "header": "[Deep Residual Learning for Image Recognition] Page 1",
+        "score": 0.9875990954572831,
+        "snippet": "problem,\nhowever, has been largely addressed by normalized initial-\nization [23, 9, 37, 13] and intermediate normalization layers\n[16], which enable networks with tens of layers to start con-\nverging "
+      },
+      {
+        "section_id": "1512.03385_p5",
+        "header": "[Deep Residual Learning for Image Recognition] Page 5",
+        "score": 0.9678216432552166,
+        "snippet": "). The baseline architectures\nare the same as the above plain nets, expect that a shortcut\nconnection is added to each pair of 3\u00d73 \ufb01lters as in Fig. 3\n(right). In the \ufb01rst comparison (Table 2 and Fig."
+      }
     ],
-    "ground_truth_excerpt": "NF4 builds on Quantile Quantization which is an information-theoretically optimal quantile grid that ensures each quantization bin has an equal number of expected values assigned from an empirical distribution... For a zero-mean, unit-variance normal distribution N(0, 1), the quantiles q_i are computed such that 2^k values have equal probability under the Gaussian cumulative distribution function.",
-    "generated_answer": "The 4-bit NormalFloat (NF) data type constructs its 16 quantization bins to be information-theoretically optimal through the following steps:\n\n1. **Estimate Quantiles**: The data type uses two ranges, `qi: 2k\u22121` for the negative part and `qi+1: 2k\u22121 + 1` for the positive part, where `qi` represents the range of values corresponding to the `k-bit` datatype.\n\n2. **"
+    "ground_truth_excerpt": "layers to start con- verging for stochastic gradient descent (SGD) with back- propagation [22]. When deeper networks are able to start converging, a degradation problem has been exposed: with the network depth increasing, accuracy gets saturated (which might be unsurprising) and then degrades rapidly. Unexpectedly, such degradation is not caused by over\ufb01tting , and adding more layers to a suitably deep model leads to higher train- ing error, as reported in [11, 42] and thoroughly veri\ufb01ed by our",
+    "generated_answer": "In Deep Residual Learning (ResNet), the 'degradation problem' refers to the phenomenon where deeper networks can saturate their performance due to an increase in complexity without improving learning efficiency. The authors demonstrated this through experiments comparing different architectures, including the addition of identity mappings between 3x3 filters and zero-padding for increasing dimensions. They found that these modifications led to significant improvements in training accuracy and generalizability to validation data, indicating that the degradation problem is not solely attributed to overfitting but rather arises from the inherent challenges of deeper networks."
   },
   {
     "id": "Q10",
-    "question": "How much memory per parameter does Double Quantization (DQ) save, and how is the 8-bit secondary quantization structured?",
-    "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
-    "retrieved_headers": [
-      "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-      "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5"
+    "difficulty": "Hard",
+    "question": "What are the three shortcut options (A, B, and C) evaluated in ResNet for increasing dimensions across residual stages?",
+    "target_section_id": "1512.03385_p5",
+    "target_paper": "Deep Residual Learning for Image Recognition",
+    "retrieved_contexts": [
+      {
+        "section_id": "1512.03385_p4",
+        "header": "[Deep Residual Learning for Image Recognition] Page 4",
+        "score": 0.9813289580595159,
+        "snippet": "34 parameter layers (3.6 billion FLOPs).\nRight: a residual network with 34 parameter layers (3.6 billion\nFLOPs). The dotted shortcuts increase dimensions. Table 1shows\nmore details and other variants."
+      },
+      {
+        "section_id": "1512.03385_p6",
+        "header": "[Deep Residual Learning for Image Recognition] Page 6",
+        "score": 0.9371814773409579,
+        "snippet": "x3, 64\n3x3, 64\nrelu\nrelu\n64-d 256-d\nFigure 5. A deeper residual function F for ImageNet. Left: a\nbuilding block (on 56\u00d756 feature maps) as in Fig. 3 for ResNet-\n34. Right: a \u201cbottleneck\u201d building bloc"
+      }
     ],
-    "ground_truth_excerpt": "Double Quantization (DQ) quantizes the quantization constants themselves for additional memory savings... While a small block size is required for precise 4-bit quantization (e.g. blocksize 64), it incurs a memory overhead of 32/64 = 0.5 bits per parameter. With Double Quantization, we use 8-bit FP with blocksize 256 for the quantization constants, reducing memory footprint to 8/64 + 32/(64*256) = 0.127 bits per parameter, saving 0.373 bits per parameter.",
-    "generated_answer": "Double Quantization (DQ) saves approximately 0.37 bits per parameter on average, while the 8-bit secondary quantization is structured as follows:\n\n- **Memory Per Parameter**: Approximately 0.37 bits per parameter.\n- **Secondary Quantization Structure**:\n  - Positive Quantization Constants: `cFP32_2` and `cFP8_2`\n  - Negative Quantization Constants: `cFP32_1` and `cFP8"
+    "ground_truth_excerpt": "g. 3 (right). In the \ufb01rst comparison (Table 2 and Fig. 4 right), we use identity mapping for all shortcuts and zero-padding for increasing dimensions (option A). So they haveno extra parameter compared to the plain counterparts. We have three major observations from Table 2 and Fig. 4. First, the situation is reversed with residual learn- ing \u2013 the 34-layer ResNet is better than the 18-layer ResNet (by 2.8%). More importantly, the 34-layer ResNet exhibits considerably lower training error and is",
+    "generated_answer": "In ResNet for increasing dimensions across residual stages, the three shortcut options (zero-padding shortcuts, projection shortcuts, and all shortcuts being projections) are compared."
   },
   {
     "id": "Q11",
-    "question": "How do Paged Optimizers utilize NVIDIA Unified Memory to prevent out-of-memory errors during activation peaks?",
-    "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
-    "retrieved_headers": [
-      "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 5",
-      "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 26"
+    "difficulty": "Medium",
+    "question": "During BERT pre-training with the Masked Language Model, what is the exact 80-10-10 breakdown for replacing selected tokens?",
+    "target_section_id": "1810.04805_p12",
+    "target_paper": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    "retrieved_contexts": [
+      {
+        "section_id": "1810.04805_p16",
+        "header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 16",
+        "score": 0.9762801097520968,
+        "snippet": "in terms of absolute accuracy the MLM\nmodel begins to outperform the LTR model\nalmost immediately.\nC.2 Ablation for Different Masking\nProcedures\nIn Section 3.1, we mention that BERT uses a\nmixed strat"
+      },
+      {
+        "section_id": "1810.04805_p12",
+        "header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 12",
+        "score": 0.848198650363801,
+        "snippet": "We organize the appendix into three sections:\n\u2022 Additional implementation details for BERT\nare presented in Appendix A;\n\u2022 Additional details for our experiments are\npresented in Appendix B; and\n\u2022 Addi"
+      }
     ],
-    "ground_truth_excerpt": "Paged Optimizers uses NVIDIA Unified Memory feature which does automatic page-to-page transfers between CPU and GPU for error-free GPU processing in the event the GPU runs out of memory. The feature allocates paged memory for the optimizer states which are then automatically evicted to CPU RAM when the GPU is out of memory and paged back into GPU memory when the states are needed in the optimizer update step.",
-    "generated_answer": "Paged Optimizers use the NVIDIA unified memory 3 feature to automatically transfer error-free GPU processing from the CPU to the GPU when the GPU frequently runs out of memory. This feature allows the GPU to handle activations at peak times without running out of memory, thereby preventing out-of-memory errors during training."
+    "ground_truth_excerpt": "d during the random masking procedure we chose the 4-th token (which corresponding to hairy), our masking procedure can be further il- lustrated by \u2022 80% of the time: Replace the word with the [MASK] token, e.g., my dog is hairy \u2192 my dog is [MASK] \u2022 10% of the time: Replace the word with a random word, e.g., my dog is hairy \u2192 my dog is apple \u2022 10% of the time: Keep the word un- changed, e.g., my dog is hairy \u2192 my dog is hairy . The purpose of this is to bias the representation towards the actual",
+    "generated_answer": "During BERT pre-training with the Masked Language Model, the exact 80-10-10 breakdown for replacing selected tokens is:\n\n- 80% of the time: Replace the word with the [MASK] token, e.g., \"my dog\" becomes \"my dog [MASK]\"\n- 10% of the time: Replace the word with a random word, e.g., \"my dog\" becomes \"my dog apple\"\n- 10% of the time: Keep the word unchanged, e.g., \"my dog\" remains \"my dog\"\n\nThis means that approximately 80% of the time, the model will replace the selected tokens with the [MASK] token, while about 10"
   },
   {
     "id": "Q12",
-    "question": "How did 4-bit QLoRA with Guanaco compare to 16-bit full fine-tuning on the Vicuna benchmark?",
-    "target_paper": "QLoRA: Efficient Finetuning of Quantized LLMs",
-    "retrieved_headers": [
-      "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 7",
-      "[QLoRA: Efficient Finetuning of Quantized LLMs] Page 7"
+    "difficulty": "Easy",
+    "question": "What is the Next Sentence Prediction (NSP) task in BERT, and what are the positive and negative training label proportions?",
+    "target_section_id": "1810.04805_p4",
+    "target_paper": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    "retrieved_contexts": [
+      {
+        "section_id": "1810.04805_p13",
+        "header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 13",
+        "score": 0.9776464636691315,
+        "snippet": "differences, BERT and\nOpenAI GPT are \ufb01ne-tuning approaches, while ELMo is a feature-based approach.\nto converge. In Section C.1 we demonstrate that\nMLM does converge marginally slower than a left-\nto-"
+      },
+      {
+        "section_id": "1810.04805_p8",
+        "header": "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding] Page 8",
+        "score": 0.9607397211532471,
+        "snippet": "sentence\nprediction, like OpenAI GPT. \u201c+ BiLSTM\u201d adds a ran-\ndomly initialized BiLSTM on top of the \u201cLTR + No\nNSP\u201d model during \ufb01ne-tuning.\nablation studies can be found in Appendix C.\n5.1 Effect of P"
+      }
     ],
-    "ground_truth_excerpt": "Guanaco 65B is the best open-source model, reaching 99.3% of ChatGPT performance level and outperforming all other models on the Vicuna benchmark. Guanaco 33B reaches 97.8% of ChatGPT level while running on a single 24GB GPU, matching 16-bit full fine-tuning performance across all metrics.",
-    "generated_answer": "Based on the information provided:\n\n4-bit QLoRA with Guanaco matched 16-bit full fine-tuning on the Vicuna benchmark."
+    "ground_truth_excerpt": "time. Then, Ti will be used to predict the original token with cross entropy loss. We compare variations of this procedure in Appendix C.2. Task #2: Next Sentence Prediction (NSP) Many important downstream tasks such as Ques- tion Answering (QA) and Natural Language Infer- ence (NLI) are based on understanding the rela- tionship between two sentences, which is not di- rectly captured by language modeling. In order to train a model that understands sentence rela- tionships, we pre-train for a bi",
+    "generated_answer": "The Next Sentence Prediction (NSP) task in BERT involves predicting the next sentence in a given input based on the previous sentence. The positive training label proportion is high, indicating that the model has learned to predict the next sentence with high accuracy. The negative training label proportion is low, suggesting that the model's predictions may not always align perfectly with the true next sentence."
   },
   {
     "id": "Q13",
-    "question": "What are the two core algorithmic techniques of FlashAttention that compute exact attention without storing the full N x N matrix in HBM?",
-    "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
-    "retrieved_headers": [
-      "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 2",
-      "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 4"
+    "difficulty": "Medium",
+    "question": "How did Chinchilla revise the compute-optimal scaling relationship between model parameters and training tokens compared to Kaplan et al. (2020)?",
+    "target_section_id": "2203.15556_p1",
+    "target_paper": "Training Compute-Optimal Large Language Models",
+    "retrieved_contexts": [
+      {
+        "section_id": "2203.15556_p1",
+        "header": "[Training Compute-Optimal Large Language Models] Page 1",
+        "score": 0.9052934124504725,
+        "snippet": "milliontoover16billion\nparameters on 5 to 500 billion tokens, we \ufb01nd that for compute-optimal training, the model size and\nthe number of training tokens should be scaled equally: for every doubling of"
+      },
+      {
+        "section_id": "2203.15556_p1",
+        "header": "[Training Compute-Optimal Large Language Models] Page 1",
+        "score": 0.5,
+        "snippet": "model size. In practice, the allocated training\ncompute budget is often known in advance: how many accelerators are available and for how long\nwe want to use them. Since it is typically only feasible "
+      }
     ],
-    "ground_truth_excerpt": "FlashAttention computes exact attention with fewer memory accesses (HBM reads/writes). The two main technical ideas are: 1. Tiling: we compute the softmax reduction incrementally by loading blocks of inputs from slow HBM to fast SRAM, and 2. Recomputation: in the backward pass, we do not save the large N x N attention matrix; instead, we recompute attention blocks on the fly from SRAM.",
-    "generated_answer": "The two core algorithmic techniques of FlashAttention that compute exact attention without storing the full N x N matrix in HBM are:\n\n1. **Tiling**: FlashAttention applies tiling to the input data (Q, K, V) to avoid materializing the large \ud835\udc41 \u00d7 \ud835\udc41 attention matrix on the GPU HBM.\n2. **Recomputation**: FlashAttention reuses previously computed values from previous iterations to speed up the computation of the next iteration's attention output."
+    "ground_truth_excerpt": "16billion parameters on 5 to 500 billion tokens, we \ufb01nd that for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled. We test this hypothesis by training a predicted compute- optimal model,Chinchilla, that uses the same compute budget asGopher but with 70B parameters and 4\u0002 more more data.Chinchilla uniformly and signi\ufb01cantly outperformsGopher (280B), GPT-3 (175B",
+    "generated_answer": "Chinchilla revised the compute-optimal scaling relationship between model parameters and training tokens by suggesting that larger models should be trained for several times more training tokens than recommended by the authors. Specifically, given a 10% increase in the compute budget, Chinchilla recommends increasing the model size by approximately 5% while keeping the token count constant at about 1.8%. This approach allows for more efficient use of computing resources while still achieving high performance."
   },
   {
     "id": "Q14",
-    "question": "What is the theoretical IO complexity of standard attention vs FlashAttention in terms of sequence length N, head dimension d, and SRAM size M?",
-    "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
-    "retrieved_headers": [
-      "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-      "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 6"
+    "difficulty": "Hard",
+    "question": "What attention mechanism pattern was used across the layers of GPT-3 to handle long sequences, alternating with standard dense attention?",
+    "target_section_id": "2005.14165_p8",
+    "target_paper": "Language Models are Few-Shot Learners",
+    "retrieved_contexts": [
+      {
+        "section_id": "2205.14135_p26",
+        "header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 26",
+        "score": 0.5,
+        "snippet": "GPUs. For very long sequences, the di\ufb00erent GPUs on the same node can cooperate to compute attention by\ntaking into account the asymmetry of di\ufb00erent levels of memory hierarchy.\nSparse MLP layers.Typi"
+      },
+      {
+        "section_id": "2205.14135_p34",
+        "header": "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 34",
+        "score": 0.5,
+        "snippet": "Table 18: Forward pass runtime (ms) of various exact/approximate/sparse attention mechanisms by sequence length.\nBest in bold, second best underlined.\nAttention Method 128 256 512 1024 2048 4096 8192 "
+      }
     ],
-    "ground_truth_excerpt": "Standard attention requires Theta(N d + N^2) HBM accesses, which is quadratic in N. FlashAttention requires Theta(N^2 d^2 / M) HBM accesses, where M is the size of SRAM. Since typical SRAM size M is much larger than d^2, FlashAttention requires asymptotically fewer HBM accesses than standard attention.",
-    "generated_answer": "The theoretical IO complexity of standard attention (Algorithm 0) is \u0398(Nd + Nd^2) HBM accesses, while the theoretical IO complexity of FlashAttention (Algorithm 1) is \u0398(N^2d^2M - 1)."
+    "ground_truth_excerpt": "PT-2 [RWC+19], including the modi\ufb01ed initialization, pre-normalization, and reversible tokenization described therein, with the exception that we use alternating dense and locally banded sparse attention patterns in the layers of the transformer, similar to the Sparse Transformer [CGRS19]. To study the dependence of ML performance on model size, we train 8 different sizes of model, ranging over three orders of magnitude from 125 million parameters to 175 billion parameters, with the last being t",
+    "generated_answer": "The attention mechanism pattern used across the layers of GPT-3 to handle long sequences alternates between dense attention and sparse attention."
   },
   {
     "id": "Q15",
-    "question": "What end-to-end wall-clock speedup does FlashAttention achieve on BERT-large training and GPT-2 inference compared to standard HuggingFace implementations?",
-    "target_paper": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
-    "retrieved_headers": [
-      "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 7",
-      "[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness] Page 8"
+    "difficulty": "Hard",
+    "question": "What is Ghost Attention (GAtt) introduced in Llama 2, and what specific failure mode in multi-turn dialogues does it fix?",
+    "target_section_id": "2307.09288_p16",
+    "target_paper": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+    "retrieved_contexts": [
+      {
+        "section_id": "2307.09288_p54",
+        "header": "[Llama 2: Open Foundation and Fine-Tuned Chat Models] Page 54",
+        "score": 0.8960355032013536,
+        "snippet": "Dialogue Turn Baseline + GAtt\n2 100% 100%\n4 10% 100%\n6 0% 100%\n20 0% 100%\nTable 30: GAtt results.Llama 2-Chat with GAtt is able to refer to attributes 100% of the time, for up to 20\nturns from our hum"
+      },
+      {
+        "section_id": "2307.09288_p16",
+        "header": "[Llama 2: Open Foundation and Fine-Tuned Chat Models] Page 16",
+        "score": 0.8624402033173645,
+        "snippet": ".g., to respond succinctly,\nor to\u201cact as\u201dsome public figure. When we provided such instructions toLlama 2-Chat, the subsequent\nresponse should always respect the constraint. However, our initial RLHF "
+      }
     ],
-    "ground_truth_excerpt": "FlashAttention speeds up BERT-large (seq length 512) by 15% and GPT-2 (seq length 1K) by 3x compared to HuggingFace implementations, and yields up to 2.4x speedup over Megatron-LM across sequence lengths up to 4K.",
-    "generated_answer": "According to the given excerpt, FlashAttention achieves an end-to-end speedup of approximately 3x compared to HuggingFace's baseline implementation when trained on BERT-large and GPT-2 models respectively."
+    "ground_truth_excerpt": "s tended to forget the initial instruction after a few turns of dialogue, as illustrated in Figure 9 (left). To address these limitations, we propose Ghost Attention (GAtt), a very simple method inspired by Context Distillation (Bai et al., 2022b) that hacks the fine-tuning data to help the attention focus in a multi-stage process. GAtt enables dialogue control over multiple turns, as illustrated in Figure 9 (right). GAtt Method. Assume we have access to a multi-turn dialogue dataset between two",
+    "generated_answer": "Ghost Attention (GAtt) is introduced in Llama 2, which introduces a very simple method inspired by Context Distillation (Bai et al., 2022b) to hack the fine-tuning data and help the attention focus in a multi-stage process. This allows dialogue control over multiple turns, as demonstrated in Figure 9 (right)."
   }
 ]

@@ -1,20 +1,21 @@
 """
 Task 2 Evaluation:
 Compare Chunk Size 256 (overlap 50) vs Chunk Size 512 (overlap 100)
-Metrics: Recall@1, Recall@3, Recall@5, MRR@5 across 15 hand-crafted benchmark questions.
-Generates full retrieval breakdown and analysis of failures.
+Corpus: 335 pages across 10 landmark arXiv papers (corpus_real_sections.json)
+Questions: 15 hand-crafted benchmark questions (benchmark_15_questions.json)
+Metrics: Recall@1, Recall@3, Recall@5, MRR@5 across Sparse BM25, Dense FAISS, and Hybrid.
 """
 
+import os
 import json
 import time
-from rag_engine import TextChunker, HybridRAG, EMBEDDING_MODEL_PATH
+from rag_engine import TextChunker, HybridRAG, EMBEDDING_MODEL_PATH, DEFAULT_TOKENIZER_PATH
 
-SECTIONS_FILE = "d:/Intern/data/corpus_sections.json"
-QUESTIONS_FILE = "d:/Intern/data/benchmark_15_questions.json"
+SECTIONS_FILE = "d:/Intern/data/corpus_real_sections.json" if os.path.exists("d:/Intern/data/corpus_real_sections.json") else "data/corpus_real_sections.json"
+QUESTIONS_FILE = "d:/Intern/data/benchmark_15_questions.json" if os.path.exists("d:/Intern/data/benchmark_15_questions.json") else "data/benchmark_15_questions.json"
 OUTPUT_REPORT = "d:/Intern/task2_rag/rag_evaluation_results.json"
-TOKENIZER_PATH = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
 
-def evaluate_retrieval(rag_system, questions, top_k=5, alpha=0.4):
+def evaluate_retrieval(rag_system, questions, top_k=5, alpha=0.5):
     modes = ["sparse_bm25", "dense_faiss", "hybrid"]
     metrics = {m: {"r@1": 0, "r@3": 0, "r@5": 0, "mrr@5": 0.0} for m in modes}
     query_details = []
@@ -23,6 +24,7 @@ def evaluate_retrieval(rag_system, questions, top_k=5, alpha=0.4):
         target_sec = q["target_section_id"]
         q_record = {
             "id": q["id"],
+            "difficulty": q.get("difficulty", "Medium"),
             "question": q["question"],
             "target_section_id": target_sec,
             "target_paper": q.get("target_paper", q.get("paper", "")),
@@ -69,79 +71,85 @@ def evaluate_retrieval(rag_system, questions, top_k=5, alpha=0.4):
     return summary, query_details
 
 def main():
-    print(f"Loading sections from {SECTIONS_FILE}...", flush=True)
+    print("=" * 70)
+    print("TASK 2: RETRIEVAL ACCURACY BENCHMARK (SETTING A VS SETTING B)")
+    print("=" * 70)
+
+    print(f"Loading corpus sections from: {SECTIONS_FILE}")
     with open(SECTIONS_FILE, "r", encoding="utf-8") as f:
         sections = json.load(f)
-        
-    print(f"Loading 15 benchmark questions from {QUESTIONS_FILE}...", flush=True)
+    print(f"Loaded {len(sections)} pages from 10 arXiv papers.")
+
+    print(f"Loading benchmark test questions from: {QUESTIONS_FILE}")
     with open(QUESTIONS_FILE, "r", encoding="utf-8") as f:
         questions = json.load(f)
+    print(f"Loaded {len(questions)} technical test questions with ground truth pages.")
 
-    # =========================================================================
-    # SETTING A: Chunk size 256 tokens, overlap 50 tokens
-    # =========================================================================
-    print("\n" + "="*70, flush=True)
-    print("RUNNING SETTING A: Chunk Size 256, Overlap 50", flush=True)
-    print("="*70, flush=True)
-    chunker_256 = TextChunker(TOKENIZER_PATH, chunk_size=256, chunk_overlap=50)
-    chunks_256 = chunker_256.chunk_sections(sections)
-    print(f"Total chunks created for Setting A: {len(chunks_256)}", flush=True)
-    
-    rag_256 = HybridRAG(chunks_256, EMBEDDING_MODEL_PATH)
-    summary_256, details_256 = evaluate_retrieval(rag_256, questions, top_k=5, alpha=0.4)
+    # Setting A: 256 tokens, overlap 50
+    print("\n" + "=" * 50)
+    print("EVALUATING SETTING A: Chunk Size = 256, Overlap = 50")
+    print("=" * 50)
+    chunker_A = TextChunker(tokenizer_path=DEFAULT_TOKENIZER_PATH, chunk_size=256, chunk_overlap=50)
+    chunks_A = chunker_A.chunk_sections(sections)
+    print(f"Total chunks generated for Setting A: {len(chunks_A)}")
+    rag_A = HybridRAG(chunks_A, embedding_model_path=EMBEDDING_MODEL_PATH)
+    summary_A, details_A = evaluate_retrieval(rag_A, questions)
 
-    # =========================================================================
-    # SETTING B: Chunk size 512 tokens, overlap 100 tokens
-    # =========================================================================
-    print("\n" + "="*70, flush=True)
-    print("RUNNING SETTING B: Chunk Size 512, Overlap 100", flush=True)
-    print("="*70, flush=True)
-    chunker_512 = TextChunker(TOKENIZER_PATH, chunk_size=512, chunk_overlap=100)
-    chunks_512 = chunker_512.chunk_sections(sections)
-    print(f"Total chunks created for Setting B: {len(chunks_512)}", flush=True)
-    
-    rag_512 = HybridRAG(chunks_512, EMBEDDING_MODEL_PATH)
-    summary_512, details_512 = evaluate_retrieval(rag_512, questions, top_k=5, alpha=0.4)
-
-    # =========================================================================
-    # COMPARATIVE SUMMARY TABLE
-    # =========================================================================
-    print("\n" + "#"*70, flush=True)
-    print("               TASK 2 RETRIEVAL BENCHMARK RESULTS", flush=True)
-    print("#"*70, flush=True)
-    print(f"{'Setting':<25} | {'Retrieval Mode':<15} | {'Recall@1':<10} | {'Recall@5':<10} | {'MRR@5':<10}", flush=True)
-    print("-" * 75, flush=True)
-    
-    for mode in ["sparse_bm25", "dense_faiss", "hybrid"]:
-        s = summary_256[mode]
-        print(f"{'Chunk 256 (overlap 50)':<25} | {mode:<15} | {s['recall@1']*100:6.1f}%   | {s['recall@5']*100:6.1f}%   | {s['mrr@5']:.4f}", flush=True)
-    print("-" * 75, flush=True)
-    for mode in ["sparse_bm25", "dense_faiss", "hybrid"]:
-        s = summary_512[mode]
-        print(f"{'Chunk 512 (overlap 100)':<25} | {mode:<15} | {s['recall@1']*100:6.1f}%   | {s['recall@5']*100:6.1f}%   | {s['mrr@5']:.4f}", flush=True)
-    print("#"*70 + "\n", flush=True)
+    # Setting B: 512 tokens, overlap 100
+    print("\n" + "=" * 50)
+    print("EVALUATING SETTING B: Chunk Size = 512, Overlap = 100")
+    print("=" * 50)
+    chunker_B = TextChunker(tokenizer_path=DEFAULT_TOKENIZER_PATH, chunk_size=512, chunk_overlap=100)
+    chunks_B = chunker_B.chunk_sections(sections)
+    print(f"Total chunks generated for Setting B: {len(chunks_B)}")
+    rag_B = HybridRAG(chunks_B, embedding_model_path=EMBEDDING_MODEL_PATH)
+    summary_B, details_B = evaluate_retrieval(rag_B, questions)
 
     results = {
+        "corpus_stats": {
+            "total_papers": 10,
+            "total_pages": len(sections),
+            "setting_A_chunks": len(chunks_A),
+            "setting_B_chunks": len(chunks_B)
+        },
         "setting_A_256": {
             "chunk_size": 256,
             "chunk_overlap": 50,
-            "total_chunks": len(chunks_256),
-            "summary": summary_256,
-            "details": details_256
+            "total_chunks": len(chunks_A),
+            "summary": summary_A,
+            "details": details_A
         },
         "setting_B_512": {
             "chunk_size": 512,
             "chunk_overlap": 100,
-            "total_chunks": len(chunks_512),
-            "summary": summary_512,
-            "details": details_512
+            "total_chunks": len(chunks_B),
+            "summary": summary_B,
+            "details": details_B
         }
     }
 
+    os.makedirs(os.path.dirname(OUTPUT_REPORT), exist_ok=True)
     with open(OUTPUT_REPORT, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
-    print(f"Detailed RAG evaluation metrics saved to {OUTPUT_REPORT}", flush=True)
+
+    print("\n" + "=" * 70)
+    print("COMPARATIVE RETRIEVAL PERFORMANCE SUMMARY")
+    print("=" * 70)
+    print(f"{'Metric':<18} | {'Setting A (256)':<24} | {'Setting B (512)':<24}")
+    print("-" * 70)
+    for m in ["sparse_bm25", "dense_faiss", "hybrid"]:
+        r1_A = summary_A[m]["recall@1"] * 100
+        r5_A = summary_A[m]["recall@5"] * 100
+        mrr_A = summary_A[m]["mrr@5"]
+        r1_B = summary_B[m]["recall@1"] * 100
+        r5_B = summary_B[m]["recall@5"] * 100
+        mrr_B = summary_B[m]["mrr@5"]
+        print(f"[{m.upper()}]")
+        print(f"  Recall@1         | {r1_A:5.1f}%                   | {r1_B:5.1f}%")
+        print(f"  Recall@5         | {r5_A:5.1f}%                   | {r5_B:5.1f}%")
+        print(f"  MRR@5            | {mrr_A:5.4f}                   | {mrr_B:5.4f}")
+    print("=" * 70)
+    print(f"Saved complete evaluation report to: {OUTPUT_REPORT}")
 
 if __name__ == "__main__":
     main()
-

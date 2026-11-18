@@ -1,7 +1,7 @@
 """
-Evaluate Fine-Tuned LoRA Model on the 50 Held-Out Test Set.
-Computes field-level Precision, Recall, F1, and JSON validity.
-Compares directly against the base model baseline.
+Evaluate Fine-Tuned LoRA Model on the 50 Held-Out Test Set (Fixed Domain-Holdout).
+Batched generation on CUDA with PEFT adapter merging for fast and reliable execution.
+Supports both local snapshot and Hugging Face Hub for Colab/Kaggle portability.
 """
 
 import os
@@ -11,9 +11,11 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
 from metrics import evaluate_predictions
 
-BASE_MODEL_PATH = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
-LORA_ADAPTER_PATH = "d:/Intern/task1_finetune/lora_adapter"
-TEST_DATA_PATH = "d:/Intern/data/test.json"
+LOCAL_MODEL = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
+MODEL_PATH = LOCAL_MODEL if os.path.exists(LOCAL_MODEL) else "Qwen/Qwen2.5-0.5B-Instruct"
+
+ADAPTER_PATH = "d:/Intern/task1_finetune/lora_adapter" if os.path.exists("d:/Intern/task1_finetune/lora_adapter") else "task1_finetune/lora_adapter"
+TEST_DATA_PATH = "d:/Intern/data_fixed/test.json" if os.path.exists("d:/Intern/data_fixed/test.json") else "data_fixed/test.json"
 BASE_RESULTS_PATH = "d:/Intern/task1_finetune/base_model_eval_results.json"
 OUTPUT_PATH = "d:/Intern/task1_finetune/lora_model_eval_results.json"
 BATCH_SIZE = 5
@@ -42,8 +44,8 @@ def main():
         test_samples = json.load(f)
     print(f"Loaded {len(test_samples)} test samples.", flush=True)
 
-    print(f"Loading base model and tokenizer from local path:\n{BASE_MODEL_PATH}...", flush=True)
-    tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_PATH, padding_side="left")
+    print(f"Loading base model from {MODEL_PATH} and LoRA adapter from {ADAPTER_PATH}...", flush=True)
+    tokenizer = AutoTokenizer.from_pretrained(ADAPTER_PATH if os.path.exists(ADAPTER_PATH) else MODEL_PATH, padding_side="left")
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
         
@@ -51,88 +53,95 @@ def main():
     print(f"Using device: {device}", flush=True)
     
     base_model = AutoModelForCausalLM.from_pretrained(
-        BASE_MODEL_PATH,
-        dtype=torch.float16 if device == "cuda" else torch.float32
+        MODEL_PATH,
+        torch_dtype=torch.float16 if device == "cuda" else torch.float32
     ).to(device)
-
-    print(f"Loading fine-tuned LoRA adapter from {LORA_ADAPTER_PATH}...", flush=True)
-    model = PeftModel.from_pretrained(base_model, LORA_ADAPTER_PATH)
+    
+    model = PeftModel.from_pretrained(base_model, ADAPTER_PATH).to(device)
     model.eval()
 
     predictions = []
-    print("\nRunning batched inference on fine-tuned LoRA model...", flush=True)
+    print("\nRunning batched inference on LoRA fine-tuned model...", flush=True)
     
     for i in range(0, len(test_samples), BATCH_SIZE):
         batch = test_samples[i:i + BATCH_SIZE]
         prompts = [format_prompt(tokenizer, s["abstract"]) for s in batch]
         
-        inputs = tokenizer(prompts, return_tensors="pt", padding=True).to(device)
+        inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=512).to(device)
         
         with torch.no_grad():
             outputs = model.generate(
                 **inputs,
-                max_new_tokens=120,
+                max_new_tokens=150,
                 do_sample=False,
-                pad_token_id=tokenizer.pad_token_id
+                pad_token_id=tokenizer.pad_token_id,
+                eos_token_id=tokenizer.eos_token_id
             )
             
-        # Decode only the generated response
-        input_len = inputs["input_ids"].shape[1]
-        for out in outputs:
+        for j, out in enumerate(outputs):
+            input_len = inputs["input_ids"][j].shape[0]
             gen_tokens = out[input_len:]
-            response = tokenizer.decode(gen_tokens, skip_special_tokens=True).strip()
-            predictions.append(response)
+            gen_text = tokenizer.decode(gen_tokens, skip_special_tokens=True).strip()
+            predictions.append(gen_text)
             
-        print(f"  Processed {min(i + BATCH_SIZE, len(test_samples))}/{len(test_samples)} samples...", flush=True)
+        print(f"Processed samples {i+1} to {min(i+BATCH_SIZE, len(test_samples))} / {len(test_samples)}", flush=True)
 
-    print("\nEvaluating fine-tuned model predictions...", flush=True)
-    summary, details = evaluate_predictions(test_samples, predictions)
+    print("\nEvaluating LoRA model predictions on held-out test set...", flush=True)
+    metrics = evaluate_predictions(test_samples, predictions)
     
-    # Load base model results for comparison if available
-    base_summary = None
+    base_macro_f1 = None
     if os.path.exists(BASE_RESULTS_PATH):
         with open(BASE_RESULTS_PATH, "r", encoding="utf-8") as f:
             base_data = json.load(f)
-            base_summary = base_data.get("summary")
-
-    print("\n" + "="*60, flush=True)
-    print("        BASE MODEL vs. FINE-TUNED MODEL COMPARISON", flush=True)
-    print("="*60, flush=True)
-    print(f"{'Metric':<20} | {'Base Model':<15} | {'Fine-Tuned (LoRA)':<18} | {'Delta':<10}", flush=True)
-    print("-" * 65, flush=True)
-    
-    base_macro = base_summary["overall_macro_f1"] if base_summary else 0.0
-    ft_macro = summary["overall_macro_f1"]
-    delta_macro = ft_macro - base_macro
-    print(f"{'Overall Macro F1':<20} | {base_macro:12.4f}    | {ft_macro:15.4f}    | {delta_macro:+8.4f}", flush=True)
-    
-    base_valid = base_summary["json_valid_rate"]*100 if base_summary else 0.0
-    ft_valid = summary["json_valid_rate"]*100
-    print(f"{'JSON Valid Rate':<20} | {base_valid:11.2f}%    | {ft_valid:14.2f}%    | {ft_valid - base_valid:+7.2f}%", flush=True)
-    
-    print("-" * 65, flush=True)
-    print("Field-Level F1 Deltas:", flush=True)
-    for f in ["task", "dataset", "metric", "result", "baseline"]:
-        b_f1 = base_summary["field_f1"].get(f, 0.0) if base_summary else 0.0
-        ft_f1 = summary["field_f1"].get(f, 0.0)
-        d_f1 = ft_f1 - b_f1
-        print(f"  - {f:<15}: Base={b_f1:.4f}  -->  LoRA={ft_f1:.4f}  ({d_f1:+7.4f})", flush=True)
-    print("="*60 + "\n", flush=True)
-
-    results_data = {
+            base_macro_f1 = base_data.get("summary", {}).get("overall_macro_f1")
+            
+    results = {
         "model": "Qwen2.5-0.5B-Instruct + LoRA",
         "type": "lora_finetuned",
-        "summary": summary,
-        "base_comparison": {
-            "base_macro_f1": base_macro,
-            "lora_macro_f1": ft_macro,
-            "delta": delta_macro
+        "dataset_split": "data_fixed/test.json (4 unseen domains)",
+        "summary": {
+            "total_samples": len(test_samples),
+            "valid_json_count": metrics["valid_json_count"],
+            "json_valid_rate": metrics["valid_json_count"] / len(test_samples),
+            "overall_macro_f1": metrics["overall_macro_f1"],
+            "field_f1": metrics["field_f1"],
+            "field_precision": metrics["field_precision"],
+            "field_recall": metrics["field_recall"]
         },
-        "details": details
+        "base_comparison": {
+            "base_macro_f1": base_macro_f1,
+            "lora_macro_f1": metrics["overall_macro_f1"],
+            "delta": metrics["overall_macro_f1"] - base_macro_f1 if base_macro_f1 is not None else None
+        },
+        "details": []
     }
+    
+    for idx, (sample, pred, res) in enumerate(zip(test_samples, predictions, metrics["results"])):
+        results["details"].append({
+            "domain": sample.get("domain", "Unknown"),
+            "abstract": sample["abstract"],
+            "gold": sample.get("target", sample.get("gold")),
+            "raw_prediction": pred,
+            "is_valid_json": res["is_valid_json"],
+            "parsed": res["parsed_json"],
+            "field_metrics": res["field_metrics"],
+            "sample_mean_f1": res["sample_mean_f1"]
+        })
+        
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(results_data, f, indent=2)
-    print(f"Saved fine-tuned evaluation results to {OUTPUT_PATH}", flush=True)
+        json.dump(results, f, indent=2)
+        
+    print(f"\n================ LORA MODEL RESULTS ================")
+    print(f"Overall Macro F1: {metrics['overall_macro_f1']:.4f}")
+    if base_macro_f1 is not None:
+        delta = metrics['overall_macro_f1'] - base_macro_f1
+        print(f"Base Model F1:   {base_macro_f1:.4f} -> LoRA F1: {metrics['overall_macro_f1']:.4f} (Delta: {delta:+.4f})")
+    print(f"JSON Validity:    {metrics['valid_json_count']}/{len(test_samples)} ({metrics['valid_json_count']/len(test_samples)*100:.1f}%)")
+    for field, f1 in metrics["field_f1"].items():
+        print(f"  - {field:10s} F1: {f1:.4f} (P: {metrics['field_precision'][field]:.4f}, R: {metrics['field_recall'][field]:.4f})")
+    print(f"=====================================================")
+    print(f"Saved evaluation results to {OUTPUT_PATH}")
 
 if __name__ == "__main__":
     main()
