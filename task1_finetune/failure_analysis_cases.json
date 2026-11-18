@@ -4,11 +4,11 @@
     "title": "Multi-Metric & Multi-Dataset Competition",
     "category": "Multi-Value Extraction Conflict / Schema Bottleneck",
     "abstract": "We introduce UnifiedVision, a cross-domain vision model evaluated across both ImageNet-1K classification, achieving an unprecedented 88.4% top-1 accuracy (exceeding Swin-L by 1.2%), and COCO object detection, attaining 58.7 box AP compared to 57.1 by Mask R-CNN. The model uses unified self-attention.",
-    "model_raw_output": "{\n  \"task\": \"Cross-domain vision\",\n  \"dataset\": \"ImageNet-1K\",\n  \"metric\": \"88.4%\",\n  \"result\": \"88.4%\",\n  \"baseline\": \"Swin-L\"\n}",
+    "model_raw_output": "{\n  \"task\": \"ImageNet-1K classification\",\n  \"dataset\": \"ImageNet-1K\",\n  \"metric\": \"top-1 accuracy\",\n  \"result\": \"88.4%\",\n  \"baseline\": \"Swin-L\"\n}",
     "parsed_json": {
-      "task": "Cross-domain vision",
+      "task": "ImageNet-1K classification",
       "dataset": "ImageNet-1K",
-      "metric": "88.4%",
+      "metric": "top-1 accuracy",
       "result": "88.4%",
       "baseline": "Swin-L"
     },
@@ -19,13 +19,13 @@
     "title": "Purely Qualitative / Implicit Empirical Claim (No Explicit Number)",
     "category": "Hallucination under Ungrounded / Implicit Claims",
     "abstract": "Scaling laws suggest larger models generalize better. We present ScaledSparse, an efficient MoE architecture. Extensive empirical evaluations across diverse natural language benchmarks demonstrate that our method consistently outperforms dense transformer baselines and converges substantially faster while maintaining strict numerical stability.",
-    "model_raw_output": "{\n  \"task\": \"Speech Recognition\",\n  \"dataset\": \"WAV10800-Large\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"93.5%\",\n  \"baseline\": \"ConvS2S\"\n}",
+    "model_raw_output": "{\n  \"task\": \"Scale-Invariance\",\n  \"dataset\": \"TextVQA\",\n  \"metric\": \"F1-Score\",\n  \"result\": \"85.6%\",\n  \"baseline\": \"BERT-Large\"\n}",
     "parsed_json": {
-      "task": "Speech Recognition",
-      "dataset": "WAV10800-Large",
-      "metric": "Accuracy",
-      "result": "93.5%",
-      "baseline": "ConvS2S"
+      "task": "Scale-Invariance",
+      "dataset": "TextVQA",
+      "metric": "F1-Score",
+      "result": "85.6%",
+      "baseline": "BERT-Large"
     },
     "diagnostic_analysis": "The abstract contains no numerical score or quantitative metric, only qualitative comparative claims ('consistently outperforms', 'converges substantially faster'). The model may hallucinate a number or fail schema type expectations."
   },

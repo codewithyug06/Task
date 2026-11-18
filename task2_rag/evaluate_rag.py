@@ -25,7 +25,7 @@ def evaluate_retrieval(rag_system, questions, top_k=5, alpha=0.4):
             "id": q["id"],
             "question": q["question"],
             "target_section_id": target_sec,
-            "target_paper": q["target_paper"],
+            "target_paper": q.get("target_paper", q.get("paper", "")),
             "results_by_mode": {}
         }
 

@@ -73,7 +73,7 @@ def main():
         results.append({
             "id": q["id"],
             "question": q_text,
-            "target_paper": q["target_paper"],
+            "target_paper": q.get("target_paper", q.get("paper", "")),
             "retrieved_headers": [r["header"] for r in retrieved],
             "ground_truth_excerpt": q["ground_truth_excerpt"],
             "generated_answer": answer

@@ -1,502 +1,602 @@
 [
   {
-    "abstract": "Existing paradigms for Reinforcement Learning require exorbitant computational resources during both training and evaluation. Prior standards such as SAC exhibit severe degradation under low-resource or noisy settings. When deployed and evaluated on MuJoCo HalfCheetah-v3, the architecture reveals substantial gains. Specifically, our model delivers a Average Return of 384.6, clearly surpassing SAC. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Image-Text Retrieval, such as CLIP-ViT-L, struggle with high computational latency and achieve only 76.2% Accuracy@0.5-IoU on RefCOCO+. To overcome these limitations, we introduce AdaptiveNet-V2. Comprehensive experiments demonstrate that AdaptiveNet-V2 establishes a new state of the art, attaining 78.0% Accuracy@0.5-IoU on RefCOCO+ while reducing parameter overhead by 30%.",
     "ground_truth": {
-      "task": "Reinforcement Learning",
-      "dataset": "MuJoCo HalfCheetah-v3",
-      "metric": "Average Return",
-      "result": "384.6",
+      "task": "Image-Text Retrieval",
+      "dataset": "RefCOCO+",
+      "metric": "Accuracy@0.5-IoU",
+      "result": "78.0%",
+      "baseline": "CLIP-ViT-L"
+    }
+  },
+  {
+    "domain": "Reinforcement Learning",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Continuous Locomotion Control, such as SAC, struggle with high computational latency and achieve only 87.2% Success Rate on Atari-2600 Breakout. To overcome these limitations, we introduce MetaCore-Plus. Comprehensive experiments demonstrate that MetaCore-Plus establishes a new state of the art, attaining 88.9% Success Rate on Atari-2600 Breakout while reducing parameter overhead by 30%.",
+    "ground_truth": {
+      "task": "Continuous Locomotion Control",
+      "dataset": "Atari-2600 Breakout",
+      "metric": "Success Rate",
+      "result": "88.9%",
       "baseline": "SAC"
     }
   },
   {
-    "abstract": "We present a generalized attention-based framework targeted at Sentiment Analysis. In contrast to RoBERTa-Base, our design decouples feature extraction from cross-modal alignment. When deployed and evaluated on SST-2, the architecture reveals substantial gains. Specifically, our model delivers a Accuracy of 97.4%, clearly surpassing RoBERTa-Base. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "Although Referring Expression Grounding has witnessed rapid progress, current models remain bounded by sample efficiency. On TextVQA, BLIP-2 yields a BLEU-4 of 30.9%. In this work, LatentOpt-V2 is formulated to address structural bottlenecks. On the rigorous TextVQA evaluation, a BLEU-4 of 34.8% is attained by LatentOpt-V2, yielding a consistent margin over BLIP-2 across multiple random seeds.",
     "ground_truth": {
-      "task": "Sentiment Analysis",
-      "dataset": "SST-2",
-      "metric": "Accuracy",
-      "result": "97.4%",
-      "baseline": "RoBERTa-Base"
+      "task": "Referring Expression Grounding",
+      "dataset": "TextVQA",
+      "metric": "BLEU-4",
+      "result": "34.8%",
+      "baseline": "BLIP-2"
     }
   },
   {
-    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Code Generation. Compared to the prevailing baseline Codex, our method incorporates dynamic token sparsification. When deployed and evaluated on DS-1000, the architecture reveals substantial gains. Specifically, our model delivers a Pass@1 of 42.4%, clearly surpassing Codex. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Speech Recognition",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Phoneme Recognition. We propose GraphPrior-Lite, a novel architecture containing 350M parameters. Evaluated on the standard VoxCeleb2 benchmark, our approach achieves a Top-1 Accuracy of 92.9%, substantially outperforming the previous state-of-the-art DeepSpeech2 which attained 91.1%. Furthermore, our model exhibits a 2.1x throughput improvement during inference.",
     "ground_truth": {
-      "task": "Code Generation",
-      "dataset": "DS-1000",
-      "metric": "Pass@1",
-      "result": "42.4%",
-      "baseline": "Codex"
-    }
-  },
-  {
-    "abstract": "We present a generalized attention-based framework targeted at Named Entity Recognition. While established baselines including BERT-Base offer competitive scores, their parameter efficiency remains suboptimal. Evaluated extensively across CoNLL-2003, our framework demonstrates consistent empirical superiority. Our approach records an impressive F1 of 94.4, outperforming BERT-Base by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Named Entity Recognition",
-      "dataset": "CoNLL-2003",
-      "metric": "F1",
-      "result": "94.4",
-      "baseline": "BERT-Base"
-    }
-  },
-  {
-    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Question Answering. Prior standards such as T5-Large exhibit severe degradation under low-resource or noisy settings. Benchmarking our approach on TriviaQA confirms that our design principles scale effectively. Experimental results demonstrate a F1 of 92.4, establishing a strong new baseline over T5-Large. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Question Answering",
-      "dataset": "TriviaQA",
-      "metric": "F1",
-      "result": "92.4",
-      "baseline": "T5-Large"
-    }
-  },
-  {
-    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Image Classification. Compared to the prevailing baseline ConvNeXt-Base, our method incorporates dynamic token sparsification. When deployed and evaluated on iNaturalist 2021, the architecture reveals substantial gains. Our approach records an impressive Top-1 Accuracy of 78.6%, outperforming ConvNeXt-Base by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Image Classification",
-      "dataset": "iNaturalist 2021",
+      "task": "Phoneme Recognition",
+      "dataset": "VoxCeleb2",
       "metric": "Top-1 Accuracy",
-      "result": "78.6%",
-      "baseline": "ConvNeXt-Base"
+      "result": "92.9%",
+      "baseline": "DeepSpeech2"
     }
   },
   {
-    "abstract": "Addressing current efficiency and scaling bottlenecks in Reinforcement Learning, we introduce an adaptive formulation. In contrast to Rainbow, our design decouples feature extraction from cross-modal alignment. Benchmarking our approach on Atari 2600 Breakout confirms that our design principles scale effectively. The proposed method achieves an outstanding Average Return of 558.9, whereas Rainbow fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Speech Recognition",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Phoneme Recognition, such as DeepSpeech2, struggle with high computational latency and achieve only 1.7% Equal Error Rate on LibriSpeech test-clean. To overcome these limitations, we introduce MetaCore-Plus. Comprehensive experiments demonstrate that MetaCore-Plus establishes a new state of the art, attaining 4.0% Equal Error Rate on LibriSpeech test-clean while reducing parameter overhead by 30%.",
     "ground_truth": {
-      "task": "Reinforcement Learning",
-      "dataset": "Atari 2600 Breakout",
-      "metric": "Average Return",
-      "result": "558.9",
-      "baseline": "Rainbow"
+      "task": "Phoneme Recognition",
+      "dataset": "LibriSpeech test-clean",
+      "metric": "Equal Error Rate",
+      "result": "4.0%",
+      "baseline": "DeepSpeech2"
     }
   },
   {
-    "abstract": "In this paper, we tackle the critical challenge of Reinforcement Learning. In contrast to DQN, our design decouples feature extraction from cross-modal alignment. Benchmarking our approach on Humanoid-v3 confirms that our design principles scale effectively. Our approach records an impressive Average Return of 543.6, outperforming DQN by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Time Series Forecasting",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Financial Trend Forecasting. We propose MetaCore-V2, a novel architecture containing 13B parameters. Evaluated on the standard ETT-m2 benchmark, our approach achieves a Mean Absolute Error of 0.326, substantially outperforming the previous state-of-the-art Autoformer which attained 0.291. Furthermore, our model exhibits a 1.9x throughput improvement during inference.",
     "ground_truth": {
-      "task": "Reinforcement Learning",
-      "dataset": "Humanoid-v3",
-      "metric": "Average Return",
-      "result": "543.6",
-      "baseline": "DQN"
+      "task": "Financial Trend Forecasting",
+      "dataset": "ETT-m2",
+      "metric": "Mean Absolute Error",
+      "result": "0.326",
+      "baseline": "Autoformer"
     }
   },
   {
-    "abstract": "Addressing current efficiency and scaling bottlenecks in Image Classification, we introduce an adaptive formulation. Compared to the prevailing baseline Swin-Transformer, our method incorporates dynamic token sparsification. When deployed and evaluated on iNaturalist 2021, the architecture reveals substantial gains. Specifically, our model delivers a Top-1 Accuracy of 87.9%, clearly surpassing Swin-Transformer. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Graph Neural Networks",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Node Classification. We propose LatentOpt-Pro, a novel architecture containing 7B parameters. Evaluated on the standard PubMed-Graph benchmark, our approach achieves a Average Precision of 77.9%, substantially outperforming the previous state-of-the-art GCN which attained 75.8%. Furthermore, our model exhibits a 2.6x throughput improvement during inference.",
     "ground_truth": {
-      "task": "Image Classification",
-      "dataset": "iNaturalist 2021",
-      "metric": "Top-1 Accuracy",
-      "result": "87.9%",
-      "baseline": "Swin-Transformer"
-    }
-  },
-  {
-    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Semantic Segmentation. While established baselines including DeepLabV3+ offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard Pascal Context benchmark. Specifically, our model delivers a mIoU of 80.1%, clearly surpassing DeepLabV3+. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Semantic Segmentation",
-      "dataset": "Pascal Context",
-      "metric": "mIoU",
-      "result": "80.1%",
-      "baseline": "DeepLabV3+"
-    }
-  },
-  {
-    "abstract": "Existing paradigms for Machine Translation require exorbitant computational resources during both training and evaluation. Compared to the prevailing baseline Transformer-Base, our method incorporates dynamic token sparsification. We conduct rigorous empirical validations on the standard Flores-101 benchmark. Our system reaches a top BLEU of 35.0, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Machine Translation",
-      "dataset": "Flores-101",
-      "metric": "BLEU",
-      "result": "35.0",
-      "baseline": "Transformer-Base"
-    }
-  },
-  {
-    "abstract": "Existing paradigms for Machine Translation require exorbitant computational resources during both training and evaluation. Prior standards such as Transformer-Base exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across WMT'14 English-German, our framework demonstrates consistent empirical superiority. Our approach records an impressive BLEU of 41.4, outperforming Transformer-Base by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Machine Translation",
-      "dataset": "WMT'14 English-German",
-      "metric": "BLEU",
-      "result": "41.4",
-      "baseline": "Transformer-Base"
-    }
-  },
-  {
-    "abstract": "Addressing current efficiency and scaling bottlenecks in Reinforcement Learning, we introduce an adaptive formulation. In contrast to PPO, our design decouples feature extraction from cross-modal alignment. Evaluated extensively across Procgen, our framework demonstrates consistent empirical superiority. Experimental results demonstrate a Average Return of 489.5, establishing a strong new baseline over PPO. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Reinforcement Learning",
-      "dataset": "Procgen",
-      "metric": "Average Return",
-      "result": "489.5",
-      "baseline": "PPO"
-    }
-  },
-  {
-    "abstract": "Existing paradigms for Reinforcement Learning require exorbitant computational resources during both training and evaluation. Prior standards such as DreamerV3 exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across Atari 2600 Breakout, our framework demonstrates consistent empirical superiority. Experimental results demonstrate a Average Return of 423.8, establishing a strong new baseline over DreamerV3. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Reinforcement Learning",
-      "dataset": "Atari 2600 Breakout",
-      "metric": "Average Return",
-      "result": "423.8",
-      "baseline": "DreamerV3"
-    }
-  },
-  {
-    "abstract": "Addressing current efficiency and scaling bottlenecks in Speech Recognition, we introduce an adaptive formulation. While established baselines including DeepSpeech 2 offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard TIMIT benchmark. Specifically, our model delivers a Word Error Rate of 5.0%, clearly surpassing DeepSpeech 2. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Speech Recognition",
-      "dataset": "TIMIT",
-      "metric": "Word Error Rate",
-      "result": "5.0%",
-      "baseline": "DeepSpeech 2"
-    }
-  },
-  {
-    "abstract": "We investigate novel neural architectures for Named Entity Recognition. In contrast to RoBERTa-CRF, our design decouples feature extraction from cross-modal alignment. Benchmarking our approach on OntoNotes 5.0 confirms that our design principles scale effectively. Our approach records an impressive F1 of 90.9, outperforming RoBERTa-CRF by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Named Entity Recognition",
-      "dataset": "OntoNotes 5.0",
-      "metric": "F1",
-      "result": "90.9",
-      "baseline": "RoBERTa-CRF"
-    }
-  },
-  {
-    "abstract": "We present a generalized attention-based framework targeted at Mathematical Reasoning. Compared to the prevailing baseline Chinchilla-70B, our method incorporates dynamic token sparsification. Benchmarking our approach on SVAMP confirms that our design principles scale effectively. The proposed method achieves an outstanding Accuracy of 54.9%, whereas Chinchilla-70B fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Mathematical Reasoning",
-      "dataset": "SVAMP",
-      "metric": "Accuracy",
-      "result": "54.9%",
-      "baseline": "Chinchilla-70B"
-    }
-  },
-  {
-    "abstract": "We investigate novel neural architectures for Protein Structure Prediction. While established baselines including ESMFold offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard CASP15 benchmark. Specifically, our model delivers a GDT-TS of 85.1, clearly surpassing ESMFold. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Protein Structure Prediction",
-      "dataset": "CASP15",
-      "metric": "GDT-TS",
-      "result": "85.1",
-      "baseline": "ESMFold"
-    }
-  },
-  {
-    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Language Modeling. Prior standards such as GPT-2-Medium exhibit severe degradation under low-resource or noisy settings. Benchmarking our approach on Penn Treebank confirms that our design principles scale effectively. Our approach records an impressive Perplexity of 29.0, outperforming GPT-2-Medium by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Language Modeling",
-      "dataset": "Penn Treebank",
-      "metric": "Perplexity",
-      "result": "29.0",
-      "baseline": "GPT-2-Medium"
-    }
-  },
-  {
-    "abstract": "In this paper, we tackle the critical challenge of Protein Structure Prediction. Prior standards such as RaptorX exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across PDB-Blind, our framework demonstrates consistent empirical superiority. Experimental results demonstrate a GDT-TS of 87.1, establishing a strong new baseline over RaptorX. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Protein Structure Prediction",
-      "dataset": "PDB-Blind",
-      "metric": "GDT-TS",
-      "result": "87.1",
-      "baseline": "RaptorX"
-    }
-  },
-  {
-    "abstract": "In this paper, we tackle the critical challenge of Speech Recognition. In contrast to DeepSpeech 2, our design decouples feature extraction from cross-modal alignment. On the widely referenced LibriSpeech test-other dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a Word Error Rate of 7.0%, establishing a strong new baseline over DeepSpeech 2. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Speech Recognition",
-      "dataset": "LibriSpeech test-other",
-      "metric": "Word Error Rate",
-      "result": "7.0%",
-      "baseline": "DeepSpeech 2"
-    }
-  },
-  {
-    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Graph Representation Learning. Traditional models like GCN struggle to capture fine-grained relational semantics across distant tokens. Evaluated extensively across OGB-Arxiv, our framework demonstrates consistent empirical superiority. Experimental results demonstrate a Accuracy of 75.9%, establishing a strong new baseline over GCN. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Graph Representation Learning",
-      "dataset": "OGB-Arxiv",
-      "metric": "Accuracy",
-      "result": "75.9%",
+      "task": "Node Classification",
+      "dataset": "PubMed-Graph",
+      "metric": "Average Precision",
+      "result": "77.9%",
       "baseline": "GCN"
     }
   },
   {
-    "abstract": "Existing paradigms for Code Generation require exorbitant computational resources during both training and evaluation. While established baselines including StarCoder-Base offer competitive scores, their parameter efficiency remains suboptimal. Benchmarking our approach on APPS confirms that our design principles scale effectively. Our system reaches a top Pass@1 of 66.3%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Natural Language Processing",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Extractive Question Answering, such as RoBERTa-Large, struggle with high computational latency and achieve only 79.1% Exact Match on TriviaQA. To overcome these limitations, we introduce GraphPrior-Pro. Comprehensive experiments demonstrate that GraphPrior-Pro establishes a new state of the art, attaining 82.1% Exact Match on TriviaQA while reducing parameter overhead by 30%.",
     "ground_truth": {
-      "task": "Code Generation",
-      "dataset": "APPS",
-      "metric": "Pass@1",
-      "result": "66.3%",
-      "baseline": "StarCoder-Base"
+      "task": "Extractive Question Answering",
+      "dataset": "TriviaQA",
+      "metric": "Exact Match",
+      "result": "82.1%",
+      "baseline": "RoBERTa-Large"
     }
   },
   {
-    "abstract": "We present a generalized attention-based framework targeted at Sentiment Analysis. Compared to the prevailing baseline XLNet-Large, our method incorporates dynamic token sparsification. On the widely referenced IMDb Reviews dataset, our proposed model achieves state-of-the-art results. Specifically, our model delivers a Accuracy of 95.8%, clearly surpassing XLNet-Large. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Document AI",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Visual Document QA using GraphPrior-Plus (65M parameters). When benchmarked against competitive baselines including LayoutLMv3, our method demonstrates superior representational capacity on the challenging Kleister-Charity dataset, reaching an unprecedented F1 Score of 82.1% (surpassing LayoutLMv3's score of 78.2%). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Sentiment Analysis",
-      "dataset": "IMDb Reviews",
-      "metric": "Accuracy",
-      "result": "95.8%",
-      "baseline": "XLNet-Large"
+      "task": "Visual Document QA",
+      "dataset": "Kleister-Charity",
+      "metric": "F1 Score",
+      "result": "82.1%",
+      "baseline": "LayoutLMv3"
     }
   },
   {
-    "abstract": "In this paper, we tackle the critical challenge of Language Modeling. In contrast to Transformer-XL, our design decouples feature extraction from cross-modal alignment. On the widely referenced The Pile dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a Perplexity of 24.5, establishing a strong new baseline over Transformer-XL. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Speech Recognition",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Keyword Spotting using SynergyAI-Pro (13B parameters). When benchmarked against competitive baselines including Wav2Vec-2.0, our method demonstrates superior representational capacity on the challenging LibriSpeech test-clean dataset, reaching an unprecedented Word Error Rate of 2.6% (surpassing Wav2Vec-2.0's score of 1.1%). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Language Modeling",
-      "dataset": "The Pile",
-      "metric": "Perplexity",
-      "result": "24.5",
-      "baseline": "Transformer-XL"
+      "task": "Keyword Spotting",
+      "dataset": "LibriSpeech test-clean",
+      "metric": "Word Error Rate",
+      "result": "2.6%",
+      "baseline": "Wav2Vec-2.0"
     }
   },
   {
-    "abstract": "In this paper, we tackle the critical challenge of Semantic Segmentation. While established baselines including HRNetV2 offer competitive scores, their parameter efficiency remains suboptimal. When deployed and evaluated on COCO-Stuff, the architecture reveals substantial gains. Our system reaches a top mIoU of 81.3%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Time Series Forecasting",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Long-Horizon Forecasting using FlashArch-Plus (110M parameters). When benchmarked against competitive baselines including PatchTST, our method demonstrates superior representational capacity on the challenging Traffic-PEMS dataset, reaching an unprecedented Mean Squared Error of 0.287 (surpassing PatchTST's score of 0.261). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Semantic Segmentation",
-      "dataset": "COCO-Stuff",
-      "metric": "mIoU",
-      "result": "81.3%",
-      "baseline": "HRNetV2"
+      "task": "Long-Horizon Forecasting",
+      "dataset": "Traffic-PEMS",
+      "metric": "Mean Squared Error",
+      "result": "0.287",
+      "baseline": "PatchTST"
     }
   },
   {
-    "abstract": "In this paper, we tackle the critical challenge of Mathematical Reasoning. In contrast to Chinchilla-70B, our design decouples feature extraction from cross-modal alignment. When deployed and evaluated on Minerva-Math, the architecture reveals substantial gains. Experimental results demonstrate a Accuracy of 48.5%, establishing a strong new baseline over Chinchilla-70B. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Image-Text Retrieval. We propose DualStream-Pro, a novel architecture containing 7B parameters. Evaluated on the standard VQA-v2.0 benchmark, our approach achieves a BLEU-4 of 36.5%, substantially outperforming the previous state-of-the-art OFA-Large which attained 32.1%. Furthermore, our model exhibits a 1.8x throughput improvement during inference.",
     "ground_truth": {
-      "task": "Mathematical Reasoning",
-      "dataset": "Minerva-Math",
-      "metric": "Accuracy",
-      "result": "48.5%",
-      "baseline": "Chinchilla-70B"
+      "task": "Image-Text Retrieval",
+      "dataset": "VQA-v2.0",
+      "metric": "BLEU-4",
+      "result": "36.5%",
+      "baseline": "OFA-Large"
     }
   },
   {
-    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Mathematical Reasoning. In contrast to LLaMA-2-7B, our design decouples feature extraction from cross-modal alignment. Benchmarking our approach on SVAMP confirms that our design principles scale effectively. Our system reaches a top Accuracy of 67.1%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Visual Question Answering using GraphPrior-X (110M parameters). When benchmarked against competitive baselines including BLIP-2, our method demonstrates superior representational capacity on the challenging TextVQA dataset, reaching an unprecedented BLEU-4 of 35.1% (surpassing BLIP-2's score of 33.6%). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Mathematical Reasoning",
-      "dataset": "SVAMP",
-      "metric": "Accuracy",
-      "result": "67.1%",
-      "baseline": "LLaMA-2-7B"
+      "task": "Visual Question Answering",
+      "dataset": "TextVQA",
+      "metric": "BLEU-4",
+      "result": "35.1%",
+      "baseline": "BLIP-2"
     }
   },
   {
-    "abstract": "We present a generalized attention-based framework targeted at Reinforcement Learning. Compared to the prevailing baseline DQN, our method incorporates dynamic token sparsification. We conduct rigorous empirical validations on the standard Procgen benchmark. The proposed method achieves an outstanding Average Return of 599.5, whereas DQN fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Efficient Compression",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Knowledge Distillation using SynergyAI-Pro (350M parameters). When benchmarked against competitive baselines including TinyBERT, our method demonstrates superior representational capacity on the challenging Llama-7B-W4A16 dataset, reaching an unprecedented WikiText-2 Perplexity of 5.538 (surpassing TinyBERT's score of 5.503). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Reinforcement Learning",
-      "dataset": "Procgen",
-      "metric": "Average Return",
-      "result": "599.5",
-      "baseline": "DQN"
+      "task": "Knowledge Distillation",
+      "dataset": "Llama-7B-W4A16",
+      "metric": "WikiText-2 Perplexity",
+      "result": "5.538",
+      "baseline": "TinyBERT"
     }
   },
   {
-    "abstract": "We investigate novel neural architectures for Mathematical Reasoning. Traditional models like Qwen-7B struggle to capture fine-grained relational semantics across distant tokens. When deployed and evaluated on SVAMP, the architecture reveals substantial gains. Experimental results demonstrate a Accuracy of 70.8%, establishing a strong new baseline over Qwen-7B. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Referring Expression Grounding using HyperTrans-Plus (7B parameters). When benchmarked against competitive baselines including BLIP-2, our method demonstrates superior representational capacity on the challenging Flickr30k dataset, reaching an unprecedented Recall@1 of 80.9% (surpassing BLIP-2's score of 76.5%). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Mathematical Reasoning",
-      "dataset": "SVAMP",
-      "metric": "Accuracy",
-      "result": "70.8%",
-      "baseline": "Qwen-7B"
+      "task": "Referring Expression Grounding",
+      "dataset": "Flickr30k",
+      "metric": "Recall@1",
+      "result": "80.9%",
+      "baseline": "BLIP-2"
     }
   },
   {
-    "abstract": "We investigate novel neural architectures for Mathematical Reasoning. In contrast to Qwen-7B, our design decouples feature extraction from cross-modal alignment. On the widely referenced MATH dataset, our proposed model achieves state-of-the-art results. The proposed method achieves an outstanding Accuracy of 58.2%, whereas Qwen-7B fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Visual Question Answering. We propose FlashArch-X, a novel architecture containing 350M parameters. Evaluated on the standard GQA-Bench benchmark, our approach achieves a VQA Accuracy of 75.3%, substantially outperforming the previous state-of-the-art CLIP-ViT-L which attained 71.6%. Furthermore, our model exhibits a 1.6x throughput improvement during inference.",
     "ground_truth": {
-      "task": "Mathematical Reasoning",
-      "dataset": "MATH",
-      "metric": "Accuracy",
-      "result": "58.2%",
-      "baseline": "Qwen-7B"
+      "task": "Visual Question Answering",
+      "dataset": "GQA-Bench",
+      "metric": "VQA Accuracy",
+      "result": "75.3%",
+      "baseline": "CLIP-ViT-L"
     }
   },
   {
-    "abstract": "We investigate novel neural architectures for Reinforcement Learning. While established baselines including DreamerV3 offer competitive scores, their parameter efficiency remains suboptimal. Evaluated extensively across Humanoid-v3, our framework demonstrates consistent empirical superiority. The proposed method achieves an outstanding Average Return of 402.8, whereas DreamerV3 fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Reinforcement Learning",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Deep Q-Learning using FlashArch-X (13B parameters). When benchmarked against competitive baselines including Decision Transformer, our method demonstrates superior representational capacity on the challenging D4RL-AntMaze dataset, reaching an unprecedented Success Rate of 84.6% (surpassing Decision Transformer's score of 82.8%). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Reinforcement Learning",
-      "dataset": "Humanoid-v3",
-      "metric": "Average Return",
-      "result": "402.8",
-      "baseline": "DreamerV3"
+      "task": "Deep Q-Learning",
+      "dataset": "D4RL-AntMaze",
+      "metric": "Success Rate",
+      "result": "84.6%",
+      "baseline": "Decision Transformer"
     }
   },
   {
-    "abstract": "We present a generalized attention-based framework targeted at Code Generation. Prior standards such as DeepSeek-Coder-6.7B exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across MBPP, our framework demonstrates consistent empirical superiority. Specifically, our model delivers a Pass@1 of 62.9%, clearly surpassing DeepSeek-Coder-6.7B. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Time Series Forecasting",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Financial Trend Forecasting using VectorFlow-Plus (65M parameters). When benchmarked against competitive baselines including N-BEATS, our method demonstrates superior representational capacity on the challenging ETT-m2 dataset, reaching an unprecedented Normalized Deviation of 0.283 (surpassing N-BEATS's score of 0.255). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Code Generation",
-      "dataset": "MBPP",
-      "metric": "Pass@1",
-      "result": "62.9%",
-      "baseline": "DeepSeek-Coder-6.7B"
+      "task": "Financial Trend Forecasting",
+      "dataset": "ETT-m2",
+      "metric": "Normalized Deviation",
+      "result": "0.283",
+      "baseline": "N-BEATS"
     }
   },
   {
-    "abstract": "Addressing current efficiency and scaling bottlenecks in Semantic Segmentation, we introduce an adaptive formulation. Compared to the prevailing baseline PSPNet, our method incorporates dynamic token sparsification. Evaluated extensively across Cityscapes, our framework demonstrates consistent empirical superiority. Experimental results demonstrate a mIoU of 75.6%, establishing a strong new baseline over PSPNet. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Semantic Segmentation",
-      "dataset": "Cityscapes",
-      "metric": "mIoU",
-      "result": "75.6%",
-      "baseline": "PSPNet"
-    }
-  },
-  {
-    "abstract": "Despite significant progress in Mathematical Reasoning, prevailing methods struggle with distributional shift. Prior standards such as Qwen-7B exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across MATH, our framework demonstrates consistent empirical superiority. Our approach records an impressive Accuracy of 62.3%, outperforming Qwen-7B by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Mathematical Reasoning",
-      "dataset": "MATH",
-      "metric": "Accuracy",
-      "result": "62.3%",
-      "baseline": "Qwen-7B"
-    }
-  },
-  {
-    "abstract": "In this paper, we tackle the critical challenge of Named Entity Recognition. While established baselines including BERT-Base offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard Few-NERD benchmark. Our system reaches a top F1 of 88.7, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Named Entity Recognition",
-      "dataset": "Few-NERD",
-      "metric": "F1",
-      "result": "88.7",
-      "baseline": "BERT-Base"
-    }
-  },
-  {
-    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Object Detection. Traditional models like DETR struggle to capture fine-grained relational semantics across distant tokens. Benchmarking our approach on LVIS v1.0 confirms that our design principles scale effectively. Specifically, our model delivers a mAP@0.5:0.95 of 47.1, clearly surpassing DETR. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Computer Vision",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Object Detection using HyperTrans-Lite (65M parameters). When benchmarked against competitive baselines including Mask R-CNN, our method demonstrates superior representational capacity on the challenging Cityscapes dataset, reaching an unprecedented mask AP of 49.663 (surpassing Mask R-CNN's score of 49.59). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
       "task": "Object Detection",
-      "dataset": "LVIS v1.0",
-      "metric": "mAP@0.5:0.95",
-      "result": "47.1",
-      "baseline": "DETR"
+      "dataset": "Cityscapes",
+      "metric": "mask AP",
+      "result": "49.663",
+      "baseline": "Mask R-CNN"
     }
   },
   {
-    "abstract": "Despite significant progress in Named Entity Recognition, prevailing methods struggle with distributional shift. In contrast to LUKE-Base, our design decouples feature extraction from cross-modal alignment. We conduct rigorous empirical validations on the standard Few-NERD benchmark. Specifically, our model delivers a F1 of 91.2, clearly surpassing LUKE-Base. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Generative Modeling & Diffusion",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Latent Trajectory Modeling. We propose GraphPrior-Plus, a novel architecture containing 7B parameters. Evaluated on the standard FFHQ-256 benchmark, our approach achieves a Fr\u00e9chet Inception Distance of 4.737, substantially outperforming the previous state-of-the-art Latent Diffusion which attained 4.679. Furthermore, our model exhibits a 2.7x throughput improvement during inference.",
     "ground_truth": {
-      "task": "Named Entity Recognition",
-      "dataset": "Few-NERD",
-      "metric": "F1",
-      "result": "91.2",
-      "baseline": "LUKE-Base"
+      "task": "Latent Trajectory Modeling",
+      "dataset": "FFHQ-256",
+      "metric": "Fr\u00e9chet Inception Distance",
+      "result": "4.737",
+      "baseline": "Latent Diffusion"
     }
   },
   {
-    "abstract": "We present a generalized attention-based framework targeted at Code Generation. While established baselines including DeepSeek-Coder-6.7B offer competitive scores, their parameter efficiency remains suboptimal. Benchmarking our approach on DS-1000 confirms that our design principles scale effectively. Our approach records an impressive Pass@1 of 54.6%, outperforming DeepSeek-Coder-6.7B by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Computer Vision",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Instance Segmentation. We propose GraphPrior-V2, a novel architecture containing 7B parameters. Evaluated on the standard COCO-2017 benchmark, our approach achieves a mask AP of 44.654, substantially outperforming the previous state-of-the-art Mask R-CNN which attained 44.595. Furthermore, our model exhibits a 1.8x throughput improvement during inference.",
     "ground_truth": {
-      "task": "Code Generation",
-      "dataset": "DS-1000",
-      "metric": "Pass@1",
-      "result": "54.6%",
-      "baseline": "DeepSeek-Coder-6.7B"
+      "task": "Instance Segmentation",
+      "dataset": "COCO-2017",
+      "metric": "mask AP",
+      "result": "44.654",
+      "baseline": "Mask R-CNN"
     }
   },
   {
-    "abstract": "In this paper, we tackle the critical challenge of Semantic Segmentation. In contrast to MaskFormer, our design decouples feature extraction from cross-modal alignment. Benchmarking our approach on Pascal Context confirms that our design principles scale effectively. Our system reaches a top mIoU of 76.7%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Efficient Compression",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Knowledge Distillation using HyperTrans-Plus (110M parameters). When benchmarked against competitive baselines including Magnitude Pruning, our method demonstrates superior representational capacity on the challenging ResNet-50-Pruned dataset, reaching an unprecedented Top-1 Accuracy of 75.8% (surpassing Magnitude Pruning's score of 74.0%). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Semantic Segmentation",
-      "dataset": "Pascal Context",
-      "metric": "mIoU",
-      "result": "76.7%",
-      "baseline": "MaskFormer"
+      "task": "Knowledge Distillation",
+      "dataset": "ResNet-50-Pruned",
+      "metric": "Top-1 Accuracy",
+      "result": "75.8%",
+      "baseline": "Magnitude Pruning"
     }
   },
   {
-    "abstract": "In this paper, we tackle the critical challenge of Reinforcement Learning. Compared to the prevailing baseline SAC, our method incorporates dynamic token sparsification. Benchmarking our approach on Atari 2600 Breakout confirms that our design principles scale effectively. Our approach records an impressive Average Return of 567.9, outperforming SAC by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Computer Vision",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Image Classification, such as Swin-Transformer, struggle with high computational latency and achieve only 79.5% Top-1 Accuracy on ADE20K. To overcome these limitations, we introduce FlashArch-Plus. Comprehensive experiments demonstrate that FlashArch-Plus establishes a new state of the art, attaining 82.1% Top-1 Accuracy on ADE20K while reducing parameter overhead by 30%.",
     "ground_truth": {
-      "task": "Reinforcement Learning",
-      "dataset": "Atari 2600 Breakout",
-      "metric": "Average Return",
-      "result": "567.9",
+      "task": "Image Classification",
+      "dataset": "ADE20K",
+      "metric": "Top-1 Accuracy",
+      "result": "82.1%",
+      "baseline": "Swin-Transformer"
+    }
+  },
+  {
+    "domain": "Reinforcement Learning",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Offline Policy Optimization. We propose GraphPrior-X, a novel architecture containing 65M parameters. Evaluated on the standard D4RL-AntMaze benchmark, our approach achieves a Average Normalized Return of 111.82, substantially outperforming the previous state-of-the-art Decision Transformer which attained 111.738. Furthermore, our model exhibits a 2.1x throughput improvement during inference.",
+    "ground_truth": {
+      "task": "Offline Policy Optimization",
+      "dataset": "D4RL-AntMaze",
+      "metric": "Average Normalized Return",
+      "result": "111.82",
+      "baseline": "Decision Transformer"
+    }
+  },
+  {
+    "domain": "Time Series Forecasting",
+    "is_held_out": false,
+    "abstract": "Although Financial Trend Forecasting has witnessed rapid progress, current models remain bounded by sample efficiency. On Weather-Bench, Autoformer yields a Mean Squared Error of 0.446. In this work, GraphPrior-V2 is formulated to address structural bottlenecks. On the rigorous Weather-Bench evaluation, a Mean Squared Error of 0.471 is attained by GraphPrior-V2, yielding a consistent margin over Autoformer across multiple random seeds.",
+    "ground_truth": {
+      "task": "Financial Trend Forecasting",
+      "dataset": "Weather-Bench",
+      "metric": "Mean Squared Error",
+      "result": "0.471",
+      "baseline": "Autoformer"
+    }
+  },
+  {
+    "domain": "Time Series Forecasting",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Financial Trend Forecasting using MetaCore-Plus (110M parameters). When benchmarked against competitive baselines including Informer, our method demonstrates superior representational capacity on the challenging Weather-Bench dataset, reaching an unprecedented Normalized Deviation of 0.262 (surpassing Informer's score of 0.179). Qualitative analysis confirms the stability of our optimization objective.",
+    "ground_truth": {
+      "task": "Financial Trend Forecasting",
+      "dataset": "Weather-Bench",
+      "metric": "Normalized Deviation",
+      "result": "0.262",
+      "baseline": "Informer"
+    }
+  },
+  {
+    "domain": "Document AI",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Key Information Extraction. We propose MetaCore-Plus, a novel architecture containing 7B parameters. Evaluated on the standard Kleister-Charity benchmark, our approach achieves a Tree-Edit Distance of 91.3%, substantially outperforming the previous state-of-the-art DocFormer which attained 87.0%. Furthermore, our model exhibits a 2.0x throughput improvement during inference.",
+    "ground_truth": {
+      "task": "Key Information Extraction",
+      "dataset": "Kleister-Charity",
+      "metric": "Tree-Edit Distance",
+      "result": "91.3%",
+      "baseline": "DocFormer"
+    }
+  },
+  {
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "Although Image-Text Retrieval has witnessed rapid progress, current models remain bounded by sample efficiency. On GQA-Bench, Flamingo-9B yields a Recall@1 of 82.4%. In this work, DualStream-Plus is formulated to address structural bottlenecks. On the rigorous GQA-Bench evaluation, a Recall@1 of 84.7% is attained by DualStream-Plus, yielding a consistent margin over Flamingo-9B across multiple random seeds.",
+    "ground_truth": {
+      "task": "Image-Text Retrieval",
+      "dataset": "GQA-Bench",
+      "metric": "Recall@1",
+      "result": "84.7%",
+      "baseline": "Flamingo-9B"
+    }
+  },
+  {
+    "domain": "Reinforcement Learning",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Continuous Locomotion Control. We propose MetaCore-Lite, a novel architecture containing 65M parameters. Evaluated on the standard Humanoid-v4 benchmark, our approach achieves a Episodic Reward of 9115.568, substantially outperforming the previous state-of-the-art SAC which attained 9115.528. Furthermore, our model exhibits a 2.2x throughput improvement during inference.",
+    "ground_truth": {
+      "task": "Continuous Locomotion Control",
+      "dataset": "Humanoid-v4",
+      "metric": "Episodic Reward",
+      "result": "9115.568",
       "baseline": "SAC"
     }
   },
   {
-    "abstract": "We investigate novel neural architectures for Code Generation. While established baselines including DeepSeek-Coder-6.7B offer competitive scores, their parameter efficiency remains suboptimal. When deployed and evaluated on APPS, the architecture reveals substantial gains. Our approach records an impressive Pass@1 of 57.2%, outperforming DeepSeek-Coder-6.7B by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Time Series Forecasting",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Multivariate Anomaly Detection. We propose DualStream-X, a novel architecture containing 350M parameters. Evaluated on the standard Exchange-Rate benchmark, our approach achieves a Mean Squared Error of 0.173, substantially outperforming the previous state-of-the-art Autoformer which attained 0.09. Furthermore, our model exhibits a 2.4x throughput improvement during inference.",
     "ground_truth": {
-      "task": "Code Generation",
-      "dataset": "APPS",
-      "metric": "Pass@1",
-      "result": "57.2%",
-      "baseline": "DeepSeek-Coder-6.7B"
+      "task": "Multivariate Anomaly Detection",
+      "dataset": "Exchange-Rate",
+      "metric": "Mean Squared Error",
+      "result": "0.173",
+      "baseline": "Autoformer"
     }
   },
   {
-    "abstract": "Addressing current efficiency and scaling bottlenecks in Object Detection, we introduce an adaptive formulation. Traditional models like YOLOv3 struggle to capture fine-grained relational semantics across distant tokens. Benchmarking our approach on MS COCO val2017 confirms that our design principles scale effectively. The proposed method achieves an outstanding mAP@0.5:0.95 of 55.1, whereas YOLOv3 fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Generative Modeling & Diffusion",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Text-to-Image Generation using OmniScale-X (350M parameters). When benchmarked against competitive baselines including EDM, our method demonstrates superior representational capacity on the challenging CIFAR-10 dataset, reaching an unprecedented Inception Score of 11.38 (surpassing EDM's score of 11.344). Qualitative analysis confirms the stability of our optimization objective.",
+    "ground_truth": {
+      "task": "Text-to-Image Generation",
+      "dataset": "CIFAR-10",
+      "metric": "Inception Score",
+      "result": "11.38",
+      "baseline": "EDM"
+    }
+  },
+  {
+    "domain": "Generative Modeling & Diffusion",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Text-to-Image Generation. We propose FlashArch-Pro, a novel architecture containing 110M parameters. Evaluated on the standard CelebA-HQ benchmark, our approach achieves a Inception Score of 12.612, substantially outperforming the previous state-of-the-art StyleGAN2 which attained 12.558. Furthermore, our model exhibits a 1.5x throughput improvement during inference.",
+    "ground_truth": {
+      "task": "Text-to-Image Generation",
+      "dataset": "CelebA-HQ",
+      "metric": "Inception Score",
+      "result": "12.612",
+      "baseline": "StyleGAN2"
+    }
+  },
+  {
+    "domain": "Computer Vision",
+    "is_held_out": false,
+    "abstract": "Although Object Detection has witnessed rapid progress, current models remain bounded by sample efficiency. On Cityscapes, Swin-Transformer yields a mask AP of 49.283. In this work, AdaptiveNet-V2 is formulated to address structural bottlenecks. On the rigorous Cityscapes evaluation, a mask AP of 49.349 is attained by AdaptiveNet-V2, yielding a consistent margin over Swin-Transformer across multiple random seeds.",
     "ground_truth": {
       "task": "Object Detection",
-      "dataset": "MS COCO val2017",
-      "metric": "mAP@0.5:0.95",
-      "result": "55.1",
-      "baseline": "YOLOv3"
-    }
-  },
-  {
-    "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Sentiment Analysis. In contrast to ELECTRA-Large, our design decouples feature extraction from cross-modal alignment. We conduct rigorous empirical validations on the standard SST-2 benchmark. Specifically, our model delivers a Accuracy of 94.9%, clearly surpassing ELECTRA-Large. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Sentiment Analysis",
-      "dataset": "SST-2",
-      "metric": "Accuracy",
-      "result": "94.9%",
-      "baseline": "ELECTRA-Large"
-    }
-  },
-  {
-    "abstract": "Existing paradigms for Question Answering require exorbitant computational resources during both training and evaluation. In contrast to SpanBERT, our design decouples feature extraction from cross-modal alignment. Benchmarking our approach on TriviaQA confirms that our design principles scale effectively. Experimental results demonstrate a F1 of 84.6, establishing a strong new baseline over SpanBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Question Answering",
-      "dataset": "TriviaQA",
-      "metric": "F1",
-      "result": "84.6",
-      "baseline": "SpanBERT"
-    }
-  },
-  {
-    "abstract": "Addressing current efficiency and scaling bottlenecks in Language Modeling, we introduce an adaptive formulation. In contrast to Transformer-XL, our design decouples feature extraction from cross-modal alignment. We conduct rigorous empirical validations on the standard Penn Treebank benchmark. Specifically, our model delivers a Perplexity of 55.7, clearly surpassing Transformer-XL. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Language Modeling",
-      "dataset": "Penn Treebank",
-      "metric": "Perplexity",
-      "result": "55.7",
-      "baseline": "Transformer-XL"
-    }
-  },
-  {
-    "abstract": "We present a generalized attention-based framework targeted at Object Detection. Prior standards such as DETR exhibit severe degradation under low-resource or noisy settings. Benchmarking our approach on Objects365 confirms that our design principles scale effectively. Our system reaches a top mAP@0.5:0.95 of 43.3, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Object Detection",
-      "dataset": "Objects365",
-      "metric": "mAP@0.5:0.95",
-      "result": "43.3",
-      "baseline": "DETR"
-    }
-  },
-  {
-    "abstract": "Despite significant progress in Semantic Segmentation, prevailing methods struggle with distributional shift. Traditional models like SegFormer-B4 struggle to capture fine-grained relational semantics across distant tokens. On the widely referenced Cityscapes dataset, our proposed model achieves state-of-the-art results. Our system reaches a top mIoU of 84.6%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-    "ground_truth": {
-      "task": "Semantic Segmentation",
       "dataset": "Cityscapes",
-      "metric": "mIoU",
-      "result": "84.6%",
-      "baseline": "SegFormer-B4"
+      "metric": "mask AP",
+      "result": "49.349",
+      "baseline": "Swin-Transformer"
     }
   },
   {
-    "abstract": "In this paper, we tackle the critical challenge of Speech Recognition. While established baselines including Wav2Vec 2.0 offer competitive scores, their parameter efficiency remains suboptimal. When deployed and evaluated on LibriSpeech test-other, the architecture reveals substantial gains. Specifically, our model delivers a Word Error Rate of 4.1%, clearly surpassing Wav2Vec 2.0. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Reinforcement Learning",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Deep Q-Learning using SynergyAI-X (13B parameters). When benchmarked against competitive baselines including TD3, our method demonstrates superior representational capacity on the challenging Humanoid-v4 dataset, reaching an unprecedented Success Rate of 80.7% (surpassing TD3's score of 78.8%). Qualitative analysis confirms the stability of our optimization objective.",
     "ground_truth": {
-      "task": "Speech Recognition",
-      "dataset": "LibriSpeech test-other",
-      "metric": "Word Error Rate",
-      "result": "4.1%",
-      "baseline": "Wav2Vec 2.0"
+      "task": "Deep Q-Learning",
+      "dataset": "Humanoid-v4",
+      "metric": "Success Rate",
+      "result": "80.7%",
+      "baseline": "TD3"
     }
   },
   {
-    "abstract": "Addressing current efficiency and scaling bottlenecks in Question Answering, we introduce an adaptive formulation. While established baselines including SpanBERT offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard TriviaQA benchmark. Experimental results demonstrate a F1 of 92.7, establishing a strong new baseline over SpanBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+    "domain": "Graph Neural Networks",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Graph Classification. We propose HyperTrans-Lite, a novel architecture containing 350M parameters. Evaluated on the standard OGBN-ArXiv benchmark, our approach achieves a Average Precision of 79.3%, substantially outperforming the previous state-of-the-art GraphSAGE which attained 77.2%. Furthermore, our model exhibits a 2.3x throughput improvement during inference.",
     "ground_truth": {
-      "task": "Question Answering",
+      "task": "Graph Classification",
+      "dataset": "OGBN-ArXiv",
+      "metric": "Average Precision",
+      "result": "79.3%",
+      "baseline": "GraphSAGE"
+    }
+  },
+  {
+    "domain": "Generative Modeling & Diffusion",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Latent Trajectory Modeling, such as Score-SDE, struggle with high computational latency and achieve only 6.597 Fr\u00e9chet Inception Distance on FFHQ-256. To overcome these limitations, we introduce MetaCore-V2. Comprehensive experiments demonstrate that MetaCore-V2 establishes a new state of the art, attaining 6.668 Fr\u00e9chet Inception Distance on FFHQ-256 while reducing parameter overhead by 30%.",
+    "ground_truth": {
+      "task": "Latent Trajectory Modeling",
+      "dataset": "FFHQ-256",
+      "metric": "Fr\u00e9chet Inception Distance",
+      "result": "6.668",
+      "baseline": "Score-SDE"
+    }
+  },
+  {
+    "domain": "Time Series Forecasting",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Long-Horizon Forecasting. We propose VectorFlow-Pro, a novel architecture containing 350M parameters. Evaluated on the standard Electricity-Load benchmark, our approach achieves a Mean Squared Error of 0.313, substantially outperforming the previous state-of-the-art N-BEATS which attained 0.257. Furthermore, our model exhibits a 2.0x throughput improvement during inference.",
+    "ground_truth": {
+      "task": "Long-Horizon Forecasting",
+      "dataset": "Electricity-Load",
+      "metric": "Mean Squared Error",
+      "result": "0.313",
+      "baseline": "N-BEATS"
+    }
+  },
+  {
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Image-Text Retrieval. We propose FlashArch-Pro, a novel architecture containing 13B parameters. Evaluated on the standard VQA-v2.0 benchmark, our approach achieves a Accuracy@0.5-IoU of 74.4%, substantially outperforming the previous state-of-the-art Flamingo-9B which attained 72.9%. Furthermore, our model exhibits a 1.5x throughput improvement during inference.",
+    "ground_truth": {
+      "task": "Image-Text Retrieval",
+      "dataset": "VQA-v2.0",
+      "metric": "Accuracy@0.5-IoU",
+      "result": "74.4%",
+      "baseline": "Flamingo-9B"
+    }
+  },
+  {
+    "domain": "Generative Modeling & Diffusion",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Unconditional Image Synthesis using GraphPrior-X (350M parameters). When benchmarked against competitive baselines including Score-SDE, our method demonstrates superior representational capacity on the challenging ImageNet-64 dataset, reaching an unprecedented Precision of 74.8% (surpassing Score-SDE's score of 72.4%). Qualitative analysis confirms the stability of our optimization objective.",
+    "ground_truth": {
+      "task": "Unconditional Image Synthesis",
+      "dataset": "ImageNet-64",
+      "metric": "Precision",
+      "result": "74.8%",
+      "baseline": "Score-SDE"
+    }
+  },
+  {
+    "domain": "Generative Modeling & Diffusion",
+    "is_held_out": false,
+    "abstract": "Although Text-to-Image Generation has witnessed rapid progress, current models remain bounded by sample efficiency. On FFHQ-256, Score-SDE yields a Precision of 70.1%. In this work, GraphPrior-V2 is formulated to address structural bottlenecks. On the rigorous FFHQ-256 evaluation, a Precision of 71.5% is attained by GraphPrior-V2, yielding a consistent margin over Score-SDE across multiple random seeds.",
+    "ground_truth": {
+      "task": "Text-to-Image Generation",
+      "dataset": "FFHQ-256",
+      "metric": "Precision",
+      "result": "71.5%",
+      "baseline": "Score-SDE"
+    }
+  },
+  {
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Image-Text Retrieval, such as BLIP-2, struggle with high computational latency and achieve only 37.4% BLEU-4 on RefCOCO+. To overcome these limitations, we introduce DualStream-Lite. Comprehensive experiments demonstrate that DualStream-Lite establishes a new state of the art, attaining 40.5% BLEU-4 on RefCOCO+ while reducing parameter overhead by 30%.",
+    "ground_truth": {
+      "task": "Image-Text Retrieval",
+      "dataset": "RefCOCO+",
+      "metric": "BLEU-4",
+      "result": "40.5%",
+      "baseline": "BLIP-2"
+    }
+  },
+  {
+    "domain": "Multimodal Reasoning",
+    "is_held_out": false,
+    "abstract": "In this paper, we address the challenge of Visual Question Answering. We propose AdaptiveNet-V2, a novel architecture containing 65M parameters. Evaluated on the standard GQA-Bench benchmark, our approach achieves a Recall@1 of 79.8%, substantially outperforming the previous state-of-the-art Flamingo-9B which attained 78.6%. Furthermore, our model exhibits a 2.0x throughput improvement during inference.",
+    "ground_truth": {
+      "task": "Visual Question Answering",
+      "dataset": "GQA-Bench",
+      "metric": "Recall@1",
+      "result": "79.8%",
+      "baseline": "Flamingo-9B"
+    }
+  },
+  {
+    "domain": "Efficient Compression",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Knowledge Distillation using SynergyAI-Plus (13B parameters). When benchmarked against competitive baselines including TinyBERT, our method demonstrates superior representational capacity on the challenging ResNet-50-Pruned dataset, reaching an unprecedented Latency Speedup of 2.9x (surpassing TinyBERT's score of 1.0x). Qualitative analysis confirms the stability of our optimization objective.",
+    "ground_truth": {
+      "task": "Knowledge Distillation",
+      "dataset": "ResNet-50-Pruned",
+      "metric": "Latency Speedup",
+      "result": "2.9x",
+      "baseline": "TinyBERT"
+    }
+  },
+  {
+    "domain": "Reinforcement Learning",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Deep Q-Learning, such as SAC, struggle with high computational latency and achieve only 5603.814 Episodic Reward on MuJoCo HalfCheetah-v4. To overcome these limitations, we introduce LatentOpt-Lite. Comprehensive experiments demonstrate that LatentOpt-Lite establishes a new state of the art, attaining 5603.851 Episodic Reward on MuJoCo HalfCheetah-v4 while reducing parameter overhead by 30%.",
+    "ground_truth": {
+      "task": "Deep Q-Learning",
+      "dataset": "MuJoCo HalfCheetah-v4",
+      "metric": "Episodic Reward",
+      "result": "5603.851",
+      "baseline": "SAC"
+    }
+  },
+  {
+    "domain": "Speech Recognition",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Automatic Speech Recognition, such as HuBERT-Base, struggle with high computational latency and achieve only 2.2% Equal Error Rate on TIMIT. To overcome these limitations, we introduce VectorFlow-X. Comprehensive experiments demonstrate that VectorFlow-X establishes a new state of the art, attaining 4.0% Equal Error Rate on TIMIT while reducing parameter overhead by 30%.",
+    "ground_truth": {
+      "task": "Automatic Speech Recognition",
+      "dataset": "TIMIT",
+      "metric": "Equal Error Rate",
+      "result": "4.0%",
+      "baseline": "HuBERT-Base"
+    }
+  },
+  {
+    "domain": "Efficient Compression",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Post-Training Quantization using HyperTrans-X (7B parameters). When benchmarked against competitive baselines including TinyBERT, our method demonstrates superior representational capacity on the challenging BERT-Base-Quant dataset, reaching an unprecedented Zero-Shot Accuracy of 70.0% (surpassing TinyBERT's score of 67.8%). Qualitative analysis confirms the stability of our optimization objective.",
+    "ground_truth": {
+      "task": "Post-Training Quantization",
+      "dataset": "BERT-Base-Quant",
+      "metric": "Zero-Shot Accuracy",
+      "result": "70.0%",
+      "baseline": "TinyBERT"
+    }
+  },
+  {
+    "domain": "Generative Modeling & Diffusion",
+    "is_held_out": false,
+    "abstract": "We present an empirical study on Text-to-Image Generation using HyperTrans-X (65M parameters). When benchmarked against competitive baselines including EDM, our method demonstrates superior representational capacity on the challenging CelebA-HQ dataset, reaching an unprecedented Recall of 65.5% (surpassing EDM's score of 62.8%). Qualitative analysis confirms the stability of our optimization objective.",
+    "ground_truth": {
+      "task": "Text-to-Image Generation",
+      "dataset": "CelebA-HQ",
+      "metric": "Recall",
+      "result": "65.5%",
+      "baseline": "EDM"
+    }
+  },
+  {
+    "domain": "Efficient Compression",
+    "is_held_out": false,
+    "abstract": "Although Structured Weight Pruning has witnessed rapid progress, current models remain bounded by sample efficiency. On Mistral-7B-Instruct, TinyBERT yields a Latency Speedup of 1.0x. In this work, SynergyAI-Pro is formulated to address structural bottlenecks. On the rigorous Mistral-7B-Instruct evaluation, a Latency Speedup of 2.3x is attained by SynergyAI-Pro, yielding a consistent margin over TinyBERT across multiple random seeds.",
+    "ground_truth": {
+      "task": "Structured Weight Pruning",
+      "dataset": "Mistral-7B-Instruct",
+      "metric": "Latency Speedup",
+      "result": "2.3x",
+      "baseline": "TinyBERT"
+    }
+  },
+  {
+    "domain": "Natural Language Processing",
+    "is_held_out": false,
+    "abstract": "Prior approaches to Extractive Question Answering, such as DeBERTa-v3, struggle with high computational latency and achieve only 81.6% F1 Score on TriviaQA. To overcome these limitations, we introduce HyperTrans-Pro. Comprehensive experiments demonstrate that HyperTrans-Pro establishes a new state of the art, attaining 86.0% F1 Score on TriviaQA while reducing parameter overhead by 30%.",
+    "ground_truth": {
+      "task": "Extractive Question Answering",
       "dataset": "TriviaQA",
-      "metric": "F1",
-      "result": "92.7",
-      "baseline": "SpanBERT"
+      "metric": "F1 Score",
+      "result": "86.0%",
+      "baseline": "DeBERTa-v3"
+    }
+  },
+  {
+    "domain": "Reinforcement Learning",
+    "is_held_out": false,
+    "abstract": "Although Offline Policy Optimization has witnessed rapid progress, current models remain bounded by sample efficiency. On Humanoid-v4, SAC yields a Average Normalized Return of 103.663. In this work, VectorFlow-Pro is formulated to address structural bottlenecks. On the rigorous Humanoid-v4 evaluation, a Average Normalized Return of 103.737 is attained by VectorFlow-Pro, yielding a consistent margin over SAC across multiple random seeds.",
+    "ground_truth": {
+      "task": "Offline Policy Optimization",
+      "dataset": "Humanoid-v4",
+      "metric": "Average Normalized Return",
+      "result": "103.737",
+      "baseline": "SAC"
     }
   }
 ]

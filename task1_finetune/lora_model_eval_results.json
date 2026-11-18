@@ -5,62 +5,344 @@
     "total_samples": 50,
     "valid_json_count": 50,
     "json_valid_rate": 1.0,
-    "overall_macro_f1": 1.0,
+    "overall_macro_f1": 0.9880000000000001,
     "field_f1": {
       "task": 1.0,
-      "dataset": 1.0,
-      "metric": 1.0,
+      "dataset": 0.98,
+      "metric": 0.98,
       "result": 1.0,
-      "baseline": 1.0
+      "baseline": 0.98
     },
     "field_precision": {
       "task": 1.0,
-      "dataset": 1.0,
-      "metric": 1.0,
+      "dataset": 0.98,
+      "metric": 0.98,
       "result": 1.0,
-      "baseline": 1.0
+      "baseline": 0.98
     },
     "field_recall": {
       "task": 1.0,
-      "dataset": 1.0,
-      "metric": 1.0,
+      "dataset": 0.98,
+      "metric": 0.98,
       "result": 1.0,
-      "baseline": 1.0
+      "baseline": 0.98
     }
   },
   "base_comparison": {
-    "base_macro_f1": 0.8392571428571428,
-    "lora_macro_f1": 1.0,
-    "delta": 0.1607428571428572
+    "base_macro_f1": 0.8514666666666665,
+    "lora_macro_f1": 0.9880000000000001,
+    "delta": 0.13653333333333362
   },
   "details": [
     {
-      "abstract": "In this paper, we tackle the critical challenge of Code Generation. Compared to the prevailing baseline Codex, our method incorporates dynamic token sparsification. Benchmarking our approach on DS-1000 confirms that our design principles scale effectively. Our system reaches a top Pass@1 of 59.4%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Visual Servoing Navigation. We propose HyperTrans-V2, a novel architecture containing 65M parameters. Evaluated on the standard RoboNet-v2 benchmark, our approach achieves a Task Success Rate of 76.8%, substantially outperforming the previous state-of-the-art PaLM-E-12B which attained 74.8%. Furthermore, our model exhibits a 2.4x throughput improvement during inference.",
       "gold": {
-        "task": "Code Generation",
-        "dataset": "DS-1000",
-        "metric": "Pass@1",
-        "result": "59.4%",
-        "baseline": "Codex"
+        "task": "Visual Servoing Navigation",
+        "dataset": "RoboNet-v2",
+        "metric": "Task Success Rate",
+        "result": "76.8%",
+        "baseline": "PaLM-E-12B"
       },
-      "raw_prediction": "{\n  \"task\": \"Code Generation\",\n  \"dataset\": \"DS-1000\",\n  \"metric\": \"Pass@1\",\n  \"result\": \"59.4%\",\n  \"baseline\": \"Codex\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Visual Servoing Navigation\",\n  \"dataset\": \"RoboNet-v2\",\n  \"metric\": \"Task Success Rate\",\n  \"result\": \"76.8%\",\n  \"baseline\": \"PaLM-E-12B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Code Generation",
-        "dataset": "DS-1000",
-        "metric": "Pass@1",
-        "result": "59.4%",
-        "baseline": "Codex"
+        "task": "Visual Servoing Navigation",
+        "dataset": "RoboNet-v2",
+        "metric": "Task Success Rate",
+        "result": "76.8%",
+        "baseline": "PaLM-E-12B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Code Generation",
-          "gold": "Code Generation",
+          "pred": "Visual Servoing Navigation",
+          "gold": "Visual Servoing Navigation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "DS-1000",
-          "gold": "DS-1000",
+          "pred": "RoboNet-v2",
+          "gold": "RoboNet-v2",
+          "f1": 1.0
+        },
+        "metric": {
+          "pred": "Task Success Rate",
+          "gold": "Task Success Rate",
+          "f1": 1.0
+        },
+        "result": {
+          "pred": "76.8%",
+          "gold": "76.8%",
+          "f1": 1.0
+        },
+        "baseline": {
+          "pred": "PaLM-E-12B",
+          "gold": "PaLM-E-12B",
+          "f1": 1.0
+        }
+      },
+      "sample_mean_f1": 1.0
+    },
+    {
+      "abstract": "Although Next-Item Sequential Recommendation has witnessed rapid progress, current models remain bounded by sample efficiency. On KuaiRand-Pure1k, DeepFM-Large yields a Mean Reciprocal Rank of 0.498. In this work, LatentOpt-Plus is formulated to address structural bottlenecks. On the rigorous KuaiRand-Pure1k evaluation, a Mean Reciprocal Rank of 0.532 is attained by LatentOpt-Plus, yielding a consistent margin over DeepFM-Large across multiple random seeds.",
+      "gold": {
+        "task": "Next-Item Sequential Recommendation",
+        "dataset": "KuaiRand-Pure1k",
+        "metric": "Mean Reciprocal Rank",
+        "result": "0.532",
+        "baseline": "DeepFM-Large"
+      },
+      "raw_prediction": "{\n  \"task\": \"Next-Item Sequential Recommendation\",\n  \"dataset\": \"KuaiRand-Pure1k\",\n  \"metric\": \"Mean Reciprocal Rank\",\n  \"result\": \"0.532\",\n  \"baseline\": \"DeepFM-Large\"\n}",
+      "is_valid_json": true,
+      "parsed": {
+        "task": "Next-Item Sequential Recommendation",
+        "dataset": "KuaiRand-Pure1k",
+        "metric": "Mean Reciprocal Rank",
+        "result": "0.532",
+        "baseline": "DeepFM-Large"
+      },
+      "field_metrics": {
+        "task": {
+          "pred": "Next-Item Sequential Recommendation",
+          "gold": "Next-Item Sequential Recommendation",
+          "f1": 1.0
+        },
+        "dataset": {
+          "pred": "KuaiRand-Pure1k",
+          "gold": "KuaiRand-Pure1k",
+          "f1": 1.0
+        },
+        "metric": {
+          "pred": "Mean Reciprocal Rank",
+          "gold": "Mean Reciprocal Rank",
+          "f1": 1.0
+        },
+        "result": {
+          "pred": "0.532",
+          "gold": "0.532",
+          "f1": 1.0
+        },
+        "baseline": {
+          "pred": "DeepFM-Large",
+          "gold": "DeepFM-Large",
+          "f1": 1.0
+        }
+      },
+      "sample_mean_f1": 1.0
+    },
+    {
+      "abstract": "In this paper, we address the challenge of Click-Through Rate Prediction. We propose MetaCore-Plus, a novel architecture containing 65M parameters. Evaluated on the standard Amazon-Electronics-2023 benchmark, our approach achieves a Mean Reciprocal Rank of 0.501, substantially outperforming the previous state-of-the-art BST-TransformerRec which attained 0.443. Furthermore, our model exhibits a 2.7x throughput improvement during inference.",
+      "gold": {
+        "task": "Click-Through Rate Prediction",
+        "dataset": "Amazon-Electronics-2023",
+        "metric": "Mean Reciprocal Rank",
+        "result": "0.501",
+        "baseline": "BST-TransformerRec"
+      },
+      "raw_prediction": "{\n  \"task\": \"Click-Through Rate Prediction\",\n  \"dataset\": \"Amazon-Electronics-2023\",\n  \"metric\": \"Mean Reciprocal Rank\",\n  \"result\": \"0.501\",\n  \"baseline\": \"BST-Transformer-Rec\"\n}",
+      "is_valid_json": true,
+      "parsed": {
+        "task": "Click-Through Rate Prediction",
+        "dataset": "Amazon-Electronics-2023",
+        "metric": "Mean Reciprocal Rank",
+        "result": "0.501",
+        "baseline": "BST-Transformer-Rec"
+      },
+      "field_metrics": {
+        "task": {
+          "pred": "Click-Through Rate Prediction",
+          "gold": "Click-Through Rate Prediction",
+          "f1": 1.0
+        },
+        "dataset": {
+          "pred": "Amazon-Electronics-2023",
+          "gold": "Amazon-Electronics-2023",
+          "f1": 1.0
+        },
+        "metric": {
+          "pred": "Mean Reciprocal Rank",
+          "gold": "Mean Reciprocal Rank",
+          "f1": 1.0
+        },
+        "result": {
+          "pred": "0.501",
+          "gold": "0.501",
+          "f1": 1.0
+        },
+        "baseline": {
+          "pred": "BST-Transformer-Rec",
+          "gold": "BST-TransformerRec",
+          "f1": 0.0
+        }
+      },
+      "sample_mean_f1": 0.8
+    },
+    {
+      "abstract": "We present an empirical study on Next-Item Sequential Recommendation using AdaptiveNet-V2 (110M parameters). When benchmarked against competitive baselines including GRU4Rec-Session, our method demonstrates superior representational capacity on the challenging Taobao-ClickStream dataset, reaching an unprecedented Mean Reciprocal Rank of 0.564 (surpassing GRU4Rec-Session's score of 0.512). Qualitative analysis confirms the stability of our optimization objective.",
+      "gold": {
+        "task": "Next-Item Sequential Recommendation",
+        "dataset": "Taobao-ClickStream",
+        "metric": "Mean Reciprocal Rank",
+        "result": "0.564",
+        "baseline": "GRU4Rec-Session"
+      },
+      "raw_prediction": "{\n  \"task\": \"Next-Item Sequential Recommendation\",\n  \"dataset\": \"Taobao-ClickStream\",\n  \"metric\": \"Mean Reciprocal Rank\",\n  \"result\": \"0.564\",\n  \"baseline\": \"GRU4Rec-Session\"\n}",
+      "is_valid_json": true,
+      "parsed": {
+        "task": "Next-Item Sequential Recommendation",
+        "dataset": "Taobao-ClickStream",
+        "metric": "Mean Reciprocal Rank",
+        "result": "0.564",
+        "baseline": "GRU4Rec-Session"
+      },
+      "field_metrics": {
+        "task": {
+          "pred": "Next-Item Sequential Recommendation",
+          "gold": "Next-Item Sequential Recommendation",
+          "f1": 1.0
+        },
+        "dataset": {
+          "pred": "Taobao-ClickStream",
+          "gold": "Taobao-ClickStream",
+          "f1": 1.0
+        },
+        "metric": {
+          "pred": "Mean Reciprocal Rank",
+          "gold": "Mean Reciprocal Rank",
+          "f1": 1.0
+        },
+        "result": {
+          "pred": "0.564",
+          "gold": "0.564",
+          "f1": 1.0
+        },
+        "baseline": {
+          "pred": "GRU4Rec-Session",
+          "gold": "GRU4Rec-Session",
+          "f1": 1.0
+        }
+      },
+      "sample_mean_f1": 1.0
+    },
+    {
+      "abstract": "Although Visual Servoing Navigation has witnessed rapid progress, current models remain bounded by sample efficiency. On Franka-Kitchen-MultiTask, PaLM-E-12B yields a Grasp Success Rate of 84.0%. In this work, OmniScale-Plus is formulated to address structural bottlenecks. On the rigorous Franka-Kitchen-MultiTask evaluation, a Grasp Success Rate of 86.8% is attained by OmniScale-Plus, yielding a consistent margin over PaLM-E-12B across multiple random seeds.",
+      "gold": {
+        "task": "Visual Servoing Navigation",
+        "dataset": "Franka-Kitchen-MultiTask",
+        "metric": "Grasp Success Rate",
+        "result": "86.8%",
+        "baseline": "PaLM-E-12B"
+      },
+      "raw_prediction": "{\n  \"task\": \"Visual Servoing Navigation\",\n  \"dataset\": \"Franka-Kitchen-MultiTask\",\n  \"metric\": \"Grasp Success Rate\",\n  \"result\": \"86.8%\",\n  \"baseline\": \"PaLM-E-12B\"\n}",
+      "is_valid_json": true,
+      "parsed": {
+        "task": "Visual Servoing Navigation",
+        "dataset": "Franka-Kitchen-MultiTask",
+        "metric": "Grasp Success Rate",
+        "result": "86.8%",
+        "baseline": "PaLM-E-12B"
+      },
+      "field_metrics": {
+        "task": {
+          "pred": "Visual Servoing Navigation",
+          "gold": "Visual Servoing Navigation",
+          "f1": 1.0
+        },
+        "dataset": {
+          "pred": "Franka-Kitchen-MultiTask",
+          "gold": "Franka-Kitchen-MultiTask",
+          "f1": 1.0
+        },
+        "metric": {
+          "pred": "Grasp Success Rate",
+          "gold": "Grasp Success Rate",
+          "f1": 1.0
+        },
+        "result": {
+          "pred": "86.8%",
+          "gold": "86.8%",
+          "f1": 1.0
+        },
+        "baseline": {
+          "pred": "PaLM-E-12B",
+          "gold": "PaLM-E-12B",
+          "f1": 1.0
+        }
+      },
+      "sample_mean_f1": 1.0
+    },
+    {
+      "abstract": "We present an empirical study on Click-Through Rate Prediction using VectorFlow-Plus (350M parameters). When benchmarked against competitive baselines including BST-TransformerRec, our method demonstrates superior representational capacity on the challenging Criteo-AdCTR-100M dataset, reaching an unprecedented NDCG@10 of 0.567 (surpassing BST-TransformerRec's score of 0.507). Qualitative analysis confirms the stability of our optimization objective.",
+      "gold": {
+        "task": "Click-Through Rate Prediction",
+        "dataset": "Criteo-AdCTR-100M",
+        "metric": "NDCG@10",
+        "result": "0.567",
+        "baseline": "BST-TransformerRec"
+      },
+      "raw_prediction": "{\n  \"task\": \"Click-Through Rate Prediction\",\n  \"dataset\": \"Criteo-AdCTR-100M\",\n  \"metric\": \"NDCG@10\",\n  \"result\": \"0.567\",\n  \"baseline\": \"BST-TransformerRec\"\n}",
+      "is_valid_json": true,
+      "parsed": {
+        "task": "Click-Through Rate Prediction",
+        "dataset": "Criteo-AdCTR-100M",
+        "metric": "NDCG@10",
+        "result": "0.567",
+        "baseline": "BST-TransformerRec"
+      },
+      "field_metrics": {
+        "task": {
+          "pred": "Click-Through Rate Prediction",
+          "gold": "Click-Through Rate Prediction",
+          "f1": 1.0
+        },
+        "dataset": {
+          "pred": "Criteo-AdCTR-100M",
+          "gold": "Criteo-AdCTR-100M",
+          "f1": 1.0
+        },
+        "metric": {
+          "pred": "NDCG@10",
+          "gold": "NDCG@10",
+          "f1": 1.0
+        },
+        "result": {
+          "pred": "0.567",
+          "gold": "0.567",
+          "f1": 1.0
+        },
+        "baseline": {
+          "pred": "BST-TransformerRec",
+          "gold": "BST-TransformerRec",
+          "f1": 1.0
+        }
+      },
+      "sample_mean_f1": 1.0
+    },
+    {
+      "abstract": "Although Automated Program Synthesis has witnessed rapid progress, current models remain bounded by sample efficiency. On HumanEval-Plus, StarCoder-15B yields a Pass@1 of 71.8%. In this work, LatentOpt-V2 is formulated to address structural bottlenecks. On the rigorous HumanEval-Plus evaluation, a Pass@1 of 74.2% is attained by LatentOpt-V2, yielding a consistent margin over StarCoder-15B across multiple random seeds.",
+      "gold": {
+        "task": "Automated Program Synthesis",
+        "dataset": "HumanEval-Plus",
+        "metric": "Pass@1",
+        "result": "74.2%",
+        "baseline": "StarCoder-15B"
+      },
+      "raw_prediction": "{\n  \"task\": \"Automated Program Synthesis\",\n  \"dataset\": \"HumanEval-Plus\",\n  \"metric\": \"Pass@1\",\n  \"result\": \"74.2%\",\n  \"baseline\": \"StarCoder-15B\"\n}",
+      "is_valid_json": true,
+      "parsed": {
+        "task": "Automated Program Synthesis",
+        "dataset": "HumanEval-Plus",
+        "metric": "Pass@1",
+        "result": "74.2%",
+        "baseline": "StarCoder-15B"
+      },
+      "field_metrics": {
+        "task": {
+          "pred": "Automated Program Synthesis",
+          "gold": "Automated Program Synthesis",
+          "f1": 1.0
+        },
+        "dataset": {
+          "pred": "HumanEval-Plus",
+          "gold": "HumanEval-Plus",
           "f1": 1.0
         },
         "metric": {
@@ -69,666 +351,290 @@
           "f1": 1.0
         },
         "result": {
-          "pred": "59.4%",
-          "gold": "59.4%",
+          "pred": "74.2%",
+          "gold": "74.2%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Codex",
-          "gold": "Codex",
+          "pred": "StarCoder-15B",
+          "gold": "StarCoder-15B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We present a generalized attention-based framework targeted at Named Entity Recognition. Prior standards such as Flair-Embeddings exhibit severe degradation under low-resource or noisy settings. When deployed and evaluated on OntoNotes 5.0, the architecture reveals substantial gains. Our system reaches a top F1 of 91.5, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Formal Theorem Proving. We propose GraphPrior-Plus, a novel architecture containing 65M parameters. Evaluated on the standard MiniF2F-Lean4 benchmark, our approach achieves a Formal Proof Rate of 50.2%, substantially outperforming the previous state-of-the-art CodeLlama-34B-Python which attained 48.2%. Furthermore, our model exhibits a 2.7x throughput improvement during inference.",
       "gold": {
-        "task": "Named Entity Recognition",
-        "dataset": "OntoNotes 5.0",
-        "metric": "F1",
-        "result": "91.5",
-        "baseline": "Flair-Embeddings"
+        "task": "Formal Theorem Proving",
+        "dataset": "MiniF2F-Lean4",
+        "metric": "Formal Proof Rate",
+        "result": "50.2%",
+        "baseline": "CodeLlama-34B-Python"
       },
-      "raw_prediction": "{\n  \"task\": \"Named Entity Recognition\",\n  \"dataset\": \"OntoNotes 5.0\",\n  \"metric\": \"F1\",\n  \"result\": \"91.5\",\n  \"baseline\": \"Flair-Embeddings\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Formal Theorem Proving\",\n  \"dataset\": \"MiniF2F-Lean4\",\n  \"metric\": \"Formal Proof Rate\",\n  \"result\": \"50.2%\",\n  \"baseline\": \"CodeLlama-34B-Python\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Named Entity Recognition",
-        "dataset": "OntoNotes 5.0",
-        "metric": "F1",
-        "result": "91.5",
-        "baseline": "Flair-Embeddings"
+        "task": "Formal Theorem Proving",
+        "dataset": "MiniF2F-Lean4",
+        "metric": "Formal Proof Rate",
+        "result": "50.2%",
+        "baseline": "CodeLlama-34B-Python"
       },
       "field_metrics": {
         "task": {
-          "pred": "Named Entity Recognition",
-          "gold": "Named Entity Recognition",
+          "pred": "Formal Theorem Proving",
+          "gold": "Formal Theorem Proving",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "OntoNotes 5.0",
-          "gold": "OntoNotes 5.0",
+          "pred": "MiniF2F-Lean4",
+          "gold": "MiniF2F-Lean4",
           "f1": 1.0
         },
         "metric": {
-          "pred": "F1",
-          "gold": "F1",
+          "pred": "Formal Proof Rate",
+          "gold": "Formal Proof Rate",
           "f1": 1.0
         },
         "result": {
-          "pred": "91.5",
-          "gold": "91.5",
+          "pred": "50.2%",
+          "gold": "50.2%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Flair-Embeddings",
-          "gold": "Flair-Embeddings",
+          "pred": "CodeLlama-34B-Python",
+          "gold": "CodeLlama-34B-Python",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Existing paradigms for Named Entity Recognition require exorbitant computational resources during both training and evaluation. While established baselines including BERT-Base offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard Few-NERD benchmark. The proposed method achieves an outstanding F1 of 90.4, whereas BERT-Base fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Automated Program Synthesis using VectorFlow-Plus (13B parameters). When benchmarked against competitive baselines including CodeLlama-34B-Python, our method demonstrates superior representational capacity on the challenging SWE-bench-Lite dataset, reaching an unprecedented Pass@10 of 80.2% (surpassing CodeLlama-34B-Python's score of 78.9%). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Named Entity Recognition",
-        "dataset": "Few-NERD",
-        "metric": "F1",
-        "result": "90.4",
-        "baseline": "BERT-Base"
+        "task": "Automated Program Synthesis",
+        "dataset": "SWE-bench-Lite",
+        "metric": "Pass@10",
+        "result": "80.2%",
+        "baseline": "CodeLlama-34B-Python"
       },
-      "raw_prediction": "{\n  \"task\": \"Named Entity Recognition\",\n  \"dataset\": \"Few-NERD\",\n  \"metric\": \"F1\",\n  \"result\": \"90.4\",\n  \"baseline\": \"BERT-Base\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Automated Program Synthesis\",\n  \"dataset\": \"SWE-bench-Lite\",\n  \"metric\": \"Pass@10\",\n  \"result\": \"80.2%\",\n  \"baseline\": \"CodeLlama-34B-Python\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Named Entity Recognition",
-        "dataset": "Few-NERD",
-        "metric": "F1",
-        "result": "90.4",
-        "baseline": "BERT-Base"
+        "task": "Automated Program Synthesis",
+        "dataset": "SWE-bench-Lite",
+        "metric": "Pass@10",
+        "result": "80.2%",
+        "baseline": "CodeLlama-34B-Python"
       },
       "field_metrics": {
         "task": {
-          "pred": "Named Entity Recognition",
-          "gold": "Named Entity Recognition",
+          "pred": "Automated Program Synthesis",
+          "gold": "Automated Program Synthesis",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Few-NERD",
-          "gold": "Few-NERD",
+          "pred": "SWE-bench-Lite",
+          "gold": "SWE-bench-Lite",
           "f1": 1.0
         },
         "metric": {
-          "pred": "F1",
-          "gold": "F1",
+          "pred": "Pass@10",
+          "gold": "Pass@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "90.4",
-          "gold": "90.4",
+          "pred": "80.2%",
+          "gold": "80.2%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "BERT-Base",
-          "gold": "BERT-Base",
+          "pred": "CodeLlama-34B-Python",
+          "gold": "CodeLlama-34B-Python",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Speech Recognition. Compared to the prevailing baseline Whisper-Small, our method incorporates dynamic token sparsification. Evaluated extensively across LibriSpeech test-other, our framework demonstrates consistent empirical superiority. Our approach records an impressive Word Error Rate of 6.9%, outperforming Whisper-Small by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to EHR Mortality Risk Scoring, such as BioBERT-v1.1, struggle with high computational latency and achieve only 77.8% Macro-F1 on PhysioNet-Sepsis2019. To overcome these limitations, we introduce LatentOpt-V2. Comprehensive experiments demonstrate that LatentOpt-V2 establishes a new state of the art, attaining 80.3% Macro-F1 on PhysioNet-Sepsis2019 while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Speech Recognition",
-        "dataset": "LibriSpeech test-other",
-        "metric": "Word Error Rate",
-        "result": "6.9%",
-        "baseline": "Whisper-Small"
+        "task": "EHR Mortality Risk Scoring",
+        "dataset": "PhysioNet-Sepsis2019",
+        "metric": "Macro-F1",
+        "result": "80.3%",
+        "baseline": "BioBERT-v1.1"
       },
-      "raw_prediction": "{\n  \"task\": \"Speech Recognition\",\n  \"dataset\": \"LibriSpeech test-other\",\n  \"metric\": \"Word Error Rate\",\n  \"result\": \"6.9%\",\n  \"baseline\": \"Whisper-Small\"\n}",
+      "raw_prediction": "{\n  \"task\": \"EHR Mortality Risk Scoring\",\n  \"dataset\": \"PhysioNet-Sepsis2019\",\n  \"metric\": \"Macro-F1\",\n  \"result\": \"80.3%\",\n  \"baseline\": \"BioBERT-v1.1\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Speech Recognition",
-        "dataset": "LibriSpeech test-other",
-        "metric": "Word Error Rate",
-        "result": "6.9%",
-        "baseline": "Whisper-Small"
+        "task": "EHR Mortality Risk Scoring",
+        "dataset": "PhysioNet-Sepsis2019",
+        "metric": "Macro-F1",
+        "result": "80.3%",
+        "baseline": "BioBERT-v1.1"
       },
       "field_metrics": {
         "task": {
-          "pred": "Speech Recognition",
-          "gold": "Speech Recognition",
+          "pred": "EHR Mortality Risk Scoring",
+          "gold": "EHR Mortality Risk Scoring",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "LibriSpeech test-other",
-          "gold": "LibriSpeech test-other",
+          "pred": "PhysioNet-Sepsis2019",
+          "gold": "PhysioNet-Sepsis2019",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Word Error Rate",
-          "gold": "Word Error Rate",
+          "pred": "Macro-F1",
+          "gold": "Macro-F1",
           "f1": 1.0
         },
         "result": {
-          "pred": "6.9%",
-          "gold": "6.9%",
+          "pred": "80.3%",
+          "gold": "80.3%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Whisper-Small",
-          "gold": "Whisper-Small",
+          "pred": "BioBERT-v1.1",
+          "gold": "BioBERT-v1.1",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Protein Structure Prediction. Prior standards such as RoseTTAFold exhibit severe degradation under low-resource or noisy settings. When deployed and evaluated on PDB-Blind, the architecture reveals substantial gains. Our system reaches a top GDT-TS of 94.0, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Code Vulnerability Detection. We propose VectorFlow-Pro, a novel architecture containing 7B parameters. Evaluated on the standard BigCode-SecurityBench benchmark, our approach achieves a Formal Proof Rate of 49.4%, substantially outperforming the previous state-of-the-art StarCoder-15B which attained 47.0%. Furthermore, our model exhibits a 2.3x throughput improvement during inference.",
       "gold": {
-        "task": "Protein Structure Prediction",
-        "dataset": "PDB-Blind",
-        "metric": "GDT-TS",
-        "result": "94.0",
-        "baseline": "RoseTTAFold"
+        "task": "Code Vulnerability Detection",
+        "dataset": "BigCode-SecurityBench",
+        "metric": "Formal Proof Rate",
+        "result": "49.4%",
+        "baseline": "StarCoder-15B"
       },
-      "raw_prediction": "{\n  \"task\": \"Protein Structure Prediction\",\n  \"dataset\": \"PDB-Blind\",\n  \"metric\": \"GDT-TS\",\n  \"result\": \"94.0\",\n  \"baseline\": \"RoseTTAFold\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Code Vulnerability Detection\",\n  \"dataset\": \"BigCode-SecurityBench\",\n  \"metric\": \"Formal Proof Rate\",\n  \"result\": \"49.4%\",\n  \"baseline\": \"StarCoder-15B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Protein Structure Prediction",
-        "dataset": "PDB-Blind",
-        "metric": "GDT-TS",
-        "result": "94.0",
-        "baseline": "RoseTTAFold"
+        "task": "Code Vulnerability Detection",
+        "dataset": "BigCode-SecurityBench",
+        "metric": "Formal Proof Rate",
+        "result": "49.4%",
+        "baseline": "StarCoder-15B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Protein Structure Prediction",
-          "gold": "Protein Structure Prediction",
+          "pred": "Code Vulnerability Detection",
+          "gold": "Code Vulnerability Detection",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "PDB-Blind",
-          "gold": "PDB-Blind",
+          "pred": "BigCode-SecurityBench",
+          "gold": "BigCode-SecurityBench",
           "f1": 1.0
         },
         "metric": {
-          "pred": "GDT-TS",
-          "gold": "GDT-TS",
+          "pred": "Formal Proof Rate",
+          "gold": "Formal Proof Rate",
           "f1": 1.0
         },
         "result": {
-          "pred": "94.0",
-          "gold": "94.0",
+          "pred": "49.4%",
+          "gold": "49.4%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "RoseTTAFold",
-          "gold": "RoseTTAFold",
+          "pred": "StarCoder-15B",
+          "gold": "StarCoder-15B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We investigate novel neural architectures for Graph Representation Learning. In contrast to GCN, our design decouples feature extraction from cross-modal alignment. Evaluated extensively across OGB-Arxiv, our framework demonstrates consistent empirical superiority. Specifically, our model delivers a Accuracy of 77.4%, clearly surpassing GCN. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Dexterous Hand Policy Control. We propose FlashArch-Plus, a novel architecture containing 65M parameters. Evaluated on the standard RLBench-18Tasks benchmark, our approach achieves a Task Success Rate of 85.9%, substantially outperforming the previous state-of-the-art PaLM-E-12B which attained 83.4%. Furthermore, our model exhibits a 2.4x throughput improvement during inference.",
       "gold": {
-        "task": "Graph Representation Learning",
-        "dataset": "OGB-Arxiv",
-        "metric": "Accuracy",
-        "result": "77.4%",
-        "baseline": "GCN"
+        "task": "Dexterous Hand Policy Control",
+        "dataset": "RLBench-18Tasks",
+        "metric": "Task Success Rate",
+        "result": "85.9%",
+        "baseline": "PaLM-E-12B"
       },
-      "raw_prediction": "{\n  \"task\": \"Graph Representation Learning\",\n  \"dataset\": \"OGB-Arxiv\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"77.4%\",\n  \"baseline\": \"GCN\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Dexterous Hand Policy Control\",\n  \"dataset\": \"RLBenchmark-Libri\",\n  \"metric\": \"Task Success Rate\",\n  \"result\": \"85.9%\",\n  \"baseline\": \"PaLM-E-12B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Graph Representation Learning",
-        "dataset": "OGB-Arxiv",
-        "metric": "Accuracy",
-        "result": "77.4%",
-        "baseline": "GCN"
+        "task": "Dexterous Hand Policy Control",
+        "dataset": "RLBenchmark-Libri",
+        "metric": "Task Success Rate",
+        "result": "85.9%",
+        "baseline": "PaLM-E-12B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Graph Representation Learning",
-          "gold": "Graph Representation Learning",
+          "pred": "Dexterous Hand Policy Control",
+          "gold": "Dexterous Hand Policy Control",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "OGB-Arxiv",
-          "gold": "OGB-Arxiv",
-          "f1": 1.0
+          "pred": "RLBenchmark-Libri",
+          "gold": "RLBench-18Tasks",
+          "f1": 0.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Task Success Rate",
+          "gold": "Task Success Rate",
           "f1": 1.0
         },
         "result": {
-          "pred": "77.4%",
-          "gold": "77.4%",
+          "pred": "85.9%",
+          "gold": "85.9%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "GCN",
-          "gold": "GCN",
+          "pred": "PaLM-E-12B",
+          "gold": "PaLM-E-12B",
           "f1": 1.0
         }
       },
-      "sample_mean_f1": 1.0
+      "sample_mean_f1": 0.8
     },
     {
-      "abstract": "Addressing current efficiency and scaling bottlenecks in Speech Recognition, we introduce an adaptive formulation. While established baselines including Whisper-Small offer competitive scores, their parameter efficiency remains suboptimal. When deployed and evaluated on Common Voice En, the architecture reveals substantial gains. Our system reaches a top Word Error Rate of 7.2%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Formal Theorem Proving using GraphPrior-Plus (350M parameters). When benchmarked against competitive baselines including DeepSeek-Coder-6.7B, our method demonstrates superior representational capacity on the challenging HumanEval-Plus dataset, reaching an unprecedented Detection F1-Score of 76.6% (surpassing DeepSeek-Coder-6.7B's score of 72.8%). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Speech Recognition",
-        "dataset": "Common Voice En",
-        "metric": "Word Error Rate",
-        "result": "7.2%",
-        "baseline": "Whisper-Small"
-      },
-      "raw_prediction": "{\n  \"task\": \"Speech Recognition\",\n  \"dataset\": \"Common Voice En\",\n  \"metric\": \"Word Error Rate\",\n  \"result\": \"7.2%\",\n  \"baseline\": \"Whisper-Small\"\n}",
-      "is_valid_json": true,
-      "parsed": {
-        "task": "Speech Recognition",
-        "dataset": "Common Voice En",
-        "metric": "Word Error Rate",
-        "result": "7.2%",
-        "baseline": "Whisper-Small"
-      },
-      "field_metrics": {
-        "task": {
-          "pred": "Speech Recognition",
-          "gold": "Speech Recognition",
-          "f1": 1.0
-        },
-        "dataset": {
-          "pred": "Common Voice En",
-          "gold": "Common Voice En",
-          "f1": 1.0
-        },
-        "metric": {
-          "pred": "Word Error Rate",
-          "gold": "Word Error Rate",
-          "f1": 1.0
-        },
-        "result": {
-          "pred": "7.2%",
-          "gold": "7.2%",
-          "f1": 1.0
-        },
-        "baseline": {
-          "pred": "Whisper-Small",
-          "gold": "Whisper-Small",
-          "f1": 1.0
-        }
-      },
-      "sample_mean_f1": 1.0
-    },
-    {
-      "abstract": "Addressing current efficiency and scaling bottlenecks in Graph Representation Learning, we introduce an adaptive formulation. In contrast to GraphSAGE, our design decouples feature extraction from cross-modal alignment. When deployed and evaluated on Cora, the architecture reveals substantial gains. Experimental results demonstrate a Accuracy of 73.6%, establishing a strong new baseline over GraphSAGE. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-      "gold": {
-        "task": "Graph Representation Learning",
-        "dataset": "Cora",
-        "metric": "Accuracy",
-        "result": "73.6%",
-        "baseline": "GraphSAGE"
-      },
-      "raw_prediction": "{\n  \"task\": \"Graph Representation Learning\",\n  \"dataset\": \"Cora\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"73.6%\",\n  \"baseline\": \"GraphSAGE\"\n}",
-      "is_valid_json": true,
-      "parsed": {
-        "task": "Graph Representation Learning",
-        "dataset": "Cora",
-        "metric": "Accuracy",
-        "result": "73.6%",
-        "baseline": "GraphSAGE"
-      },
-      "field_metrics": {
-        "task": {
-          "pred": "Graph Representation Learning",
-          "gold": "Graph Representation Learning",
-          "f1": 1.0
-        },
-        "dataset": {
-          "pred": "Cora",
-          "gold": "Cora",
-          "f1": 1.0
-        },
-        "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
-          "f1": 1.0
-        },
-        "result": {
-          "pred": "73.6%",
-          "gold": "73.6%",
-          "f1": 1.0
-        },
-        "baseline": {
-          "pred": "GraphSAGE",
-          "gold": "GraphSAGE",
-          "f1": 1.0
-        }
-      },
-      "sample_mean_f1": 1.0
-    },
-    {
-      "abstract": "Despite significant progress in Sentiment Analysis, prevailing methods struggle with distributional shift. Traditional models like RoBERTa-Base struggle to capture fine-grained relational semantics across distant tokens. We conduct rigorous empirical validations on the standard Amazon-5 benchmark. The proposed method achieves an outstanding Accuracy of 96.5%, whereas RoBERTa-Base fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-      "gold": {
-        "task": "Sentiment Analysis",
-        "dataset": "Amazon-5",
-        "metric": "Accuracy",
-        "result": "96.5%",
-        "baseline": "RoBERTa-Base"
-      },
-      "raw_prediction": "{\n  \"task\": \"Sentiment Analysis\",\n  \"dataset\": \"Amazon-5\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"96.5%\",\n  \"baseline\": \"RoBERTa-Base\"\n}",
-      "is_valid_json": true,
-      "parsed": {
-        "task": "Sentiment Analysis",
-        "dataset": "Amazon-5",
-        "metric": "Accuracy",
-        "result": "96.5%",
-        "baseline": "RoBERTa-Base"
-      },
-      "field_metrics": {
-        "task": {
-          "pred": "Sentiment Analysis",
-          "gold": "Sentiment Analysis",
-          "f1": 1.0
-        },
-        "dataset": {
-          "pred": "Amazon-5",
-          "gold": "Amazon-5",
-          "f1": 1.0
-        },
-        "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
-          "f1": 1.0
-        },
-        "result": {
-          "pred": "96.5%",
-          "gold": "96.5%",
-          "f1": 1.0
-        },
-        "baseline": {
-          "pred": "RoBERTa-Base",
-          "gold": "RoBERTa-Base",
-          "f1": 1.0
-        }
-      },
-      "sample_mean_f1": 1.0
-    },
-    {
-      "abstract": "Addressing current efficiency and scaling bottlenecks in Protein Structure Prediction, we introduce an adaptive formulation. While established baselines including RoseTTAFold offer competitive scores, their parameter efficiency remains suboptimal. Evaluated extensively across CAMEO, our framework demonstrates consistent empirical superiority. Our system reaches a top GDT-TS of 89.6, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-      "gold": {
-        "task": "Protein Structure Prediction",
-        "dataset": "CAMEO",
-        "metric": "GDT-TS",
-        "result": "89.6",
-        "baseline": "RoseTTAFold"
-      },
-      "raw_prediction": "{\n  \"task\": \"Protein Structure Prediction\",\n  \"dataset\": \"CAMEO\",\n  \"metric\": \"GDT-TS\",\n  \"result\": \"89.6\",\n  \"baseline\": \"RoseTTAFold\"\n}",
-      "is_valid_json": true,
-      "parsed": {
-        "task": "Protein Structure Prediction",
-        "dataset": "CAMEO",
-        "metric": "GDT-TS",
-        "result": "89.6",
-        "baseline": "RoseTTAFold"
-      },
-      "field_metrics": {
-        "task": {
-          "pred": "Protein Structure Prediction",
-          "gold": "Protein Structure Prediction",
-          "f1": 1.0
-        },
-        "dataset": {
-          "pred": "CAMEO",
-          "gold": "CAMEO",
-          "f1": 1.0
-        },
-        "metric": {
-          "pred": "GDT-TS",
-          "gold": "GDT-TS",
-          "f1": 1.0
-        },
-        "result": {
-          "pred": "89.6",
-          "gold": "89.6",
-          "f1": 1.0
-        },
-        "baseline": {
-          "pred": "RoseTTAFold",
-          "gold": "RoseTTAFold",
-          "f1": 1.0
-        }
-      },
-      "sample_mean_f1": 1.0
-    },
-    {
-      "abstract": "We investigate novel neural architectures for Code Generation. Compared to the prevailing baseline CodeLlama-7B, our method incorporates dynamic token sparsification. We conduct rigorous empirical validations on the standard HumanEval benchmark. Our approach records an impressive Pass@1 of 58.2%, outperforming CodeLlama-7B by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-      "gold": {
-        "task": "Code Generation",
-        "dataset": "HumanEval",
-        "metric": "Pass@1",
-        "result": "58.2%",
-        "baseline": "CodeLlama-7B"
-      },
-      "raw_prediction": "{\n  \"task\": \"Code Generation\",\n  \"dataset\": \"HumanEval\",\n  \"metric\": \"Pass@1\",\n  \"result\": \"58.2%\",\n  \"baseline\": \"CodeLlama-7B\"\n}",
-      "is_valid_json": true,
-      "parsed": {
-        "task": "Code Generation",
-        "dataset": "HumanEval",
-        "metric": "Pass@1",
-        "result": "58.2%",
-        "baseline": "CodeLlama-7B"
-      },
-      "field_metrics": {
-        "task": {
-          "pred": "Code Generation",
-          "gold": "Code Generation",
-          "f1": 1.0
-        },
-        "dataset": {
-          "pred": "HumanEval",
-          "gold": "HumanEval",
-          "f1": 1.0
-        },
-        "metric": {
-          "pred": "Pass@1",
-          "gold": "Pass@1",
-          "f1": 1.0
-        },
-        "result": {
-          "pred": "58.2%",
-          "gold": "58.2%",
-          "f1": 1.0
-        },
-        "baseline": {
-          "pred": "CodeLlama-7B",
-          "gold": "CodeLlama-7B",
-          "f1": 1.0
-        }
-      },
-      "sample_mean_f1": 1.0
-    },
-    {
-      "abstract": "We investigate novel neural architectures for Object Detection. Compared to the prevailing baseline DETR, our method incorporates dynamic token sparsification. Benchmarking our approach on Objects365 confirms that our design principles scale effectively. Specifically, our model delivers a mAP@0.5:0.95 of 53.4, clearly surpassing DETR. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-      "gold": {
-        "task": "Object Detection",
-        "dataset": "Objects365",
-        "metric": "mAP@0.5:0.95",
-        "result": "53.4",
-        "baseline": "DETR"
-      },
-      "raw_prediction": "{\n  \"task\": \"Object Detection\",\n  \"dataset\": \"Objects365\",\n  \"metric\": \"mAP@0.5:0.95\",\n  \"result\": \"53.4\",\n  \"baseline\": \"DETR\"\n}",
-      "is_valid_json": true,
-      "parsed": {
-        "task": "Object Detection",
-        "dataset": "Objects365",
-        "metric": "mAP@0.5:0.95",
-        "result": "53.4",
-        "baseline": "DETR"
-      },
-      "field_metrics": {
-        "task": {
-          "pred": "Object Detection",
-          "gold": "Object Detection",
-          "f1": 1.0
-        },
-        "dataset": {
-          "pred": "Objects365",
-          "gold": "Objects365",
-          "f1": 1.0
-        },
-        "metric": {
-          "pred": "mAP@0.5:0.95",
-          "gold": "mAP@0.5:0.95",
-          "f1": 1.0
-        },
-        "result": {
-          "pred": "53.4",
-          "gold": "53.4",
-          "f1": 1.0
-        },
-        "baseline": {
-          "pred": "DETR",
-          "gold": "DETR",
-          "f1": 1.0
-        }
-      },
-      "sample_mean_f1": 1.0
-    },
-    {
-      "abstract": "Addressing current efficiency and scaling bottlenecks in Language Modeling, we introduce an adaptive formulation. While established baselines including Megatron-LM offer competitive scores, their parameter efficiency remains suboptimal. On the widely referenced Penn Treebank dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a Perplexity of 31.6, establishing a strong new baseline over Megatron-LM. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-      "gold": {
-        "task": "Language Modeling",
-        "dataset": "Penn Treebank",
-        "metric": "Perplexity",
-        "result": "31.6",
-        "baseline": "Megatron-LM"
-      },
-      "raw_prediction": "{\n  \"task\": \"Language Modeling\",\n  \"dataset\": \"Penn Treebank\",\n  \"metric\": \"Perplexity\",\n  \"result\": \"31.6\",\n  \"baseline\": \"Megatron-LM\"\n}",
-      "is_valid_json": true,
-      "parsed": {
-        "task": "Language Modeling",
-        "dataset": "Penn Treebank",
-        "metric": "Perplexity",
-        "result": "31.6",
-        "baseline": "Megatron-LM"
-      },
-      "field_metrics": {
-        "task": {
-          "pred": "Language Modeling",
-          "gold": "Language Modeling",
-          "f1": 1.0
-        },
-        "dataset": {
-          "pred": "Penn Treebank",
-          "gold": "Penn Treebank",
-          "f1": 1.0
-        },
-        "metric": {
-          "pred": "Perplexity",
-          "gold": "Perplexity",
-          "f1": 1.0
-        },
-        "result": {
-          "pred": "31.6",
-          "gold": "31.6",
-          "f1": 1.0
-        },
-        "baseline": {
-          "pred": "Megatron-LM",
-          "gold": "Megatron-LM",
-          "f1": 1.0
-        }
-      },
-      "sample_mean_f1": 1.0
-    },
-    {
-      "abstract": "Addressing current efficiency and scaling bottlenecks in Language Modeling, we introduce an adaptive formulation. Compared to the prevailing baseline GPT-2-Medium, our method incorporates dynamic token sparsification. Benchmarking our approach on The Pile confirms that our design principles scale effectively. The proposed method achieves an outstanding Perplexity of 44.4, whereas GPT-2-Medium fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-      "gold": {
-        "task": "Language Modeling",
-        "dataset": "The Pile",
-        "metric": "Perplexity",
-        "result": "44.4",
-        "baseline": "GPT-2-Medium"
-      },
-      "raw_prediction": "{\n  \"task\": \"Language Modeling\",\n  \"dataset\": \"The Pile\",\n  \"metric\": \"Perplexity\",\n  \"result\": \"44.4\",\n  \"baseline\": \"GPT-2-Medium\"\n}",
-      "is_valid_json": true,
-      "parsed": {
-        "task": "Language Modeling",
-        "dataset": "The Pile",
-        "metric": "Perplexity",
-        "result": "44.4",
-        "baseline": "GPT-2-Medium"
-      },
-      "field_metrics": {
-        "task": {
-          "pred": "Language Modeling",
-          "gold": "Language Modeling",
-          "f1": 1.0
-        },
-        "dataset": {
-          "pred": "The Pile",
-          "gold": "The Pile",
-          "f1": 1.0
-        },
-        "metric": {
-          "pred": "Perplexity",
-          "gold": "Perplexity",
-          "f1": 1.0
-        },
-        "result": {
-          "pred": "44.4",
-          "gold": "44.4",
-          "f1": 1.0
-        },
-        "baseline": {
-          "pred": "GPT-2-Medium",
-          "gold": "GPT-2-Medium",
-          "f1": 1.0
-        }
-      },
-      "sample_mean_f1": 1.0
-    },
-    {
-      "abstract": "Addressing current efficiency and scaling bottlenecks in Code Generation, we introduce an adaptive formulation. Prior standards such as DeepSeek-Coder-6.7B exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across HumanEval, our framework demonstrates consistent empirical superiority. Our system reaches a top Pass@1 of 58.7%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
-      "gold": {
-        "task": "Code Generation",
-        "dataset": "HumanEval",
-        "metric": "Pass@1",
-        "result": "58.7%",
+        "task": "Formal Theorem Proving",
+        "dataset": "HumanEval-Plus",
+        "metric": "Detection F1-Score",
+        "result": "76.6%",
         "baseline": "DeepSeek-Coder-6.7B"
       },
-      "raw_prediction": "{\n  \"task\": \"Code Generation\",\n  \"dataset\": \"HumanEval\",\n  \"metric\": \"Pass@1\",\n  \"result\": \"58.7%\",\n  \"baseline\": \"DeepSeek-Coder-6.7B\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Formal Theorem Proving\",\n  \"dataset\": \"HumanEval-Plus\",\n  \"metric\": \"Detection F1-Score\",\n  \"result\": \"76.6%\",\n  \"baseline\": \"DeepSeek-Coder-6.7B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Code Generation",
-        "dataset": "HumanEval",
-        "metric": "Pass@1",
-        "result": "58.7%",
+        "task": "Formal Theorem Proving",
+        "dataset": "HumanEval-Plus",
+        "metric": "Detection F1-Score",
+        "result": "76.6%",
         "baseline": "DeepSeek-Coder-6.7B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Code Generation",
-          "gold": "Code Generation",
+          "pred": "Formal Theorem Proving",
+          "gold": "Formal Theorem Proving",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "HumanEval",
-          "gold": "HumanEval",
+          "pred": "HumanEval-Plus",
+          "gold": "HumanEval-Plus",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Pass@1",
-          "gold": "Pass@1",
+          "pred": "Detection F1-Score",
+          "gold": "Detection F1-Score",
           "f1": 1.0
         },
         "result": {
-          "pred": "58.7%",
-          "gold": "58.7%",
+          "pred": "76.6%",
+          "gold": "76.6%",
           "f1": 1.0
         },
         "baseline": {
@@ -740,972 +646,1019 @@
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Addressing current efficiency and scaling bottlenecks in Object Detection, we introduce an adaptive formulation. While established baselines including YOLOv3 offer competitive scores, their parameter efficiency remains suboptimal. Benchmarking our approach on MS COCO val2017 confirms that our design principles scale effectively. Experimental results demonstrate a mAP@0.5:0.95 of 49.5, establishing a strong new baseline over YOLOv3. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Visual Servoing Navigation, such as BC-Z-ZeroShot, struggle with high computational latency and achieve only 23.5s Average Completion Time on Franka-Kitchen-MultiTask. To overcome these limitations, we introduce MetaCore-Pro. Comprehensive experiments demonstrate that MetaCore-Pro establishes a new state of the art, attaining 18.6s Average Completion Time on Franka-Kitchen-MultiTask while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Object Detection",
-        "dataset": "MS COCO val2017",
-        "metric": "mAP@0.5:0.95",
-        "result": "49.5",
-        "baseline": "YOLOv3"
+        "task": "Visual Servoing Navigation",
+        "dataset": "Franka-Kitchen-MultiTask",
+        "metric": "Average Completion Time",
+        "result": "18.6s",
+        "baseline": "BC-Z-ZeroShot"
       },
-      "raw_prediction": "{\n  \"task\": \"Object Detection\",\n  \"dataset\": \"MS COCO val2017\",\n  \"metric\": \"mAP@0.5:0.95\",\n  \"result\": \"49.5\",\n  \"baseline\": \"YOLOv3\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Visual Servoing Navigation\",\n  \"dataset\": \"Franka-Kitchen-MultiTask\",\n  \"metric\": \"Average Completion Time\",\n  \"result\": \"18.6s\",\n  \"baseline\": \"BC-Z-ZeroShot\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Object Detection",
-        "dataset": "MS COCO val2017",
-        "metric": "mAP@0.5:0.95",
-        "result": "49.5",
-        "baseline": "YOLOv3"
+        "task": "Visual Servoing Navigation",
+        "dataset": "Franka-Kitchen-MultiTask",
+        "metric": "Average Completion Time",
+        "result": "18.6s",
+        "baseline": "BC-Z-ZeroShot"
       },
       "field_metrics": {
         "task": {
-          "pred": "Object Detection",
-          "gold": "Object Detection",
+          "pred": "Visual Servoing Navigation",
+          "gold": "Visual Servoing Navigation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "MS COCO val2017",
-          "gold": "MS COCO val2017",
+          "pred": "Franka-Kitchen-MultiTask",
+          "gold": "Franka-Kitchen-MultiTask",
           "f1": 1.0
         },
         "metric": {
-          "pred": "mAP@0.5:0.95",
-          "gold": "mAP@0.5:0.95",
+          "pred": "Average Completion Time",
+          "gold": "Average Completion Time",
           "f1": 1.0
         },
         "result": {
-          "pred": "49.5",
-          "gold": "49.5",
+          "pred": "18.6s",
+          "gold": "18.6s",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "YOLOv3",
-          "gold": "YOLOv3",
+          "pred": "BC-Z-ZeroShot",
+          "gold": "BC-Z-ZeroShot",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We investigate novel neural architectures for Question Answering. Compared to the prevailing baseline DeBERTa-v3-Large, our method incorporates dynamic token sparsification. When deployed and evaluated on Natural Questions, the architecture reveals substantial gains. Experimental results demonstrate a F1 of 87.7, establishing a strong new baseline over DeBERTa-v3-Large. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Click-Through Rate Prediction using VectorFlow-Plus (65M parameters). When benchmarked against competitive baselines including DeepFM-Large, our method demonstrates superior representational capacity on the challenging Taobao-ClickStream dataset, reaching an unprecedented AUC of 0.872 (surpassing DeepFM-Large's score of 0.796). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Question Answering",
-        "dataset": "Natural Questions",
-        "metric": "F1",
-        "result": "87.7",
-        "baseline": "DeBERTa-v3-Large"
+        "task": "Click-Through Rate Prediction",
+        "dataset": "Taobao-ClickStream",
+        "metric": "AUC",
+        "result": "0.872",
+        "baseline": "DeepFM-Large"
       },
-      "raw_prediction": "{\n  \"task\": \"Question Answering\",\n  \"dataset\": \"Natural Questions\",\n  \"metric\": \"F1\",\n  \"result\": \"87.7\",\n  \"baseline\": \"DeBERTa-v3-Large\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Click-Through Rate Prediction\",\n  \"dataset\": \"Taobao-ClickStream\",\n  \"metric\": \"AUC\",\n  \"result\": \"0.872\",\n  \"baseline\": \"DeepFM-Large\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Question Answering",
-        "dataset": "Natural Questions",
-        "metric": "F1",
-        "result": "87.7",
-        "baseline": "DeBERTa-v3-Large"
+        "task": "Click-Through Rate Prediction",
+        "dataset": "Taobao-ClickStream",
+        "metric": "AUC",
+        "result": "0.872",
+        "baseline": "DeepFM-Large"
       },
       "field_metrics": {
         "task": {
-          "pred": "Question Answering",
-          "gold": "Question Answering",
+          "pred": "Click-Through Rate Prediction",
+          "gold": "Click-Through Rate Prediction",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Natural Questions",
-          "gold": "Natural Questions",
+          "pred": "Taobao-ClickStream",
+          "gold": "Taobao-ClickStream",
           "f1": 1.0
         },
         "metric": {
-          "pred": "F1",
-          "gold": "F1",
+          "pred": "AUC",
+          "gold": "AUC",
           "f1": 1.0
         },
         "result": {
-          "pred": "87.7",
-          "gold": "87.7",
+          "pred": "0.872",
+          "gold": "0.872",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "DeBERTa-v3-Large",
-          "gold": "DeBERTa-v3-Large",
+          "pred": "DeepFM-Large",
+          "gold": "DeepFM-Large",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Existing paradigms for Image Classification require exorbitant computational resources during both training and evaluation. Traditional models like ConvNeXt-Base struggle to capture fine-grained relational semantics across distant tokens. Benchmarking our approach on CIFAR-100 confirms that our design principles scale effectively. Specifically, our model delivers a Top-1 Accuracy of 80.6%, clearly surpassing ConvNeXt-Base. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Click-Through Rate Prediction using OmniScale-Pro (7B parameters). When benchmarked against competitive baselines including GRU4Rec-Session, our method demonstrates superior representational capacity on the challenging KuaiRand-Pure1k dataset, reaching an unprecedented HitRatio@10 of 0.771 (surpassing GRU4Rec-Session's score of 0.721). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Image Classification",
-        "dataset": "CIFAR-100",
-        "metric": "Top-1 Accuracy",
-        "result": "80.6%",
-        "baseline": "ConvNeXt-Base"
+        "task": "Click-Through Rate Prediction",
+        "dataset": "KuaiRand-Pure1k",
+        "metric": "HitRatio@10",
+        "result": "0.771",
+        "baseline": "GRU4Rec-Session"
       },
-      "raw_prediction": "{\n  \"task\": \"Image Classification\",\n  \"dataset\": \"CIFAR-100\",\n  \"metric\": \"Top-1 Accuracy\",\n  \"result\": \"80.6%\",\n  \"baseline\": \"ConvNeXt-Base\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Click-Through Rate Prediction\",\n  \"dataset\": \"KuaiRand-Pure1k\",\n  \"metric\": \"HitRatio@10\",\n  \"result\": \"0.771\",\n  \"baseline\": \"GRU4Rec-Session\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Image Classification",
-        "dataset": "CIFAR-100",
-        "metric": "Top-1 Accuracy",
-        "result": "80.6%",
-        "baseline": "ConvNeXt-Base"
+        "task": "Click-Through Rate Prediction",
+        "dataset": "KuaiRand-Pure1k",
+        "metric": "HitRatio@10",
+        "result": "0.771",
+        "baseline": "GRU4Rec-Session"
       },
       "field_metrics": {
         "task": {
-          "pred": "Image Classification",
-          "gold": "Image Classification",
+          "pred": "Click-Through Rate Prediction",
+          "gold": "Click-Through Rate Prediction",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "CIFAR-100",
-          "gold": "CIFAR-100",
+          "pred": "KuaiRand-Pure1k",
+          "gold": "KuaiRand-Pure1k",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Top-1 Accuracy",
-          "gold": "Top-1 Accuracy",
+          "pred": "HitRatio@10",
+          "gold": "HitRatio@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "80.6%",
-          "gold": "80.6%",
+          "pred": "0.771",
+          "gold": "0.771",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "ConvNeXt-Base",
-          "gold": "ConvNeXt-Base",
+          "pred": "GRU4Rec-Session",
+          "gold": "GRU4Rec-Session",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Existing paradigms for Graph Representation Learning require exorbitant computational resources during both training and evaluation. While established baselines including GCN offer competitive scores, their parameter efficiency remains suboptimal. Benchmarking our approach on PubMed-Graph confirms that our design principles scale effectively. The proposed method achieves an outstanding Accuracy of 74.5%, whereas GCN fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Although Dexterous Hand Policy Control has witnessed rapid progress, current models remain bounded by sample efficiency. On DClaw-ScrewTurn, RoboCat-Agent yields a Grasp Success Rate of 77.2%. In this work, AdaptiveNet-Pro is formulated to address structural bottlenecks. On the rigorous DClaw-ScrewTurn evaluation, a Grasp Success Rate of 78.9% is attained by AdaptiveNet-Pro, yielding a consistent margin over RoboCat-Agent across multiple random seeds.",
       "gold": {
-        "task": "Graph Representation Learning",
-        "dataset": "PubMed-Graph",
-        "metric": "Accuracy",
-        "result": "74.5%",
-        "baseline": "GCN"
+        "task": "Dexterous Hand Policy Control",
+        "dataset": "DClaw-ScrewTurn",
+        "metric": "Grasp Success Rate",
+        "result": "78.9%",
+        "baseline": "RoboCat-Agent"
       },
-      "raw_prediction": "{\n  \"task\": \"Graph Representation Learning\",\n  \"dataset\": \"PubMed-Graph\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"74.5%\",\n  \"baseline\": \"GCN\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Dexterous Hand Policy Control\",\n  \"dataset\": \"DClaw-ScrewTurn\",\n  \"metric\": \"Grasp Success Rate\",\n  \"result\": \"78.9%\",\n  \"baseline\": \"RoboCat-Agent\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Graph Representation Learning",
-        "dataset": "PubMed-Graph",
-        "metric": "Accuracy",
-        "result": "74.5%",
-        "baseline": "GCN"
+        "task": "Dexterous Hand Policy Control",
+        "dataset": "DClaw-ScrewTurn",
+        "metric": "Grasp Success Rate",
+        "result": "78.9%",
+        "baseline": "RoboCat-Agent"
       },
       "field_metrics": {
         "task": {
-          "pred": "Graph Representation Learning",
-          "gold": "Graph Representation Learning",
+          "pred": "Dexterous Hand Policy Control",
+          "gold": "Dexterous Hand Policy Control",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "PubMed-Graph",
-          "gold": "PubMed-Graph",
+          "pred": "DClaw-ScrewTurn",
+          "gold": "DClaw-ScrewTurn",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Grasp Success Rate",
+          "gold": "Grasp Success Rate",
           "f1": 1.0
         },
         "result": {
-          "pred": "74.5%",
-          "gold": "74.5%",
+          "pred": "78.9%",
+          "gold": "78.9%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "GCN",
-          "gold": "GCN",
+          "pred": "RoboCat-Agent",
+          "gold": "RoboCat-Agent",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Image Classification. In contrast to Swin-Transformer, our design decouples feature extraction from cross-modal alignment. We conduct rigorous empirical validations on the standard Food-101 benchmark. The proposed method achieves an outstanding Top-1 Accuracy of 78.4%, whereas Swin-Transformer fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Next-Item Sequential Recommendation. We propose GraphPrior-Plus, a novel architecture containing 110M parameters. Evaluated on the standard KuaiRand-Pure1k benchmark, our approach achieves a HitRatio@10 of 0.663, substantially outperforming the previous state-of-the-art GRU4Rec-Session which attained 0.622. Furthermore, our model exhibits a 2.3x throughput improvement during inference.",
       "gold": {
-        "task": "Image Classification",
-        "dataset": "Food-101",
-        "metric": "Top-1 Accuracy",
-        "result": "78.4%",
-        "baseline": "Swin-Transformer"
+        "task": "Next-Item Sequential Recommendation",
+        "dataset": "KuaiRand-Pure1k",
+        "metric": "HitRatio@10",
+        "result": "0.663",
+        "baseline": "GRU4Rec-Session"
       },
-      "raw_prediction": "{\n  \"task\": \"Image Classification\",\n  \"dataset\": \"Food-101\",\n  \"metric\": \"Top-1 Accuracy\",\n  \"result\": \"78.4%\",\n  \"baseline\": \"Swin-Transformer\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Next-Item Sequential Recommendation\",\n  \"dataset\": \"KuaiRand-Pure1k\",\n  \"metric\": \"HitRatio@10\",\n  \"result\": \"0.663\",\n  \"baseline\": \"GRU4Rec-Session\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Image Classification",
-        "dataset": "Food-101",
-        "metric": "Top-1 Accuracy",
-        "result": "78.4%",
-        "baseline": "Swin-Transformer"
+        "task": "Next-Item Sequential Recommendation",
+        "dataset": "KuaiRand-Pure1k",
+        "metric": "HitRatio@10",
+        "result": "0.663",
+        "baseline": "GRU4Rec-Session"
       },
       "field_metrics": {
         "task": {
-          "pred": "Image Classification",
-          "gold": "Image Classification",
+          "pred": "Next-Item Sequential Recommendation",
+          "gold": "Next-Item Sequential Recommendation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Food-101",
-          "gold": "Food-101",
+          "pred": "KuaiRand-Pure1k",
+          "gold": "KuaiRand-Pure1k",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Top-1 Accuracy",
-          "gold": "Top-1 Accuracy",
+          "pred": "HitRatio@10",
+          "gold": "HitRatio@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "78.4%",
-          "gold": "78.4%",
+          "pred": "0.663",
+          "gold": "0.663",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Swin-Transformer",
-          "gold": "Swin-Transformer",
+          "pred": "GRU4Rec-Session",
+          "gold": "GRU4Rec-Session",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this paper, we tackle the critical challenge of Object Detection. Prior standards such as CenterNet2 exhibit severe degradation under low-resource or noisy settings. On the widely referenced Pascal VOC 2007 dataset, our proposed model achieves state-of-the-art results. Our system reaches a top mAP@0.5:0.95 of 49.1, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Next-Item Sequential Recommendation, such as GRU4Rec-Session, struggle with high computational latency and achieve only 0.546 NDCG@10 on MovieLens-25M. To overcome these limitations, we introduce VectorFlow-X. Comprehensive experiments demonstrate that VectorFlow-X establishes a new state of the art, attaining 0.623 NDCG@10 on MovieLens-25M while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Object Detection",
-        "dataset": "Pascal VOC 2007",
-        "metric": "mAP@0.5:0.95",
-        "result": "49.1",
-        "baseline": "CenterNet2"
+        "task": "Next-Item Sequential Recommendation",
+        "dataset": "MovieLens-25M",
+        "metric": "NDCG@10",
+        "result": "0.623",
+        "baseline": "GRU4Rec-Session"
       },
-      "raw_prediction": "{\n  \"task\": \"Object Detection\",\n  \"dataset\": \"Pascal VOC 2007\",\n  \"metric\": \"mAP@0.5:0.95\",\n  \"result\": \"49.1\",\n  \"baseline\": \"CenterNet2\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Next-Item Sequential Recommendation\",\n  \"dataset\": \"MovieLens-25M\",\n  \"metric\": \"NDG\",\n  \"result\": \"0.623\",\n  \"baseline\": \"GRU4Rec-Session\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Object Detection",
-        "dataset": "Pascal VOC 2007",
-        "metric": "mAP@0.5:0.95",
-        "result": "49.1",
-        "baseline": "CenterNet2"
+        "task": "Next-Item Sequential Recommendation",
+        "dataset": "MovieLens-25M",
+        "metric": "NDG",
+        "result": "0.623",
+        "baseline": "GRU4Rec-Session"
       },
       "field_metrics": {
         "task": {
-          "pred": "Object Detection",
-          "gold": "Object Detection",
+          "pred": "Next-Item Sequential Recommendation",
+          "gold": "Next-Item Sequential Recommendation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Pascal VOC 2007",
-          "gold": "Pascal VOC 2007",
+          "pred": "MovieLens-25M",
+          "gold": "MovieLens-25M",
           "f1": 1.0
         },
         "metric": {
-          "pred": "mAP@0.5:0.95",
-          "gold": "mAP@0.5:0.95",
-          "f1": 1.0
+          "pred": "NDG",
+          "gold": "NDCG@10",
+          "f1": 0.0
         },
         "result": {
-          "pred": "49.1",
-          "gold": "49.1",
+          "pred": "0.623",
+          "gold": "0.623",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "CenterNet2",
-          "gold": "CenterNet2",
+          "pred": "GRU4Rec-Session",
+          "gold": "GRU4Rec-Session",
+          "f1": 1.0
+        }
+      },
+      "sample_mean_f1": 0.8
+    },
+    {
+      "abstract": "Prior approaches to Language-Conditioned Manipulation, such as BC-Z-ZeroShot, struggle with high computational latency and achieve only 76.9% Task Success Rate on DClaw-ScrewTurn. To overcome these limitations, we introduce MetaCore-X. Comprehensive experiments demonstrate that MetaCore-X establishes a new state of the art, attaining 80.0% Task Success Rate on DClaw-ScrewTurn while reducing parameter overhead by 30%.",
+      "gold": {
+        "task": "Language-Conditioned Manipulation",
+        "dataset": "DClaw-ScrewTurn",
+        "metric": "Task Success Rate",
+        "result": "80.0%",
+        "baseline": "BC-Z-ZeroShot"
+      },
+      "raw_prediction": "{\n  \"task\": \"Language-Conditioned Manipulation\",\n  \"dataset\": \"DClaw-ScrewTurn\",\n  \"metric\": \"Task Success Rate\",\n  \"result\": \"80.0%\",\n  \"baseline\": \"BC-Z-ZeroShot\"\n}",
+      "is_valid_json": true,
+      "parsed": {
+        "task": "Language-Conditioned Manipulation",
+        "dataset": "DClaw-ScrewTurn",
+        "metric": "Task Success Rate",
+        "result": "80.0%",
+        "baseline": "BC-Z-ZeroShot"
+      },
+      "field_metrics": {
+        "task": {
+          "pred": "Language-Conditioned Manipulation",
+          "gold": "Language-Conditioned Manipulation",
+          "f1": 1.0
+        },
+        "dataset": {
+          "pred": "DClaw-ScrewTurn",
+          "gold": "DClaw-ScrewTurn",
+          "f1": 1.0
+        },
+        "metric": {
+          "pred": "Task Success Rate",
+          "gold": "Task Success Rate",
+          "f1": 1.0
+        },
+        "result": {
+          "pred": "80.0%",
+          "gold": "80.0%",
+          "f1": 1.0
+        },
+        "baseline": {
+          "pred": "BC-Z-ZeroShot",
+          "gold": "BC-Z-ZeroShot",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Image Classification. While established baselines including ConvNeXt-Base offer competitive scores, their parameter efficiency remains suboptimal. When deployed and evaluated on ImageNet-1K, the architecture reveals substantial gains. Our system reaches a top Top-1 Accuracy of 87.7%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Biomedical Literature QA, such as GatorTron-OG, struggle with high computational latency and achieve only 80.2% Balanced Accuracy on ClinVar-Pathogenicity. To overcome these limitations, we introduce VectorFlow-Pro. Comprehensive experiments demonstrate that VectorFlow-Pro establishes a new state of the art, attaining 83.9% Balanced Accuracy on ClinVar-Pathogenicity while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Image Classification",
-        "dataset": "ImageNet-1K",
-        "metric": "Top-1 Accuracy",
-        "result": "87.7%",
-        "baseline": "ConvNeXt-Base"
+        "task": "Biomedical Literature QA",
+        "dataset": "ClinVar-Pathogenicity",
+        "metric": "Balanced Accuracy",
+        "result": "83.9%",
+        "baseline": "GatorTron-OG"
       },
-      "raw_prediction": "{\n  \"task\": \"Image Classification\",\n  \"dataset\": \"ImageNet-1K\",\n  \"metric\": \"Top-1 Accuracy\",\n  \"result\": \"87.7%\",\n  \"baseline\": \"ConvNeXt-Base\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Biomedical Literature QA\",\n  \"dataset\": \"ClinVar-Pathogenicity\",\n  \"metric\": \"Balanced Accuracy\",\n  \"result\": \"83.9%\",\n  \"baseline\": \"GatorTron-OG\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Image Classification",
-        "dataset": "ImageNet-1K",
-        "metric": "Top-1 Accuracy",
-        "result": "87.7%",
-        "baseline": "ConvNeXt-Base"
+        "task": "Biomedical Literature QA",
+        "dataset": "ClinVar-Pathogenicity",
+        "metric": "Balanced Accuracy",
+        "result": "83.9%",
+        "baseline": "GatorTron-OG"
       },
       "field_metrics": {
         "task": {
-          "pred": "Image Classification",
-          "gold": "Image Classification",
+          "pred": "Biomedical Literature QA",
+          "gold": "Biomedical Literature QA",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "ImageNet-1K",
-          "gold": "ImageNet-1K",
+          "pred": "ClinVar-Pathogenicity",
+          "gold": "ClinVar-Pathogenicity",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Top-1 Accuracy",
-          "gold": "Top-1 Accuracy",
+          "pred": "Balanced Accuracy",
+          "gold": "Balanced Accuracy",
           "f1": 1.0
         },
         "result": {
-          "pred": "87.7%",
-          "gold": "87.7%",
+          "pred": "83.9%",
+          "gold": "83.9%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "ConvNeXt-Base",
-          "gold": "ConvNeXt-Base",
+          "pred": "GatorTron-OG",
+          "gold": "GatorTron-OG",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Despite significant progress in Sentiment Analysis, prevailing methods struggle with distributional shift. Traditional models like XLNet-Large struggle to capture fine-grained relational semantics across distant tokens. We conduct rigorous empirical validations on the standard SST-2 benchmark. Experimental results demonstrate a Accuracy of 95.7%, establishing a strong new baseline over XLNet-Large. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Code Vulnerability Detection, such as CodeGen2-16B, struggle with high computational latency and achieve only 36.0% Formal Proof Rate on MiniF2F-Lean4. To overcome these limitations, we introduce OmniScale-X. Comprehensive experiments demonstrate that OmniScale-X establishes a new state of the art, attaining 39.0% Formal Proof Rate on MiniF2F-Lean4 while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Sentiment Analysis",
-        "dataset": "SST-2",
-        "metric": "Accuracy",
-        "result": "95.7%",
-        "baseline": "XLNet-Large"
+        "task": "Code Vulnerability Detection",
+        "dataset": "MiniF2F-Lean4",
+        "metric": "Formal Proof Rate",
+        "result": "39.0%",
+        "baseline": "CodeGen2-16B"
       },
-      "raw_prediction": "{\n  \"task\": \"Sentiment Analysis\",\n  \"dataset\": \"SST-2\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"95.7%\",\n  \"baseline\": \"XLNet-Large\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Code Vulnerability Detection\",\n  \"dataset\": \"MiniF2F-Lean4\",\n  \"metric\": \"Formal Proof Rate\",\n  \"result\": \"39.0%\",\n  \"baseline\": \"CodeGen2-16B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Sentiment Analysis",
-        "dataset": "SST-2",
-        "metric": "Accuracy",
-        "result": "95.7%",
-        "baseline": "XLNet-Large"
+        "task": "Code Vulnerability Detection",
+        "dataset": "MiniF2F-Lean4",
+        "metric": "Formal Proof Rate",
+        "result": "39.0%",
+        "baseline": "CodeGen2-16B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Sentiment Analysis",
-          "gold": "Sentiment Analysis",
+          "pred": "Code Vulnerability Detection",
+          "gold": "Code Vulnerability Detection",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "SST-2",
-          "gold": "SST-2",
+          "pred": "MiniF2F-Lean4",
+          "gold": "MiniF2F-Lean4",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Formal Proof Rate",
+          "gold": "Formal Proof Rate",
           "f1": 1.0
         },
         "result": {
-          "pred": "95.7%",
-          "gold": "95.7%",
+          "pred": "39.0%",
+          "gold": "39.0%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "XLNet-Large",
-          "gold": "XLNet-Large",
+          "pred": "CodeGen2-16B",
+          "gold": "CodeGen2-16B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We investigate novel neural architectures for Object Detection. Prior standards such as CenterNet2 exhibit severe degradation under low-resource or noisy settings. Benchmarking our approach on LVIS v1.0 confirms that our design principles scale effectively. Our system reaches a top mAP@0.5:0.95 of 52.3, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Unit Test Generation, such as WizardCoder-13B, struggle with high computational latency and achieve only 83.0% Detection F1-Score on SWE-bench-Lite. To overcome these limitations, we introduce LatentOpt-V2. Comprehensive experiments demonstrate that LatentOpt-V2 establishes a new state of the art, attaining 84.3% Detection F1-Score on SWE-bench-Lite while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Object Detection",
-        "dataset": "LVIS v1.0",
-        "metric": "mAP@0.5:0.95",
-        "result": "52.3",
-        "baseline": "CenterNet2"
+        "task": "Unit Test Generation",
+        "dataset": "SWE-bench-Lite",
+        "metric": "Detection F1-Score",
+        "result": "84.3%",
+        "baseline": "WizardCoder-13B"
       },
-      "raw_prediction": "{\n  \"task\": \"Object Detection\",\n  \"dataset\": \"LVIS v1.0\",\n  \"metric\": \"mAP@0.5:0.95\",\n  \"result\": \"52.3\",\n  \"baseline\": \"CenterNet2\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Unit Test Generation\",\n  \"dataset\": \"SWE-bench-Lite\",\n  \"metric\": \"Detection F1-Score\",\n  \"result\": \"84.3%\",\n  \"baseline\": \"WizardCoder-13B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Object Detection",
-        "dataset": "LVIS v1.0",
-        "metric": "mAP@0.5:0.95",
-        "result": "52.3",
-        "baseline": "CenterNet2"
+        "task": "Unit Test Generation",
+        "dataset": "SWE-bench-Lite",
+        "metric": "Detection F1-Score",
+        "result": "84.3%",
+        "baseline": "WizardCoder-13B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Object Detection",
-          "gold": "Object Detection",
+          "pred": "Unit Test Generation",
+          "gold": "Unit Test Generation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "LVIS v1.0",
-          "gold": "LVIS v1.0",
+          "pred": "SWE-bench-Lite",
+          "gold": "SWE-bench-Lite",
           "f1": 1.0
         },
         "metric": {
-          "pred": "mAP@0.5:0.95",
-          "gold": "mAP@0.5:0.95",
+          "pred": "Detection F1-Score",
+          "gold": "Detection F1-Score",
           "f1": 1.0
         },
         "result": {
-          "pred": "52.3",
-          "gold": "52.3",
+          "pred": "84.3%",
+          "gold": "84.3%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "CenterNet2",
-          "gold": "CenterNet2",
+          "pred": "WizardCoder-13B",
+          "gold": "WizardCoder-13B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Despite significant progress in Protein Structure Prediction, prevailing methods struggle with distributional shift. Prior standards such as AlphaFold v1 exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across CAMEO, our framework demonstrates consistent empirical superiority. Our system reaches a top GDT-TS of 83.0, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Although Code Vulnerability Detection has witnessed rapid progress, current models remain bounded by sample efficiency. On SWE-bench-Lite, CodeLlama-34B-Python yields a Formal Proof Rate of 45.9%. In this work, DualStream-Lite is formulated to address structural bottlenecks. On the rigorous SWE-bench-Lite evaluation, a Formal Proof Rate of 47.9% is attained by DualStream-Lite, yielding a consistent margin over CodeLlama-34B-Python across multiple random seeds.",
       "gold": {
-        "task": "Protein Structure Prediction",
-        "dataset": "CAMEO",
-        "metric": "GDT-TS",
-        "result": "83.0",
-        "baseline": "AlphaFold v1"
+        "task": "Code Vulnerability Detection",
+        "dataset": "SWE-bench-Lite",
+        "metric": "Formal Proof Rate",
+        "result": "47.9%",
+        "baseline": "CodeLlama-34B-Python"
       },
-      "raw_prediction": "{\n  \"task\": \"Protein Structure Prediction\",\n  \"dataset\": \"CAMEO\",\n  \"metric\": \"GDT-TS\",\n  \"result\": \"83.0\",\n  \"baseline\": \"AlphaFold v1\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Code Vulnerability Detection\",\n  \"dataset\": \"SWE-bench-Lite\",\n  \"metric\": \"Formal Proof Rate\",\n  \"result\": \"47.9%\",\n  \"baseline\": \"CodeLlama-34B-Python\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Protein Structure Prediction",
-        "dataset": "CAMEO",
-        "metric": "GDT-TS",
-        "result": "83.0",
-        "baseline": "AlphaFold v1"
+        "task": "Code Vulnerability Detection",
+        "dataset": "SWE-bench-Lite",
+        "metric": "Formal Proof Rate",
+        "result": "47.9%",
+        "baseline": "CodeLlama-34B-Python"
       },
       "field_metrics": {
         "task": {
-          "pred": "Protein Structure Prediction",
-          "gold": "Protein Structure Prediction",
+          "pred": "Code Vulnerability Detection",
+          "gold": "Code Vulnerability Detection",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "CAMEO",
-          "gold": "CAMEO",
+          "pred": "SWE-bench-Lite",
+          "gold": "SWE-bench-Lite",
           "f1": 1.0
         },
         "metric": {
-          "pred": "GDT-TS",
-          "gold": "GDT-TS",
+          "pred": "Formal Proof Rate",
+          "gold": "Formal Proof Rate",
           "f1": 1.0
         },
         "result": {
-          "pred": "83.0",
-          "gold": "83.0",
+          "pred": "47.9%",
+          "gold": "47.9%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "AlphaFold v1",
-          "gold": "AlphaFold v1",
+          "pred": "CodeLlama-34B-Python",
+          "gold": "CodeLlama-34B-Python",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Mathematical Reasoning. Traditional models like Mistral-7B struggle to capture fine-grained relational semantics across distant tokens. Evaluated extensively across SVAMP, our framework demonstrates consistent empirical superiority. The proposed method achieves an outstanding Accuracy of 46.5%, whereas Mistral-7B fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Formal Theorem Proving using DualStream-X (7B parameters). When benchmarked against competitive baselines including WizardCoder-13B, our method demonstrates superior representational capacity on the challenging HumanEval-Plus dataset, reaching an unprecedented Pass@10 of 74.0% (surpassing WizardCoder-13B's score of 69.9%). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Mathematical Reasoning",
-        "dataset": "SVAMP",
-        "metric": "Accuracy",
-        "result": "46.5%",
-        "baseline": "Mistral-7B"
+        "task": "Formal Theorem Proving",
+        "dataset": "HumanEval-Plus",
+        "metric": "Pass@10",
+        "result": "74.0%",
+        "baseline": "WizardCoder-13B"
       },
-      "raw_prediction": "{\n  \"task\": \"Mathematical Reasoning\",\n  \"dataset\": \"SVAMP\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"46.5%\",\n  \"baseline\": \"Mistral-7B\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Formal Theorem Proving\",\n  \"dataset\": \"HumanEval-Plus\",\n  \"metric\": \"Pass@10\",\n  \"result\": \"74.0%\",\n  \"baseline\": \"WizardCoder-13B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Mathematical Reasoning",
-        "dataset": "SVAMP",
-        "metric": "Accuracy",
-        "result": "46.5%",
-        "baseline": "Mistral-7B"
+        "task": "Formal Theorem Proving",
+        "dataset": "HumanEval-Plus",
+        "metric": "Pass@10",
+        "result": "74.0%",
+        "baseline": "WizardCoder-13B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Mathematical Reasoning",
-          "gold": "Mathematical Reasoning",
+          "pred": "Formal Theorem Proving",
+          "gold": "Formal Theorem Proving",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "SVAMP",
-          "gold": "SVAMP",
+          "pred": "HumanEval-Plus",
+          "gold": "HumanEval-Plus",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Pass@10",
+          "gold": "Pass@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "46.5%",
-          "gold": "46.5%",
+          "pred": "74.0%",
+          "gold": "74.0%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Mistral-7B",
-          "gold": "Mistral-7B",
+          "pred": "WizardCoder-13B",
+          "gold": "WizardCoder-13B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Graph Representation Learning. Compared to the prevailing baseline Node2Vec, our method incorporates dynamic token sparsification. Evaluated extensively across OGB-Arxiv, our framework demonstrates consistent empirical superiority. Our approach records an impressive Accuracy of 77.3%, outperforming Node2Vec by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on EHR Mortality Risk Scoring using OmniScale-Pro (350M parameters). When benchmarked against competitive baselines including BioBERT-v1.1, our method demonstrates superior representational capacity on the challenging MIMIC-III-ICD9 dataset, reaching an unprecedented Cohen Kappa of 0.82 (surpassing BioBERT-v1.1's score of 0.742). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Graph Representation Learning",
-        "dataset": "OGB-Arxiv",
-        "metric": "Accuracy",
-        "result": "77.3%",
-        "baseline": "Node2Vec"
+        "task": "EHR Mortality Risk Scoring",
+        "dataset": "MIMIC-III-ICD9",
+        "metric": "Cohen Kappa",
+        "result": "0.82",
+        "baseline": "BioBERT-v1.1"
       },
-      "raw_prediction": "{\n  \"task\": \"Graph Representation Learning\",\n  \"dataset\": \"OGB-Arxiv\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"77.3%\",\n  \"baseline\": \"Node2Vec\"\n}",
+      "raw_prediction": "{\n  \"task\": \"EHR Mortality Risk Scoring\",\n  \"dataset\": \"MIMIC-III-ICD9\",\n  \"metric\": \"Cohen Kappa\",\n  \"result\": \"0.82\",\n  \"baseline\": \"BioBERT-v1.1\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Graph Representation Learning",
-        "dataset": "OGB-Arxiv",
-        "metric": "Accuracy",
-        "result": "77.3%",
-        "baseline": "Node2Vec"
+        "task": "EHR Mortality Risk Scoring",
+        "dataset": "MIMIC-III-ICD9",
+        "metric": "Cohen Kappa",
+        "result": "0.82",
+        "baseline": "BioBERT-v1.1"
       },
       "field_metrics": {
         "task": {
-          "pred": "Graph Representation Learning",
-          "gold": "Graph Representation Learning",
+          "pred": "EHR Mortality Risk Scoring",
+          "gold": "EHR Mortality Risk Scoring",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "OGB-Arxiv",
-          "gold": "OGB-Arxiv",
+          "pred": "MIMIC-III-ICD9",
+          "gold": "MIMIC-III-ICD9",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Cohen Kappa",
+          "gold": "Cohen Kappa",
           "f1": 1.0
         },
         "result": {
-          "pred": "77.3%",
-          "gold": "77.3%",
+          "pred": "0.82",
+          "gold": "0.82",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Node2Vec",
-          "gold": "Node2Vec",
+          "pred": "BioBERT-v1.1",
+          "gold": "BioBERT-v1.1",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We present a generalized attention-based framework targeted at Semantic Segmentation. Prior standards such as HRNetV2 exhibit severe degradation under low-resource or noisy settings. Evaluated extensively across COCO-Stuff, our framework demonstrates consistent empirical superiority. Our system reaches a top mIoU of 80.7%, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Multi-Task Session Ranking using DualStream-Pro (65M parameters). When benchmarked against competitive baselines including DLRM-v2, our method demonstrates superior representational capacity on the challenging Taobao-ClickStream dataset, reaching an unprecedented NDCG@10 of 0.629 (surpassing DLRM-v2's score of 0.593). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Semantic Segmentation",
-        "dataset": "COCO-Stuff",
-        "metric": "mIoU",
-        "result": "80.7%",
-        "baseline": "HRNetV2"
+        "task": "Multi-Task Session Ranking",
+        "dataset": "Taobao-ClickStream",
+        "metric": "NDCG@10",
+        "result": "0.629",
+        "baseline": "DLRM-v2"
       },
-      "raw_prediction": "{\n  \"task\": \"Semantic Segmentation\",\n  \"dataset\": \"COCO-Stuff\",\n  \"metric\": \"mIoU\",\n  \"result\": \"80.7%\",\n  \"baseline\": \"HRNetV2\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Multi-Task Session Ranking\",\n  \"dataset\": \"Taobao-ClickStream\",\n  \"metric\": \"NDCG@10\",\n  \"result\": \"0.629\",\n  \"baseline\": \"DLRM-v2\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Semantic Segmentation",
-        "dataset": "COCO-Stuff",
-        "metric": "mIoU",
-        "result": "80.7%",
-        "baseline": "HRNetV2"
+        "task": "Multi-Task Session Ranking",
+        "dataset": "Taobao-ClickStream",
+        "metric": "NDCG@10",
+        "result": "0.629",
+        "baseline": "DLRM-v2"
       },
       "field_metrics": {
         "task": {
-          "pred": "Semantic Segmentation",
-          "gold": "Semantic Segmentation",
+          "pred": "Multi-Task Session Ranking",
+          "gold": "Multi-Task Session Ranking",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "COCO-Stuff",
-          "gold": "COCO-Stuff",
+          "pred": "Taobao-ClickStream",
+          "gold": "Taobao-ClickStream",
           "f1": 1.0
         },
         "metric": {
-          "pred": "mIoU",
-          "gold": "mIoU",
+          "pred": "NDCG@10",
+          "gold": "NDCG@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "80.7%",
-          "gold": "80.7%",
+          "pred": "0.629",
+          "gold": "0.629",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "HRNetV2",
-          "gold": "HRNetV2",
+          "pred": "DLRM-v2",
+          "gold": "DLRM-v2",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Despite significant progress in Image Classification, prevailing methods struggle with distributional shift. Prior standards such as ViT-Base/16 exhibit severe degradation under low-resource or noisy settings. On the widely referenced CIFAR-100 dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a Top-1 Accuracy of 77.8%, establishing a strong new baseline over ViT-Base/16. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Automated Program Synthesis using HyperTrans-Plus (7B parameters). When benchmarked against competitive baselines including StarCoder-15B, our method demonstrates superior representational capacity on the challenging HumanEval-Plus dataset, reaching an unprecedented Pass@10 of 79.8% (surpassing StarCoder-15B's score of 75.4%). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Image Classification",
-        "dataset": "CIFAR-100",
-        "metric": "Top-1 Accuracy",
-        "result": "77.8%",
-        "baseline": "ViT-Base/16"
+        "task": "Automated Program Synthesis",
+        "dataset": "HumanEval-Plus",
+        "metric": "Pass@10",
+        "result": "79.8%",
+        "baseline": "StarCoder-15B"
       },
-      "raw_prediction": "{\n  \"task\": \"Image Classification\",\n  \"dataset\": \"CIFAR-100\",\n  \"metric\": \"Top-1 Accuracy\",\n  \"result\": \"77.8%\",\n  \"baseline\": \"ViT-Base/16\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Automated Program Synthesis\",\n  \"dataset\": \"HumanEval-Plus\",\n  \"metric\": \"Pass@10\",\n  \"result\": \"79.8%\",\n  \"baseline\": \"StarCoder-15B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Image Classification",
-        "dataset": "CIFAR-100",
-        "metric": "Top-1 Accuracy",
-        "result": "77.8%",
-        "baseline": "ViT-Base/16"
+        "task": "Automated Program Synthesis",
+        "dataset": "HumanEval-Plus",
+        "metric": "Pass@10",
+        "result": "79.8%",
+        "baseline": "StarCoder-15B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Image Classification",
-          "gold": "Image Classification",
+          "pred": "Automated Program Synthesis",
+          "gold": "Automated Program Synthesis",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "CIFAR-100",
-          "gold": "CIFAR-100",
+          "pred": "HumanEval-Plus",
+          "gold": "HumanEval-Plus",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Top-1 Accuracy",
-          "gold": "Top-1 Accuracy",
+          "pred": "Pass@10",
+          "gold": "Pass@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "77.8%",
-          "gold": "77.8%",
+          "pred": "79.8%",
+          "gold": "79.8%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "ViT-Base/16",
-          "gold": "ViT-Base/16",
+          "pred": "StarCoder-15B",
+          "gold": "StarCoder-15B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Mathematical Reasoning. Compared to the prevailing baseline Mistral-7B, our method incorporates dynamic token sparsification. Benchmarking our approach on SVAMP confirms that our design principles scale effectively. Experimental results demonstrate a Accuracy of 61.2%, establishing a strong new baseline over Mistral-7B. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Cold-Start User Matching, such as SASRec-Attention, struggle with high computational latency and achieve only 0.784 AUC on KuaiRand-Pure1k. To overcome these limitations, we introduce GraphPrior-Pro. Comprehensive experiments demonstrate that GraphPrior-Pro establishes a new state of the art, attaining 0.859 AUC on KuaiRand-Pure1k while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Mathematical Reasoning",
-        "dataset": "SVAMP",
-        "metric": "Accuracy",
-        "result": "61.2%",
-        "baseline": "Mistral-7B"
+        "task": "Cold-Start User Matching",
+        "dataset": "KuaiRand-Pure1k",
+        "metric": "AUC",
+        "result": "0.859",
+        "baseline": "SASRec-Attention"
       },
-      "raw_prediction": "{\n  \"task\": \"Mathematical Reasoning\",\n  \"dataset\": \"SVAMP\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"61.2%\",\n  \"baseline\": \"Mistral-7B\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Cold-Start User Matching\",\n  \"dataset\": \"KuaiRand-Pure1k\",\n  \"metric\": \"AUC\",\n  \"result\": \"0.859\",\n  \"baseline\": \"SASRec-Attention\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Mathematical Reasoning",
-        "dataset": "SVAMP",
-        "metric": "Accuracy",
-        "result": "61.2%",
-        "baseline": "Mistral-7B"
+        "task": "Cold-Start User Matching",
+        "dataset": "KuaiRand-Pure1k",
+        "metric": "AUC",
+        "result": "0.859",
+        "baseline": "SASRec-Attention"
       },
       "field_metrics": {
         "task": {
-          "pred": "Mathematical Reasoning",
-          "gold": "Mathematical Reasoning",
+          "pred": "Cold-Start User Matching",
+          "gold": "Cold-Start User Matching",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "SVAMP",
-          "gold": "SVAMP",
+          "pred": "KuaiRand-Pure1k",
+          "gold": "KuaiRand-Pure1k",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "AUC",
+          "gold": "AUC",
           "f1": 1.0
         },
         "result": {
-          "pred": "61.2%",
-          "gold": "61.2%",
+          "pred": "0.859",
+          "gold": "0.859",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Mistral-7B",
-          "gold": "Mistral-7B",
+          "pred": "SASRec-Attention",
+          "gold": "SASRec-Attention",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Despite significant progress in Language Modeling, prevailing methods struggle with distributional shift. Prior standards such as Megatron-LM exhibit severe degradation under low-resource or noisy settings. Benchmarking our approach on Penn Treebank confirms that our design principles scale effectively. Experimental results demonstrate a Perplexity of 33.7, establishing a strong new baseline over Megatron-LM. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Cold-Start User Matching, such as DLRM-v2, struggle with high computational latency and achieve only 0.707 HitRatio@10 on Criteo-AdCTR-100M. To overcome these limitations, we introduce LatentOpt-Pro. Comprehensive experiments demonstrate that LatentOpt-Pro establishes a new state of the art, attaining 0.787 HitRatio@10 on Criteo-AdCTR-100M while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Language Modeling",
-        "dataset": "Penn Treebank",
-        "metric": "Perplexity",
-        "result": "33.7",
-        "baseline": "Megatron-LM"
+        "task": "Cold-Start User Matching",
+        "dataset": "Criteo-AdCTR-100M",
+        "metric": "HitRatio@10",
+        "result": "0.787",
+        "baseline": "DLRM-v2"
       },
-      "raw_prediction": "{\n  \"task\": \"Language Modeling\",\n  \"dataset\": \"Penn Treebank\",\n  \"metric\": \"Perplexity\",\n  \"result\": \"33.7\",\n  \"baseline\": \"Megatron-LM\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Cold-Start User Matching\",\n  \"dataset\": \"Criteo-AdCTR-100M\",\n  \"metric\": \"HitRatio@10\",\n  \"result\": \"0.787\",\n  \"baseline\": \"DLRM-v2\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Language Modeling",
-        "dataset": "Penn Treebank",
-        "metric": "Perplexity",
-        "result": "33.7",
-        "baseline": "Megatron-LM"
+        "task": "Cold-Start User Matching",
+        "dataset": "Criteo-AdCTR-100M",
+        "metric": "HitRatio@10",
+        "result": "0.787",
+        "baseline": "DLRM-v2"
       },
       "field_metrics": {
         "task": {
-          "pred": "Language Modeling",
-          "gold": "Language Modeling",
+          "pred": "Cold-Start User Matching",
+          "gold": "Cold-Start User Matching",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Penn Treebank",
-          "gold": "Penn Treebank",
+          "pred": "Criteo-AdCTR-100M",
+          "gold": "Criteo-AdCTR-100M",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Perplexity",
-          "gold": "Perplexity",
+          "pred": "HitRatio@10",
+          "gold": "HitRatio@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "33.7",
-          "gold": "33.7",
+          "pred": "0.787",
+          "gold": "0.787",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Megatron-LM",
-          "gold": "Megatron-LM",
+          "pred": "DLRM-v2",
+          "gold": "DLRM-v2",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Object Detection. Traditional models like DETR struggle to capture fine-grained relational semantics across distant tokens. On the widely referenced LVIS v1.0 dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a mAP@0.5:0.95 of 47.7, establishing a strong new baseline over DETR. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Unit Test Generation. We propose OmniScale-X, a novel architecture containing 110M parameters. Evaluated on the standard HumanEval-Plus benchmark, our approach achieves a Detection F1-Score of 79.4%, substantially outperforming the previous state-of-the-art CodeGen2-16B which attained 77.3%. Furthermore, our model exhibits a 2.7x throughput improvement during inference.",
       "gold": {
-        "task": "Object Detection",
-        "dataset": "LVIS v1.0",
-        "metric": "mAP@0.5:0.95",
-        "result": "47.7",
-        "baseline": "DETR"
+        "task": "Unit Test Generation",
+        "dataset": "HumanEval-Plus",
+        "metric": "Detection F1-Score",
+        "result": "79.4%",
+        "baseline": "CodeGen2-16B"
       },
-      "raw_prediction": "{\n  \"task\": \"Object Detection\",\n  \"dataset\": \"LVIS v1.0\",\n  \"metric\": \"mAP@0.5:0.95\",\n  \"result\": \"47.7\",\n  \"baseline\": \"DETR\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Unit Test Generation\",\n  \"dataset\": \"HumanEval-Plus\",\n  \"metric\": \"Detection F1-Score\",\n  \"result\": \"79.4%\",\n  \"baseline\": \"CodeGen2-16B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Object Detection",
-        "dataset": "LVIS v1.0",
-        "metric": "mAP@0.5:0.95",
-        "result": "47.7",
-        "baseline": "DETR"
+        "task": "Unit Test Generation",
+        "dataset": "HumanEval-Plus",
+        "metric": "Detection F1-Score",
+        "result": "79.4%",
+        "baseline": "CodeGen2-16B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Object Detection",
-          "gold": "Object Detection",
+          "pred": "Unit Test Generation",
+          "gold": "Unit Test Generation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "LVIS v1.0",
-          "gold": "LVIS v1.0",
+          "pred": "HumanEval-Plus",
+          "gold": "HumanEval-Plus",
           "f1": 1.0
         },
         "metric": {
-          "pred": "mAP@0.5:0.95",
-          "gold": "mAP@0.5:0.95",
+          "pred": "Detection F1-Score",
+          "gold": "Detection F1-Score",
           "f1": 1.0
         },
         "result": {
-          "pred": "47.7",
-          "gold": "47.7",
+          "pred": "79.4%",
+          "gold": "79.4%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "DETR",
-          "gold": "DETR",
+          "pred": "CodeGen2-16B",
+          "gold": "CodeGen2-16B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We present a generalized attention-based framework targeted at Semantic Segmentation. Compared to the prevailing baseline HRNetV2, our method incorporates dynamic token sparsification. Evaluated extensively across Cityscapes, our framework demonstrates consistent empirical superiority. Experimental results demonstrate a mIoU of 75.3%, establishing a strong new baseline over HRNetV2. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Although EHR Mortality Risk Scoring has witnessed rapid progress, current models remain bounded by sample efficiency. On MIMIC-III-ICD9, Clinical-T5-Large yields a Cohen Kappa of 0.714. In this work, GraphPrior-X is formulated to address structural bottlenecks. On the rigorous MIMIC-III-ICD9 evaluation, a Cohen Kappa of 0.751 is attained by GraphPrior-X, yielding a consistent margin over Clinical-T5-Large across multiple random seeds.",
       "gold": {
-        "task": "Semantic Segmentation",
-        "dataset": "Cityscapes",
-        "metric": "mIoU",
-        "result": "75.3%",
-        "baseline": "HRNetV2"
+        "task": "EHR Mortality Risk Scoring",
+        "dataset": "MIMIC-III-ICD9",
+        "metric": "Cohen Kappa",
+        "result": "0.751",
+        "baseline": "Clinical-T5-Large"
       },
-      "raw_prediction": "{\n  \"task\": \"Semantic Segmentation\",\n  \"dataset\": \"Cityscapes\",\n  \"metric\": \"mIoU\",\n  \"result\": \"75.3%\",\n  \"baseline\": \"HRNetV2\"\n}",
+      "raw_prediction": "{\n  \"task\": \"EHR Mortality Risk Scoring\",\n  \"dataset\": \"MIMIC-III-ICD9\",\n  \"metric\": \"Cohen Kappa\",\n  \"result\": \"0.751\",\n  \"baseline\": \"Clinical-T5-Large\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Semantic Segmentation",
-        "dataset": "Cityscapes",
-        "metric": "mIoU",
-        "result": "75.3%",
-        "baseline": "HRNetV2"
+        "task": "EHR Mortality Risk Scoring",
+        "dataset": "MIMIC-III-ICD9",
+        "metric": "Cohen Kappa",
+        "result": "0.751",
+        "baseline": "Clinical-T5-Large"
       },
       "field_metrics": {
         "task": {
-          "pred": "Semantic Segmentation",
-          "gold": "Semantic Segmentation",
+          "pred": "EHR Mortality Risk Scoring",
+          "gold": "EHR Mortality Risk Scoring",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Cityscapes",
-          "gold": "Cityscapes",
+          "pred": "MIMIC-III-ICD9",
+          "gold": "MIMIC-III-ICD9",
           "f1": 1.0
         },
         "metric": {
-          "pred": "mIoU",
-          "gold": "mIoU",
+          "pred": "Cohen Kappa",
+          "gold": "Cohen Kappa",
           "f1": 1.0
         },
         "result": {
-          "pred": "75.3%",
-          "gold": "75.3%",
+          "pred": "0.751",
+          "gold": "0.751",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "HRNetV2",
-          "gold": "HRNetV2",
+          "pred": "Clinical-T5-Large",
+          "gold": "Clinical-T5-Large",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this paper, we tackle the critical challenge of Image Classification. Traditional models like ConvNeXt-Base struggle to capture fine-grained relational semantics across distant tokens. Evaluated extensively across iNaturalist 2021, our framework demonstrates consistent empirical superiority. Our approach records an impressive Top-1 Accuracy of 83.4%, outperforming ConvNeXt-Base by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Although 6-DoF Robotic Grasping has witnessed rapid progress, current models remain bounded by sample efficiency. On RLBench-18Tasks, RoboCat-Agent yields a Grasp Success Rate of 74.2%. In this work, AdaptiveNet-X is formulated to address structural bottlenecks. On the rigorous RLBench-18Tasks evaluation, a Grasp Success Rate of 78.0% is attained by AdaptiveNet-X, yielding a consistent margin over RoboCat-Agent across multiple random seeds.",
       "gold": {
-        "task": "Image Classification",
-        "dataset": "iNaturalist 2021",
-        "metric": "Top-1 Accuracy",
-        "result": "83.4%",
-        "baseline": "ConvNeXt-Base"
+        "task": "6-DoF Robotic Grasping",
+        "dataset": "RLBench-18Tasks",
+        "metric": "Grasp Success Rate",
+        "result": "78.0%",
+        "baseline": "RoboCat-Agent"
       },
-      "raw_prediction": "{\n  \"task\": \"Image Classification\",\n  \"dataset\": \"iNaturalist 2021\",\n  \"metric\": \"Top-1 Accuracy\",\n  \"result\": \"83.4%\",\n  \"baseline\": \"ConvNeXt-Base\"\n}",
+      "raw_prediction": "{\n  \"task\": \"6-DoF Robotic Grasping\",\n  \"dataset\": \"RLBench-18Tasks\",\n  \"metric\": \"Grasp Success Rate\",\n  \"result\": \"78.0%\",\n  \"baseline\": \"RoboCat-Agent\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Image Classification",
-        "dataset": "iNaturalist 2021",
-        "metric": "Top-1 Accuracy",
-        "result": "83.4%",
-        "baseline": "ConvNeXt-Base"
+        "task": "6-DoF Robotic Grasping",
+        "dataset": "RLBench-18Tasks",
+        "metric": "Grasp Success Rate",
+        "result": "78.0%",
+        "baseline": "RoboCat-Agent"
       },
       "field_metrics": {
         "task": {
-          "pred": "Image Classification",
-          "gold": "Image Classification",
+          "pred": "6-DoF Robotic Grasping",
+          "gold": "6-DoF Robotic Grasping",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "iNaturalist 2021",
-          "gold": "iNaturalist 2021",
+          "pred": "RLBench-18Tasks",
+          "gold": "RLBench-18Tasks",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Top-1 Accuracy",
-          "gold": "Top-1 Accuracy",
+          "pred": "Grasp Success Rate",
+          "gold": "Grasp Success Rate",
           "f1": 1.0
         },
         "result": {
-          "pred": "83.4%",
-          "gold": "83.4%",
+          "pred": "78.0%",
+          "gold": "78.0%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "ConvNeXt-Base",
-          "gold": "ConvNeXt-Base",
+          "pred": "RoboCat-Agent",
+          "gold": "RoboCat-Agent",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We investigate novel neural architectures for Question Answering. Compared to the prevailing baseline DeBERTa-v3-Large, our method incorporates dynamic token sparsification. We conduct rigorous empirical validations on the standard SQuAD v2.0 benchmark. Our system reaches a top F1 of 88.4, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Although Dexterous Hand Policy Control has witnessed rapid progress, current models remain bounded by sample efficiency. On DClaw-ScrewTurn, RT-1-RobotTransformer yields a Cumulative Reward of 652.753. In this work, SynergyAI-Lite is formulated to address structural bottlenecks. On the rigorous DClaw-ScrewTurn evaluation, a Cumulative Reward of 652.786 is attained by SynergyAI-Lite, yielding a consistent margin over RT-1-RobotTransformer across multiple random seeds.",
       "gold": {
-        "task": "Question Answering",
-        "dataset": "SQuAD v2.0",
-        "metric": "F1",
-        "result": "88.4",
-        "baseline": "DeBERTa-v3-Large"
+        "task": "Dexterous Hand Policy Control",
+        "dataset": "DClaw-ScrewTurn",
+        "metric": "Cumulative Reward",
+        "result": "652.786",
+        "baseline": "RT-1-RobotTransformer"
       },
-      "raw_prediction": "{\n  \"task\": \"Question Answering\",\n  \"dataset\": \"SQuAD v2.0\",\n  \"metric\": \"F1\",\n  \"result\": \"88.4\",\n  \"baseline\": \"DeBERTa-v3-Large\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Dexterous Hand Policy Control\",\n  \"dataset\": \"DClaw-ScrewTurn\",\n  \"metric\": \"Cumulative Reward\",\n  \"result\": \"652.786\",\n  \"baseline\": \"RT-1-RobotTransformer\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Question Answering",
-        "dataset": "SQuAD v2.0",
-        "metric": "F1",
-        "result": "88.4",
-        "baseline": "DeBERTa-v3-Large"
+        "task": "Dexterous Hand Policy Control",
+        "dataset": "DClaw-ScrewTurn",
+        "metric": "Cumulative Reward",
+        "result": "652.786",
+        "baseline": "RT-1-RobotTransformer"
       },
       "field_metrics": {
         "task": {
-          "pred": "Question Answering",
-          "gold": "Question Answering",
+          "pred": "Dexterous Hand Policy Control",
+          "gold": "Dexterous Hand Policy Control",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "SQuAD v2.0",
-          "gold": "SQuAD v2.0",
+          "pred": "DClaw-ScrewTurn",
+          "gold": "DClaw-ScrewTurn",
           "f1": 1.0
         },
         "metric": {
-          "pred": "F1",
-          "gold": "F1",
+          "pred": "Cumulative Reward",
+          "gold": "Cumulative Reward",
           "f1": 1.0
         },
         "result": {
-          "pred": "88.4",
-          "gold": "88.4",
+          "pred": "652.786",
+          "gold": "652.786",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "DeBERTa-v3-Large",
-          "gold": "DeBERTa-v3-Large",
+          "pred": "RT-1-RobotTransformer",
+          "gold": "RT-1-RobotTransformer",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Existing paradigms for Code Generation require exorbitant computational resources during both training and evaluation. Traditional models like CodeGen-6B struggle to capture fine-grained relational semantics across distant tokens. We conduct rigorous empirical validations on the standard APPS benchmark. The proposed method achieves an outstanding Pass@1 of 64.4%, whereas CodeGen-6B fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Automated Program Synthesis. We propose SynergyAI-Plus, a novel architecture containing 13B parameters. Evaluated on the standard HumanEval-Plus benchmark, our approach achieves a Pass@1 of 60.8%, substantially outperforming the previous state-of-the-art CodeLlama-34B-Python which attained 58.8%. Furthermore, our model exhibits a 2.4x throughput improvement during inference.",
       "gold": {
-        "task": "Code Generation",
-        "dataset": "APPS",
+        "task": "Automated Program Synthesis",
+        "dataset": "HumanEval-Plus",
         "metric": "Pass@1",
-        "result": "64.4%",
-        "baseline": "CodeGen-6B"
+        "result": "60.8%",
+        "baseline": "CodeLlama-34B-Python"
       },
-      "raw_prediction": "{\n  \"task\": \"Code Generation\",\n  \"dataset\": \"APPS\",\n  \"metric\": \"Pass@1\",\n  \"result\": \"64.4%\",\n  \"baseline\": \"CodeGen-6B\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Automated Program Synthesis\",\n  \"dataset\": \"HumanEval-Plus\",\n  \"metric\": \"Pass@1\",\n  \"result\": \"60.8%\",\n  \"baseline\": \"CodeLlama-34B-Python\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Code Generation",
-        "dataset": "APPS",
+        "task": "Automated Program Synthesis",
+        "dataset": "HumanEval-Plus",
         "metric": "Pass@1",
-        "result": "64.4%",
-        "baseline": "CodeGen-6B"
+        "result": "60.8%",
+        "baseline": "CodeLlama-34B-Python"
       },
       "field_metrics": {
         "task": {
-          "pred": "Code Generation",
-          "gold": "Code Generation",
+          "pred": "Automated Program Synthesis",
+          "gold": "Automated Program Synthesis",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "APPS",
-          "gold": "APPS",
+          "pred": "HumanEval-Plus",
+          "gold": "HumanEval-Plus",
           "f1": 1.0
         },
         "metric": {
@@ -1714,671 +1667,718 @@
           "f1": 1.0
         },
         "result": {
-          "pred": "64.4%",
-          "gold": "64.4%",
+          "pred": "60.8%",
+          "gold": "60.8%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "CodeGen-6B",
-          "gold": "CodeGen-6B",
+          "pred": "CodeLlama-34B-Python",
+          "gold": "CodeLlama-34B-Python",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We investigate novel neural architectures for Graph Representation Learning. Compared to the prevailing baseline GAT, our method incorporates dynamic token sparsification. Evaluated extensively across CiteSeer, our framework demonstrates consistent empirical superiority. The proposed method achieves an outstanding Accuracy of 72.7%, whereas GAT fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Biomedical Literature QA, such as GatorTron-OG, struggle with high computational latency and achieve only 75.8% Balanced Accuracy on PhysioNet-Sepsis2019. To overcome these limitations, we introduce SynergyAI-Pro. Comprehensive experiments demonstrate that SynergyAI-Pro establishes a new state of the art, attaining 78.3% Balanced Accuracy on PhysioNet-Sepsis2019 while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Graph Representation Learning",
-        "dataset": "CiteSeer",
-        "metric": "Accuracy",
-        "result": "72.7%",
-        "baseline": "GAT"
+        "task": "Biomedical Literature QA",
+        "dataset": "PhysioNet-Sepsis2019",
+        "metric": "Balanced Accuracy",
+        "result": "78.3%",
+        "baseline": "GatorTron-OG"
       },
-      "raw_prediction": "{\n  \"task\": \"Graph Representation Learning\",\n  \"dataset\": \"CiteSeer\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"72.7%\",\n  \"baseline\": \"GAT\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Biomedical Literature QA\",\n  \"dataset\": \"PhysioNet-Sepsis2019\",\n  \"metric\": \"Balanced Accuracy\",\n  \"result\": \"78.3%\",\n  \"baseline\": \"GatorTron-OG\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Graph Representation Learning",
-        "dataset": "CiteSeer",
-        "metric": "Accuracy",
-        "result": "72.7%",
-        "baseline": "GAT"
+        "task": "Biomedical Literature QA",
+        "dataset": "PhysioNet-Sepsis2019",
+        "metric": "Balanced Accuracy",
+        "result": "78.3%",
+        "baseline": "GatorTron-OG"
       },
       "field_metrics": {
         "task": {
-          "pred": "Graph Representation Learning",
-          "gold": "Graph Representation Learning",
+          "pred": "Biomedical Literature QA",
+          "gold": "Biomedical Literature QA",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "CiteSeer",
-          "gold": "CiteSeer",
+          "pred": "PhysioNet-Sepsis2019",
+          "gold": "PhysioNet-Sepsis2019",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Balanced Accuracy",
+          "gold": "Balanced Accuracy",
           "f1": 1.0
         },
         "result": {
-          "pred": "72.7%",
-          "gold": "72.7%",
+          "pred": "78.3%",
+          "gold": "78.3%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "GAT",
-          "gold": "GAT",
+          "pred": "GatorTron-OG",
+          "gold": "GatorTron-OG",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We present a generalized attention-based framework targeted at Graph Representation Learning. Prior standards such as GAT exhibit severe degradation under low-resource or noisy settings. We conduct rigorous empirical validations on the standard Cora benchmark. Specifically, our model delivers a Accuracy of 72.6%, clearly surpassing GAT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Unit Test Generation. We propose SynergyAI-Plus, a novel architecture containing 7B parameters. Evaluated on the standard BigCode-SecurityBench benchmark, our approach achieves a Detection F1-Score of 85.0%, substantially outperforming the previous state-of-the-art WizardCoder-13B which attained 83.4%. Furthermore, our model exhibits a 1.6x throughput improvement during inference.",
       "gold": {
-        "task": "Graph Representation Learning",
-        "dataset": "Cora",
-        "metric": "Accuracy",
-        "result": "72.6%",
-        "baseline": "GAT"
+        "task": "Unit Test Generation",
+        "dataset": "BigCode-SecurityBench",
+        "metric": "Detection F1-Score",
+        "result": "85.0%",
+        "baseline": "WizardCoder-13B"
       },
-      "raw_prediction": "{\n  \"task\": \"Graph Representation Learning\",\n  \"dataset\": \"Cora\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"72.6%\",\n  \"baseline\": \"GAT\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Unit Test Generation\",\n  \"dataset\": \"BigCode-SecurityBench\",\n  \"metric\": \"Detection F1-Score\",\n  \"result\": \"85.0%\",\n  \"baseline\": \"WizardCoder-13B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Graph Representation Learning",
-        "dataset": "Cora",
-        "metric": "Accuracy",
-        "result": "72.6%",
-        "baseline": "GAT"
+        "task": "Unit Test Generation",
+        "dataset": "BigCode-SecurityBench",
+        "metric": "Detection F1-Score",
+        "result": "85.0%",
+        "baseline": "WizardCoder-13B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Graph Representation Learning",
-          "gold": "Graph Representation Learning",
+          "pred": "Unit Test Generation",
+          "gold": "Unit Test Generation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Cora",
-          "gold": "Cora",
+          "pred": "BigCode-SecurityBench",
+          "gold": "BigCode-SecurityBench",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Detection F1-Score",
+          "gold": "Detection F1-Score",
           "f1": 1.0
         },
         "result": {
-          "pred": "72.6%",
-          "gold": "72.6%",
+          "pred": "85.0%",
+          "gold": "85.0%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "GAT",
-          "gold": "GAT",
+          "pred": "WizardCoder-13B",
+          "gold": "WizardCoder-13B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Existing paradigms for Protein Structure Prediction require exorbitant computational resources during both training and evaluation. In contrast to AlphaFold v1, our design decouples feature extraction from cross-modal alignment. Benchmarking our approach on CAMEO confirms that our design principles scale effectively. Specifically, our model delivers a GDT-TS of 86.9, clearly surpassing AlphaFold v1. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Automated Program Synthesis using GraphPrior-X (13B parameters). When benchmarked against competitive baselines including WizardCoder-13B, our method demonstrates superior representational capacity on the challenging MBPP-Sanitized dataset, reaching an unprecedented Detection F1-Score of 83.3% (surpassing WizardCoder-13B's score of 79.0%). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Protein Structure Prediction",
-        "dataset": "CAMEO",
-        "metric": "GDT-TS",
-        "result": "86.9",
-        "baseline": "AlphaFold v1"
+        "task": "Automated Program Synthesis",
+        "dataset": "MBPP-Sanitized",
+        "metric": "Detection F1-Score",
+        "result": "83.3%",
+        "baseline": "WizardCoder-13B"
       },
-      "raw_prediction": "{\n  \"task\": \"Protein Structure Prediction\",\n  \"dataset\": \"CAMEO\",\n  \"metric\": \"GDT-TS\",\n  \"result\": \"86.9\",\n  \"baseline\": \"AlphaFold v1\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Automated Program Synthesis\",\n  \"dataset\": \"MBPP-Sanitized\",\n  \"metric\": \"Detection F1-Score\",\n  \"result\": \"83.3%\",\n  \"baseline\": \"WizardCoder-13B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Protein Structure Prediction",
-        "dataset": "CAMEO",
-        "metric": "GDT-TS",
-        "result": "86.9",
-        "baseline": "AlphaFold v1"
+        "task": "Automated Program Synthesis",
+        "dataset": "MBPP-Sanitized",
+        "metric": "Detection F1-Score",
+        "result": "83.3%",
+        "baseline": "WizardCoder-13B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Protein Structure Prediction",
-          "gold": "Protein Structure Prediction",
+          "pred": "Automated Program Synthesis",
+          "gold": "Automated Program Synthesis",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "CAMEO",
-          "gold": "CAMEO",
+          "pred": "MBPP-Sanitized",
+          "gold": "MBPP-Sanitized",
           "f1": 1.0
         },
         "metric": {
-          "pred": "GDT-TS",
-          "gold": "GDT-TS",
+          "pred": "Detection F1-Score",
+          "gold": "Detection F1-Score",
           "f1": 1.0
         },
         "result": {
-          "pred": "86.9",
-          "gold": "86.9",
+          "pred": "83.3%",
+          "gold": "83.3%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "AlphaFold v1",
-          "gold": "AlphaFold v1",
+          "pred": "WizardCoder-13B",
+          "gold": "WizardCoder-13B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We present a generalized attention-based framework targeted at Graph Representation Learning. While established baselines including GAT offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard OGB-Arxiv benchmark. Our approach records an impressive Accuracy of 71.2%, outperforming GAT by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Code Vulnerability Detection, such as DeepSeek-Coder-6.7B, struggle with high computational latency and achieve only 50.4% Formal Proof Rate on MBPP-Sanitized. To overcome these limitations, we introduce DualStream-V2. Comprehensive experiments demonstrate that DualStream-V2 establishes a new state of the art, attaining 52.1% Formal Proof Rate on MBPP-Sanitized while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Graph Representation Learning",
-        "dataset": "OGB-Arxiv",
-        "metric": "Accuracy",
-        "result": "71.2%",
-        "baseline": "GAT"
+        "task": "Code Vulnerability Detection",
+        "dataset": "MBPP-Sanitized",
+        "metric": "Formal Proof Rate",
+        "result": "52.1%",
+        "baseline": "DeepSeek-Coder-6.7B"
       },
-      "raw_prediction": "{\n  \"task\": \"Graph Representation Learning\",\n  \"dataset\": \"OGB-Arxiv\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"71.2%\",\n  \"baseline\": \"GAT\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Code Vulnerability Detection\",\n  \"dataset\": \"MBPP-Sanitized\",\n  \"metric\": \"Formal Proof Rate\",\n  \"result\": \"52.1%\",\n  \"baseline\": \"DeepSeek-Coder-6.7B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Graph Representation Learning",
-        "dataset": "OGB-Arxiv",
-        "metric": "Accuracy",
-        "result": "71.2%",
-        "baseline": "GAT"
+        "task": "Code Vulnerability Detection",
+        "dataset": "MBPP-Sanitized",
+        "metric": "Formal Proof Rate",
+        "result": "52.1%",
+        "baseline": "DeepSeek-Coder-6.7B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Graph Representation Learning",
-          "gold": "Graph Representation Learning",
+          "pred": "Code Vulnerability Detection",
+          "gold": "Code Vulnerability Detection",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "OGB-Arxiv",
-          "gold": "OGB-Arxiv",
+          "pred": "MBPP-Sanitized",
+          "gold": "MBPP-Sanitized",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Formal Proof Rate",
+          "gold": "Formal Proof Rate",
           "f1": 1.0
         },
         "result": {
-          "pred": "71.2%",
-          "gold": "71.2%",
+          "pred": "52.1%",
+          "gold": "52.1%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "GAT",
-          "gold": "GAT",
+          "pred": "DeepSeek-Coder-6.7B",
+          "gold": "DeepSeek-Coder-6.7B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We present a generalized attention-based framework targeted at Question Answering. While established baselines including SpanBERT offer competitive scores, their parameter efficiency remains suboptimal. Evaluated extensively across Natural Questions, our framework demonstrates consistent empirical superiority. Specifically, our model delivers a F1 of 83.9, clearly surpassing SpanBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Although Language-Conditioned Manipulation has witnessed rapid progress, current models remain bounded by sample efficiency. On Franka-Kitchen-MultiTask, SayCan-PaLM yields a Average Completion Time of 24.9s. In this work, DualStream-V2 is formulated to address structural bottlenecks. On the rigorous Franka-Kitchen-MultiTask evaluation, a Average Completion Time of 20.9s is attained by DualStream-V2, yielding a consistent margin over SayCan-PaLM across multiple random seeds.",
       "gold": {
-        "task": "Question Answering",
-        "dataset": "Natural Questions",
-        "metric": "F1",
-        "result": "83.9",
-        "baseline": "SpanBERT"
+        "task": "Language-Conditioned Manipulation",
+        "dataset": "Franka-Kitchen-MultiTask",
+        "metric": "Average Completion Time",
+        "result": "20.9s",
+        "baseline": "SayCan-PaLM"
       },
-      "raw_prediction": "{\n  \"task\": \"Question Answering\",\n  \"dataset\": \"Natural Questions\",\n  \"metric\": \"F1\",\n  \"result\": \"83.9\",\n  \"baseline\": \"SpanBERT\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Language-Conditioned Manipulation\",\n  \"dataset\": \"Franka-Kitchen-MultiTask\",\n  \"metric\": \"Average Completion Time\",\n  \"result\": \"20.9s\",\n  \"baseline\": \"SayCan-PaLM\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Question Answering",
-        "dataset": "Natural Questions",
-        "metric": "F1",
-        "result": "83.9",
-        "baseline": "SpanBERT"
+        "task": "Language-Conditioned Manipulation",
+        "dataset": "Franka-Kitchen-MultiTask",
+        "metric": "Average Completion Time",
+        "result": "20.9s",
+        "baseline": "SayCan-PaLM"
       },
       "field_metrics": {
         "task": {
-          "pred": "Question Answering",
-          "gold": "Question Answering",
+          "pred": "Language-Conditioned Manipulation",
+          "gold": "Language-Conditioned Manipulation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Natural Questions",
-          "gold": "Natural Questions",
+          "pred": "Franka-Kitchen-MultiTask",
+          "gold": "Franka-Kitchen-MultiTask",
           "f1": 1.0
         },
         "metric": {
-          "pred": "F1",
-          "gold": "F1",
+          "pred": "Average Completion Time",
+          "gold": "Average Completion Time",
           "f1": 1.0
         },
         "result": {
-          "pred": "83.9",
-          "gold": "83.9",
+          "pred": "20.9s",
+          "gold": "20.9s",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "SpanBERT",
-          "gold": "SpanBERT",
+          "pred": "SayCan-PaLM",
+          "gold": "SayCan-PaLM",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Reinforcement Learning. While established baselines including Rainbow offer competitive scores, their parameter efficiency remains suboptimal. On the widely referenced Atari 2600 Breakout dataset, our proposed model achieves state-of-the-art results. Our system reaches a top Average Return of 594.5, confirming the efficacy of our architectural modifications. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Cold-Start User Matching using GraphPrior-Pro (110M parameters). When benchmarked against competitive baselines including DLRM-v2, our method demonstrates superior representational capacity on the challenging MovieLens-25M dataset, reaching an unprecedented HitRatio@10 of 0.695 (surpassing DLRM-v2's score of 0.658). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Reinforcement Learning",
-        "dataset": "Atari 2600 Breakout",
-        "metric": "Average Return",
-        "result": "594.5",
-        "baseline": "Rainbow"
+        "task": "Cold-Start User Matching",
+        "dataset": "MovieLens-25M",
+        "metric": "HitRatio@10",
+        "result": "0.695",
+        "baseline": "DLRM-v2"
       },
-      "raw_prediction": "{\n  \"task\": \"Reinforcement Learning\",\n  \"dataset\": \"Atari 2600 Breakout\",\n  \"metric\": \"Average Return\",\n  \"result\": \"594.5\",\n  \"baseline\": \"Rainbow\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Cold-Start User Matching\",\n  \"dataset\": \"MovieLens-25M\",\n  \"metric\": \"HitRatio@10\",\n  \"result\": \"0.695\",\n  \"baseline\": \"DLRM-v2\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Reinforcement Learning",
-        "dataset": "Atari 2600 Breakout",
-        "metric": "Average Return",
-        "result": "594.5",
-        "baseline": "Rainbow"
+        "task": "Cold-Start User Matching",
+        "dataset": "MovieLens-25M",
+        "metric": "HitRatio@10",
+        "result": "0.695",
+        "baseline": "DLRM-v2"
       },
       "field_metrics": {
         "task": {
-          "pred": "Reinforcement Learning",
-          "gold": "Reinforcement Learning",
+          "pred": "Cold-Start User Matching",
+          "gold": "Cold-Start User Matching",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Atari 2600 Breakout",
-          "gold": "Atari 2600 Breakout",
+          "pred": "MovieLens-25M",
+          "gold": "MovieLens-25M",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Average Return",
-          "gold": "Average Return",
+          "pred": "HitRatio@10",
+          "gold": "HitRatio@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "594.5",
-          "gold": "594.5",
+          "pred": "0.695",
+          "gold": "0.695",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Rainbow",
-          "gold": "Rainbow",
+          "pred": "DLRM-v2",
+          "gold": "DLRM-v2",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Addressing current efficiency and scaling bottlenecks in Sentiment Analysis, we introduce an adaptive formulation. Traditional models like DistilBERT struggle to capture fine-grained relational semantics across distant tokens. Benchmarking our approach on SST-2 confirms that our design principles scale effectively. Specifically, our model delivers a Accuracy of 92.7%, clearly surpassing DistilBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Language-Conditioned Manipulation. We propose DualStream-V2, a novel architecture containing 350M parameters. Evaluated on the standard DClaw-ScrewTurn benchmark, our approach achieves a Grasp Success Rate of 90.2%, substantially outperforming the previous state-of-the-art RoboCat-Agent which attained 88.2%. Furthermore, our model exhibits a 1.4x throughput improvement during inference.",
       "gold": {
-        "task": "Sentiment Analysis",
-        "dataset": "SST-2",
-        "metric": "Accuracy",
-        "result": "92.7%",
-        "baseline": "DistilBERT"
+        "task": "Language-Conditioned Manipulation",
+        "dataset": "DClaw-ScrewTurn",
+        "metric": "Grasp Success Rate",
+        "result": "90.2%",
+        "baseline": "RoboCat-Agent"
       },
-      "raw_prediction": "{\n  \"task\": \"Sentiment Analysis\",\n  \"dataset\": \"SST-2\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"92.7%\",\n  \"baseline\": \"DistilBERT\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Language-Conditioned Manipulation\",\n  \"dataset\": \"DClaw-ScrewTurn\",\n  \"metric\": \"Grasp Success Rate\",\n  \"result\": \"90.2%\",\n  \"baseline\": \"RoboCat-Agent\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Sentiment Analysis",
-        "dataset": "SST-2",
-        "metric": "Accuracy",
-        "result": "92.7%",
-        "baseline": "DistilBERT"
+        "task": "Language-Conditioned Manipulation",
+        "dataset": "DClaw-ScrewTurn",
+        "metric": "Grasp Success Rate",
+        "result": "90.2%",
+        "baseline": "RoboCat-Agent"
       },
       "field_metrics": {
         "task": {
-          "pred": "Sentiment Analysis",
-          "gold": "Sentiment Analysis",
+          "pred": "Language-Conditioned Manipulation",
+          "gold": "Language-Conditioned Manipulation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "SST-2",
-          "gold": "SST-2",
+          "pred": "DClaw-ScrewTurn",
+          "gold": "DClaw-ScrewTurn",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Grasp Success Rate",
+          "gold": "Grasp Success Rate",
           "f1": 1.0
         },
         "result": {
-          "pred": "92.7%",
-          "gold": "92.7%",
+          "pred": "90.2%",
+          "gold": "90.2%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "DistilBERT",
-          "gold": "DistilBERT",
+          "pred": "RoboCat-Agent",
+          "gold": "RoboCat-Agent",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Existing paradigms for Question Answering require exorbitant computational resources during both training and evaluation. While established baselines including SpanBERT offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard TriviaQA benchmark. Experimental results demonstrate a F1 of 89.5, establishing a strong new baseline over SpanBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Multi-Task Session Ranking. We propose DualStream-Lite, a novel architecture containing 350M parameters. Evaluated on the standard Criteo-AdCTR-100M benchmark, our approach achieves a NDCG@10 of 0.549, substantially outperforming the previous state-of-the-art GRU4Rec-Session which attained 0.519. Furthermore, our model exhibits a 2.2x throughput improvement during inference.",
       "gold": {
-        "task": "Question Answering",
-        "dataset": "TriviaQA",
-        "metric": "F1",
-        "result": "89.5",
-        "baseline": "SpanBERT"
+        "task": "Multi-Task Session Ranking",
+        "dataset": "Criteo-AdCTR-100M",
+        "metric": "NDCG@10",
+        "result": "0.549",
+        "baseline": "GRU4Rec-Session"
       },
-      "raw_prediction": "{\n  \"task\": \"Question Answering\",\n  \"dataset\": \"TriviaQA\",\n  \"metric\": \"F1\",\n  \"result\": \"89.5\",\n  \"baseline\": \"SpanBERT\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Multi-Task Session Ranking\",\n  \"dataset\": \"Criteo-AdCTR-100M\",\n  \"metric\": \"NDCG@10\",\n  \"result\": \"0.549\",\n  \"baseline\": \"GRU4Rec-Session\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Question Answering",
-        "dataset": "TriviaQA",
-        "metric": "F1",
-        "result": "89.5",
-        "baseline": "SpanBERT"
+        "task": "Multi-Task Session Ranking",
+        "dataset": "Criteo-AdCTR-100M",
+        "metric": "NDCG@10",
+        "result": "0.549",
+        "baseline": "GRU4Rec-Session"
       },
       "field_metrics": {
         "task": {
-          "pred": "Question Answering",
-          "gold": "Question Answering",
+          "pred": "Multi-Task Session Ranking",
+          "gold": "Multi-Task Session Ranking",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "TriviaQA",
-          "gold": "TriviaQA",
+          "pred": "Criteo-AdCTR-100M",
+          "gold": "Criteo-AdCTR-100M",
           "f1": 1.0
         },
         "metric": {
-          "pred": "F1",
-          "gold": "F1",
+          "pred": "NDCG@10",
+          "gold": "NDCG@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "89.5",
-          "gold": "89.5",
+          "pred": "0.549",
+          "gold": "0.549",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "SpanBERT",
-          "gold": "SpanBERT",
+          "pred": "GRU4Rec-Session",
+          "gold": "GRU4Rec-Session",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this paper, we tackle the critical challenge of Machine Translation. In contrast to NLLB-200, our design decouples feature extraction from cross-modal alignment. When deployed and evaluated on IWSLT'14 De-En, the architecture reveals substantial gains. Specifically, our model delivers a BLEU of 26.3, clearly surpassing NLLB-200. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "We present an empirical study on Automated Program Synthesis using LatentOpt-Pro (110M parameters). When benchmarked against competitive baselines including WizardCoder-13B, our method demonstrates superior representational capacity on the challenging BigCode-SecurityBench dataset, reaching an unprecedented Detection F1-Score of 85.8% (surpassing WizardCoder-13B's score of 81.3%). Qualitative analysis confirms the stability of our optimization objective.",
       "gold": {
-        "task": "Machine Translation",
-        "dataset": "IWSLT'14 De-En",
-        "metric": "BLEU",
-        "result": "26.3",
-        "baseline": "NLLB-200"
+        "task": "Automated Program Synthesis",
+        "dataset": "BigCode-SecurityBench",
+        "metric": "Detection F1-Score",
+        "result": "85.8%",
+        "baseline": "WizardCoder-13B"
       },
-      "raw_prediction": "{\n  \"task\": \"Machine Translation\",\n  \"dataset\": \"IWSLT'14 De-En\",\n  \"metric\": \"BLEU\",\n  \"result\": \"26.3\",\n  \"baseline\": \"NLLB-200\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Automated Program Synthesis\",\n  \"dataset\": \"BigCode-SecurityBench\",\n  \"metric\": \"Detection F1-Score\",\n  \"result\": \"85.8%\",\n  \"baseline\": \"WizardCoder-13B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Machine Translation",
-        "dataset": "IWSLT'14 De-En",
-        "metric": "BLEU",
-        "result": "26.3",
-        "baseline": "NLLB-200"
+        "task": "Automated Program Synthesis",
+        "dataset": "BigCode-SecurityBench",
+        "metric": "Detection F1-Score",
+        "result": "85.8%",
+        "baseline": "WizardCoder-13B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Machine Translation",
-          "gold": "Machine Translation",
+          "pred": "Automated Program Synthesis",
+          "gold": "Automated Program Synthesis",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "IWSLT'14 De-En",
-          "gold": "IWSLT'14 De-En",
+          "pred": "BigCode-SecurityBench",
+          "gold": "BigCode-SecurityBench",
           "f1": 1.0
         },
         "metric": {
-          "pred": "BLEU",
-          "gold": "BLEU",
+          "pred": "Detection F1-Score",
+          "gold": "Detection F1-Score",
           "f1": 1.0
         },
         "result": {
-          "pred": "26.3",
-          "gold": "26.3",
+          "pred": "85.8%",
+          "gold": "85.8%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "NLLB-200",
-          "gold": "NLLB-200",
+          "pred": "WizardCoder-13B",
+          "gold": "WizardCoder-13B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "In this work, we propose a lightweight parameter-efficient architecture for Mathematical Reasoning. Prior standards such as Qwen-7B exhibit severe degradation under low-resource or noisy settings. On the widely referenced MATH dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a Accuracy of 60.1%, establishing a strong new baseline over Qwen-7B. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Automated Program Synthesis, such as CodeLlama-34B-Python, struggle with high computational latency and achieve only 77.2% Detection F1-Score on HumanEval-Plus. To overcome these limitations, we introduce VectorFlow-V2. Comprehensive experiments demonstrate that VectorFlow-V2 establishes a new state of the art, attaining 79.0% Detection F1-Score on HumanEval-Plus while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Mathematical Reasoning",
-        "dataset": "MATH",
-        "metric": "Accuracy",
-        "result": "60.1%",
-        "baseline": "Qwen-7B"
+        "task": "Automated Program Synthesis",
+        "dataset": "HumanEval-Plus",
+        "metric": "Detection F1-Score",
+        "result": "79.0%",
+        "baseline": "CodeLlama-34B-Python"
       },
-      "raw_prediction": "{\n  \"task\": \"Mathematical Reasoning\",\n  \"dataset\": \"MATH\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"60.1%\",\n  \"baseline\": \"Qwen-7B\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Automated Program Synthesis\",\n  \"dataset\": \"HumanEval-Plus\",\n  \"metric\": \"Detection F1-Score\",\n  \"result\": \"79.0%\",\n  \"baseline\": \"CodeLlama-34B-Python\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Mathematical Reasoning",
-        "dataset": "MATH",
-        "metric": "Accuracy",
-        "result": "60.1%",
-        "baseline": "Qwen-7B"
+        "task": "Automated Program Synthesis",
+        "dataset": "HumanEval-Plus",
+        "metric": "Detection F1-Score",
+        "result": "79.0%",
+        "baseline": "CodeLlama-34B-Python"
       },
       "field_metrics": {
         "task": {
-          "pred": "Mathematical Reasoning",
-          "gold": "Mathematical Reasoning",
+          "pred": "Automated Program Synthesis",
+          "gold": "Automated Program Synthesis",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "MATH",
-          "gold": "MATH",
+          "pred": "HumanEval-Plus",
+          "gold": "HumanEval-Plus",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Detection F1-Score",
+          "gold": "Detection F1-Score",
           "f1": 1.0
         },
         "result": {
-          "pred": "60.1%",
-          "gold": "60.1%",
+          "pred": "79.0%",
+          "gold": "79.0%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Qwen-7B",
-          "gold": "Qwen-7B",
+          "pred": "CodeLlama-34B-Python",
+          "gold": "CodeLlama-34B-Python",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Despite significant progress in Language Modeling, prevailing methods struggle with distributional shift. While established baselines including Transformer-XL offer competitive scores, their parameter efficiency remains suboptimal. We conduct rigorous empirical validations on the standard The Pile benchmark. The proposed method achieves an outstanding Perplexity of 45.5, whereas Transformer-XL fails to match this benchmark. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Cold-Start User Matching. We propose GraphPrior-Plus, a novel architecture containing 110M parameters. Evaluated on the standard Amazon-Electronics-2023 benchmark, our approach achieves a HitRatio@10 of 0.688, substantially outperforming the previous state-of-the-art DLRM-v2 which attained 0.615. Furthermore, our model exhibits a 1.9x throughput improvement during inference.",
       "gold": {
-        "task": "Language Modeling",
-        "dataset": "The Pile",
-        "metric": "Perplexity",
-        "result": "45.5",
-        "baseline": "Transformer-XL"
+        "task": "Cold-Start User Matching",
+        "dataset": "Amazon-Electronics-2023",
+        "metric": "HitRatio@10",
+        "result": "0.688",
+        "baseline": "DLRM-v2"
       },
-      "raw_prediction": "{\n  \"task\": \"Language Modeling\",\n  \"dataset\": \"The Pile\",\n  \"metric\": \"Perplexity\",\n  \"result\": \"45.5\",\n  \"baseline\": \"Transformer-XL\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Cold-Start User Matching\",\n  \"dataset\": \"Amazon-Electronics-2023\",\n  \"metric\": \"HitRatio@10\",\n  \"result\": \"0.688\",\n  \"baseline\": \"DLRM-v2\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Language Modeling",
-        "dataset": "The Pile",
-        "metric": "Perplexity",
-        "result": "45.5",
-        "baseline": "Transformer-XL"
+        "task": "Cold-Start User Matching",
+        "dataset": "Amazon-Electronics-2023",
+        "metric": "HitRatio@10",
+        "result": "0.688",
+        "baseline": "DLRM-v2"
       },
       "field_metrics": {
         "task": {
-          "pred": "Language Modeling",
-          "gold": "Language Modeling",
+          "pred": "Cold-Start User Matching",
+          "gold": "Cold-Start User Matching",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "The Pile",
-          "gold": "The Pile",
+          "pred": "Amazon-Electronics-2023",
+          "gold": "Amazon-Electronics-2023",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Perplexity",
-          "gold": "Perplexity",
+          "pred": "HitRatio@10",
+          "gold": "HitRatio@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "45.5",
-          "gold": "45.5",
+          "pred": "0.688",
+          "gold": "0.688",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Transformer-XL",
-          "gold": "Transformer-XL",
+          "pred": "DLRM-v2",
+          "gold": "DLRM-v2",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Despite significant progress in Mathematical Reasoning, prevailing methods struggle with distributional shift. Compared to the prevailing baseline Qwen-7B, our method incorporates dynamic token sparsification. Benchmarking our approach on MATH confirms that our design principles scale effectively. Our approach records an impressive Accuracy of 56.0%, outperforming Qwen-7B by a notable margin. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "Prior approaches to Unit Test Generation, such as DeepSeek-Coder-6.7B, struggle with high computational latency and achieve only 76.9% Detection F1-Score on MiniF2F-Lean4. To overcome these limitations, we introduce VectorFlow-V2. Comprehensive experiments demonstrate that VectorFlow-V2 establishes a new state of the art, attaining 80.0% Detection F1-Score on MiniF2F-Lean4 while reducing parameter overhead by 30%.",
       "gold": {
-        "task": "Mathematical Reasoning",
-        "dataset": "MATH",
-        "metric": "Accuracy",
-        "result": "56.0%",
-        "baseline": "Qwen-7B"
+        "task": "Unit Test Generation",
+        "dataset": "MiniF2F-Lean4",
+        "metric": "Detection F1-Score",
+        "result": "80.0%",
+        "baseline": "DeepSeek-Coder-6.7B"
       },
-      "raw_prediction": "{\n  \"task\": \"Mathematical Reasoning\",\n  \"dataset\": \"MATH\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"56.0%\",\n  \"baseline\": \"Qwen-7B\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Unit Test Generation\",\n  \"dataset\": \"MiniF2F-Lean4\",\n  \"metric\": \"Detection F1-Score\",\n  \"result\": \"80.0%\",\n  \"baseline\": \"DeepSeek-Coder-6.7B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Mathematical Reasoning",
-        "dataset": "MATH",
-        "metric": "Accuracy",
-        "result": "56.0%",
-        "baseline": "Qwen-7B"
+        "task": "Unit Test Generation",
+        "dataset": "MiniF2F-Lean4",
+        "metric": "Detection F1-Score",
+        "result": "80.0%",
+        "baseline": "DeepSeek-Coder-6.7B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Mathematical Reasoning",
-          "gold": "Mathematical Reasoning",
+          "pred": "Unit Test Generation",
+          "gold": "Unit Test Generation",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "MATH",
-          "gold": "MATH",
+          "pred": "MiniF2F-Lean4",
+          "gold": "MiniF2F-Lean4",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "Detection F1-Score",
+          "gold": "Detection F1-Score",
           "f1": 1.0
         },
         "result": {
-          "pred": "56.0%",
-          "gold": "56.0%",
+          "pred": "80.0%",
+          "gold": "80.0%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Qwen-7B",
-          "gold": "Qwen-7B",
+          "pred": "DeepSeek-Coder-6.7B",
+          "gold": "DeepSeek-Coder-6.7B",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "We present a generalized attention-based framework targeted at Sentiment Analysis. Prior standards such as DistilBERT exhibit severe degradation under low-resource or noisy settings. Benchmarking our approach on Amazon-5 confirms that our design principles scale effectively. Specifically, our model delivers a Accuracy of 94.7%, clearly surpassing DistilBERT. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Cold-Start User Matching. We propose FlashArch-Pro, a novel architecture containing 7B parameters. Evaluated on the standard MovieLens-25M benchmark, our approach achieves a NDCG@10 of 0.58, substantially outperforming the previous state-of-the-art DeepFM-Large which attained 0.527. Furthermore, our model exhibits a 2.1x throughput improvement during inference.",
       "gold": {
-        "task": "Sentiment Analysis",
-        "dataset": "Amazon-5",
-        "metric": "Accuracy",
-        "result": "94.7%",
-        "baseline": "DistilBERT"
+        "task": "Cold-Start User Matching",
+        "dataset": "MovieLens-25M",
+        "metric": "NDCG@10",
+        "result": "0.58",
+        "baseline": "DeepFM-Large"
       },
-      "raw_prediction": "{\n  \"task\": \"Sentiment Analysis\",\n  \"dataset\": \"Amazon-5\",\n  \"metric\": \"Accuracy\",\n  \"result\": \"94.7%\",\n  \"baseline\": \"DistilBERT\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Cold-Start User Matching\",\n  \"dataset\": \"MovieLens-25M\",\n  \"metric\": \"NDCG@10\",\n  \"result\": \"0.58\",\n  \"baseline\": \"DeepFM-Large\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Sentiment Analysis",
-        "dataset": "Amazon-5",
-        "metric": "Accuracy",
-        "result": "94.7%",
-        "baseline": "DistilBERT"
+        "task": "Cold-Start User Matching",
+        "dataset": "MovieLens-25M",
+        "metric": "NDCG@10",
+        "result": "0.58",
+        "baseline": "DeepFM-Large"
       },
       "field_metrics": {
         "task": {
-          "pred": "Sentiment Analysis",
-          "gold": "Sentiment Analysis",
+          "pred": "Cold-Start User Matching",
+          "gold": "Cold-Start User Matching",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Amazon-5",
-          "gold": "Amazon-5",
+          "pred": "MovieLens-25M",
+          "gold": "MovieLens-25M",
           "f1": 1.0
         },
         "metric": {
-          "pred": "Accuracy",
-          "gold": "Accuracy",
+          "pred": "NDCG@10",
+          "gold": "NDCG@10",
           "f1": 1.0
         },
         "result": {
-          "pred": "94.7%",
-          "gold": "94.7%",
+          "pred": "0.58",
+          "gold": "0.58",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "DistilBERT",
-          "gold": "DistilBERT",
+          "pred": "DeepFM-Large",
+          "gold": "DeepFM-Large",
           "f1": 1.0
         }
       },
       "sample_mean_f1": 1.0
     },
     {
-      "abstract": "Existing paradigms for Machine Translation require exorbitant computational resources during both training and evaluation. While established baselines including Transformer-Base offer competitive scores, their parameter efficiency remains suboptimal. On the widely referenced Flores-101 dataset, our proposed model achieves state-of-the-art results. Experimental results demonstrate a BLEU of 42.8, establishing a strong new baseline over Transformer-Base. Extensive ablation studies verify that every proposed component contributes positively to the overall performance.",
+      "abstract": "In this paper, we address the challenge of Code Vulnerability Detection. We propose GraphPrior-Pro, a novel architecture containing 13B parameters. Evaluated on the standard MiniF2F-Lean4 benchmark, our approach achieves a Pass@1 of 60.0%, substantially outperforming the previous state-of-the-art DeepSeek-Coder-6.7B which attained 55.6%. Furthermore, our model exhibits a 2.0x throughput improvement during inference.",
       "gold": {
-        "task": "Machine Translation",
-        "dataset": "Flores-101",
-        "metric": "BLEU",
-        "result": "42.8",
-        "baseline": "Transformer-Base"
+        "task": "Code Vulnerability Detection",
+        "dataset": "MiniF2F-Lean4",
+        "metric": "Pass@1",
+        "result": "60.0%",
+        "baseline": "DeepSeek-Coder-6.7B"
       },
-      "raw_prediction": "{\n  \"task\": \"Machine Translation\",\n  \"dataset\": \"Flores-101\",\n  \"metric\": \"BLEU\",\n  \"result\": \"42.8\",\n  \"baseline\": \"Transformer-Base\"\n}",
+      "raw_prediction": "{\n  \"task\": \"Code Vulnerability Detection\",\n  \"dataset\": \"MiniF2F-Lean4\",\n  \"metric\": \"Pass@1\",\n  \"result\": \"60.0%\",\n  \"baseline\": \"DeepSeek-Coder-6.7B\"\n}",
       "is_valid_json": true,
       "parsed": {
-        "task": "Machine Translation",
-        "dataset": "Flores-101",
-        "metric": "BLEU",
-        "result": "42.8",
-        "baseline": "Transformer-Base"
+        "task": "Code Vulnerability Detection",
+        "dataset": "MiniF2F-Lean4",
+        "metric": "Pass@1",
+        "result": "60.0%",
+        "baseline": "DeepSeek-Coder-6.7B"
       },
       "field_metrics": {
         "task": {
-          "pred": "Machine Translation",
-          "gold": "Machine Translation",
+          "pred": "Code Vulnerability Detection",
+          "gold": "Code Vulnerability Detection",
           "f1": 1.0
         },
         "dataset": {
-          "pred": "Flores-101",
-          "gold": "Flores-101",
+          "pred": "MiniF2F-Lean4",
+          "gold": "MiniF2F-Lean4",
           "f1": 1.0
         },
         "metric": {
-          "pred": "BLEU",
-          "gold": "BLEU",
+          "pred": "Pass@1",
+          "gold": "Pass@1",
           "f1": 1.0
         },
         "result": {
-          "pred": "42.8",
-          "gold": "42.8",
+          "pred": "60.0%",
+          "gold": "60.0%",
           "f1": 1.0
         },
         "baseline": {
-          "pred": "Transformer-Base",
-          "gold": "Transformer-Base",
+          "pred": "DeepSeek-Coder-6.7B",
+          "gold": "DeepSeek-Coder-6.7B",
+          "f1": 1.0
+        }
+      },
+      "sample_mean_f1": 1.0
+    },
+    {
+      "abstract": "In this paper, we address the challenge of Clinical Diagnostic Prediction. We propose LatentOpt-X, a novel architecture containing 350M parameters. Evaluated on the standard PhysioNet-Sepsis2019 benchmark, our approach achieves a Macro-F1 of 80.9%, substantially outperforming the previous state-of-the-art EHR-Densenet which attained 79.4%. Furthermore, our model exhibits a 1.8x throughput improvement during inference.",
+      "gold": {
+        "task": "Clinical Diagnostic Prediction",
+        "dataset": "PhysioNet-Sepsis2019",
+        "metric": "Macro-F1",
+        "result": "80.9%",
+        "baseline": "EHR-Densenet"
+      },
+      "raw_prediction": "{\n  \"task\": \"Clinical Diagnostic Prediction\",\n  \"dataset\": \"PhysioNet-Sepsis2019\",\n  \"metric\": \"Macro-F1\",\n  \"result\": \"80.9%\",\n  \"baseline\": \"EHR-Densenet\"\n}",
+      "is_valid_json": true,
+      "parsed": {
+        "task": "Clinical Diagnostic Prediction",
+        "dataset": "PhysioNet-Sepsis2019",
+        "metric": "Macro-F1",
+        "result": "80.9%",
+        "baseline": "EHR-Densenet"
+      },
+      "field_metrics": {
+        "task": {
+          "pred": "Clinical Diagnostic Prediction",
+          "gold": "Clinical Diagnostic Prediction",
+          "f1": 1.0
+        },
+        "dataset": {
+          "pred": "PhysioNet-Sepsis2019",
+          "gold": "PhysioNet-Sepsis2019",
+          "f1": 1.0
+        },
+        "metric": {
+          "pred": "Macro-F1",
+          "gold": "Macro-F1",
+          "f1": 1.0
+        },
+        "result": {
+          "pred": "80.9%",
+          "gold": "80.9%",
+          "f1": 1.0
+        },
+        "baseline": {
+          "pred": "EHR-Densenet",
+          "gold": "EHR-Densenet",
           "f1": 1.0
         }
       },
