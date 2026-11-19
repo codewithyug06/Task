@@ -13,9 +13,15 @@ Hyperparameters:
 """
 
 import os
+import sys
 import json
 import time
 import torch
+from pathlib import Path
+
+# Add repo root to path for config import
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import get_model_path, DATA_DIR, LORA_ADAPTER_DIR
 from datasets import Dataset
 from transformers import (
     AutoTokenizer,
@@ -26,12 +32,10 @@ from transformers import (
 )
 from peft import LoraConfig, get_peft_model, TaskType
 
-LOCAL_MODEL = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
-MODEL_PATH = LOCAL_MODEL if os.path.exists(LOCAL_MODEL) else "Qwen/Qwen2.5-0.5B-Instruct"
-
-TRAIN_FILE = "d:/Intern/data_fixed/train.json" if os.path.exists("d:/Intern/data_fixed/train.json") else "data_fixed/train.json"
-VAL_FILE = "d:/Intern/data_fixed/val.json" if os.path.exists("d:/Intern/data_fixed/val.json") else "data_fixed/val.json"
-OUTPUT_DIR = "d:/Intern/task1_finetune/lora_adapter"
+MODEL_PATH = get_model_path()
+TRAIN_FILE = str(DATA_DIR / "train.json")
+VAL_FILE = str(DATA_DIR / "val.json")
+OUTPUT_DIR = str(LORA_ADAPTER_DIR)
 
 SYSTEM_PROMPT = (
     "You are an expert scientific assistant. Extract key benchmark details from the "

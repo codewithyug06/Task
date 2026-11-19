@@ -1,7 +1,10 @@
 import json
 import re
+from pathlib import Path
 
-with open('d:/Intern/data/corpus_real_sections.json', encoding='utf-8') as f:
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+with open(REPO_ROOT / 'data' / 'corpus_real_sections.json', encoding='utf-8') as f:
     sections = json.load(f)
 
 def search_text(term, max_matches=3):

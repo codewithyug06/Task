@@ -205,8 +205,13 @@ def generate_sample(domain_name, domain_meta):
         "target": target
     }
 
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
 def build_data_fixed():
-    os.makedirs("d:/Intern/data_fixed", exist_ok=True)
+    out_dir = REPO_ROOT / "data_fixed"
+    out_dir.mkdir(parents=True, exist_ok=True)
     
     train_samples = []
     val_samples = []
@@ -234,11 +239,11 @@ def build_data_fixed():
     random.shuffle(test_samples)
     
     # Save files
-    with open("d:/Intern/data_fixed/train.json", "w", encoding="utf-8") as f:
+    with open(out_dir / "train.json", "w", encoding="utf-8") as f:
         json.dump(train_samples, f, indent=2)
-    with open("d:/Intern/data_fixed/val.json", "w", encoding="utf-8") as f:
+    with open(out_dir / "val.json", "w", encoding="utf-8") as f:
         json.dump(val_samples, f, indent=2)
-    with open("d:/Intern/data_fixed/test.json", "w", encoding="utf-8") as f:
+    with open(out_dir / "test.json", "w", encoding="utf-8") as f:
         json.dump(test_samples, f, indent=2)
         
     print(f"Generated data_fixed: Train={len(train_samples)}, Val={len(val_samples)}, Test={len(test_samples)}")

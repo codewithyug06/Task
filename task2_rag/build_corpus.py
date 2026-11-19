@@ -136,9 +136,13 @@ PAPERS = [
     }
 ]
 
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
 def generate_full_corpus():
-    full_text_path = "d:/Intern/data/corpus_ml_papers.txt"
-    sections_path = "d:/Intern/data/corpus_sections.json"
+    full_text_path = str(REPO_ROOT / "data" / "corpus_ml_papers.txt")
+    sections_path = str(REPO_ROOT / "data" / "corpus_sections.json")
     
     all_sections = []
     total_words = 0

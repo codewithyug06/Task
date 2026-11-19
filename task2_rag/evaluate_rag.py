@@ -7,13 +7,19 @@ Metrics: Recall@1, Recall@3, Recall@5, MRR@5 across Sparse BM25, Dense FAISS, an
 """
 
 import os
+import sys
 import json
 import time
+from pathlib import Path
+
+# Add repo root to path for config import
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import REPO_ROOT, TASK2_DIR
 from rag_engine import TextChunker, HybridRAG, EMBEDDING_MODEL_PATH, DEFAULT_TOKENIZER_PATH
 
-SECTIONS_FILE = "d:/Intern/data/corpus_real_sections.json" if os.path.exists("d:/Intern/data/corpus_real_sections.json") else "data/corpus_real_sections.json"
-QUESTIONS_FILE = "d:/Intern/data/benchmark_15_questions.json" if os.path.exists("d:/Intern/data/benchmark_15_questions.json") else "data/benchmark_15_questions.json"
-OUTPUT_REPORT = "d:/Intern/task2_rag/rag_evaluation_results.json"
+SECTIONS_FILE = str(REPO_ROOT / "data" / "corpus_real_sections.json") if (REPO_ROOT / "data" / "corpus_real_sections.json").exists() else str(REPO_ROOT / "data" / "corpus_sections.json")
+QUESTIONS_FILE = str(REPO_ROOT / "data" / "benchmark_15_questions.json")
+OUTPUT_REPORT = str(TASK2_DIR / "rag_evaluation_results.json")
 
 def evaluate_retrieval(rag_system, questions, top_k=5, alpha=0.5):
     modes = ["sparse_bm25", "dense_faiss", "hybrid"]

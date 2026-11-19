@@ -2,21 +2,25 @@
 Task 2 End-to-End QA Demonstration:
 Uses Hybrid RAG (Chunk Size 256) over 335 pages of 10 arXiv papers to retrieve top passages,
 and uses Qwen2.5-0.5B-Instruct to generate grounded factual answers with citations.
-Saves QA pairs with citations to d:/Intern/task2_rag/qa_generation_answers.json.
+Saves QA pairs with citations to task2_rag/qa_generation_answers.json.
 """
 
 import os
+import sys
 import json
 import torch
+from pathlib import Path
+
+# Add repo root to path for config import
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import REPO_ROOT, TASK2_DIR, get_model_path
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from rag_engine import TextChunker, HybridRAG, EMBEDDING_MODEL_PATH, DEFAULT_TOKENIZER_PATH
 
-SECTIONS_FILE = "d:/Intern/data/corpus_real_sections.json" if os.path.exists("d:/Intern/data/corpus_real_sections.json") else "data/corpus_real_sections.json"
-QUESTIONS_FILE = "d:/Intern/data/benchmark_15_questions.json" if os.path.exists("d:/Intern/data/benchmark_15_questions.json") else "data/benchmark_15_questions.json"
-OUTPUT_FILE = "d:/Intern/task2_rag/qa_generation_answers.json"
-
-LOCAL_MODEL = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
-MODEL_PATH = LOCAL_MODEL if os.path.exists(LOCAL_MODEL) else "Qwen/Qwen2.5-0.5B-Instruct"
+SECTIONS_FILE = str(REPO_ROOT / "data" / "corpus_real_sections.json") if (REPO_ROOT / "data" / "corpus_real_sections.json").exists() else str(REPO_ROOT / "data" / "corpus_sections.json")
+QUESTIONS_FILE = str(REPO_ROOT / "data" / "benchmark_15_questions.json")
+OUTPUT_FILE = str(TASK2_DIR / "qa_generation_answers.json")
+MODEL_PATH = get_model_path()
 
 def main():
     print("Initializing RAG system for end-to-end question answering...", flush=True)

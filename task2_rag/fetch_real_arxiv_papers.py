@@ -7,8 +7,8 @@ Papers:
 4. FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness (2205.14135) - 20 pages
 
 Extracts full text into genuine page sections, outputting:
-- d:/Intern/data/corpus_sections.json
-- d:/Intern/data/corpus_real_arxiv.txt
+- data/corpus_sections.json
+- data/corpus_real_arxiv.txt
 """
 
 import os
@@ -44,9 +44,13 @@ PAPERS = [
     }
 ]
 
-PDF_DIR = "d:/Intern/data/arxiv_pdfs"
-SECTIONS_OUTPUT = "d:/Intern/data/corpus_sections.json"
-TEXT_OUTPUT = "d:/Intern/data/corpus_real_arxiv.txt"
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+PDF_DIR = str(REPO_ROOT / "data" / "arxiv_pdfs")
+SECTIONS_OUTPUT = str(REPO_ROOT / "data" / "corpus_sections.json")
+TEXT_OUTPUT = str(REPO_ROOT / "data" / "corpus_real_arxiv.txt")
 
 HEADERS = {
     "User-Agent": "ResearchEvaluationBot/1.0 (academic research assessment; mailto:student@university.edu)"

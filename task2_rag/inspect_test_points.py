@@ -1,6 +1,9 @@
 import json
+from pathlib import Path
 
-with open('d:/Intern/data/corpus_real_sections.json', encoding='utf-8') as f:
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+with open(REPO_ROOT / 'data' / 'corpus_real_sections.json', encoding='utf-8') as f:
     sections = json.load(f)
 
 def find_sec(arxiv_id, page):

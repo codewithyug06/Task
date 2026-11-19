@@ -4,9 +4,12 @@ Fully compatible with Google Colab, Kaggle, and Local Jupyter environments.
 """
 
 import os
+from pathlib import Path
 import nbformat as nbf
 
-os.makedirs("d:/Intern/notebooks", exist_ok=True)
+REPO_ROOT = Path(__file__).resolve().parent
+NOTEBOOKS_DIR = REPO_ROOT / "notebooks"
+NOTEBOOKS_DIR.mkdir(parents=True, exist_ok=True)
 
 def create_task1_notebook():
     nb = nbf.v4.new_notebook()
@@ -129,7 +132,7 @@ Evaluate on edge cases:
 """))
     
     nb.cells = cells
-    with open("d:/Intern/notebooks/Task1_LoRA_Finetuning.ipynb", "w", encoding="utf-8") as f:
+    with open(NOTEBOOKS_DIR / "Task1_LoRA_Finetuning.ipynb", "w", encoding="utf-8") as f:
         nbf.write(nb, f)
     print("Created notebooks/Task1_LoRA_Finetuning.ipynb")
 
@@ -215,7 +218,7 @@ Generates factual answers grounded strictly in retrieved passages using Qwen2.5-
 """))
 
     nb.cells = cells
-    with open("d:/Intern/notebooks/Task2_RAG_From_Scratch.ipynb", "w", encoding="utf-8") as f:
+    with open(NOTEBOOKS_DIR / "Task2_RAG_From_Scratch.ipynb", "w", encoding="utf-8") as f:
         nbf.write(nb, f)
     print("Created notebooks/Task2_RAG_From_Scratch.ipynb")
 
@@ -298,7 +301,7 @@ $$\\text{Bytes per Token} = 2 \\times L \\times H_{KV} \\times d_k \\times 2\\te
 """))
 
     nb.cells = cells
-    with open("d:/Intern/notebooks/Task3_Local_Optimization_and_Serving.ipynb", "w", encoding="utf-8") as f:
+    with open(NOTEBOOKS_DIR / "Task3_Local_Optimization_and_Serving.ipynb", "w", encoding="utf-8") as f:
         nbf.write(nb, f)
     print("Created notebooks/Task3_Local_Optimization_and_Serving.ipynb")
 
@@ -363,7 +366,7 @@ def create_master_notebook():
 """))
 
     nb.cells = cells
-    with open("d:/Intern/notebooks/Applied_GenAI_Master_Submission.ipynb", "w", encoding="utf-8") as f:
+    with open(NOTEBOOKS_DIR / "Applied_GenAI_Master_Submission.ipynb", "w", encoding="utf-8") as f:
         nbf.write(nb, f)
     print("Created notebooks/Applied_GenAI_Master_Submission.ipynb")
 

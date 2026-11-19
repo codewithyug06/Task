@@ -5,19 +5,23 @@ Supports both local snapshot and Hugging Face Hub for Colab/Kaggle portability.
 """
 
 import os
+import sys
 import json
 import torch
+from pathlib import Path
+
+# Add repo root to path for config import
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import get_model_path, DATA_DIR, TASK1_DIR, LORA_ADAPTER_DIR
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
 from metrics import evaluate_predictions
 
-LOCAL_MODEL = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
-MODEL_PATH = LOCAL_MODEL if os.path.exists(LOCAL_MODEL) else "Qwen/Qwen2.5-0.5B-Instruct"
-
-ADAPTER_PATH = "d:/Intern/task1_finetune/lora_adapter" if os.path.exists("d:/Intern/task1_finetune/lora_adapter") else "task1_finetune/lora_adapter"
-TEST_DATA_PATH = "d:/Intern/data_fixed/test.json" if os.path.exists("d:/Intern/data_fixed/test.json") else "data_fixed/test.json"
-BASE_RESULTS_PATH = "d:/Intern/task1_finetune/base_model_eval_results.json"
-OUTPUT_PATH = "d:/Intern/task1_finetune/lora_model_eval_results.json"
+MODEL_PATH = get_model_path()
+ADAPTER_PATH = str(LORA_ADAPTER_DIR)
+TEST_DATA_PATH = str(DATA_DIR / "test.json")
+BASE_RESULTS_PATH = str(TASK1_DIR / "base_model_eval_results.json")
+OUTPUT_PATH = str(TASK1_DIR / "lora_model_eval_results.json")
 BATCH_SIZE = 5
 
 SYSTEM_PROMPT = (

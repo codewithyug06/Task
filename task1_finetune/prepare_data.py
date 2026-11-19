@@ -211,8 +211,13 @@ def generate_sample(domain_name, domain_meta, is_test=False):
         "ground_truth": target_json
     }
 
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
 def main():
-    os.makedirs("d:/Intern/data", exist_ok=True)
+    out_dir = REPO_ROOT / "data"
+    out_dir.mkdir(parents=True, exist_ok=True)
     
     print("Generating 500 Training and 50 Validation samples from 10 Training Domains...", flush=True)
     all_train_val = []
@@ -237,11 +242,11 @@ def main():
         test_data.append(generate_sample(dom, TEST_HOLDOUT_DOMAINS[dom], is_test=True))
         
     # Save files
-    with open("d:/Intern/data/train.json", "w", encoding="utf-8") as f:
+    with open(out_dir / "train.json", "w", encoding="utf-8") as f:
         json.dump(train_data, f, indent=2)
-    with open("d:/Intern/data/val.json", "w", encoding="utf-8") as f:
+    with open(out_dir / "val.json", "w", encoding="utf-8") as f:
         json.dump(val_data, f, indent=2)
-    with open("d:/Intern/data/test.json", "w", encoding="utf-8") as f:
+    with open(out_dir / "test.json", "w", encoding="utf-8") as f:
         json.dump(test_data, f, indent=2)
         
     print(f"Successfully created:")

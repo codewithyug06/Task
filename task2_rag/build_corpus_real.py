@@ -109,10 +109,14 @@ def extract_pages(pdf_path, title, arxiv_id):
         
     return pages
 
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
 def main():
-    pdf_dir = "d:/Intern/data/arxiv_pdfs"
+    pdf_dir = str(REPO_ROOT / "data" / "arxiv_pdfs")
     os.makedirs(pdf_dir, exist_ok=True)
-    os.makedirs("d:/Intern/data", exist_ok=True)
+    os.makedirs(str(REPO_ROOT / "data"), exist_ok=True)
     
     print("=" * 70)
     print("BUILDING REAL ACADEMIC CORPUS FROM 10 LANDMARK ARXIV PAPERS")
@@ -143,13 +147,13 @@ def main():
     print("-" * 70)
     
     # Save structured sections JSON
-    sections_out = "d:/Intern/data/corpus_real_sections.json"
+    sections_out = str(REPO_ROOT / "data" / "corpus_real_sections.json")
     with open(sections_out, "w", encoding="utf-8") as f:
         json.dump(all_sections, f, indent=2)
     print(f"Saved structured sections to: {sections_out}")
     
     # Save continuous text file corpus_real.txt
-    text_out = "d:/Intern/data/corpus_real.txt"
+    text_out = str(REPO_ROOT / "data" / "corpus_real.txt")
     with open(text_out, "w", encoding="utf-8") as f:
         for sec in all_sections:
             f.write(f"\n\n========================================\n")

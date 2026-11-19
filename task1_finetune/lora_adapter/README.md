@@ -1,9 +1,9 @@
 ---
-base_model: D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775
+base_model: Qwen/Qwen2.5-0.5B-Instruct
 library_name: peft
 pipeline_tag: text-generation
 tags:
-- base_model:adapter:D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775
+- base_model:adapter:Qwen/Qwen2.5-0.5B-Instruct
 - lora
 - transformers
 ---

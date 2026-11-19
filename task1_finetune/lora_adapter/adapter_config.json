@@ -3,7 +3,7 @@
   "alpha_pattern": {},
   "arrow_config": null,
   "auto_mapping": null,
-  "base_model_name_or_path": "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+  "base_model_name_or_path": "Qwen/Qwen2.5-0.5B-Instruct",
   "bias": "none",
   "corda_config": null,
   "ensure_weight_tying": false,

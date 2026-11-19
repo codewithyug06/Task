@@ -12,14 +12,20 @@ Measures:
 """
 
 import os
+import sys
 import json
 import time
 import torch
 import gc
+from pathlib import Path
+
+# Add repo root to path for config import
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import TASK3_DIR, get_model_path
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
-MODEL_PATH = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
-OUTPUT_PATH = "d:/Intern/task3_optimization/inference_benchmark_results.json"
+MODEL_PATH = get_model_path()
+OUTPUT_PATH = str(TASK3_DIR / "inference_benchmark_results.json")
 
 TEST_PROMPTS = [
     # 1. Domain extraction (task consistency)

@@ -4,16 +4,20 @@ Stress test the fine-tuned LoRA model on difficult edge cases to identify and do
 """
 
 import os
+import sys
 import json
 import torch
+from pathlib import Path
+
+# Add repo root to path for config import
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import get_model_path, TASK1_DIR, LORA_ADAPTER_DIR
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
 
-LOCAL_MODEL = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
-BASE_MODEL_PATH = LOCAL_MODEL if os.path.exists(LOCAL_MODEL) else "Qwen/Qwen2.5-0.5B-Instruct"
-
-LORA_ADAPTER_PATH = "d:/Intern/task1_finetune/lora_adapter" if os.path.exists("d:/Intern/task1_finetune/lora_adapter") else "task1_finetune/lora_adapter"
-OUTPUT_PATH = "d:/Intern/task1_finetune/failure_analysis_cases.json"
+BASE_MODEL_PATH = get_model_path()
+LORA_ADAPTER_PATH = str(LORA_ADAPTER_DIR)
+OUTPUT_PATH = str(TASK1_DIR / "failure_analysis_cases.json")
 
 SYSTEM_PROMPT = (
     "You are an expert scientific assistant. Extract key benchmark details from the "

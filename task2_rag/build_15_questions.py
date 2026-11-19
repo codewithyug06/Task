@@ -1,6 +1,10 @@
 import json
+from pathlib import Path
 
-with open('d:/Intern/data/corpus_real_sections.json', encoding='utf-8') as f:
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+corpus_file = REPO_ROOT / "data" / "corpus_real_sections.json"
+with open(corpus_file, encoding='utf-8') as f:
     sections = {s['section_id']: s for s in json.load(f)}
 
 questions_draft = [
@@ -168,7 +172,7 @@ for q in questions_draft:
         "retrieval_challenge": q["retrieval_challenge"]
     })
 
-with open("d:/Intern/data/benchmark_15_questions.json", "w", encoding="utf-8") as f:
+with open(REPO_ROOT / "data" / "benchmark_15_questions.json", "w", encoding="utf-8") as f:
     json.dump(verified_benchmark, f, indent=2)
 
 print(f"Verified all 15 questions across 10 papers with exact page excerpts!")

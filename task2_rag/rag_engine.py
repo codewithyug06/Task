@@ -10,19 +10,22 @@ Components:
 """
 
 import os
+import sys
 import math
 import re
 import json
 import numpy as np
 import faiss
+from pathlib import Path
+
+# Add repo root to path for config import
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import get_embedding_model_path, get_model_path
 from sentence_transformers import SentenceTransformer
 from transformers import AutoTokenizer
 
-LOCAL_EMB = "D:/ai_cache/huggingface/hub/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/c9745ed1d9f207416be6d2e6f8de32d1f16199bf"
-EMBEDDING_MODEL_PATH = LOCAL_EMB if os.path.exists(LOCAL_EMB) else "sentence-transformers/all-MiniLM-L6-v2"
-
-LOCAL_TOK = "D:/ai_cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
-DEFAULT_TOKENIZER_PATH = LOCAL_TOK if os.path.exists(LOCAL_TOK) else "Qwen/Qwen2.5-0.5B-Instruct"
+EMBEDDING_MODEL_PATH = get_embedding_model_path()
+DEFAULT_TOKENIZER_PATH = get_model_path()
 
 class TextChunker:
     def __init__(self, tokenizer_path=DEFAULT_TOKENIZER_PATH, chunk_size=256, chunk_overlap=50):
