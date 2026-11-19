@@ -29,9 +29,9 @@ Evaluated on `Qwen2.5-0.5B-Instruct` using token-level Macro $F_1$, Precision, R
 - **Optimization**: AdamW, Cosine LR scheduler, initial $\text{LR} = 2 \times 10^{-4}$, warmup ratio $0.05$, $4$ epochs, batch size $4$ with gradient accumulation $2$ (effective batch size $8$). Converged smoothly: loss $3.151 \to 0.1031$ in 630.8s on RTX 4050.
 
 ### 1.4 Three Empirical Failure Modes & Root Causes
-1. **Implicit Comparative Claims**: Abstract states *"consistently outperforms dense transformer baselines and converges substantially faster"* without numerical tokens. Model hallucinates a plausible scalar ($85.6\%$). *Fix*: Add explicit schema support for qualitative outcome enums.
-2. **Multi-Dataset / Multi-Metric Dispersal**: When an abstract benchmarks on two tasks simultaneously (e.g., ImageNet classification and COCO detection), the model collapses the record to ImageNet only. *Fix*: Expand schema to array-of-records.
-3. **Dual-Number Ambiguity (Error vs. Relative Gain)**: When abstracts state *"reduces Word Error Rate from 4.8% down to 3.1%, representing a relative error reduction of 35.4%"*, zero-shot models often extract the relative 35.4% rather than the absolute 3.1%. *Fix*: Grounded numeric context fine-tuning.
+1. **Unseen Domain Prepositional Task Truncation**: When evaluating held-out reinforcement learning or code generation tasks (*"Deep Exploration in Sparse MDPs"*, *"Program Synthesis from Specifications"*), the model truncates qualifying prepositional clauses, outputting *"Deep Exploration"* or *"Program Synthesis"* (Task Recall drops to $0.8880$). *Root Cause*: Training on simple noun-phrase tasks created a premature delimiter stopping bias. *Fix*: Sequence tagging loss and syntactic boundary augmentation.
+2. **Ungrounded Hallucination Under Purely Qualitative Claims**: When an abstract contains zero numerical tokens (*"ScaledSparse consistently outperforms dense transformer baselines and converges substantially faster"*), the rigid 5-field schema forces the causal prior to fabricate plausible benchmark entities (`TextVQA`, `85.6%`, `BERT-Large`). *Fix*: Add schema support for `<null>` or `"not_reported"` exit tokens.
+3. **Domain-Specific Unit & Metric Qualifier Omission**: In specialized biological domains (Protein Structure Prediction), physical units like `lDDT` in *"65.32 lDDT"* or metric qualifiers like `"Test"` in *"Local Distance Difference Test"* are stripped, outputting *"65.32"* or *"Local Distance Difference"*. *Fix*: Grounded numeric token regex constraints and domain-specific tokenization.
 
 ### 1.5 7B Model Fine-Tuning GPU Memory Calculation (All Working Shown)
 *Setup: 7.0 Billion parameter model ($N = 7.0 \times 10^9$), sequence length $S = 2,048$, per-device batch size $B = 1$, activation checkpointing enabled.*
@@ -44,18 +44,19 @@ Evaluated on `Qwen2.5-0.5B-Instruct` using token-level Macro $F_1$, Precision, R
    - **Total Required VRAM**: $14.00 + 14.00 + 56.00 + 5.00 = \mathbf{89.00\text{ GB}}$ *(Requires $2\times$ A100-80GB or $1\times$ 80GB with DeepSpeed ZeRO-3 CPU offload)*.
 
 2. **(b) LoRA Fine-Tuning ($r = 16$, 16-bit Base Weights)**:
-   - **Base Model Weights (FP16, Frozen)**: $14.00\text{ GB}$ (no gradients or optimizer states needed for base model).
-   - **Trainable LoRA Parameters**: $\sim 0.28\%$ of base $= 19.6 \times 10^6$ parameters.
-   - **LoRA Weights (FP16) + Gradients (FP16)**: $19.6 \times 10^6 \times 4\text{ bytes} \approx 0.08\text{ GB}$.
-   - **LoRA Optimizer States (AdamW FP32)**: $19.6 \times 10^6 \times 8\text{ bytes} \approx 0.16\text{ GB}$.
+   - **Base Model Weights (FP16, Frozen)**: $14.00\text{ GB}$ (zero gradients/optimizer states for base parameters).
+   - **Trainable LoRA Parameter Derivation**: For a standard 7B architecture ($L=32, d=4,096$) adapting projection matrices (`q_proj, k_proj, v_proj, o_proj`), each projection requires an input matrix $A \in \mathbb{R}^{d \times r}$ and output matrix $B \in \mathbb{R}^{r \times d}$. Parameters per module $= r \times (d_{\text{in}} + d_{\text{out}}) = 16 \times (4,096 + 4,096) = 131,072$. Across 4 modules and 32 layers:
+     $$N_{\text{LoRA}} = 32 \times 4 \times 131,072 = 16,777,216\text{ parameters} \approx 16.78 \times 10^6\text{ params (0.24\% of 7B)}$$
+   - **LoRA Weights (FP16) + Gradients (FP16)**: $16.78 \times 10^6 \times 4\text{ bytes} \approx 0.067\text{ GB}$.
+   - **LoRA Optimizer States (AdamW FP32: $m$ and $v$)**: $16.78 \times 10^6 \times 8\text{ bytes} \approx 0.134\text{ GB}$.
    - **Activations + CUDA Overhead**: $\sim 4.50\text{ GB} + 0.87\text{ GB} \approx 5.37\text{ GB}$.
-   - **Total Required VRAM**: $14.00 + 0.08 + 0.16 + 5.37 = \mathbf{19.61\text{ GB}}$ *(Fits comfortably on a single 24 GB RTX 3090 / RTX 4090)*.
+   - **Total Required VRAM**: $14.00 + 0.07 + 0.13 + 5.37 = \mathbf{19.57\text{ GB}}$ *(Fits comfortably on a single 24 GB RTX 3090 / RTX 4090)*.
 
 3. **(c) QLoRA Fine-Tuning (4-bit NF4 Base Weights, Double Quantization, Paged AdamW)**:
    - **Base Model Weights (NF4, 4-bit)**: $7.0 \times 10^9 \times 0.5\text{ bytes} = 3.50\text{ GB}$.
    - **Double Quantization & Normalization Constants**: Adds $\approx 0.45\text{ GB}$ VRAM.
    - **LoRA Parameters, Gradients & Paged Optimizer**: $\approx 0.48\text{ GB}$ (paged into CPU RAM during memory spikes).
-   - **Activation Memory (Checkpointed)**: $\sim 4.20\text{ GB}$ + CUDA context buffer $0.71\text{ GB}$.
+   - **Activation Memory (Checkpointed)**: $\sim 4.20\text{ GB} + 0.71\text{ GB}$ context buffer.
    - **Total Required VRAM**: $3.50 + 0.45 + 0.48 + 4.20 + 0.71 = \mathbf{9.34\text{ GB}}$ *(Fits easily on a consumer 12 GB/16 GB GPU like RTX 4070/4080)*.
 
 <div style="page-break-after: always;"></div>
@@ -98,10 +99,12 @@ perplexity, as the model learns to be more unsure, but improves accuracy and BLE
 ```
 
 ### 2.5 Two Real Retrieval Failures & Production Remedies
-1. **Failure Case 1 (Cross-Paper Citation Bleed — Q04 / Q07)**: When querying QLoRA's 16-bit storage requirement (14 GB for 7B), dense retrieval returned the introduction of the *FlashAttention* paper because both discuss BERT/GPT GPU memory bottlenecks.
-   - *Fix*: **Hierarchical Metadata Filtering & Late-Interaction ColBERT**: Pre-filter candidate chunks by extracted document ontology before computing vector distance, or employ ColBERT token-level MaxSim operators.
-2. **Failure Case 2 (Dispersed Multi-Section Synthesis — Q07/Q08)**: FlashAttention IO complexity is formulated in Theorem 1 on Page 5, but the full asymptotic proof is detailed in Appendix C on Page 22. Single-chunk retrieval captured only half the proof.
-   - *Fix*: **Parent-Child Chunking & Query Expansion**: Index 256-token child chunks for precision retrieval, but feed the parent 1,024-token context window to the generator model.
+1. **Failure Case 1 (Cross-Paper Lexical & Semantic Bleed — Q14)**: When querying GPT-3's alternating dense and locally banded sparse attention patterns (`2005.14165_p8`), Dense FAISS returned *FlashAttention* Page 34 (rank 1), and BM25 returned *FlashAttention* Page 26 (rank 1). Total Hybrid hit rank: `None` (missed top-5 entirely).
+   - *Root Cause*: FlashAttention extensively benchmarks against sparse attention baselines (Reformer, Linformer, Block-Sparse) in its appendix tables, accumulating dense term frequencies and semantic vector proximity for "sparse attention patterns" that eclipses GPT-3's single-paragraph architectural description.
+   - *Fix*: **Hierarchical Namespace Routing & Late-Interaction ColBERT**: Pre-filter search space to target document metadata prior to dense retrieval, or employ ColBERT token-level MaxSim operators.
+2. **Failure Case 2 (Intra-Paper Page-Level Dispersion — Q07)**: When querying FlashAttention's Theorem 1 IO complexity as a function of SRAM size $M$ (`2205.14135_p5`), Sparse BM25 retrieved Page 2 (rank 1) and Dense retrieved Page 6 (rank 1). Top-5 missed Page 5 entirely.
+   - *Root Cause*: The FlashAttention paper splits its memory narrative: Page 2 introduces the HBM/SRAM IO hierarchy, Page 5 proves Theorem 1, and Page 6 details the algorithmic implementation. Dense and sparse signals clustered on Pages 2 and 6 where narrative term frequencies were higher, bypassing the dense mathematical notation of Theorem 1 on Page 5.
+   - *Fix*: **Parent-Child Chunking & Query Expansion**: Index 256-token child chunks for precision scoring, but inject the parent 1,024-token section into the generator LLM context window.
 
 <div style="page-break-after: always;"></div>
 <!-- PAGE 3: RETRIEVAL THEORY & TASK 3 (LOCAL SERVING & HARDWARE BENCHMARKS) -->

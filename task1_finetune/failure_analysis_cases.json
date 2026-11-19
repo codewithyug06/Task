@@ -1,26 +1,47 @@
 [
   {
     "id": "failure_case_1",
-    "title": "Multi-Metric & Multi-Dataset Competition",
-    "category": "Multi-Value Extraction Conflict / Schema Bottleneck",
-    "abstract": "We introduce UnifiedVision, a cross-domain vision model evaluated across both ImageNet-1K classification, achieving an unprecedented 88.4% top-1 accuracy (exceeding Swin-L by 1.2%), and COCO object detection, attaining 58.7 box AP compared to 57.1 by Mask R-CNN. The model uses unified self-attention.",
-    "expected_challenge": "The abstract reports two distinct tasks, datasets, metrics, results, and baselines simultaneously. Since the schema only has scalar fields, the model must collapse or truncate one, leading to loss of relational coupling.",
-    "model_output": "{\n  \"task\": \"ImageNet-1K classification\",\n  \"dataset\": \"ImageNet-1K\",\n  \"metric\": \"top-1 accuracy\",\n  \"result\": \"88.4%\",\n  \"baseline\": \"Swin-L\"\n}"
+    "title": "Unseen Domain Prepositional Task Truncation",
+    "category": "Boundary Delimiter Premature Termination",
+    "abstract": "We present DeepScale-v2, an open framework designed for Deep Exploration in Sparse MDPs. Across rigorous experiments on D4RL-MuJoCo, DeepScale-v2 secures a top Task Success Rate of 64.15%, outstripping DecisionTransformer by 2.8% margin (61.15%). The architecture contains 1.3B trainable parameters and delivers 1.5x faster iteration times.",
+    "ground_truth": {
+      "task": "Deep Exploration in Sparse MDPs",
+      "dataset": "D4RL-MuJoCo",
+      "metric": "Task Success Rate",
+      "result": "64.15%",
+      "baseline": "DecisionTransformer"
+    },
+    "model_output": "{\n  \"task\": \"Deep Exploration\",\n  \"dataset\": \"D4RL-MuJoCo\",\n  \"metric\": \"Task Success Rate\",\n  \"result\": \"64.15%\",\n  \"baseline\": \"DecisionTransformer\"\n}",
+    "analysis": "The model correctly parsed dataset, metric, result, and baseline, but truncated the task from 'Deep Exploration in Sparse MDPs' to 'Deep Exploration' (Recall: 0.40, F1: 0.57). In training domains (Vision, NLP), task names were standard 1-2 word noun compounds ('Image Classification', 'Question Answering'). When encountering complex prepositional modifiers in unseen domains (Reinforcement Learning), the attention mechanism exhibits a premature delimiter bias, cutting off the qualifying phrase."
   },
   {
     "id": "failure_case_2",
-    "title": "Purely Qualitative / Implicit Empirical Claim (No Explicit Number)",
-    "category": "Hallucination under Ungrounded / Implicit Claims",
+    "title": "Ungrounded Hallucination Under Qualitative Claim",
+    "category": "Zero-Metric Schema Hallucination",
     "abstract": "Scaling laws suggest larger models generalize better. We present ScaledSparse, an efficient MoE architecture. Extensive empirical evaluations across diverse natural language benchmarks demonstrate that our method consistently outperforms dense transformer baselines and converges substantially faster while maintaining strict numerical stability.",
-    "expected_challenge": "The abstract contains no numerical score or quantitative metric, only qualitative comparative claims ('consistently outperforms', 'converges substantially faster'). The model may hallucinate a number or fail schema type expectations.",
-    "model_output": "{\n  \"task\": \"Scale-Invariance\",\n  \"dataset\": \"TextVQA\",\n  \"metric\": \"F1-Score\",\n  \"result\": \"85.6%\",\n  \"baseline\": \"BERT-Large\"\n}"
+    "ground_truth": {
+      "task": "Efficient MoE Architecture",
+      "dataset": "None reported",
+      "metric": "None reported",
+      "result": "None reported",
+      "baseline": "dense transformer baselines"
+    },
+    "model_output": "{\n  \"task\": \"Scale-Invariance\",\n  \"dataset\": \"TextVQA\",\n  \"metric\": \"F1-Score\",\n  \"result\": \"85.6%\",\n  \"baseline\": \"BERT-Large\"\n}",
+    "analysis": "The input abstract contains only comparative qualitative prose without a single numerical benchmark score. Because the JSON schema strictly enforces five non-null string fields, the model has no fallback or 'not_reported' exit token. The causal generative prior forces it to hallucinate plausible scientific tokens ('TextVQA', '85.6%', 'BERT-Large') to satisfy the structural completion objective."
   },
   {
     "id": "failure_case_3",
-    "title": "Inverted Metric Semantics & Dual-Number Ambiguity (Error vs Accuracy / Relative vs Absolute)",
-    "category": "Relative Delta vs. Absolute Score Conflation",
-    "abstract": "We propose NoiseRobust-ASR for speech recognition. On the LibriSpeech test-clean benchmark, our model reduces the Word Error Rate from 4.8% obtained by Conformer-CTC down to 3.1%, representing a relative error reduction of 35.4% over previous state of the art.",
-    "expected_challenge": "There are three numbers: baseline error (4.8%), achieved error (3.1%), and relative improvement (35.4%). The model may confuse the relative gain (35.4%) with the absolute result (3.1%), or conflate error with accuracy.",
-    "model_output": "{\n  \"task\": \"Speech Recognition\",\n  \"dataset\": \"LibriSpeech test-clean\",\n  \"metric\": \"Word Error Rate\",\n  \"result\": \"3.1%\",\n  \"baseline\": \"Conformer-CTC\"\n}"
+    "title": "Domain Metric Qualifier & Physical Unit Omission",
+    "category": "Specialized Suffix Truncation",
+    "abstract": "Addressing the critical challenge of Biomolecular Contact Distance Estimation, this paper proposes AeroNet. Operating with 110M weights, AeroNet demonstrates strong empirical results on the standard SCOPe-2.08 benchmark. Specifically, it establishes a new Local Distance Difference Test of 65.32 lDDT, exceeding the prior state-of-the-art ESMFold-v1 which attained 64.01 lDDT. This corresponds to a 5.2% relative gain.",
+    "ground_truth": {
+      "task": "Biomolecular Contact Distance Estimation",
+      "dataset": "SCOPe-2.08",
+      "metric": "Local Distance Difference Test",
+      "result": "65.32 lDDT",
+      "baseline": "ESMFold-v1"
+    },
+    "model_output": "{\n  \"task\": \"Biomolecular Contact Distance Estimation\",\n  \"dataset\": \"SCOPe-2.08\",\n  \"metric\": \"Local Distance Difference Test\",\n  \"result\": \"65.32\",\n  \"baseline\": \"ESMFold-v1\"\n}",
+    "analysis": "The ground truth measurement specifies the specialized structural biology unit '65.32 lDDT' (similarly seen when 'Local Distance Difference Test' is truncated to 'Local Distance Difference' dropping 'Test'). The model stripped 'lDDT' down to the bare number '65.32' (Recall: 0.75, F1: 0.86). During training on common domains, results were predominantly dimensionless percentages ('%') or naked scalar floats. The model's token distribution penalizes unusual trailing alphanumeric units, mistakenly treating them as auxiliary prose rather than integral components of the result."
   }
 ]
