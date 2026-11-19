@@ -135,10 +135,8 @@ All tasks are packaged into self-contained, reproducible Jupyter Notebooks in [`
 │   ├── inference_benchmark_results.json   # Latency, memory, and 10-prompt comparison
 │   ├── Modelfile                          # Standalone Ollama Modelfile configuration
 │   └── run_ollama_benchmark.py            # Companion Ollama API benchmark runner
-└── report/                                # Submission Reports
-    ├── final_report.md                    # Primary 4-Page Submission Report (PDF-Ready)
-    ├── final_report.html                  # HTML source with custom KaTeX & page breaks
-    └── final_report.pdf                   # Rendered 4-Page PDF (verified via pypdf)
+└── report/                                # Technical Submission Report
+    └── final_report.pdf                   # Official 4-Page Technical Submission Report
 ```
 
 ---
@@ -147,8 +145,8 @@ All tasks are packaged into self-contained, reproducible Jupyter Notebooks in [`
 
 ### Environment Setup
 ```bash
-git clone https://github.com/yxgx06/dem1.git
-cd dem1
+git clone https://github.com/codewithyug06/Task.git
+cd Task
 pip install torch transformers peft datasets accelerate bitsandbytes sentence-transformers faiss-cpu pypdf pymupdf nbformat
 ```
 
@@ -199,11 +197,9 @@ python task3_optimization/run_ollama_benchmark.py
 
 ## Submission Documents
 
-- **Primary Submission Report (Strictly $\le 4$ Pages)**:  
+- **Primary Technical Report (Strictly $\le 4$ Pages)**:  
   **[`report/final_report.pdf`](report/final_report.pdf)**  
-  *(Generated via Edge headless from `report/final_report.html`, verified with `pypdf` to be exactly 4 pages).*
-- **Markdown Report Source**:  
-  **[`report/final_report.md`](report/final_report.md)**
+  *(Official compiled technical report verified at exactly 4 pages, covering all evaluation criteria across Tasks 1, 2, and 3).*
 
 ---
 
