@@ -2,14 +2,14 @@
 ### Complete Implementation & Technical Walkthrough for 3-Task Engineering Assessment
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch 2.1+](https://img.shields.io/badge/PyTorch-2.1+-ee4c2c.svg)](https://pytorch.org/)
-[![HuggingFace](https://img.shields.io/badge/🤗%20Hugging%20Face-Transformers%20%7C%20PEFT-yellow.svg)](https://huggingface.co/)
+[![HuggingFace](https://img.shields.io/badge/Hugging%20Face-Transformers%20%7C%20PEFT-yellow.svg)](https://huggingface.co/)
 [![CUDA Available](https://img.shields.io/badge/CUDA-RTX%204050%20(6GB)-76B900.svg)](https://developer.nvidia.com/cuda-zone)
 [![PDF Compliance](https://img.shields.io/badge/Report-Strict%204--Page%20Ceiling-brightgreen.svg)](report/final_report.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
-## 📌 Executive Overview
+## Executive Overview
 
 This repository houses a production-grade, mathematically verified submission for the **Applied Generative AI Engineering Assessment**. Rather than treating the assignment as three disconnected toy problems, the entire codebase is unified into a cohesive **Machine Learning Literature Intelligence & Local Serving Architecture** built over 10 landmark AI research papers (*Attention Is All You Need, LoRA, QLoRA, FlashAttention, ResNet, BERT, Chinchilla, GPT-3, Llama 2, DDPM*):
 
@@ -31,7 +31,7 @@ Every numerical figure reported is grounded in **our own empirical runs** execut
 
 ---
 
-## 📊 Key Empirical Findings & Metrics
+## Key Empirical Findings & Metrics
 
 ### 1. Task 1 — LoRA Fine-Tuning on Strict Domain Holdout
 - **Dataset Partition**: 500 train + 50 validation samples spanning 8 standard domains (*Vision, Translation, QA, NLP*). **Held-out test set** comprises 50 samples across 4 **strictly unseen domains** (*Speech Recognition, Code Generation, Reinforcement Learning, Protein Structure Prediction*). **Zero overlap** in tasks, datasets, or baselines.
@@ -78,7 +78,7 @@ Every numerical figure reported is grounded in **our own empirical runs** execut
 
 ---
 
-## 📓 Interactive Notebooks (Pre-Populated with Execution Outputs)
+## Interactive Notebooks (Pre-Populated with Execution Outputs)
 
 All tasks are packaged into self-contained, reproducible Jupyter Notebooks in [`notebooks/`](notebooks/). Every code cell is **pre-populated with verified execution outputs** matching our technical report:
 
@@ -91,7 +91,7 @@ All tasks are packaged into self-contained, reproducible Jupyter Notebooks in [`
 
 ---
 
-## 📁 Repository Directory Structure
+## Repository Directory Structure
 
 ```
 ├── config.py                              # Centralized dynamic path & HF Hub configuration
@@ -144,7 +144,7 @@ All tasks are packaged into self-contained, reproducible Jupyter Notebooks in [`
 
 ---
 
-## 🛠️ Step-by-Step Reproduction Guide
+## Step-by-Step Reproduction Guide
 
 ### Environment Setup
 ```bash
@@ -198,19 +198,19 @@ python task3_optimization/run_ollama_benchmark.py
 
 ---
 
-## 📑 Submission Documents
+## Submission Documents
 
 - **Primary Submission Report (Strictly $\le 4$ Pages)**:  
-  👉 **[`report/final_report.pdf`](report/final_report.pdf)**  
+  **[`report/final_report.pdf`](report/final_report.pdf)**  
   *(Generated via Edge headless from `report/final_report.html`, verified with `pypdf` to be exactly 4 pages).*
 - **Markdown Report Source**:  
-  👉 **[`report/final_report.md`](report/final_report.md)**
+  **[`report/final_report.md`](report/final_report.md)**
 - **Full Extended Technical Appendix**:  
-  👉 **[`report/technical_appendix.md`](report/technical_appendix.md)**  
+  **[`report/technical_appendix.md`](report/technical_appendix.md)**  
   *(Includes comprehensive mathematical proofs, exact memory equations, side-by-side prompt responses, and prompt templates).*
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the [MIT License](LICENSE).

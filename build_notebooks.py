@@ -527,7 +527,7 @@ def create_master_notebook():
 *Hardware: NVIDIA CUDA | Target Model Family: Qwen2.5 | Reproduction Pipeline*
 
 ---
-### 📌 Executive Overview
+### Executive Overview
 - **Task 1: LoRA Fine-Tuning**: Fine-tuned `Qwen2.5-0.5B-Instruct` with strict domain holdout (trained on 8 domains; evaluated on 4 completely unseen domains). Solves base model numerical distractor vulnerability ($F_1$ jumps from 0.8394 to 0.9971 on results). Full 7B fine-tuning memory calculations provided.
 - **Task 2: RAG from Scratch**: Built a pure Python retrieval pipeline (zero LangChain/LlamaIndex) using custom Okapi BM25, FAISS IndexFlatIP, and hybrid score fusion over a 335-page real arXiv literature corpus from 10 landmark papers. Evaluated Setting A (256 chunk) vs Setting B (512 chunk), identifying the **Vector Dilution Effect**.
 - **Task 3: Local Optimization & Serving**: Hardware profiling of FP16 vs 4-bit NormalFloat (NF4) quantization on GPU ($2.16\\times$ memory reduction). Comprehensive 20-concurrent-user serving plan on a 24 GB GPU ($7.77\\times$ safety factor).
