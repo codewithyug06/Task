@@ -138,8 +138,7 @@ All tasks are packaged into self-contained, reproducible Jupyter Notebooks in [`
 └── report/                                # Submission Reports
     ├── final_report.md                    # Primary 4-Page Submission Report (PDF-Ready)
     ├── final_report.html                  # HTML source with custom KaTeX & page breaks
-    ├── final_report.pdf                   # Rendered 4-Page PDF (verified via pypdf)
-    └── technical_appendix.md              # Extended technical appendix & raw derivations
+    └── final_report.pdf                   # Rendered 4-Page PDF (verified via pypdf)
 ```
 
 ---
@@ -205,9 +204,6 @@ python task3_optimization/run_ollama_benchmark.py
   *(Generated via Edge headless from `report/final_report.html`, verified with `pypdf` to be exactly 4 pages).*
 - **Markdown Report Source**:  
   **[`report/final_report.md`](report/final_report.md)**
-- **Full Extended Technical Appendix**:  
-  **[`report/technical_appendix.md`](report/technical_appendix.md)**  
-  *(Includes comprehensive mathematical proofs, exact memory equations, side-by-side prompt responses, and prompt templates).*
 
 ---
 

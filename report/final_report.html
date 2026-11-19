@@ -495,13 +495,16 @@ $$\text{Bytes per Token} = 2 \times L \times H_{KV} \times d_k \times 2\text{ by
 <li><strong>Chunked Prefill &amp; CPU Offload Swap</strong>: Long prompts (1,536 tokens) are chunked into 512-token segments, preventing high-latency prefill spikes from stalling active generation streams. If a user exceeds budget, inactive blocks are swapped to host system RAM over PCIe.</li>
 </ul>
 <hr />
-<h3>4.3 Cross-Cutting Failure Taxonomy &amp; Production Roadmap</h3>
+<h3>4.3 Production Serving Architecture &amp; System Hardening</h3>
 <ul>
-<li><strong>Extraction $\leftrightarrow$ RAG Synergy</strong>: Fine-tuned LoRA models extract structured ontology from retrieved chunks, rejecting hallucinated distractors.</li>
-<li><strong>1-Week Production Milestones</strong>:</li>
-<li><em>Day 1-2</em>: Deploy vLLM with AWQ 4-bit and PagedAttention on RTX 3090/A10G instance.</li>
-<li><em>Day 3-4</em>: Integrate Scratch Hybrid RAG with cross-encoder re-ranking (<code>bge-reranker-base</code>).</li>
-<li><em>Day 5</em>: Benchmark end-to-end P99 latency under 20-user continuous load testing.</li>
+<li><strong>Extraction &harr; RAG Synergy</strong>: The fine-tuned LoRA model acts as a downstream structured validator on retrieved RAG passages, rejecting ungrounded distractors before emitting client responses.</li>
+<li><strong>Core Engineering Priorities</strong>:
+  <ul>
+    <li><em>Engine Deployment</em>: Provision vLLM with AWQ 4-bit weights, PagedAttention block allocation, and continuous batching on 24 GB hardware.</li>
+    <li><em>Retrieval Enhancement</em>: Pair lexical BM25 and dense FAISS with a cross-encoder re-ranking stage (<code>bge-reranker-base</code>) for top-20 candidate scoring.</li>
+    <li><em>SLA &amp; Latency Validation</em>: Measure P50/P99 time-to-first-token (TTFT) and inter-token generation latency under 20 concurrent user load to enforce strict SLA compliance.</li>
+  </ul>
+</li>
 </ul>
 </body>
 </html>

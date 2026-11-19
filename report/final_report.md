@@ -201,9 +201,9 @@ $$\text{Bytes per Token} = 2 \times L \times H_{KV} \times d_k \times 2\text{ by
 
 ---
 
-### 4.3 Cross-Cutting Failure Taxonomy & Production Roadmap
-- **Extraction $\leftrightarrow$ RAG Synergy**: Fine-tuned LoRA models extract structured ontology from retrieved chunks, rejecting hallucinated distractors.
-- **1-Week Production Milestones**:
-  - *Day 1-2*: Deploy vLLM with AWQ 4-bit and PagedAttention on RTX 3090/A10G instance.
-  - *Day 3-4*: Integrate Scratch Hybrid RAG with cross-encoder re-ranking (`bge-reranker-base`).
-  - *Day 5*: Benchmark end-to-end P99 latency under 20-user continuous load testing.
+### 4.3 Production Serving Architecture & System Hardening
+- **Extraction $\leftrightarrow$ RAG Synergy**: Fine-tuned LoRA models extract structured ontology from retrieved chunks, rejecting hallucinated distractors before emitting client responses.
+- **Core Engineering Priorities**:
+  - *Engine Deployment*: Provision vLLM with AWQ 4-bit weights, PagedAttention block allocation, and continuous batching on 24 GB hardware.
+  - *Retrieval Enhancement*: Pair lexical BM25 and dense FAISS with a cross-encoder re-ranking stage (`bge-reranker-base`) for top-20 candidate scoring.
+  - *SLA & Latency Validation*: Measure P50/P99 time-to-first-token (TTFT) and inter-token generation latency under 20 concurrent user load to enforce strict SLA compliance.
