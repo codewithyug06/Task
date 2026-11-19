@@ -1,0 +1,13 @@
+# Ollama Modelfile for Qwen2.5-0.5B-Instruct
+# Supports:
+# 1. Setting A (16-bit unquantized): FROM qwen2.5:0.5b-instruct-fp16
+# 2. Setting B (4-bit quantized):   FROM qwen2.5:0.5b-instruct-q4_K_M
+
+FROM qwen2.5:0.5b
+
+PARAMETER temperature 0.2
+PARAMETER num_ctx 2048
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|endoftext|>"
+
+SYSTEM """You are an expert AI engineering assistant specializing in ML research paper extraction, systems optimization, and performance analysis."""
